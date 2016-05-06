@@ -1,0 +1,27 @@
+{
+  "name": "ng-fourm",
+  "version": "0.0.5",
+  "description": "Forum where developers around the world can ask questions, anwser questions, and also chat!",
+  "main": "script.js",
+  "dependencies": {
+    "alertifyjs": "^1.6.1",
+    "crypto-js": "^3.1.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amanuel2/ng-forum.git"
+  },
+  "keywords": [
+    "N-F"
+  ],
+  "author": "Amanuel Bogale",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/amanuel2/ng-forum/issues"
+  },
+  "homepage": "https://github.com/amanuel2/ng-forum#readme"
+}

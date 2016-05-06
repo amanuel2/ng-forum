@@ -1,0 +1,57 @@
+<head>
+    <style>
+        .toolbar_new_topic{
+            display:none;
+        }
+        .md_content_settings {
+            width: 1200px;
+            height: 1800px;
+        }
+        .avatarr{
+            
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      position: relative;
+      right: 13px;
+      /*bottom: 10px;*/
+    
+        }
+    </style>
+
+</head>
+<h1 md-theme="default">Settings</h1>
+
+<md-content md-theme="default" class="md_content_settings">
+    <md-tabs>
+      <md-tab label="Account Info">
+
+        Email : {{Email}}
+         <md-button class="md-raised" ng-click="changeEmail($event);">
+            Change
+        </md-button>
+        <br>
+        Username : {{Username}}
+         <md-button class="md-raised md-primary" ng-click="changeUsername($event);">
+            Change
+        </md-button>
+        <br>
+        Password : {{passwordSHARP}}
+        
+        <md-button class="md-raised md-accent" ng-click="changePassword($event);">
+            Change
+        </md-button>
+        <br>
+        Image : <img src="{{userInfo.Image}}" class="avatarr"/>
+        <md-button class="md-raised" ng-click="changeImage($event);">
+            Change
+        </md-button>
+        <br>
+        UID : {{uid}}
+      </md-tab>
+      <md-tab label="Update Descripton">
+           <md-button class="md-accent" ng-click="descriptonChange($event);">Update Descripton</md-button>
+      </md-tab>
+      <md-tab label="Logout" ng-click="logout();">Logout</md-tab>
+    </md-tabs>
+ </md-content>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Ng-Fourm</title>
+  
+  <!-- Javascript Libraries -->
+  <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+  <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script type="text/javascript" src="bower_components/angular-material/angular-material.js"></script>
+  <script type="text/javascript" src="bower_components/angular-animate/angular-animate.js"></script>
+  <script type="text/javascript" src="bower_components/angular-aria/angular-aria.js"></script>
+  <script type="text/javascript" src="bower_components/angular-messages/angular-messages.js"></script>
+  <script type="text/javascript" src="bower_components/firebase/firebase.js"></script>
+  <script type="text/javascript" src="bower_components/angularfire/dist/angularfire.js"></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-material-icons/0.7.0/angular-material-icons.min.js"></script>
+  <script type="text/javascript" src="lib/svg-assets-cache/svg-assets-cache.js"></script>
+  <script type="text/javascript" src="views/assets/css/icons/libs/angular-material-icons.min.js"></script>
+  <script type="text/javascript" src="node_modules/alertifyjs/build/alertify.js"></script>
+  <script type="text/javascript" src="bower_components/jsSHA/src/sha512.js"></script>
+  <script type='text/javascript' src="bower_components/angularjs-crypto/public/js/lib/plugins/CryptoJSCipher.js"></script>
+  <script type='text/javascript' src="bower_components/cryptojslib/rollups/aes.js"></script>
+  <script type='text/javascript' src="bower_components/angularjs-crypto/public/js/lib/plugins/CryptoJSCipher.js"></script>
+  <script type='text/javascript' src="bower_components/angularjs-crypto/public/js/lib/angularjs-crypto.js"></script>
+  <script type='text/javascript' src="https://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes.js"></script>
+  <script type='text/javascript' src="https://crypto-js.googlecode.com/svn/tags/3.1.2/build/components/mode-ecb.js"></script>
+  <script type='text/javascript' src="bower_components/angular-cryptography/mdo-angular-cryptography.js"></script>
+  <script type="text/javascript" src="https://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js"></script>
+  <script type="text/javascript" src="https://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/hmac-md5.js"></script>
+  <!-- Styles -->
+  <link rel="stylesheet" href="bower_components/angular-material/angular-material.css"/>
+  <link rel="stylesheet" href="node_modules/alertifyjs/build/css/alertify.css" />
+  <link rel="stylesheet" href="node_modules/alertifyjs/build/css/themes/default.min.css" />
+  <link rel="icon" href="favicon.ico">
+  
+  <!-- Controllers, Services, And App -->
+  <script type="text/javascript" src="script.js"></script>
+  <script type="text/javascript" src="run/authCheck.js"></script>
+  <script type="text/javascript" src="config/mainConfig.js"></script>
+  <script type="text/javascript" src="services/refService.js"></script>
+  <script type="text/javascript" src="services/timeService.js"></script>
+  <script type="text/javascript" src="services/dateService.js"></script>
+  <script type="text/javascript" src="services/hashService.js"></script>
+  <script type="text/javascript" src="services/authCheckTrue.js"></script>
+  <script type="text/javascript" src="services/replyService.js"></script>
+  <script type="text/javascript" src="services/encodeImageToBase64.js"></script>
+  <script type="text/javascript" src="directives/userCardDirective.js"></script>
+  <script type="text/javascript" src="directives/replyDateDirective.js"></script>
+  <script type="text/javascript" src="directives/customngChange.js"></script>
+  <script type="text/javascript" src="directives/otherUserCard.js"></script>
+  <script type="text/javascript" src="controllers/homeCtrl.js"></script>
+  <script type="text/javascript" src="controllers/newTopicCtrl.js"></script>
+  <script type="text/javascript" src="controllers/newReplyCtrl.js"></script>
+  <script type="text/javascript" src="controllers/authDescCtrl.js"></script>
+  <script type="text/javascript" src="controllers/settings/imageChangeCtrl.js"></script>
+  <script type="text/javascript" src="controllers/authCtrl.js"></script>
+  <script type="text/javascript" src="controllers/authHomeCtrl.js"></script>
+  <script type="text/javascript" src="controllers/topicCtrl.js"></script>
+  <script type="text/javascript" src="controllers/profileCtrl.js"></script>
+  <script type="text/javascript" src="controllers/otherUserProfileCtrl.js"></script>
+  <script type="text/javascript" src="controllers/settingsCtrl.js"></script>
+  <script type="text/javascript" src="filters/dateFilter.js"></script>
+  <script type="text/javascript" src="controllers/settings/usernameChangeCtrl.js"></script>
+  <script type="text/javascript" src="controllers/settings/passwordChangeCtrl.js"></script>
+  <script type="text/javascript" src="controllers/settings/desciptonChange.js"></script>
+  <script type="text/javascript" src="controllers/settings/emailSettingsCtrl.js"></script>
+</head>
+<body ng-app="ForumApp">
+	<div>
+		<div ui-view>
+			
+		</div>
+	</div>
+</body>
+</html>

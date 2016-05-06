@@ -1,0 +1,42 @@
+<head>
+    <style>
+        .toolbar_new_topic{
+            display:none;
+        }
+    </style>
+</head>
+<h1>{{otherUserUsername}} Profile</h1>
+  
+<md-card md-colors="::{backgroundColor: '{{theme}}-primary-700'}">
+  <md-card-title>
+    <md-card-title-media>
+      <div class="md-media-sm card-media" layout layout-align="center center"
+           md-colors="::{background: 'forest-accent'}">
+        <img width="100" height="100" src="{{otherUserImage}}"/>
+      </div>
+    </md-card-title-media>
+    <md-card-title-text>
+      <span class="md-headline">{{otherUserUsername}}</span>
+      <span class="md-subhead description" ng-if="otherMod"> Moderator </span>
+      <span class="md-subhead description" ng-if="!otherMod"> Not Moderator </span>
+      <span class="md-subhead description">{{otherDesc}}</span>
+    </md-card-title-text>
+  </md-card-title>
+</md-card>
+
+<li ng-repeat="">
+  Topic : {{top.Title}}
+</li>
+<md-list ng-cloak="" class="listdemoListControls">
+  <md-subheader class="md-no-sticky"><h1>{{otherUserUsername}} Questions</h1></md-subheader>
+  
+  <md-list-item ng-repeat="top in userInfoTopics" ng-click="goToTopic(top);" class="noright">
+    <img alt="Something Happened..." src="{{ otherUserImage }}" class="md-avatar" />
+    <p>{{ top.Title }}</p>
+    <md-checkbox class="md-secondary"></md-checkbox>
+  </md-list-item>
+  
+  
+</md-list>
+
+

@@ -1,0 +1,101 @@
+<head>
+  <style>
+    .avatar {
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      position: relative;
+      right: 13px;
+      /*bottom: 10px;*/
+    }
+    
+    md-toolbar.md-hue-2 {
+      position: relative;
+      bottom: 18px;
+    }
+    
+    button.md-icon-button.md-button.md-ink-ripple {
+      width: 80px;
+      height: 60px;
+    }
+    
+    #NEW_TOPIC_BUTTON {
+      position: RELATIVE;
+      left: 1620px;
+      background-color: #81C784;
+      font-weight: bold;
+    }
+    
+    #add_icon {
+      position: relative;
+      bottom: -4px;
+    }
+    body {
+   -moz-transform: scale(0.8, 0.8);
+    zoom: 100%;
+    }
+  </style>
+</head>
+
+<div class="toolbardemoBasicUsage">
+
+  <md-content>
+
+    <br>
+
+    <md-toolbar class="md-hue-2">
+      <div class="md-toolbar-tools">
+        <md-button class="md-icon-button" aria-label="Menu">
+          <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
+        </md-button>
+        <h2>
+          <span>Welcome {{Username}}</span>
+        </h2>
+        <span flex=""></span>
+        <md-button class="md-icon-button" aria-label="Favorite">
+          <md-icon md-svg-icon="img/icons/favorite.svg" style="color: greenyellow;"></md-icon>
+        </md-button>
+
+
+        <md-menu>
+          <md-button class="md-icon-button" aria-label="More" ng-click="openMenu($mdOpenMenu, $event)">
+            <img class="avatar" src="{{image}}" />
+          </md-button>
+          <md-menu-content width="4">
+            <md-menu-item>
+              <md-button ng-click="goToProfile();">
+                <ng-md-icon icon="perm_identity" style="fill: black" size="20"></ng-md-icon>
+                Profile
+              </md-button>
+            </md-menu-item>
+            <md-menu-item>
+              <md-button ng-click="goToSettings();">
+                <ng-md-icon icon="settings" style="fill: black" size="20"></ng-md-icon>
+                Settings
+              </md-button>
+            </md-menu-item>
+            <md-menu-item>
+              <md-button ng-click="logout();">
+                <ng-md-icon icon="logout" style="fill: black" size="20"></ng-md-icon>
+                Logout
+              </md-button>
+            </md-menu-item>
+          </md-menu-content>
+
+
+        </md-menu>
+
+      </div>
+    </md-toolbar>
+</div>
+
+<div class="toolbar_new_topic">
+  <md-button id="NEW_TOPIC_BUTTON" ng-click="showNewTopic($event)" flex="100" flex-gt-md="auto">
+    <ng-md-icon icon="add_box" style="fill: white" size="20" id="add_icon"></ng-md-icon>
+    <span id="text_new_topic" color="white">New Topic</span>
+  </md-button>
+</div>
+
+<div ui-view>
+
+</div>

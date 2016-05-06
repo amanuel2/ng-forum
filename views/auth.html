@@ -1,0 +1,126 @@
+<head>
+    <link rel="stylesheet" href="views/assets/css/files/auth.css" type="text/css" />
+</head>
+
+
+<div layout="column" layout-fill>
+    <md-toolbar id="toolbar">
+        <h1 id="Header" ui-sref="home" ng-click="javascript:void(0)">Ng-Fourm</h1>
+    </md-toolbar>
+    <md-content id="FormContent" layout-fill>
+        <md-tabs md-dynamic-height class="md-whiteframe-10dp" id="signing" layout-padding md-stretch-tabs="always">
+            <md-tab label="Login" class="LoginTab" flex>
+                <form name="userFormLogin" id="userForm" ng-submit="loginSubmit();">
+                    <md-input-container id="UsernameInput">
+                        <!-- Use floating label instead of placeholder -->
+                        <label>Email</label>
+                        <input ng-model="user.email" ng-minlength="3" type="emai" required>
+                    </md-input-container>
+                    <ng-md-icon icon="email" style="fill: white" size="24" id="UsernameIcon"></ng-md-icon>
+                    <br>
+                    <br>
+                    <md-input-container id="PasswordInput">
+                        <!-- Use floating label instead of placeholder -->
+                        <label>Password</label>
+
+                        <input ng-model="user.password" name="password" type="password" ng-minlength="5" md-minlength="5" required>
+                        <div ng-if="userFormLogin.LoginPassword.$dirty" ng-messages="userFormLogin.LoginPassword.$error">
+                            <div ng-message="maxlength">Message can be up to 500 characters long
+                            </div>
+                        </div>
+                    </md-input-container>
+                    <ng-md-icon icon="lock" style="fill: white" size="24" id="PasswordIcon"></ng-md-icon>
+                    <br>
+                    <div id="buttonLogin">
+                        <md-button md-ink-ripple=" #29b6f6" class="md-raised" ng-disabled="userFormLogin.$invalid" ng-click="login();" id="buttonLogin">
+                            <ng-md-icon icon="cloud_done" style="fill: #29b6f6" size="20" id="buttonIcon"></ng-md-icon>
+                            Login
+                        </md-button>
+                    </div>
+                    
+                        <md-button class="md-raised md-accent" ng-click="forgotPass();">
+                            <ng-md-icon icon="security" style="fill: white" size="20" id="twitterLogin" ></ng-md-icon>
+                            Forgot Password
+                        </md-button>
+                        
+                       <!--<div class="socialLoginOptions">
+                        <div id="orLoginWith">
+                            <font color="#ff4d4d"> Or Login With..
+                            </font>
+                        </div>
+                        <br>
+                       <div class="socialLoginOptionsButtons">
+                            <md-button md-ink-ripple=" #4099FF" ng-click="providerUser('twitter');">
+                                <ng-md-icon icon="twitter" style="fill: white" size="20" id="twitterLogin"></ng-md-icon>
+                                <font color="white">Twitter</font>
+                            </md-button>
+                            <md-button md-ink-ripple=" #d34836" ng-click="providerUser('google');">
+                                <ng-md-icon icon="google-plus-box" style="fill: #d34836" size="20" id="googleLogin"></ng-md-icon>
+                                <font color="#d34836">Google+</font>
+                            </md-button>
+
+                            <md-button md-ink-ripple="#3b5998" ng-click="providerUser('facebook');">
+                                <ng-md-icon icon="facebook-box" style="fill: #3b5998" size="20" id="anonymusLogin"></ng-md-icon>
+                                <font color="#3b5998">Facebook</font>
+                            </md-button>
+
+                        </div>
+                      
+                    </div> -->
+
+                </form>
+
+
+            </md-tab>
+
+            <md-tab label="Register" flex>
+                <form name="userForm" id="userForm" ng-submit="formSubmit();">
+                    <md-input-container id="UsernameInput">
+                        <!-- Use floating label instead of placeholder -->
+                        <label>Username</label>
+                        <input ng-model="register.username" ng-minlength="3" type="text" required>
+                    </md-input-container>
+                    <ng-md-icon icon="person" style="fill: white" size="24" id="UsernameIcon"></ng-md-icon>
+                    <br>
+                    <md-input-container id="EmailInput">
+                        <!-- Use floating label instead of placeholder -->
+                        <label>Email</label>
+
+                        <input ng-model="register.email" type="email" required>
+                    </md-input-container>
+                    <ng-md-icon icon="email" style="fill: white" size="24" id="EmailIcon"></ng-md-icon>
+                    <br>
+
+                    <md-input-container id="PasswordInput">
+                        <!-- Use floating label instead of placeholder -->
+                        <label>Password</label>
+
+                        <input ng-model="register.password" name="password" type="password" ng-minlength="5" md-minlength="5" required>
+                        <div ng-if="userForm.Password.$dirty" ng-messages="userForm.Password.$error">
+                            <div ng-message="maxlength">Message can be up to 500 characters long
+                            </div>
+                        </div>
+                    </md-input-container>
+                    <ng-md-icon icon="lock" style="fill: white" size="24" id="PasswordIcon"></ng-md-icon>
+                    <br>
+                    
+                    <md-checkbox ng-model="register.terms" id = "termsCheck">
+                      Accept Terms And Services
+                    </md-checkbox>
+                    <div id="registerButton">
+                        <md-button md-ink-ripple=" #29b6f6" class="md-raised" ng-disabled="userForm.$invalid" ng-click="regissterForm();">
+                            <ng-md-icon icon="cloud_done" style="fill: #29b6f6" size="20" id="buttonIcon"></ng-md-icon>
+                            Register Now
+                        </md-button>
+                    </div>
+            </md-tab>
+        </md-tabs>
+    </md-content>
+
+
+
+    <br>
+
+    </form>
+
+</div>
