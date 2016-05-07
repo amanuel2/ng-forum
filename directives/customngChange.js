@@ -9,7 +9,6 @@
         link: function (scope, element, attrs) {
           var onChangeHandler = scope.$eval(attrs.customOnChange);
           element.bind('change', onChangeHandler);
-          console.log(element)
         }
       };
     }
