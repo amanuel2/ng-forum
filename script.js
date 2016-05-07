@@ -14,8 +14,4 @@
 )
 
 
-/**
- * TODO:CHAT ROOM
- */
-
 })(angular);
