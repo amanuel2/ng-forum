@@ -37,7 +37,6 @@ Well you can help out by making pull-requests, regarding issues to problems you 
 
 
 #Licence:
-MIT
 
 The MIT License
 
