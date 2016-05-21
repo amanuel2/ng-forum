@@ -27,6 +27,8 @@ This is currently in HIGH ACTIVE DEVELOPMENT! BUGS ARE ISSUED! Contribution Is W
 
 Absolultely! [Here](https://ide.c9.io/amanuel2/fourm2) is where this fourm is bieng built.
 
+##Bugs?
+Yes there is an actively going bug issued [here](https://github.com/angular/material/issues/8465). Will be fixed soon, no worries! Although Help would be very much appreciated!
 
 ##Is there a online version i can see?
 
