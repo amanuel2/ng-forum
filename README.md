@@ -55,7 +55,7 @@ Well you can help out by making pull-requests, regarding issues to problems you 
 
 The MIT License
 
-Copyright (c) 2010-2016 Google, Inc. ng-forum
+Copyright (c) 2010-2016 ng-forum
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
