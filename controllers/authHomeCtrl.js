@@ -5,12 +5,15 @@
 
     function authHomeCtrl($scope, $firebaseObject, $state, $mdDialog, $mdMedia, $firebaseArray, refService, currentAuth) {
         $state.go('authHome.desc')
+        console.log(currentAuth);
         var auth = refService.ref().getAuth() ? console.log() : $state.go("home")
+
 
 
 
         var obj = $firebaseObject(refService.ref().child("UserAuthInfo").child(currentAuth.uid));
         obj.$loaded(function(data) {
+                console.log(data)
                 $scope.Username = data.Username;
                 $scope.Email = data.Email;
                 $scope.UID = currentAuth.uid;
@@ -20,24 +23,27 @@
                 console.error("Error:", error);
             }
         );
-        
-        
 
         $scope.goToProfile = function(){
             $state.go("authHome.profile", {
-            "UID": $scope.UID,
-          })
+                "UID": $scope.UID,
+            })
         }
         $scope.openMenu = function($mdOpenMenu, ev) {
             $mdOpenMenu(ev);
         }
 
         $scope.logout = function() {
-            refService.ref().unauth();
             $state.go("home");
+            window.location.href = "#home"
+            refService.ref().unauth();
+            location.reload(true);
+            location.reload(true);
         }
-        
+
         $scope.goToSettings = function(){
+            console.log($scope.UID)
+            console.log($scope.Username)
             $state.go("authHome.settings", {
                 "UID" : $scope.UID,
                 "USERNAME" : $scope.Username
@@ -73,6 +79,10 @@
 
             }
 
+            else {
+
+
+            }
         }
 
     }
