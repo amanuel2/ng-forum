@@ -38,6 +38,10 @@ span.time_since.ng-binding {
     left: 400px;
     top: 20px;
 }
+.enclose_replies.ng-scope {
+    position: relative;
+    bottom: 180px;
+}
         button#REPLY_BUTTON {
             position: relative;
             top: -150px;
@@ -70,6 +74,14 @@ span.time_since.ng-binding {
     left: 640px;
     top: -440px;
 }
+.topic_sentence.ng-binding {
+    width: 500px;
+}
+.stats_enclose {
+    position: relative;
+    bottom: 130px;
+    height: 60px;
+}
     </style>
 </head>
 <div class="encloseTopic">
@@ -94,14 +106,11 @@ span.time_since.ng-binding {
     <md-button class="md-raised md-warn" id="REPLY_BUTTON" ng-click="replyTopic($event)">
         Reply
     </md-button>
-</div>
 
-<div>
-    <h1>
-        Topic Views : {{countViews}}
-    </h1>
+    <div class="stats_enclose">
+        <span>Views : {{countViews}}</span>
+    </div>    
 </div>
-
 
 <div ng-if="upVoteCount || downVoteCount" class="already_voted_sign">
         ALREADY VOTED!

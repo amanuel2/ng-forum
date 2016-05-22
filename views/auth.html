@@ -43,30 +43,6 @@
                             Forgot Password
                         </md-button>
                         
-                       <!--<div class="socialLoginOptions">
-                        <div id="orLoginWith">
-                            <font color="#ff4d4d"> Or Login With..
-                            </font>
-                        </div>
-                        <br>
-                       <div class="socialLoginOptionsButtons">
-                            <md-button md-ink-ripple=" #4099FF" ng-click="providerUser('twitter');">
-                                <ng-md-icon icon="twitter" style="fill: white" size="20" id="twitterLogin"></ng-md-icon>
-                                <font color="white">Twitter</font>
-                            </md-button>
-                            <md-button md-ink-ripple=" #d34836" ng-click="providerUser('google');">
-                                <ng-md-icon icon="google-plus-box" style="fill: #d34836" size="20" id="googleLogin"></ng-md-icon>
-                                <font color="#d34836">Google+</font>
-                            </md-button>
-
-                            <md-button md-ink-ripple="#3b5998" ng-click="providerUser('facebook');">
-                                <ng-md-icon icon="facebook-box" style="fill: #3b5998" size="20" id="anonymusLogin"></ng-md-icon>
-                                <font color="#3b5998">Facebook</font>
-                            </md-button>
-
-                        </div>
-                      
-                    </div> -->
 
                 </form>
 
@@ -97,7 +73,7 @@
 
                         <input ng-model="register.password" name="password" type="password" ng-minlength="5" md-minlength="5" required>
                         <div ng-if="userForm.Password.$dirty" ng-messages="userForm.Password.$error">
-                            <div ng-message="maxlength">Message can be up to 500 characters long
+                            <div ng-message="maxlength">Password Must be atleast 5 length
                             </div>
                         </div>
                     </md-input-container>

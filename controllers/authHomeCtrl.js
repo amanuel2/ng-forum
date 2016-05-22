@@ -1,9 +1,9 @@
 (function(angular) {
     var app = angular.module('ForumApp');
 
-    app.controller('authHome', ["$scope", "$firebaseObject", "$state", "$mdDialog", "$mdMedia", "$firebaseArray", "refService", "currentAuth", authHomeCtrl])
+    app.controller('authHome', ["$scope", "$firebaseObject", "$state", "$mdDialog", "$mdMedia", "$firebaseArray", "refService", "currentAuth","$mdBottomSheet", authHomeCtrl])
 
-    function authHomeCtrl($scope, $firebaseObject, $state, $mdDialog, $mdMedia, $firebaseArray, refService, currentAuth) {
+    function authHomeCtrl($scope, $firebaseObject, $state, $mdDialog, $mdMedia, $firebaseArray, refService, currentAuth,$mdBottomSheet) {
         $state.go('authHome.desc')
         console.log(currentAuth);
         var auth = refService.ref().getAuth() ? console.log() : $state.go("home")
@@ -55,8 +55,8 @@
 
 
                 var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
-                $mdDialog.show({
-                        controller: 'newTopicCtrl',
+                    $mdBottomSheet.show({
+                      controller: 'newTopicCtrl',
                         templateUrl: 'views/newTopic.html',
                         parent: angular.element(document.body),
                         resolve: {
@@ -66,15 +66,12 @@
                                 // $waitForAuth returns a promise so the resolve waits for it to complete
                                 return refService.refAuth().$requireAuth();
                             }]
-                        },
+                        },            
                         targetEvent: ev,
                         clickOutsideToClose: true,
                         fullscreen: useFullScreen
-                    })
-                    .then(function(answer) {
-                        //Then Argument
-                    }, function() {
-                        //Canceled Dialog
+                    }).then(function(clickedItem) {
+                      $scope.alert = clickedItem['name'] + ' clicked!';
                     });
 
             }

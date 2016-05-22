@@ -1,62 +1,54 @@
-<head>
-    <style>
-        #ashely{
-            width:50px;
-            height:50px;
-        }
-        textarea#input_2 {
-            width: 500px;
-            height: 200px;
-        }
-    </style>
-</head>
+<md-bottom-sheet class="md-list md-has-header" ng-cloak>
 
+    <form name="myForm">
+        <md-header>
+            <h2>Create a new topic</h2>
+            Drag Down, or press <code>ESC</code> To quit
+        </md-header>
+        <br>
+        <br>
+        <br>
+        <md-input-container>
 
-<md-dialog aria-label="Mango (Fruit)"  ng-cloak>
-  <form>
-    <md-toolbar>
-      <div class="md-toolbar-tools">
-        <h2>New Topic Creation</h2>
-        <span flex></span>
-        <md-button class="md-icon-button" ng-click="cancel()">
-          <ng-md-icon icon="close" style="fill: white" size="20"></ng-md-icon> 
+            <input name="title" placeholder="What is the topic about?"
+            type="text" ng-model="topic.title" 
+            ng-minlength="10"
+            ng-maxlength="25"
+            required />
+        </md-input-container>
+        <br>
+        <br>
+         <!-- show an error if username is too short -->
+        <p ng-show="myForm.title.$error.minlength">Topic Title is too short.</p>
+    
+        <!-- show an error if Topic Title is too long -->
+        <p ng-show="myForm.title.$error.maxlength">Topic Title is too long.</p>
+    
+        <!-- show an error if this isn't filled in -->
+        <p ng-show="myForm.title.$error.required">Your Topic Title is required.</p>
+
+        <md-input-container>
+            <label>Topic Sentence</label>
+            <textarea rows="50" name="sentence" ng-model="topic.sentence" cols="50" 
+            style="height:100px; width:800px;"
+            ng-minlength="30" 
+            required>
+      </textarea>
+                   <!-- show an error if username is too short -->
+        <p ng-show="myForm.sentence.$error.minlength">Topic sentence is too short.</p>
+    
+    
+        <!-- show an error if this isn't filled in -->
+        <p ng-show="myForm.sentence.$error.required">Your Topic sentence is required.</p>
+        
+        
+        </md-input-container>
+        <br>
+        <br>
+        <md-button class="md-raised md-primary" ng-click="submitNewTopic();" ng-disabled="myForm.$invalid">
+            Submit
         </md-button>
-      </div>
-    </md-toolbar>
-    <md-dialog-content style="width:1000px;height:700px; ">
-        <h1></h1>
-      <md-input-container>
-          <label>Topic Title</label>
-          <input type="text" ng-model="topic.title"/>
-      </md-input-container>
-      
-      <br>
-      <md-input-container>
-          <label>Topic Sentence</label>
-          <textarea class="text_area" ng-model="topic.sentence" md-maxlength="150" rows="50" md-select-on-focus></textarea>
-      </md-input-container>
-      <br>
-      <br>
-      <br>
-      <br>
-      <md-button class="md-primary" ng-click="submitNewTopic();">
-            <strong>Submit</strong>          
-      </md-button>
-      
-    </md-dialog-content>
-    <md-dialog-actions layout="row">
-           <md-button href="https://www.youtube.com/watch?v=s3qZF4jhgDo" target="_blank" md-autofocus>
-        Viedo Tutorial
-                
-      </md-button>
-      <span flex></span>
-      <img src="https://lh3.googleusercontent.com/z_dVaAGWaYGLulTy0drwYY6QpdABEOq718yBnFyw6Ejbu9T_r4-3FyOVCb0aNw=w400" id="ashely"/> Was Ashely Usefull? 
-      <md-button ng-click="answer('not useful')" >
-        Not Useful
-      </md-button>
-      <md-button ng-click="answer('useful')" style="margin-right:20px;" >
-        Useful
-      </md-button>
-    </md-dialog-actions>
-  </form>
-</md-dialog>
+    </form>
+
+</md-bottom-sheet>
+
