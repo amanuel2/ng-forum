@@ -4,12 +4,12 @@
 <p align="center">
   <img src="http://i.imgur.com/JhUAZVh.jpg" width="1000"/>
 </p>
-The Offical ng-forum repositry!
+The Official ng-forum repository!
 
-This site it a forum for developers around the world, to gather up ask, anwser questions!
+This site it a forum for developers around the world, to gather up ask, answer questions!
 
-##What is this? Whats Unique?
-Well this is a forum as explained above. What makes this unique though, is that this is the only opensource(at least what i have seen) PURE AngularJS Fourm. This Fourm Is Built with 
+##What is this? What's Unique?
+Well this is a forum as explained above. What makes this unique though, is that this is the only open source PURE AngularJS Forum. This Forum Is Built with 
 
 [AngularJS](http://angularjs.org/) = For Routing,Controllers, and actual app. 
 
@@ -17,7 +17,7 @@ Well this is a forum as explained above. What makes this unique though, is that 
 
 [AngularMaterial](https://material.angularjs.org/latest/) = For Styling the nice Material Design ! 
 
-##Expieriencing Issue?
+##Experiencing Issue?
 
 If you are expierincing any issues with this project, please request an issue, in the [issue block](https://github.com/amanuel2/ng-forum/issues). We will love to help you out! :smile:
 
@@ -29,11 +29,11 @@ This is currently in HIGH ACTIVE DEVELOPMENT! BUGS ARE ISSUED! Contribution Is W
 
 2: `bower install`
 
-3: `and preivew index.html`
+3: `and preview index.html`
 
-##Is This Bieng built online?
+##Is This Being built online?
 
-Absolultely! [Here](https://ide.c9.io/amanuel2/fourm2) is where this fourm is bieng built.
+Absolutely! [Here](https://ide.c9.io/amanuel2/fourm2) is where this fourm is bieng built.
 
 ##Bugs?
 None As Of Now
@@ -71,3 +71,4 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
+
