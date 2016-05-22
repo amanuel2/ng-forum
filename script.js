@@ -1,3 +1,8 @@
+/**
+ * Author : Amanuel Bogale
+ * Site : ng-forum
+ */
+
 (function(angular) {
   var app = angular.module('ForumApp',
 
