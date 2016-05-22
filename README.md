@@ -15,7 +15,7 @@ Well this is a forum as explained above. What makes this unique though, is that 
 
 [AngularFire](https://www.firebase.com/docs/web/libraries/angular/) = To Handle Authentication, Database
 
-[AngularMaterial](https://material.angularjs.org/latest/) = For Styling the nice Material Design ! :D
+[AngularMaterial](https://material.angularjs.org/latest/) = For Styling the nice Material Design ! :smile:
 
 ##Expieriencing Issue?
 
