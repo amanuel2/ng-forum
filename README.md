@@ -38,6 +38,9 @@ Absolutely! [Here](https://ide.c9.io/amanuel2/fourm2) is where this fourm is bie
 ##Bugs?
 None As Of Now
 
+##Want this forum for your website?
+We are still working on that, not available yet... If any questions, please request an issue.
+
 ##Is there a online version i can see?
 
 Yes we had one, but name changed. So we will produce one soon! Dont worry!
