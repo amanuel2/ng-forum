@@ -1,5 +1,9 @@
-# ng-forum
 
+<h1 align="center"> ng-forum</h1>
+
+<p align="center">
+  <img src="http://i.imgur.com/JhUAZVh.jpg" width="1000"/>
+</p>
 The Offical ng-forum repositry!
 
 This site it a forum for developers around the world, to gather up ask, anwser questions!
