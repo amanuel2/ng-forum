@@ -1,6 +1,6 @@
 {
-  "name": "ng-fourm",
-  "version": "0.0.5",
+  "name": "ng-forum",
+  "version": "0.0.6",
   "description": "Forum where developers around the world can ask questions, anwser questions, and also chat!",
   "main": "script.js",
   "dependencies": {
@@ -16,9 +16,9 @@
     "url": "git+https://github.com/amanuel2/ng-forum.git"
   },
   "keywords": [
-    "N-F"
+    "nf"
   ],
-  "author": "Amanuel Bogale",
+  "author": "Amanuel Bogale <abogale2@gmail.c>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/amanuel2/ng-forum/issues"

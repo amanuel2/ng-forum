@@ -1,15 +1,15 @@
 {
-  "name": "Ng-Forum",
+  "name": "ng-forum",
+  "homepage": "https://github.com/amanuel2/ng-forum",
   "authors": [
     "Amanuel <abogale2@gmail.c>"
   ],
   "description": "Forum where developers around the world can ask questions, anwser questions, and also chat!",
   "main": "script.js",
   "keywords": [
-    "Ng-F"
+    "nf"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/amanuel2/ng-forum",
   "ignore": [
     "**/.*",
     "node_modules",
@@ -19,14 +19,17 @@
   ],
   "dependencies": {
     "alertify.js": "alertifyjs#^1.0.10",
-    "angular-material-icons": "^0.7.0",
-    "angular-cryptography": "^1.0.1",
     "angular-material": "^1.0.7",
+    "angular-cryptography": "^1.0.1",
+    "angular-material-icons": "^0.7.0",
     "angular-ui-router": "^0.2.18",
+    "bootstrap": "^3.3.6",
     "angularfire": "^1.2.0",
     "angularjs-crypto": "^1.4.0",
-    "bootstrap": "^3.3.6",
     "firebase": "^2.4.2",
-    "jsSHA": "^2.0.2"
+    "jsSHA": "^2.0.2",
+    "jquery": "^2.2.3",
+    "polymer": "Polymer/polymer#^1.4.0",
+    "Materialize": "materialize#^0.97.6"
   }
 }
