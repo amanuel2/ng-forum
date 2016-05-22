@@ -6,11 +6,12 @@
 </p>
 The Official ng-forum repository!
 
+Gitter Chat: [![Join the chat at https://gitter.im/amanuel2/ng-forum](https://badges.gitter.im/amanuel2/ng-forum.svg)](https://gitter.im/amanuel2/ng-forum?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
+
 This site it a forum for developers around the world, to gather up ask, answer questions!
 
 ##What is this? What's Unique?
-
-[![Join the chat at https://gitter.im/amanuel2/ng-forum](https://badges.gitter.im/amanuel2/ng-forum.svg)](https://gitter.im/amanuel2/ng-forum?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 Well this is a forum as explained above. What makes this unique though, is that this is the only open source PURE AngularJS Forum. This Forum Is Built with 
 
 [AngularJS](http://angularjs.org/) = For Routing,Controllers, and actual app. 
