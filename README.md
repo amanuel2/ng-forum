@@ -17,6 +17,10 @@ Well this is a forum as explained above. What makes this unique though, is that 
 
 [AngularMaterial](https://material.angularjs.org/latest/) = For Styling the nice Material Design ! :D
 
+##Expieriencing Issue?
+
+If you are expierincing any issues with this project, please request an issue, in the [issue block](https://github.com/amanuel2/ng-forum/issues). We will love to help you out! :D
+
 ##WARNING
 This is currently in HIGH ACTIVE DEVELOPMENT! BUGS ARE ISSUED! Contribution Is Welcome!
 ##How to run?
