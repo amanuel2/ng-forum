@@ -4,7 +4,8 @@
 <p align="center">
   <img src="http://i.imgur.com/JhUAZVh.jpg" width="1000"/>
 </p>
-The Official ng-forum repository!
+
+Ng-Forum , Meet Developers around the globe.
 
  [![Join the chat at https://gitter.im/amanuel2/ng-forum](https://badges.gitter.im/amanuel2/ng-forum.svg)](https://gitter.im/amanuel2/ng-forum?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
