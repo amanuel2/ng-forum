@@ -33,7 +33,7 @@ Absolutely! On GitHub via this repository and at [Cloud9](https://ide.c9.io/aman
 
 ## Is there a demo available?
 
-No, it is coming soon.
+Yes, [here](Anyone? Any comments http://ng-forum.site88.net) is the demo.[AS OF 5/24/2015]
 
 ## Want contribute to the project?
 
