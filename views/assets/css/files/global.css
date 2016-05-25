@@ -4,7 +4,7 @@
 @font-face {
   font-family: "Ionicons";
   src: url("../icons/ionicons/ionicons.eot");
-  src: url("../icons/ionicons/ionicons.eot?#iefix") format("embedded-opentype"), url("../icons/ionicons/ionicons.woff2") format("woff2"), url("../icons/ionicons/ionicons.woff") format("woff"), url("../icons/ionicons/ionicons.ttf") format("truetype"), url("../icons/ionicons/ionicons.svg") format("svg");
+  src: url("../icons/ionicons/ionicons.eot?#iefix") format("embedded-opentype"), url("../icons/ionicons/ionicons.woff") format("woff"), url("../icons/ionicons/ionicons.ttf") format("truetype"), url("../icons/ionicons/ionicons.svg") format("svg");
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 100%;
@@ -27,6 +27,7 @@ body {
   text-align: center;
   font: 100%/1.25 "Quattrocento Sans", sans-serif;
   overflow-x: hidden;
+  height: auto;
 }
 
 header,
