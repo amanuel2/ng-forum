@@ -1,7 +1,7 @@
 
 <h1 align="center"> Ng-Forum</h1>
 
-Ng-Forum, meet developers around the globe.
+Ng-Forum, meet developers around the globe. :computer:
 
  [![Join the chat at https://gitter.im/amanuel2/ng-forum](https://badges.gitter.im/amanuel2/ng-forum.svg)](https://gitter.im/amanuel2/ng-forum?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
