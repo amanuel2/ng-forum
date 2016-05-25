@@ -11,7 +11,7 @@ This project currently under development and bugs are known to happen! However, 
 
 ## Demo
 
-Yes, [here](http://ng-forum.site88.net) is the demo.[AS OF 5/24/2015]
+Yes, [here](http://ng-forum.site88.net) is the demo.[AS OF 5/24/2016]
 
 ## What is this project? What makes this project unique?
 This project is a forum app for developers around the world, to gather up ask, answer questions!
