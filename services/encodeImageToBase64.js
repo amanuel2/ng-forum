@@ -55,9 +55,9 @@
                                                 }
                                             })
                                        })
-                                            /*ref.child("Replies").child(replyService.creatorUsername + replyService.creatorDate).child(childDataC.pushKey).update({
+                                            ref.child("Replies").child(replyService.creatorUsername + replyService.creatorDate).child(childDataC.pushKey).update({
                                                    replyCreatorAvatar : srcData     
-                                            })*/
+                                            })
                                      }
                             })
                         })
