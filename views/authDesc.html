@@ -25,16 +25,39 @@
     bottom: -23px;
 }
 
-
-/*
-Copyright 2016 Google Inc. All Rights Reserved. 
-Use of this source code is governed by an MIT-style license that can be in foundin the LICENSE file at http://material.angularjs.org/license.
-*/
+.avatar_creator {
+    border-radius: 50%;
+    position: relative;
+    height:30px;
+    top:10px;
+    width:30px;
+}
     </style>
 </head>
 
+  <md-autocomplete
+                           md-search-text="searchText"
+                           md-items="topic in topicName | filter:searchText"
+                           md-selected-item="selectedItem"
+                           md-item-text="topic.Title"
+                           md-min-length="0"
+                           md-selected-item-change = "goToTOPICAUTCOMPLETE(topic)"
+                           placeholder="Search Topics....">
+        <md-item-template>
+          <span class="item-metadata">
+            <span class="item-metastat">
+             <img alt="{{ topic.Avatar }}" src="{{ topic.Avatar }}" class="md-avatar avatar_creator" /> {{topic.Title}}
+            </span>
+          </span>
+        </md-item-template>
+        <md-not-found>
+          No Match found... Please try again.
+        </md-not-found>
+      </md-autocomplete>
+      
+      
 <md-list ng-cloak="" class="listdemoListControls">
-  <md-subheader class="md-no-sticky"><h1>Fourm Questions</h1></md-subheader>
+  <md-subheader class="md-no-sticky"><h1>Forum Questions</h1></md-subheader>
   
   
   <md-list-item ng-repeat="top in topic" ng-click="goToTopic(top.Avatar,top.DateCreated,top.Email,top.Title,top.UID,top.Username,top.Value);" class="noright">

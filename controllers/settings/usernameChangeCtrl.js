@@ -19,6 +19,20 @@
             refService.ref().child("UserAuthInfo").child(currentAuth.uid).update({
                 Username : username
             })
+            //Updating Topics
+                    refService.ref().child("Topics").once("value", function(snapshot) {
+
+                        snapshot.forEach(function(childSnapshot) {
+                            var key = childSnapshot.key();
+                            var childData = childSnapshot.val();
+                            if (childData.UID = currentAuth.uid) {
+                                refService.ref().child("Topics").child(childData.pushKey).update({
+                                    Username: username
+                                })
+                            }
+                        })
+                    })
+                    
             $mdDialog.cancel();
         }
     }

@@ -1,19 +1,27 @@
 (function(angular) {
     var app = angular.module('ForumApp');
 
-    app.controller('otherUserProfileCtrl', ["$scope", "currentAuth", "$stateParams", "refService", "$firebaseObject","$state", otherUserProfileCtrl])
+    app.controller('otherUserProfileCtrl', ["$scope", "currentAuth", "$stateParams", "refService","$mdDialog", "$firebaseObject","$state","otherUserService", otherUserProfileCtrl])
 
-    function otherUserProfileCtrl($scope, currentAuth, $stateParams, refService, $firebaseObject,$state) {
+    function otherUserProfileCtrl($scope, currentAuth, $stateParams, refService,$mdDialog, $firebaseObject,$state,otherUserService) {
 
         var obj = $firebaseObject(refService.ref().child("UserAuthInfo").child($stateParams.UID));
         obj.$loaded(function(data) {
-                $scope.otherUserEmail = data.Email;
-                $scope.otherUserImage = data.Image;
-                $scope.otherUserUID = data.UID;
-                $scope.otherUserUsername = data.Username;
-                $scope.otherDesc = data.Description || "This user is silent as the butterflies";
-                $scope.otherMod = data.Moderator;
-                console.log(data)
+                $scope.info = otherUserService.getUserInfo()
+                $scope.ACTUALinfo = otherUserService.ACTUALgetUserInfo();
+                console.log($scope.ACTUALinfo)
+                $scope.otherUserEmail = $scope.info.replyCreatorEmail
+                $scope.otherUserImage = $scope.info.replyCreatorAvatar
+                $scope.otherUserUID = $scope.info.replyCreatorUID
+                $scope.otherUserUsername = $scope.info.replyCreatorUsername;
+                if($scope.ACTUALinfo.Moderator == false)
+                {
+                    $scope.otherMod = "Not a Moderator";
+                }
+                else{
+                     $scope.otherMod = "Respected Moderator";
+                }
+                $scope.otherDesc = $scope.ACTUALinfo.Description || "This user is silent as the butterflies";
             },
             function(error) {
                 console.error("Error:", error);
@@ -47,6 +55,17 @@
             })
 
         })
+        
+         $scope.hide = function() {
+            $mdDialog.hide();
+        };
+        $scope.cancel = function() {
+            $mdDialog.cancel();
+        };
+        $scope.answer = function(answer) {
+            $mdDialog.hide(answer);
+        };
+        
 
 $scope.goToTopic = function(top){
     $state.go("authHome.topic", {

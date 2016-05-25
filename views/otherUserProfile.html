@@ -3,40 +3,72 @@
         .toolbar_new_topic{
             display:none;
         }
+         #ashely{
+            width:50px;
+            height:50px;
+        }
+        textarea#input_2 {
+            width: 500px;
+            height: 200px;
+        }
+        html {
+          width: 100%;
+          height: 100%;
+          background: -webkit-radial-gradient(closest-corner, rgba(16, 47, 70, 0) 60%, rgba(16, 47, 70, 0.26)), -webkit-linear-gradient(108deg, #26d0ce, #1a2980 90%);
+        }
+        
+        body {
+          width: 100%;
+          height: 100%;
+          background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAADCAYAAABWKLW/AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAB9JREFUeNpiZmBg6AZiDiBWZ4YyQMCOCcYA4kMAAQYAHyYCCUdxidgAAAAASUVORK5CYII=");
+        }
+        .avatar_creatorS {
+            border-radius: 50%;
+            position: relative;
+            width: 50px;
+            height: 50px;
+            padding: 20px;
+        }
+        
+        .otherUserProfile-wrapper {
+            box-sizing: border-box;
+        }
     </style>
 </head>
-<h1>{{otherUserUsername}} Profile</h1>
+<md-dialog aria-label="Mango (Fruit)"  ng-cloak>
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>{{otherUserUsername}}</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <ng-md-icon icon="close" style="fill: white" size="20"></ng-md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content style="width:960px;height:700px; "><br>
+          <img src="{{otherUserImage}}" class="avatar_creatorS"/><br>
+       Username : <span class="md-headline">{{otherUserUsername}}</span><br>
+      <span class="md-subhead description"> {{otherMod}} </span><br>
+      Description: <span class="md-subhead description">{{otherDesc}}</span><br>
+      
+      <h1>Topics Made</h1>
+        <md-list-item ng-repeat="top in userInfoTopics" ng-click="goToTopic(top);" class="noright">
+          <img alt="Something Happened..." src="{{ otherUserImage }}" class="md-avatar" />
+          <p>{{ top.Title }}</p>
+          <md-checkbox class="md-secondary"></md-checkbox>
+        </md-list-item>
   
-<md-card md-colors="::{backgroundColor: '{{theme}}-primary-700'}">
-  <md-card-title>
-    <md-card-title-media>
-      <div class="md-media-sm card-media" layout layout-align="center center"
-           md-colors="::{background: 'forest-accent'}">
-        <img width="100" height="100" src="{{otherUserImage}}"/>
-      </div>
-    </md-card-title-media>
-    <md-card-title-text>
-      <span class="md-headline">{{otherUserUsername}}</span>
-      <span class="md-subhead description" ng-if="otherMod"> Moderator </span>
-      <span class="md-subhead description" ng-if="!otherMod"> Not Moderator </span>
-      <span class="md-subhead description">{{otherDesc}}</span>
-    </md-card-title-text>
-  </md-card-title>
-</md-card>
-
-<li ng-repeat="">
-  Topic : {{top.Title}}
-</li>
-<md-list ng-cloak="" class="listdemoListControls">
-  <md-subheader class="md-no-sticky"><h1>{{otherUserUsername}} Questions</h1></md-subheader>
-  
-  <md-list-item ng-repeat="top in userInfoTopics" ng-click="goToTopic(top);" class="noright">
-    <img alt="Something Happened..." src="{{ otherUserImage }}" class="md-avatar" />
-    <p>{{ top.Title }}</p>
-    <md-checkbox class="md-secondary"></md-checkbox>
-  </md-list-item>
-  
-  
-</md-list>
-
-
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <img src="https://lh3.googleusercontent.com/z_dVaAGWaYGLulTy0drwYY6QpdABEOq718yBnFyw6Ejbu9T_r4-3FyOVCb0aNw=w400" id="ashely"/> Was Ashely Usefull?
+            <md-button ng-click="answer('not useful')" >
+                Not Useful
+            </md-button>
+            <md-button ng-click="answer('useful')" style="margin-right:20px;" >
+                Useful
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

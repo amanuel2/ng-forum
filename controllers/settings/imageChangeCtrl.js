@@ -1,9 +1,9 @@
 (function(angular){
     var app = angular.module('ForumApp')
     
-    app.controller('imageChangeCtrl', ["$scope","refService","currentAuth","$mdDialog","hashService","encodeImageToBase64", imageChangeCtrl])
+    app.controller('imageChangeCtrl', ["$scope","refService","currentAuth","$mdDialog","hashService","encodeImageToBase64","$firebaseObject", imageChangeCtrl])
     
-    function imageChangeCtrl($scope,refService,currentAuth,$mdDialog,hashService,encodeImageToBase64){
+    function imageChangeCtrl($scope,refService,currentAuth,$mdDialog,hashService,encodeImageToBase64,$firebaseObject){
           $scope.hide = function() {
             $mdDialog.hide();
         };
@@ -18,9 +18,7 @@
             var doc = document.getElementById('inputFileToLoad');
             var file = document.getElementById('inputFileToLoad').files;
             var base64Image = encodeImageToBase64.encode(doc,file,refService.ref(), currentAuth.uid);
-            setTimeout(function(){
-                console.log(base64Image)
-            }, 500)
+            
         };
     }
 })(angular);

@@ -9,6 +9,8 @@
         $scope.userInfo = $firebaseObject(refService.ref().child("UserAuthInfo").child($stateParams.UID))
         $scope.passwordSHARP = "********"
         $scope.uid = currentAuth.uid;
+        console.log($scope.userInfo)
+        $scope.desc = "See your descripton in the profile."
         
     
         $scope.changeEmail = function(ev) {

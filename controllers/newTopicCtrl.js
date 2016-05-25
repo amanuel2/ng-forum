@@ -1,9 +1,9 @@
 (function(angular) {
     var app = angular.module('ForumApp')
 
-    app.controller('newTopicCtrl', ["$scope", "$mdDialog", "refService", "currentAuth", newTopicCtrl])
+    app.controller('newTopicCtrl', ["$scope", "$mdDialog", "refService", "currentAuth","$mdBottomSheet", newTopicCtrl])
 
-    function newTopicCtrl($scope, $mdDialog, refService, currentAuth) {
+    function newTopicCtrl($scope, $mdDialog, refService, currentAuth,$mdBottomSheet) {
         $scope.hide = function() {
             $mdDialog.hide();
         };
@@ -13,6 +13,9 @@
         $scope.answer = function(answer) {
             $mdDialog.hide(answer);
         };
+        $scope.logicToGoBack = function(){
+            $mdBottomSheet.cancel()
+        }
         $scope.submitNewTopic = function() {
 
             refService.ref().child("UserAuthInfo").child(currentAuth.uid).on("value", function(snapshot) {

@@ -82,10 +82,24 @@ span.time_since.ng-binding {
     bottom: 130px;
     height: 60px;
 }
+.buttonBackIcon{
+    right:20px;
+}
+span.GOBACKBUTTON {
+    left: -45px;
+    position: relative;
+}
     </style>
 </head>
 <div class="encloseTopic">
-<strong><h1 id="CREATOR_TITLE">{{creatorTitle}}</h1></strong>
+    <span class="GOBACKBUTTON">
+        <md-button class="md-icon-button" aria-label="GoBackIconButton" ng-click="goBackTopic();" id="buttonBackIcon" class="buttonBackIcon">
+            <ng-md-icon icon="arrow_back" style="fill: black" size="20" ></ng-md-icon> 
+        </md-button>
+    </span>
+<strong>
+    <h1 id="CREATOR_TITLE">{{creatorTitle}}</h1>
+</strong>
 <md-divider class="dividerTitle">
 </md-divider>
 <div>
@@ -93,12 +107,13 @@ span.time_since.ng-binding {
         {{timeSinceCreated}}
     </span>
 </div>
-<span >
+<span class="back_button">
     <img src="{{creatorAvatar}}" width="45" height="45" class="avatar_creator"/>
 </span>
 <span class="username_creator">
     <strong><span>{{creatorUsername}}</span></strong>
 </span>
+
 
 <div class="topic_sentence">
     {{creatorValue}}
@@ -145,7 +160,7 @@ span.time_since.ng-binding {
             <img ng-src="{{reps.replyCreatorAvatar}}" class="md-avatar cursors_AV" alt="Something Went Wong" ng-click="goToProfile(reps);" href="javascript:void(0);"/>
 
             <div class="md-list-item-text">
-                <h3 class="cursors_AV" ng-click="goToProfile(reps);"> {{reps.replyCreatorUsername}} </h3>
+                <h3 class="cursors_AV" ng-click="goToProfile(reps,$event);"> {{reps.replyCreatorUsername}} </h3>
                 <p> {{reps.replyCreatorValue}} </p>
             </div>
             <md-button class="md-secondary md-icon-button" aria-label="call">

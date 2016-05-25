@@ -20,7 +20,7 @@ br {
     position: relative;
     top: 60px;
     text-align: center;
-    height: 1000px;
+    /* height: 1000px;why do you need this? */
 }
 
 #PasswordIcon {

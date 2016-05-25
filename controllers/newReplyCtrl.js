@@ -21,7 +21,7 @@
                 $scope.userEmail = snapshot.val().Email;
 
             })
-            refService.ref().child("Replies").child(replyService.creatorUsername + replyService.creatorDate).push({
+            var pushingR = refService.ref().child("Replies").child(replyService.creatorUsername + replyService.creatorDate).push({
                 replyCreatorUsername : $scope.userName,
                 replyCreatorAvatar : $scope.userAvatar,
                 replyCreatorEmail : $scope.userEmail,
@@ -36,7 +36,10 @@
                 topicCreatorSince : replyService.timeSinceCreated
                 
             })
-            $mdDialog.hide();
+            refService.ref().child("Replies").child(replyService.creatorUsername + replyService.creatorDate).child(pushingR.key()).update({
+                    pushKey : pushingR.key()
+                })
+            $mdDialog.cancel();
         }
 
     }
