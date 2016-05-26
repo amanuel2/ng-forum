@@ -28,8 +28,11 @@ What makes this unique, is that this is the only open source AngularJS forum bui
 
 ```bash
 $ npm install
+$ npm install bower -g
 $ bower install
 ```
+
+If problems like npm is not defined, then you have to install NodeJS and NPM, or any other problems Please take a look on the [Wiki Page](https://github.com/amanuel2/ng-forum/wiki)
 
 ## Is this being built collaboratively?
 
