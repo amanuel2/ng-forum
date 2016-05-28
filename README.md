@@ -11,7 +11,7 @@ This project currently under development and bugs are known to happen! However, 
 
 ## Demo
 
-Yes, [here](http://ng-forum.site88.net) is the demo.[AS OF 5/25/2016]
+Yes, [here](http://ng-forum.site88.net) is the demo.[AS OF 5/25/2016] . We do reset accounts and data, for testing purposes.
 
 ## Any News?
 Yes, we are not going to post for long, because we are going to make a massive update! With completely redisigned UI,Backend, and new Feautres
