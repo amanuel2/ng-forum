@@ -1,0 +1,49 @@
+       .listdemoListControls md-divider {
+  margin-top: 0;
+  margin-bottom: 0; }
+
+.listdemoListControls md-list {
+  padding-top: 0; }
+
+.listdemoListControls md-list-item > p,
+.listdemoListControls md-list-item > ._md-list-item-inner > p,
+.listdemoListControls md-list-item ._md-list-item-inner > p,
+.listdemoListControls md-list-item ._md-list-item-inner > ._md-list-item-inner > p {
+  -webkit-user-select: none;
+  /* Chrome all / Safari all */
+  -moz-user-select: none;
+  /* Firefox all */
+  -ms-user-select: none;
+  /* IE 10+ */
+  user-select: none;
+  /* Likely future */ }
+#MD-ICON-1 {
+    position: relative;
+    left: -40px;
+    bottom: -23px;
+}
+
+.avatar_creator {
+    border-radius: 50%;
+    position: relative;
+    height:30px;
+    top:10px;
+    width:30px;
+}
+ .toolbar_new_topic {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+    }
+    
+    #NEW_TOPIC_BUTTON {
+      /*position: RELATIVE;*/
+      /*left: 500px;*/
+      /*1620*/
+      /*right: -300px;*/
+      /*align-self: flex-end;*/
+
+      background-color: #81C784;
+      font-weight: bold;
+      margin-right: 50px;
+    }

@@ -1,41 +1,14 @@
 <head>
-    <style type="text/css">
-        .listdemoListControls md-divider {
-  margin-top: 0;
-  margin-bottom: 0; }
-
-.listdemoListControls md-list {
-  padding-top: 0; }
-
-.listdemoListControls md-list-item > p,
-.listdemoListControls md-list-item > ._md-list-item-inner > p,
-.listdemoListControls md-list-item ._md-list-item-inner > p,
-.listdemoListControls md-list-item ._md-list-item-inner > ._md-list-item-inner > p {
-  -webkit-user-select: none;
-  /* Chrome all / Safari all */
-  -moz-user-select: none;
-  /* Firefox all */
-  -ms-user-select: none;
-  /* IE 10+ */
-  user-select: none;
-  /* Likely future */ }
-#MD-ICON-1 {
-    position: relative;
-    left: -40px;
-    bottom: -23px;
-}
-
-.avatar_creator {
-    border-radius: 50%;
-    position: relative;
-    height:30px;
-    top:10px;
-    width:30px;
-}
-    </style>
+    <link rel="stylesheet" href="views/assets/css/files/authDesc.css" type="text/css" />
 </head>
 
-  <md-autocomplete
+<div class="toolbar_new_topic">
+  <md-button id="NEW_TOPIC_BUTTON" ng-click="showNewTopic($event)">
+    <ng-md-icon icon="add_box" style="fill: white" size="20" id="add_icon"></ng-md-icon>
+    <span id="text_new_topic" color="white">New Topic</span>
+  </md-button>
+</div>
+    <md-autocomplete
                            md-search-text="searchText"
                            md-items="topic in topicName | filter:searchText"
                            md-selected-item="selectedItem"
@@ -53,14 +26,14 @@
         <md-not-found>
           No Match found... Please try again.
         </md-not-found>
-      </md-autocomplete>
+    </md-autocomplete>
       
       
 <md-list ng-cloak="" class="listdemoListControls">
   <md-subheader class="md-no-sticky"><h1>Forum Questions</h1></md-subheader>
   
   
-  <md-list-item ng-repeat="top in topic" ng-click="goToTopic(top.Avatar,top.DateCreated,top.Email,top.Title,top.UID,top.Username,top.Value);" class="noright">
+  <md-list-item ng-repeat="top in topic" ng-click="goToTopic(top.Avatar,top.DateCreated,top.Email,top.Title,top.UID,top.Username,top.Value,top.Postnum);" class="noright">
     <img alt="{{ top.Avatar }}" src="{{ top.Avatar }}" class="md-avatar" />
     <p>{{ top.Title }}</p>
     <md-checkbox class="md-secondary"></md-checkbox>

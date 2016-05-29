@@ -1,21 +1,31 @@
 (function(angular) {
     var app = angular.module('ForumApp')
 
-    app.controller('topicCtrl', ["$scope", "$stateParams", "refService", "currentAuth", "dateService", "timeService", "$mdMedia", "$mdDialog", "replyService", "$firebaseObject", "$state","otherUserService", topicCtrl])
+    app.controller('topicCtrl', ["$scope", "$stateParams", "refService", "currentAuth","editReplyService", "dateService", "timeService", "$mdMedia", "$mdDialog", "replyService", "$firebaseObject", "$state","otherUserService","editTopicService", topicCtrl])
 
 
-    function topicCtrl($scope, $stateParams, refService, currentAuth, dateService, timeService, $mdMedia, $mdDialog, replyService, $firebaseObject, $state,otherUserService) {
+    function topicCtrl($scope, $stateParams, refService, currentAuth, editReplyService,dateService, timeService, $mdMedia, $mdDialog, replyService, $firebaseObject, $state,otherUserService,editTopicService) {
         //SETTING INFO
-        $scope.creatorAvatar = $stateParams.AVATAR;
-        $scope.creatorTitle = $stateParams.TITLE;
-        $scope.creatorUID = $stateParams.UID;
-        $scope.creatorUsername = $stateParams.USERNAME;
-        $scope.creatorValue = $stateParams.VALUE;
-        $scope.creatorDate = $stateParams.DATE;
-        $scope.creatorEmail = $stateParams.EMAIL;
-        $scope.timeSinceCreated = timeService.getTimeF(new Date(parseInt($scope.creatorDate)));
-        var dateCheck = new Date(parseInt($scope.creatorDate));
-        $scope.creatorDate = timeService.getTimeF(dateCheck);
+        refService.ref().child("Topics").on("value", function(snapshot){
+            snapshot.forEach(function(EVEN){
+                var key = EVEN.key();
+                var childData = EVEN.val();
+                
+                if(childData.Postnum == $stateParams.POST){
+                    $scope.creatorAvatar = childData.Avatar
+                    $scope.creatorTitle = childData.Title;
+                    $scope.creatorUID = childData.UID;
+                    $scope.creatorUsername = childData.Username;
+                    $scope.creatorValue = childData.Value;
+                    $scope.creatorDate = childData.DateCreated;
+                    $scope.creatorEmail = childData.Email;
+                    $scope.timeSinceCreated = timeService.getTimeF(new Date(parseInt($scope.creatorDate)));
+                    var dateCheck = new Date(parseInt($scope.creatorDate));
+                    $scope.creatorDateParsed = timeService.getTimeF(dateCheck);
+                }
+            })
+        })
+        
 
         //Setting Views
         //Adding Them..
@@ -104,7 +114,7 @@
 
         //SETTING REPLIES
 
-        $scope.replies = $firebaseObject(refService.ref().child("Replies").child($scope.creatorUsername + $stateParams.DATE))
+        $scope.replies = $firebaseObject(refService.ref().child("Replies").child($scope.creatorUsername + $stateParams.DATE));
         $scope.actualReplyUser= $firebaseObject(refService.ref().child("UserAuthInfo").child($scope.creatorUID));
 
         //Getting ClickProfile Set Up...
@@ -140,11 +150,101 @@
             } else {
                 return null;
             }
+            console.log(info);
+        }
+        
+        $scope.editReply = function(ev,reps){
+            if(ev){
+                
+                editReplyService.setInfo(
+                                            $stateParams.USERNAME, 
+                                            $stateParams.DATE, 
+                                            currentAuth.uid);
+                    $mdDialog.show({
+                            controller: 'editReplyCtrl',
+                            templateUrl: 'views/editReply.html',
+                            parent: angular.element(document.body),
+                            resolve: {
+                                // controller will not be loaded until $waitForAuth resolves
+                                // Auth refers to our $firebaseAuth wrapper in the example above
+                                "currentAuth": ["refService", function(refService) {
+                                    // $waitForAuth returns a promise so the resolve waits for it to complete
+                                    return refService.refAuth().$requireAuth();
+                                }]
+                            },
+                            targetEvent: ev,
+                            clickOutsideToClose: true,
+                            },
+                      $mdDialog.alert()
+                            .openFrom({
+                              top: -50,
+                              width: 30,
+                              height: 80
+                            })
+                            .closeTo({
+                              left: 1500
+                            })
+                );
+            }
+            else{
+                if(true)
+                    return null;
+            }
+        }
+        
+        $scope.editValue = function(ev){
+            
+            if(ev){
+                editTopicService.setDateCreated($stateParams.DATE);
+                var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
+                $mdDialog.show({
+                        controller: 'editTopicCtrl',
+                        templateUrl: 'views/editTopic.html',
+                        parent: angular.element(document.body),
+                        resolve: {
+                            // controller will not be loaded until $waitForAuth resolves
+                            // Auth refers to our $firebaseAuth wrapper in the example above
+                            "currentAuth": ["refService", function(refService) {
+                                // $waitForAuth returns a promise so the resolve waits for it to complete
+                                return refService.refAuth().$requireAuth();
+                            }]
+                        },
+                        targetEvent: ev,
+                        clickOutsideToClose: true,
+                        fullscreen: useFullScreen
+                    })
+                    .then(function(answer) {
+                        //Then Argument
+                    }, function() {
+                        //Canceled Dialog
+                    });
+                
+            }else{
+                return null;
+            }
         }
 
-
+        $scope.funcCheckEDIT = function(reps){
+            // console.log("CURRENT AUTH UID" + currentAuth.uid);
+            // console.log("CREATOR UID " + $scope.creatorUID);
+            if(currentAuth.uid == reps.replyCreatorUID){
+                return true;
+            }
+                    
+            else{
+                return false;
+            }      
+        }
         $scope.goBackTopic = function(){
             $state.go('authHome.desc')
+        }
+        
+        $scope.replyUserSec = function(rep){
+            if(currentAuth.uid == rep.replyCreatorUID)
+                return true;
+            
+            else
+                return false;
         }
         $scope.replyTopic = function(ev) {
             replyService.setTopicInfo($scope.creatorAvatar, $scope.creatorTitle, $scope.creatorUID, $scope.creatorUsername,

@@ -1,5 +1,5 @@
 (function(angular){
-    var app = angular.module('ForumApp')
+    var app = angular.module('ForumApp');
     
     app.service('authCheckTrueService', ["$state" , authCheckService]);
     

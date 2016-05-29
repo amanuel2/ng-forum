@@ -17,13 +17,9 @@
           background: -webkit-radial-gradient(closest-corner, rgba(16, 47, 70, 0) 60%, rgba(16, 47, 70, 0.26)), -webkit-linear-gradient(108deg, #26d0ce, #1a2980 90%);
         }
         
-        body {
-          width: 100%;
-          height: 100%;
-          background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAADCAYAAABWKLW/AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAB9JREFUeNpiZmBg6AZiDiBWZ4YyQMCOCcYA4kMAAQYAHyYCCUdxidgAAAAASUVORK5CYII=");
-        }
         .avatar_creatorS {
             border-radius: 50%;
+            border-color:black;
             position: relative;
             width: 50px;
             height: 50px;
@@ -33,6 +29,11 @@
         .otherUserProfile-wrapper {
             box-sizing: border-box;
         }
+        button.private_chat.md-button.md-ink-ripple {
+    position: relative;
+    left: 800px;
+    bottom: 180px;
+}
     </style>
 </head>
 <md-dialog aria-label="Mango (Fruit)"  ng-cloak>
@@ -51,6 +52,9 @@
        Username : <span class="md-headline">{{otherUserUsername}}</span><br>
       <span class="md-subhead description"> {{otherMod}} </span><br>
       Description: <span class="md-subhead description">{{otherDesc}}</span><br>
+      <md-button class="md-icon-button private_chat" aria-label="chat" ng-click="privateMessageStart(otherUserUsername,otherMod,otherDesc,otherUserImage);">
+          <ng-md-icon icon="chat_bubble" style="fill: #0affcf" size="20"></ng-md-icon> 
+      </md-button>
       
       <h1>Topics Made</h1>
         <md-list-item ng-repeat="top in userInfoTopics" ng-click="goToTopic(top);" class="noright">

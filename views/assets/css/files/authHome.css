@@ -1,0 +1,50 @@
+ .avatar {
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      position: relative;
+      right: 13px;
+      /*bottom: 10px;*/
+    }
+
+    md-toolbar.md-hue-2 {
+      position: relative;
+      /*bottom: 18px;*/
+    }
+
+    button.md-icon-button.md-button.md-ink-ripple {
+      width: 80px;
+      height: 60px;
+    }
+
+      
+
+    #add_icon {
+      position: relative;
+      bottom: -4px;
+    }
+
+
+    #add_icon {
+      position: relative;
+      bottom: -4px;
+    }
+    
+    .toolbardemoBasicUsage {
+      margin-bottom: 20px;
+    }
+    
+   
+    
+    .menu-md-toolbar {
+      height: 500px;
+    }
+    
+    @media (max-width: 960px) {
+      .avatar {
+      }
+    }
+    button.md-icon-button.notifications_icon.md-button.md-ink-ripple {
+      top: 2px;
+    }
+    

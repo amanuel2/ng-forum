@@ -1,58 +1,9 @@
 <head>
-  <style>
-    .avatar {
-      height: 50px;
-      width: 50px;
-      border-radius: 50%;
-      position: relative;
-      right: 13px;
-      /*bottom: 10px;*/
-    }
-
-    md-toolbar.md-hue-2 {
-      position: relative;
-      /*bottom: 18px;*/
-    }
-
-    button.md-icon-button.md-button.md-ink-ripple {
-      width: 80px;
-      height: 60px;
-    }
-
-          #NEW_TOPIC_BUTTON {
-      position: RELATIVE;
-      /*left: 500px;*/
-      /*1620*/
-      /*right: -300px;*/
-      align-self: flex-end;
-
-      background-color: #81C784;
-      font-weight: bold;
-    }
-
-    #add_icon {
-      position: relative;
-      bottom: -4px;
-    }
-
-
-    #add_icon {
-      position: relative;
-      bottom: -4px;
-    }
-    
-    .toolbardemoBasicUsage {
-      margin-bottom: 20px;
-    }
-  </style>
+  <link rel="stylesheet" href="views/assets/css/files/authHome.css" type="text/css" />
 </head>
 
 <div class="toolbardemoBasicUsage">
-
   <md-content>
-
-    <!--<br>-->
-
     <md-toolbar class="md-hue-2">
       <div class="md-toolbar-tools">
         <md-button class="md-icon-button" aria-label="Menu">
@@ -62,8 +13,9 @@
           <span>Welcome {{Username}}</span>
         </h2>
         <span flex=""></span>
-        <md-button class="md-icon-button" aria-label="Favorite">
-          <md-icon md-svg-icon="img/icons/favorite.svg" style="color: greenyellow;"></md-icon>
+        <md-button class="md-icon-button notifications_icon" aria-label="Favorite">
+          <ng-md-icon icon="notifications_none" style="fill: greenyellow;" size="30"></ng-md-icon> 
+          <!--notifications_active-->
         </md-button>
 
 
@@ -97,27 +49,12 @@
               </md-button>
             </md-menu-item>
           </md-menu-content>
-
-
         </md-menu>
 
       </div>
     </md-toolbar>
 </div>
 
-<div class="toolbar_new_topic">
-  <md-button id="NEW_TOPIC_BUTTON" ng-click="showNewTopic($event)" flex="100" flex-gt-md="auto">
-    <ng-md-icon icon="add_box" style="fill: white" size="20" id="add_icon"></ng-md-icon>
-    <span id="text_new_topic" color="white">New Topic</span>
-  </md-button>
-<!--  <md-input-container class="md-icon-float md-icon-right md-block">
-    <label>Search topics</label>
-    <input ng-model="topics.model" type="text">
-    <md-icon md-svg-src=""></md-icon>
-  </md-input-container>
-  -->
-  
-</div>
 
 <div ui-view>
 

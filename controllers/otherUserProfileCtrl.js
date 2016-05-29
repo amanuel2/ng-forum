@@ -67,6 +67,9 @@
         };
         
 
+$scope.privateMessageStart = function(username,mod,desc,image){
+    $state.go("authHome.privateMes")
+}
 $scope.goToTopic = function(top){
     $state.go("authHome.topic", {
         "AVATAR": $scope.otherUserImage,

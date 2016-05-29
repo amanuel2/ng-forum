@@ -1,171 +1,138 @@
-
 <head>
-    <style type="text/css">
-        #CREATOR_TITLE {
-            color:#204056;
-        }
-        .toolbar_new_topic{
-            display:none;
-        }
-        .dividerTitle {
-    width: 500px;
-}
-.encloseTopic.ng-scope {
-    padding-left: 60px;
-}
-.avatar_creator {
-    border-radius: 50%;
-    position: relative;
-    top: 20px;
-}
-span.username_creator {
-    position: relative;
-    top: 3px;
-}
-.topic_sentence {
-    position: relative;
-    width: 1001px;
-    height: 350px;
-    top: 40px;
-    left: 60px;
-    color: #204056;
-    font-family: Helvetica,Arial,sans-serif;
-    font-size: 14px;
-    line-height: 19px;
-}
-span.time_since.ng-binding {
-    position: relative;
-    left: 400px;
-    top: 20px;
-}
-.enclose_replies.ng-scope {
-    position: relative;
-    bottom: 180px;
-}
-        button#REPLY_BUTTON {
-            position: relative;
-            top: -150px;
-            left: 600px;
-        }
-        span#date_reply {
-            position: relative;
-            left: 700px;
-        }
-        .cursors_AV:hover{
-            cursor:pointer;
-        }
-        .upvote_icons.ng-scope {
-    position: relative;
-    bottom: 550px;
-    left: 600px;
-}
-.down_vote_button {
-    position: relative;
-    top: 40px;
-}
-.already_voted_sign.ng-scope {
-    position: relative;
-    bottom: 490px;
-    left: 590px;
-}
-.views_view_count {
-    /* left: 20px; */
-    position: relative;
-    left: 640px;
-    top: -440px;
-}
-.topic_sentence.ng-binding {
-    width: 500px;
-}
-.stats_enclose {
-    position: relative;
-    bottom: 130px;
-    height: 60px;
-}
-.buttonBackIcon{
-    right:20px;
-}
-span.GOBACKBUTTON {
-    left: -45px;
-    position: relative;
-}
-    </style>
+    <link rel="stylesheet" href="views/assets/css/files/topicDesc.css" type="text/css" />
 </head>
-<div class="encloseTopic">
+
+<div class="topic-desc-wrapper">
+    
     <span class="GOBACKBUTTON">
         <md-button class="md-icon-button" aria-label="GoBackIconButton" ng-click="goBackTopic();" id="buttonBackIcon" class="buttonBackIcon">
             <ng-md-icon icon="arrow_back" style="fill: black" size="20" ></ng-md-icon> 
+            <!--<ng-md-icon icon="arrow_back"class="back-arrow"></ng-md-icon> -->
         </md-button>
     </span>
-<strong>
-    <h1 id="CREATOR_TITLE">{{creatorTitle}}</h1>
-</strong>
-<md-divider class="dividerTitle">
-</md-divider>
-<div>
-    <span class="time_since">
-        {{timeSinceCreated}}
-    </span>
-</div>
-<span class="back_button">
-    <img src="{{creatorAvatar}}" width="45" height="45" class="avatar_creator"/>
-</span>
-<span class="username_creator">
-    <strong><span>{{creatorUsername}}</span></strong>
-</span>
-
-
-<div class="topic_sentence">
-    {{creatorValue}}
-</div>
-    <md-button class="md-raised md-warn" id="REPLY_BUTTON" ng-click="replyTopic($event)">
-        Reply
-    </md-button>
-
-    <div class="stats_enclose">
-        <span>Views : {{countViews}}</span>
-    </div>    
-</div>
-
-<div ng-if="upVoteCount || downVoteCount" class="already_voted_sign">
-        ALREADY VOTED!
-    </div>
-        <div class="views_view_count">
-            <h2>{{votesCount}}</h2>
-        </div>
-<div class="upvote_icons" ng-if="!upVoteCount && !downVoteCount">
     
-    <md-button class="md-icon-button" aria-label="Custom Icon Button" ng-click="upVote();">
-         <ng-md-icon icon="thumb_up" style="fill: black" size="20"></ng-md-icon>  
-    </md-button>
-
-    <div class="down_vote_button">
-        <md-button class="md-icon-button" aria-label="Custom Icon Button" ng-click="downVote();">
-             <ng-md-icon icon="thumb_down" style="fill: black" size="20"></ng-md-icon> 
-        </md-button>
-    </div>
-</div>
-
-
-
-<div class="enclose_replies">
-    <md-list>
-
-        <h1 class="md-no-sticky">Replies</h1>
-        <md-list-item class="md-2-line" ng-repeat="reps in replies">
-            <br><br><br><br><br><br><br>
-            <md-divider ></md-divider>
-           <span id="date_reply">{{reps.replyCreatorDate | dateFilter}}</span>
-            <ng-md-icon icon="phone" style="fill: white" size="20"></ng-md-icon>
-            <img ng-src="{{reps.replyCreatorAvatar}}" class="md-avatar cursors_AV" alt="Something Went Wong" ng-click="goToProfile(reps);" href="javascript:void(0);"/>
-
-            <div class="md-list-item-text">
-                <h3 class="cursors_AV" ng-click="goToProfile(reps,$event);"> {{reps.replyCreatorUsername}} </h3>
-                <p> {{reps.replyCreatorValue}} </p>
+    
+    <h1 class="topic-title">{{creatorTitle}}</h1>
+    
+        <div class="post-info">
+            <div class="author-info">
+                <img src="{{creatorAvatar}}" class="author-avatar"/>
+                <span class="author-username">{{creatorUsername}}</span>
             </div>
-            <md-button class="md-secondary md-icon-button" aria-label="call">
-                <ng-md-icon icon="phone" style="fill: white" size="20"></ng-md-icon>
-            </md-button>
-        </md-list-item>
-    </md-list>
+            <div class="topic-stats">
+                <span class="views-stat">Views: {{countViews}}</span>
+                <span>{{timeSinceCreated}}</span>
+            </div>
+        </div> <!-- END OF POST-INFO -->
+        
+        <div class="topic-sentence">
+            <p class="topic-text">{{creatorValue}}</p>
+        </div>
+        
+        <div class="topic-buttons">
+            <div class="topic-votes">
+                <div ng-if="upVoteCount || downVoteCount">
+                        <span class="already-voted">ALREADY VOTED!</span>
+                </div>
+                <span class="vote-counting">{{votesCount}}</span>
+                
+                <div ng-if="!upVoteCount && !downVoteCount">
+                    <md-button class="md-icon-button" aria-label="Custom Icon Button" ng-click="upVote();">
+                        <ng-md-icon icon="thumb_up" style="fill: black" size="20"></ng-md-icon>
+                    </md-button>
+                </div>
+        
+                <div class="down_vote_button">
+                    <md-button class="md-icon-button" aria-label="Custom Icon Button" ng-click="downVote();">
+                        <ng-md-icon icon="thumb_down" style="fill: black" size="20"></ng-md-icon>
+                    </md-button>
+                </div>
+                
+                <md-button class="md-raised md-warn" id="replyButtonTopic" ng-click="replyTopic($event)">
+                    Reply
+                </md-button>
+            </div>
+            <!-- share, like, edi id="replyButtonTopic"t, delete -->
+            
+        </div> <!-- END OF TOPIC-BUTTONS DIV -->
+        
+        <md-list>
+            <h2 class="replies-title">Replies</h2>
+            <md-list-item class="comment" ng-repeat="reps in replies">
+                <!-- User Block --> 
+                
+                <div class="author-info">
+                    <img ng-src="{{reps.replyCreatorAvatar}}" class="md-avatar cursors_AV" alt="Something Went Wong" ng-click="goToProfile(reps);" href="javascript:void(0);" />
+                    <div class="md-list-item-text">
+                        <h3 class="cursors_AV" ng-click="goToProfile(reps,$event);"> {{reps.replyCreatorUsername}} </h3>
+                        <p> {{reps.replyCreatorValue}} </p>
+                    </div>
+                </div>
+                
+                <!-- Comment  oBlock -->
+                <div class="comment-info">
+                    <span>{{reps.replyCreatorDate | dateFilter}}</span>
+                </div>
+                <!-- end of comment -->
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <div class="buttons-wrapper"> 
+                    <span ng-if="funcCheckEDIT(reps);">
+                        
+                        <span ng-if="replyUserSec(reps)">
+                            <md-button class="md-icon-button" ng-click="editValue($event);">
+                                <ng-md-icon icon="edit" style="fill: #ff6400;" size="20"></ng-md-icon> 
+                            </md-button>
+                        </span>
+                        
+                        <md-button class="md-icon-button" ng-click="">
+                            <ng-md-icon icon="delete" style="fill: #ff6400;" size="20"></ng-md-icon> 
+                        </md-button>
+                        
+                        <!--When user clicks toggle to check_box -->
+                        <md-button class="md-icon-button" ng-click="">
+                            <ng-md-icon icon="check_box_outline_blank" style="fill: #ff6400;" size="20"></ng-md-icon> 
+                        </md-button>
+                        
+                        <!--When user clicks favorite to star -->
+                        <md-button class="md-icon-button" ng-click="">
+                            <ng-md-icon icon="favorite_border" style="fill: #ff6400;" size="20"></ng-md-icon> 
+                        </md-button>
+                        
+                        <md-button class="md-icon-button" ng-click="">
+                            <ng-md-icon icon="share" style="fill: #ff6400;" size="20"></ng-md-icon> 
+                        </md-button>
+                        
+                        <md-button class="md-icon-button" ng-click="">
+                            <ng-md-icon icon="flag" style="fill: #ff6400;" size="20"></ng-md-icon> 
+                        </md-button>
+                        
+                    </span>
+                    <md-button class="md-accent" ng-click="replyTopic($event)">
+                         <ng-md-icon icon="reply" style="fill: #0affcf;" size="20"></ng-md-icon>
+                        <strong>Reply</strong>
+                    </md-button>
+                </div>
+            <div>
+            </div>
+            </md-list-item>
+        </md-list>
 </div>

@@ -14,6 +14,7 @@
             $mdDialog.hide(answer);
         };
         
+        
         $scope.uploadFile = function(event){
             var doc = document.getElementById('inputFileToLoad');
             var file = document.getElementById('inputFileToLoad').files;

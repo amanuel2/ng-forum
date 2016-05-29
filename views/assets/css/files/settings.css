@@ -1,0 +1,42 @@
+       .toolbar_new_topic{
+            display:none;
+        }
+        .md_content_settings {
+            width: 1200px;
+            height: 1800px;
+        }
+        .avatarr{
+            
+              height: 50px;
+              width: 50px;
+              border-radius: 50%;
+              position: relative;
+              right: 13px;
+            
+        }
+        
+        .info {
+            padding: 10px;
+            font-weight: bold;
+        }
+        
+        .setting-title {
+            margin-left: 30px;
+        }
+        
+        .settings-wrapper {
+            padding: 20px;
+        }
+        
+        .avatar-img {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        
+        .avatarr {
+            right: 0;
+            bottom: -20px;
+        }
+        md-tabs.ng-isolate-scope.md-default-theme {
+            height: 500px;
+        }

@@ -50,37 +50,7 @@
             })
         }
 
-        $scope.showNewTopic = function(ev) {
-            if (ev) {
-
-
-                var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
-                    $mdBottomSheet.show({
-                      controller: 'newTopicCtrl',
-                        templateUrl: 'views/newTopic.html',
-                        parent: angular.element(document.body),
-                        resolve: {
-                            // controller will not be loaded until $waitForAuth resolves
-                            // Auth refers to our $firebaseAuth wrapper in the example above
-                            "currentAuth": ["refService", function(refService) {
-                                // $waitForAuth returns a promise so the resolve waits for it to complete
-                                return refService.refAuth().$requireAuth();
-                            }]
-                        },            
-                        targetEvent: ev,
-                        clickOutsideToClose: true,
-                        fullscreen: useFullScreen
-                    }).then(function(clickedItem) {
-                      $scope.alert = clickedItem['name'] + ' clicked!';
-                    });
-
-            }
-
-            else {
-
-
-            }
-        }
+       
 
     }
 

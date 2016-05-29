@@ -1,0 +1,95 @@
+<head>
+    <link rel="stylesheet" href="views/assets/css/files/topicDesc.css" type="text/css" />
+    <style type="text/css">
+
+    </style>
+</head>
+<div class="encloseTopic">
+    <span class="GOBACKBUTTON">
+        <md-button class="md-icon-button" aria-label="GoBackIconButton" ng-click="goBackTopic();" id="buttonBackIcon" class="buttonBackIcon">
+            <ng-md-icon icon="arrow_back" style="fill: black" size="20" ></ng-md-icon> 
+        </md-button>
+    </span>
+    <h1 id="CREATOR_TITLE">{{creatorTitle}}</h1>
+    <md-divider class="dividerTitle"></md-divider>
+    <div class="post-info">
+        <div class="author-info">
+            <span class="back_button">
+                <img src="{{creatorAvatar}}" class="avatar_creator"/>
+            </span>
+            <span class="username_creator">
+               <span class="creatorUsername" style="cursor:pointer;">{{creatorUsername}}</span>
+            </span>
+        </div>
+        <span class="time_since">
+            {{timeSinceCreated}}
+        </span>
+    </div>
+
+
+    <div class="topic_sentence">
+        {{creatorValue}}
+    </div>
+    
+    <span class="edit_topic" ng-if="funcCheckEDIT();">
+        <md-button class="md-icon-button edit_topic_btn" ng-click="editValue($event);">
+                <ng-md-icon icon="edit" style="fill: #ff6400" size="20"></ng-md-icon> 
+        </md-button>
+    </span>
+    <md-button class="md-raised md-warn" id="REPLY_BUTTON" ng-click="replyTopic($event)">
+        Reply
+    </md-button>
+
+    <div class="stats_enclose">
+        <span>Views : {{countViews}}</span>
+    </div>
+</div>
+
+<div ng-if="upVoteCount || downVoteCount" class="already_voted_sign">
+    ALREADY VOTED!
+</div>
+<div class="views_view_count">
+    <h2>{{votesCount}}</h2>
+</div>
+<div class="upvote_icons" ng-if="!upVoteCount && !downVoteCount">
+
+    <md-button class="md-icon-button" aria-label="Custom Icon Button" ng-click="upVote();">
+        <ng-md-icon icon="thumb_up" style="fill: black" size="20"></ng-md-icon>
+    </md-button>
+
+    <div class="down_vote_button">
+        <md-button class="md-icon-button" aria-label="Custom Icon Button" ng-click="downVote();">
+            <ng-md-icon icon="thumb_down" style="fill: black" size="20"></ng-md-icon>
+        </md-button>
+    </div>
+</div>
+
+
+
+<div class="enclose_replies">
+    <md-list>
+        <h1 class="md-no-sticky">Replies</h1>
+        <md-list-item class="md-2-line" ng-repeat="reps in replies">
+            <br><br><br><br><br><br><br>
+            <md-divider></md-divider>
+            <span id="date_reply">{{reps.replyCreatorDate | dateFilter}}</span>
+            <ng-md-icon icon="phone" style="fill: white" size="20"></ng-md-icon>
+            <img ng-src="{{reps.replyCreatorAvatar}}" class="md-avatar cursors_AV" alt="Something Went Wong" ng-click="goToProfile(reps);" href="javascript:void(0);" />
+
+            <div class="md-list-item-text">
+                <h3 class="cursors_AV" ng-click="goToProfile(reps,$event);"> {{reps.replyCreatorUsername}} </h3>
+                <p> {{reps.replyCreatorValue}} </p>
+            </div>
+            
+             <span ng-if="replyUserSec(reps)">
+                    <md-button class="md-icon-button reply_icon" ng-click="editReply($event,reps);">
+                          <ng-md-icon icon="edit" style="fill: #ff6400" size="20"></ng-md-icon> 
+                    </md-button>
+             </span>
+    
+            <md-button class="md-secondary md-icon-button" aria-label="call">
+                <ng-md-icon icon="phone" style="fill: white" size="20"></ng-md-icon>
+            </md-button>
+        </md-list-item>
+    </md-list>
+</div>

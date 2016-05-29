@@ -1,9 +1,9 @@
 (function(angular) {
   var app = angular.module('ForumApp');
 
-  app.controller('authDescCtrl', ["$scope", "$mdDialog", "$state", "$firebaseObject","refService","currentAuth","$firebaseArray",authDescCtrl])
+  app.controller('authDescCtrl', ["$scope", "$mdDialog", "$state","$mdMedia", "$mdBottomSheet","$firebaseObject","refService","currentAuth","$firebaseArray",authDescCtrl])
   
-  function authDescCtrl($scope, $mdDialog, $state, $firebaseObject,refService,currentAuth,$firebaseArray){
+  function authDescCtrl($scope, $mdDialog, $state,$mdMedia,$mdBottomSheet, $firebaseObject,refService,currentAuth,$firebaseArray){
     
       $scope.topic = $firebaseObject(refService.ref().child("Topics"))
       $scope.topicName = $firebaseArray(refService.ref().child("Topics"))
@@ -18,27 +18,49 @@
         .targetEvent(event)
       );
     };
+    
+     $scope.showNewTopic = function(ev) {
+            if (ev) {
+
+
+                var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
+                    $mdBottomSheet.show({
+                      controller: 'newTopicCtrl',
+                        templateUrl: 'views/newTopic.html',
+                        parent: angular.element(document.body),
+                        resolve: {
+                            // controller will not be loaded until $waitForAuth resolves
+                            // Auth refers to our $firebaseAuth wrapper in the example above
+                            "currentAuth": ["refService", function(refService) {
+                                // $waitForAuth returns a promise so the resolve waits for it to complete
+                                return refService.refAuth().$requireAuth();
+                            }]
+                        },            
+                        targetEvent: ev,
+                        clickOutsideToClose: true,
+                        fullscreen: useFullScreen
+                    }).then(function(clickedItem) {
+                      $scope.alert = clickedItem['name'] + ' clicked!';
+                    });
+
+            }
+
+            else {
+
+
+            }
+        }
 
     $scope.goToTOPICAUTCOMPLETE = function(info){
       $state.go("authHome.topic", {
-        "AVATAR": info.Avatar,
-        "DATE": info.DateCreated,
-        "EMAIL": info.Email,
-        "TITLE": info.Title,
-        "UID": info.UID,
         "USERNAME": info.Username,
-        "VALUE": info.Value
+        "POST": info.Postnum
       })
     }
-    $scope.goToTopic = function(avatar, date, email, title, uid, username, value) {
+    $scope.goToTopic = function(avatar, date, email, title, uid, username, value, postnum) {
       $state.go("authHome.topic", {
-        "AVATAR": avatar,
-        "DATE": date,
-        "EMAIL": email,
-        "TITLE": title,
-        "UID": uid,
         "USERNAME": username,
-        "VALUE": value
+        "POST": postnum
       })
 
     }

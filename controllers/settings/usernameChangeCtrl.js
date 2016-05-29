@@ -25,11 +25,31 @@
                         snapshot.forEach(function(childSnapshot) {
                             var key = childSnapshot.key();
                             var childData = childSnapshot.val();
-                            if (childData.UID = currentAuth.uid) {
+                            if (childData.UID == currentAuth.uid) {
                                 refService.ref().child("Topics").child(childData.pushKey).update({
                                     Username: username
                                 })
                             }
+                        })
+                    })
+                    
+            //Updating Replise
+                    
+                    refService.ref().child("Replies").once("value", function(snapshot) {
+
+                        snapshot.forEach(function(childSnapshot) {
+                            var key = childSnapshot.key();
+                            var childData = childSnapshot.val();
+                            childSnapshot.forEach(function(EvenChild){
+                                var keyNest = EvenChild.key();
+                                var childDataNest = EvenChild.val();
+                                if(childDataNest.replyCreatorUID == currentAuth.uid){
+                                  refService.ref().child("Replies").child(key).child(childDataNest.pushKey).update
+                                    ({
+                                        replyCreatorUsername : username                   
+                                    })
+                                }
+                            })
                         })
                     })
                     

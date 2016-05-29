@@ -17,8 +17,16 @@
   box-sizing: border-box;
 }
 
-.body-page {
+.auth-page {
   background: #fff url("../../images/bg.jpg") no-repeat center/cover fixed;
+}
+.home-page{
+   background: #fff url("../../images/binary.jpg") no-repeat center/cover fixed;
+  color: rgba(0, 0, 0, 0.6);
+  text-align: center;
+  font: 100%/1.25 "Quattrocento Sans", sans-serif;
+  overflow-x: hidden;
+  height: auto; 
 }
 
 body {

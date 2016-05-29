@@ -19,7 +19,6 @@
             var email = $scope.emailChange || $scope.emailChange.toString;
             var oldEmail = $scope.emailChangeOld;
             var oldPassword = hashService.AESCrypt($scope.passwordChangeOld,'dsds','dsds') 
-            console.log(oldPassword)
             refService.ref().changeEmail({
                 oldEmail: oldEmail,
                 newEmail: email,
@@ -43,6 +42,39 @@
                     
                     
                     alertify.success("User email changed successfully!");
+            //Updating Topics
+                    refService.ref().child("Topics").once("value", function(snapshot) {
+
+                        snapshot.forEach(function(childSnapshot) {
+                            var key = childSnapshot.key();
+                            var childData = childSnapshot.val();
+                            if (childData.UID == currentAuth.uid) {
+                                refService.ref().child("Topics").child(childData.pushKey).update({
+                                    Email: email
+                                })
+                            }
+                        })
+                    })
+                    
+            //Updating Replise
+                    
+                    refService.ref().child("Replies").once("value", function(snapshot) {
+
+                        snapshot.forEach(function(childSnapshot) {
+                            var key = childSnapshot.key();
+                            var childData = childSnapshot.val();
+                            childSnapshot.forEach(function(EvenChild){
+                                var keyNest = EvenChild.key();
+                                var childDataNest = EvenChild.val();
+                                if(childDataNest.replyCreatorUID == currentAuth.uid){
+                                  refService.ref().child("Replies").child(key).child(childDataNest.pushKey).update
+                                    ({
+                                        replyCreatorEmail : email                   
+                                    })
+                                }
+                            })
+                        })
+                    })
                     $mdDialog.cancel();
                 }
             });

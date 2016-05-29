@@ -51,7 +51,7 @@ $mdThemingProvider.theme("default")
     })
 
     $stateProvider.state('authHome.topic', {
-      url: '/topic?AVATAR?DATE?EMAIL?TITLE?UID?USERNAME?VALUE?',
+      url: '/topic/:POST/:USERNAME',
       templateUrl: 'views/topicDesc.html',
       controller: 'topicCtrl',
       resolve: {
@@ -104,6 +104,7 @@ $mdThemingProvider.theme("default")
         }]
       }
     })
+  
   
   }
 })(angular);
