@@ -13,6 +13,18 @@ This project currently under development and bugs are known to happen! However, 
 
 Yes, [here](http://ng-forum.ml/) is the demo.[AS OF 5/29/2016] . We do reset accounts and data, for testing purposes.
 
+##Contributors
+Table, like this one :
+
+Name          |   Position    | Descripton |
+------------- | ------------- | -----------|
+Amanuel Bogale|    Backend Leader   |  15 year old programming entusasist. Likes to play around with C/C++          |
+Mohamed Nasrullah| Manager  |    NodeJS/Mongo DB Programmer.         |
+Jeffery Crowder| FrontEnd Co-Leader/Backend Member  |    16 year old programmer. Likes to play around with bunch of lines of code         |
+Shimizo| FrontEnd Leader  |    NodeJS/Mongo DB Programmer.         |
+
+
+
 ## What is this project? What makes this project unique?
 This project is a forum app for developers around the world, to gather up ask, answer questions!
 
