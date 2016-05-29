@@ -11,7 +11,7 @@ This project currently under development and bugs are known to happen! However, 
 
 ## Demo
 
-Yes, [here](http://ng-forum.ml/) is the demo.[AS OF 5/29/2016] . We do reset accounts and data, for testing purposes.
+Yes, [here](http://ng-forum.site88.net) is the demo.[AS OF 5/29/2016] . We do reset accounts and data, for testing purposes.
 
 ##Contributors
 Table, like this one :
