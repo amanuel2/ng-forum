@@ -14,6 +14,7 @@
             $mdDialog.hide(answer);
         };
 
+        console.log(replyService);
         $scope.submitNewReply = function(){
             refService.ref().child("UserAuthInfo").child(currentAuth.uid).on("value", function(snapshot) {
                 $scope.userAvatar = snapshot.val().Image;
@@ -21,7 +22,7 @@
                 $scope.userEmail = snapshot.val().Email;
 
             })
-            var pushingR = refService.ref().child("Replies").child(replyService.creatorUsername + replyService.creatorDate).push({
+            var pushingR = refService.ref().child("Replies").child(replyService.creatorUsername + replyService.postNum).push({
                 replyCreatorUsername : $scope.userName,
                 replyCreatorAvatar : $scope.userAvatar,
                 replyCreatorEmail : $scope.userEmail,
@@ -36,9 +37,9 @@
                 topicCreatorSince : replyService.timeSinceCreated
                 
             })
-            refService.ref().child("Replies").child(replyService.creatorUsername + replyService.creatorDate).child(pushingR.key()).update({
+            refService.ref().child("Replies").child(replyService.creatorUsername + replyService.postNum).child(pushingR.key()).update({
                     pushKey : pushingR.key()
-                })
+            })
             $mdDialog.cancel();
         }
 

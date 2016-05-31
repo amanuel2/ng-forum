@@ -5,7 +5,8 @@
 
     function otherUserProfileCtrl($scope, currentAuth, $stateParams, refService,$mdDialog, $firebaseObject,$state,otherUserService) {
 
-        var obj = $firebaseObject(refService.ref().child("UserAuthInfo").child($stateParams.UID));
+        var info =  otherUserService.getUserInfo();
+        var obj = $firebaseObject(refService.ref().child("UserAuthInfo").child(info.replyCreatorUID));
         obj.$loaded(function(data) {
                 $scope.info = otherUserService.getUserInfo()
                 $scope.ACTUALinfo = otherUserService.ACTUALgetUserInfo();

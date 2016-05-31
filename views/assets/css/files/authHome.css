@@ -1,15 +1,14 @@
+/* 
  .avatar {
       height: 50px;
       width: 50px;
       border-radius: 50%;
       position: relative;
       right: 13px;
-      /*bottom: 10px;*/
     }
 
     md-toolbar.md-hue-2 {
       position: relative;
-      /*bottom: 18px;*/
     }
 
     button.md-icon-button.md-button.md-ink-ripple {
@@ -18,7 +17,11 @@
     }
 
       
-
+button#avatar_menu {
+    position: relative;
+    right: 15px;
+    top: 8px;
+}
     #add_icon {
       position: relative;
       bottom: -4px;
@@ -34,7 +37,11 @@
       margin-bottom: 20px;
     }
     
-   
+   .logged.ng-scope {
+    position: absolute;
+    top:15px;
+    right: 0;
+}
     
     .menu-md-toolbar {
       height: 500px;
@@ -47,4 +54,78 @@
     button.md-icon-button.notifications_icon.md-button.md-ink-ripple {
       top: 2px;
     }
-    
+
+*/
+.menu {
+  height: 64px;
+  width: 100%;
+  background-color:rgb(21,101,192);
+  color: rgba(255,255,255,0.87);
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu .welcome-things {
+  display: flex;
+  align-items: center;
+}
+
+.menu .welcome-things .username {
+  margin-left: 10px;
+  font-weight: bold;
+  font-size: 24px; 
+}
+
+.menu .page-nav {
+  display: flex;
+  align-items: center;
+  margin-right: 30px;
+}
+
+.menu .page-nav .logged-user {
+  display: flex;
+  align-items: center;
+}
+
+.menu .page-nav .logged-user .notifications-wrapper {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.menu .page-nav .logged-user .user-avatar-wrapper {
+  padding: 0;
+  margin: 0;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  min-width: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.menu .page-nav .logged-user .user-avatar {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+.menu .page-nav .not-logged-user {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+@media (min-width: 992px) {
+  .menu {
+    height: 74px;
+  }
+  
+  .menu .welcome-things .username {
+    font-size: 28px;
+    margin-left: 15px;
+  }
+  
+}

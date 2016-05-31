@@ -31,6 +31,43 @@
                 }
             );
         }
+        
+        $scope.oAuth = function(provider) {
+                //TODO
+                // if (provider == 'facebook') {
+                //     refService.ref().authWithOAuthPopup("facebook", function(error, authData) {
+                //         if (error) {
+                //             console.log("Login Failed!", error);
+                //         } else {
+                //             console.log("Authenticated successfully with payload:", authData);
+                //         }
+                //     });
+                // } else if (provider == 'twitter') {
+                //     refService.ref().authWithOAuthPopup("twitter", function(error, authData) {
+                //         if (error) {
+                //             console.log("Login Failed!", error);
+                //         } else {
+                //             console.log("Authenticated successfully with payload:", authData);
+                //         }
+                //     });
+                // } else if (provider == 'github') {
+                //     refService.ref().authWithOAuthPopup("github", function(error, authData) {
+                //         if (error) {
+                //             console.log("Login Failed!", error);
+                //         } else {
+                //             console.log("Authenticated successfully with payload:", authData);
+                //         }
+                //     });
+                // } else {
+                //     refService.ref().authWithOAuthPopup("google", function(error, authData) {
+                //         if (error) {
+                //             console.log("Login Failed!", error);
+                //         } else {
+                //             console.log("Authenticated successfully with payload:", authData);
+                //         }
+                //     });
+                // }
+            }
 
         $scope.login = function() {
             refService.ref().authWithPassword({
@@ -112,9 +149,7 @@
                         $scope.isUsernameDupe = true;
                         return;
                     }
-
                 })
-
                 if ($scope.register.terms && $scope.isUsernameDupe != true) {
                     refService.ref().createUser({
                         email: $scope.register.email,
@@ -148,8 +183,6 @@
                                     alertify.success("Confirmaton Sent to " + $scope.register.email);
                                   }
                                 });
-                                var IV = '36ebe205bcdfc499a25e6923f4450fa8';
-                                var KEY = 'be410fea41df7162a679875ec131cf2c';
                                 
                                 refService.ref().child("UserAuthInfo").child(userData.uid).set({
                                     Username: $scope.register.username,
@@ -160,7 +193,8 @@
                                     BronzeBadge: 0,
                                     SilverBadge: 0,
                                     GoldBadge: 0,
-                                    PlatinumBadge: 0
+                                    PlatinumBadge: 0,
+                                    newUser : true,
                                 });
 
                             })

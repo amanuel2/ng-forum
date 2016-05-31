@@ -15,18 +15,20 @@
         };
         
         $scope.editREPLY = function(){
-            var sent = $scope.edit
-            var DATE = editReplyService.getDatee();
+            var sent = $scope.reply.sentence;
+            var topicPushKey = editReplyService.getPushK();
+            console.log(topicPushKey);
+            var POST = editReplyService.getDatee();
             var USERNAME = editReplyService.getName();
             var UIDUSERNAME = editReplyService.getTopicUID();
             
             
-            refService.ref().child("Replies").child(USERNAME+DATE).on("value", function(snapshot){
+            refService.ref().child("Replies").child(USERNAME+POST).on("value", function(snapshot){
                 snapshot.forEach(function(childSnap){
                     var key = childSnap.key();
                     var childData = childSnap.val();
-                    if(childData.replyCreatorUID == currentAuth.uid){
-                        refService.ref().child("Replies").child(USERNAME+DATE).child(childData.pushKey).update({
+                    if(childData.pushKey == topicPushKey){
+                        refService.ref().child("Replies").child(USERNAME+POST).child(childData.pushKey).update({
                             replyCreatorValue : sent
                         })
                     }

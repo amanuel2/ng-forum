@@ -28,6 +28,9 @@ br {
     display: block;
     margin-bottom: -50px;
 }
+form#userForm {
+    height: 1100px;
+}
 
 #FormContent {
     /*background-color: #29b6f6;*/
@@ -120,7 +123,7 @@ br {
     height:5000px;
 }
 #signing{
-    height:400px;
+    height:800px;
 }
 #buttonLogin{
     position:relative;

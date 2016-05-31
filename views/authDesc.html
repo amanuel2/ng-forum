@@ -2,7 +2,7 @@
     <link rel="stylesheet" href="views/assets/css/files/authDesc.css" type="text/css" />
 </head>
 
-<div class="toolbar_new_topic">
+<div class="toolbar_new_topic" ng-if="authDataDesc!=null">
   <md-button id="NEW_TOPIC_BUTTON" ng-click="showNewTopic($event)">
     <ng-md-icon icon="add_box" style="fill: white" size="20" id="add_icon"></ng-md-icon>
     <span id="text_new_topic" color="white">New Topic</span>

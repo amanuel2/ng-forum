@@ -4,10 +4,8 @@
 
   function stateParams($stateProvider, $urlRouterProvider,$mdThemingProvider) {
 
-
 $mdThemingProvider.theme("default")
                   .primaryColor("blue")
-                  .accentColor("red");
       
       
     $urlRouterProvider.otherwise('home')
@@ -29,10 +27,6 @@ $mdThemingProvider.theme("default")
       resolve: {
         // controller will not be loaded until $waitForAuth resolves
         // Auth refers to our $firebaseAuth wrapper in the example above
-        "currentAuth": ["refService", function(refService) {
-          // $waitForAuth returns a promise so the resolve waits for it to complete
-          return refService.refAuth().$requireAuth();
-        }]
       }
     })
 
@@ -44,8 +38,6 @@ $mdThemingProvider.theme("default")
         // controller will not be loaded until $waitForAuth resolves
         // Auth refers to our $firebaseAuth wrapper in the example above
         "currentAuth": ["refService", function(refService) {
-          // $waitForAuth returns a promise so the resolve waits for it to complete
-          return refService.refAuth().$requireAuth();
         }]
       }
     })
@@ -57,10 +49,6 @@ $mdThemingProvider.theme("default")
       resolve: {
         // controller will not be loaded until $waitForAuth resolves
         // Auth refers to our $firebaseAuth wrapper in the example above
-        "currentAuth": ["refService", function(refService) {
-          // $waitForAuth returns a promise so the resolve waits for it to complete
-          return refService.refAuth().$requireAuth();
-        }]
       }
     })
     $stateProvider.state('authHome.profile', {
@@ -70,10 +58,6 @@ $mdThemingProvider.theme("default")
       resolve: {
         // controller will not be loaded until $waitForAuth resolves
         // Auth refers to our $firebaseAuth wrapper in the example above
-        "currentAuth": ["refService", function(refService) {
-          // $waitForAuth returns a promise so the resolve waits for it to complete
-          return refService.refAuth().$requireAuth();
-        }]
       }
     })
 
@@ -84,10 +68,6 @@ $mdThemingProvider.theme("default")
       resolve: {
         // controller will not be loaded until $waitForAuth resolves
         // Auth refers to our $firebaseAuth wrapper in the example above
-        "currentAuth": ["refService", function(refService) {
-          // $waitForAuth returns a promise so the resolve waits for it to complete
-          return refService.refAuth().$requireAuth();
-        }]
       }
     })
     
@@ -98,10 +78,6 @@ $mdThemingProvider.theme("default")
       resolve: {
         // controller will not be loaded until $waitForAuth resolves
         // Auth refers to our $firebaseAuth wrapper in the example above
-        "currentAuth": ["refService", function(refService) {
-          // $waitForAuth returns a promise so the resolve waits for it to complete
-          return refService.refAuth().$requireAuth();
-        }]
       }
     })
   

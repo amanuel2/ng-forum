@@ -1,10 +1,13 @@
 (function(angular) {
   var app = angular.module('ForumApp');
 
-  app.controller('authDescCtrl', ["$scope", "$mdDialog", "$state","$mdMedia", "$mdBottomSheet","$firebaseObject","refService","currentAuth","$firebaseArray",authDescCtrl])
+  app.controller('authDescCtrl', ["$scope", "$mdDialog", "$state","$mdMedia", "$mdBottomSheet","$firebaseObject","refService","$firebaseArray",authDescCtrl])
   
-  function authDescCtrl($scope, $mdDialog, $state,$mdMedia,$mdBottomSheet, $firebaseObject,refService,currentAuth,$firebaseArray){
+  function authDescCtrl($scope, $mdDialog, $state,$mdMedia,$mdBottomSheet, $firebaseObject,refService,$firebaseArray){
     
+      $scope.authDataDesc = refService.ref().getAuth();
+      
+      
       $scope.topic = $firebaseObject(refService.ref().child("Topics"))
       $scope.topicName = $firebaseArray(refService.ref().child("Topics"))
 

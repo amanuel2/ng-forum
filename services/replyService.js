@@ -11,8 +11,9 @@
         this.creatorDate = ""
         this.creatorAvatar = "";
         this.creatorEmail = ""
-        this.timeSinceCreated = ""
-        this.setTopicInfo = function(title,creator,uid,username,value,date,email,since,avatar){
+        this.timeSinceCreated = "";
+        this.postNum = ""
+        this.setTopicInfo = function(title,creator,uid,username,value,date,email,since,avatar,postNum){
             this.topicTitle = title;
             this.creatorTitle = creator;
             this.creatorUID = uid;
@@ -22,6 +23,7 @@
             this.creatorEmail = email;
             this.timeSinceCreated = since;
             this.creatorAvatar = avatar;
+            this.postNum = postNum;
             return title,creator,uid,username,value,date,email,since;
         }
         this.getTopicInfo = function () {
@@ -29,7 +31,7 @@
                    this.creatorUID,this.creatorUsername,
                    this.creatorValue,this.creatorDate,
                    this.creatorEmail,this.timeSinceCreated
-                   this.creatorAvatar;
+                   this.creatorAvatar,this.postNum;
         }
     }
 })(angular);

@@ -25,9 +25,9 @@
                        refService.ref().child("Topics").child(childData.pushKey).update({
                            Value: newSentence
                        })
-                       $mdDialog.cancel();
                    }
                 })
+                $mdDialog.cancel();
             })
         }
 

@@ -15,7 +15,7 @@
     <h1 class="topic-title">{{creatorTitle}}</h1>
     
         <div class="post-info">
-            <div class="author-info">
+            <div class="author-info-topic">
                 <img src="{{creatorAvatar}}" class="author-avatar"/>
                 <span class="author-username">{{creatorUsername}}</span>
             </div>
@@ -31,27 +31,42 @@
         
         <div class="topic-buttons">
             <div class="topic-votes">
-                <div ng-if="upVoteCount || downVoteCount">
-                        <span class="already-voted">ALREADY VOTED!</span>
-                </div>
-                <span class="vote-counting">{{votesCount}}</span>
-                
-                <div ng-if="!upVoteCount && !downVoteCount">
-                    <md-button class="md-icon-button" aria-label="Custom Icon Button" ng-click="upVote();">
-                        <ng-md-icon icon="thumb_up" style="fill: black" size="20"></ng-md-icon>
-                    </md-button>
-                </div>
-        
-                <div class="down_vote_button">
-                    <md-button class="md-icon-button" aria-label="Custom Icon Button" ng-click="downVote();">
-                        <ng-md-icon icon="thumb_down" style="fill: black" size="20"></ng-md-icon>
-                    </md-button>
-                </div>
-                
-                <md-button class="md-raised md-warn" id="replyButtonTopic" ng-click="replyTopic($event)">
-                    Reply
-                </md-button>
+                    <span ng-if="currentAuthGet!=null;">
+                        <span class="already-voted"  ng-if="!votedAlready();">
+                            ALREADY VOTED!
+                        </span>
+                    </span>
+                    <span class="vote-counting">
+                        {{votesCount}}
+                    </span>
+              <span ng-if="currentAuthGet!=null;">
+                  <div class="vote_icons" ng-if="votedAlready();">
+                        <div class="up_vote_button">
+                            <md-button class="md-icon-button" aria-label="Custom Icon Button" ng-click="upVote();">
+                                <ng-md-icon icon="thumb_up" style="fill: black" size="20"></ng-md-icon>
+                            </md-button>
+                        </div>    
+                        
+                    <div class="down_vote_button">
+                        <md-button class="md-icon-button" aria-label="Custom Icon Button" ng-click="downVote();">
+                            <ng-md-icon icon="thumb_down" style="fill: black" size="20"></ng-md-icon>
+                        </md-button>
+                    </div>
+                  </div>  
+              </span>
+            </div>     
             </div>
+                <span ng-if="currentAuthGet!=null;">
+                    <md-button class="md-raised md-accent" id="replyButtonTopic" ng-click="replyTopic($event)">
+                        Reply
+                    </md-button>
+                </span>  
+                <span ng-if="currentAuthGet==null;">
+                    <md-button class="md-raised md-accent" id="replyButtonTopic" ng-click="notAuthReplyTopic()">
+                        Reply
+                    </md-button>
+                </span> 
+                
             <!-- share, like, edi id="replyButtonTopic"t, delete -->
             
         </div> <!-- END OF TOPIC-BUTTONS DIV -->
@@ -94,42 +109,140 @@
                 <br>
                 <br>
                 <br>
-                <div class="buttons-wrapper"> 
+                <div class="buttons-wrapper" ng-if="currentAuthGet!=null;"> 
                     <span ng-if="funcCheckEDIT(reps);">
-                        
                         <span ng-if="replyUserSec(reps)">
-                            <md-button class="md-icon-button" ng-click="editValue($event);">
+                            <md-button class="md-icon-button" ng-click="editReply($event,reps)">
+                                <md-tooltip md-direction="top">
+                                  Edit
+                                </md-tooltip>
                                 <ng-md-icon icon="edit" style="fill: #ff6400;" size="20"></ng-md-icon> 
                             </md-button>
                         </span>
-                        
-                        <md-button class="md-icon-button" ng-click="">
-                            <ng-md-icon icon="delete" style="fill: #ff6400;" size="20"></ng-md-icon> 
-                        </md-button>
-                        
-                        <!--When user clicks toggle to check_box -->
-                        <md-button class="md-icon-button" ng-click="">
-                            <ng-md-icon icon="check_box_outline_blank" style="fill: #ff6400;" size="20"></ng-md-icon> 
-                        </md-button>
-                        
-                        <!--When user clicks favorite to star -->
-                        <md-button class="md-icon-button" ng-click="">
-                            <ng-md-icon icon="favorite_border" style="fill: #ff6400;" size="20"></ng-md-icon> 
-                        </md-button>
-                        
-                        <md-button class="md-icon-button" ng-click="">
-                            <ng-md-icon icon="share" style="fill: #ff6400;" size="20"></ng-md-icon> 
-                        </md-button>
-                        
-                        <md-button class="md-icon-button" ng-click="">
-                            <ng-md-icon icon="flag" style="fill: #ff6400;" size="20"></ng-md-icon> 
-                        </md-button>
-                        
                     </span>
-                    <md-button class="md-accent" ng-click="replyTopic($event)">
-                         <ng-md-icon icon="reply" style="fill: #0affcf;" size="20"></ng-md-icon>
-                        <strong>Reply</strong>
-                    </md-button>
+                        
+                         <span ng-if="isBestAnwser(reps)">
+                            <md-button class="md-icon-button" ng-click="">
+                                <md-tooltip md-direction="top">
+                                    Best Anwser
+                                </md-tooltip>
+                                <span ng-if="checkBoxNot" ng-click="checkBoxNotNgClick(reps);">
+                                    <ng-md-icon icon="check_box_outline_blank" style="fill: #ff6400;" size="20"></ng-md-icon> 
+                                </span>
+                                <span ng-if="checkBoxYes" ng-click="checkBoxNgClick(reps);">
+                                    <ng-md-icon icon="check_box" style="fill: #00E676;" size="20"></ng-md-icon> 
+                                </span>
+                            </md-button>
+                        </span>    
+                        
+                        
+                        <span ng-if="funcCheckEDIT(reps);">
+                            <span ng-if="replyUserSec(reps)">
+                                <md-button class="md-icon-button" ng-click="deletePost(reps);">
+                                    <md-tooltip md-direction="top">
+                                        Delete
+                                    </md-tooltip>
+                                    <ng-md-icon icon="delete" style="fill: #ff6400;" size="20"></ng-md-icon> 
+                                </md-button>
+                            </span>
+                        </span>    
+                        
+
+                        <span ng-if="isLikeable(reps)">
+                            
+                            <md-button class="md-icon-button" ng-click="">
+                                <md-tooltip md-direction="top">
+                                      Like
+                                </md-tooltip>
+                                 <span ng-if="likeBoxNo" ng-click="likeBoxNoNgClick(reps);">
+                                     <ng-md-icon icon="favorite_border" style="fill: #ff6400;" size="20"></ng-md-icon>
+                                </span>
+                                <span ng-if="likeBoxYes" ng-click="likeBoxYesNgClick(reps);">
+                                     <ng-md-icon icon="favorite" style="fill: #E91E63;" size="20"></ng-md-icon>
+                                </span>
+                               
+                               
+                            </md-button>
+                        </span>
+                        
+                        <span ng-if="isShareble(reps)">
+                            
+                            
+                            <md-menu>
+                              
+                              <md-button class="md-icon-button"  ng-click="openShareMenu($mdOpenMenu, $event)">
+                                <md-tooltip md-direction="top">
+                                      Share
+                                </md-tooltip>
+                                <ng-md-icon icon="share" style="fill: #ff6400;" size="20"></ng-md-icon> 
+                             </md-button>
+                              
+                              <md-menu-content width="4">
+                                <md-menu-item>
+                                  <md-button 
+                                  socialshare
+                                    socialshare-provider="facebook"
+                                    socialshare-text="Look at my post! Here : "
+                                    socialshare-hashtags="angularjs, ng-forum, replies , programming"
+                                    socialshare-url="{{urlSHARINGCURRENT}}">
+                                    <ng-md-icon icon="facebook-box" style="fill: #3b5998" size="20"></ng-md-icon>
+                                    Facebook
+                                  </md-button>
+                                </md-menu-item>
+                                <md-menu-item>
+                                  <md-button 
+                                  socialshare
+                                    socialshare-provider="twitter"
+                                    socialshare-text="Look at my post! Here :{{urlSHARINGCURRENT}} "
+                                    socialshare-hashtags="angularjs, ng-forum, replies , programming"
+                                    socialshare-url="{{urlSHARINGCURRENT}}">
+                                    <ng-md-icon icon="twitter" style="fill: #0084b4" size="20"></ng-md-icon>
+                                    Twitter
+                                  </md-button>
+                                </md-menu-item>
+                                <md-menu-item>
+                                  <md-button 
+                                   socialshare
+                                    socialshare-provider="linkedin"
+                                    socialshare-description=" Look at my post! Here : {{urlSHARINGCURRENT}} "
+                                    socialshare-source="angularjs, ng-forum, replies , programming"
+                                    socialshare-url="{{urlSHARINGCURRENT}}">
+                                    <ng-md-icon icon="linkedin-box" style="fill: #007bb5" size="20"></ng-md-icon>
+                                    Linkedin
+                                  </md-button>
+                                </md-menu-item>
+                                <md-menu-item>
+                                  <md-button 
+                                    socialshare
+                                    socialshare-provider="google"
+                                    socialshare-url="{{urlSHARINGCURRENT}}">
+                                    <ng-md-icon icon="google-plus-box" style="fill: #d34836" size="20"></ng-md-icon>
+                                    Google+
+                                  </md-button>
+                                </md-menu-item>
+                              </md-menu-content>
+                            </md-menu>
+                        </span>
+                        
+                        
+                        <span ng-if="isFlaggable(reps)">
+                            <md-button class="md-icon-button" ng-click="">
+                                <md-tooltip md-direction="top">
+                                      Flag
+                                </md-tooltip>
+                                <ng-md-icon icon="flag" style="fill: #ff6400;" size="20"></ng-md-icon> 
+                            </md-button>
+                        </span>
+                        
+                       <span ng-if="isReplable(reps)">
+                            <md-button class="md-accent" ng-click="replyTopic($event)">
+                                 <md-tooltip md-direction="top">
+                                          Reply
+                                    </md-tooltip>
+                                 <ng-md-icon icon="reply" style="fill: #0affcf;" size="20"></ng-md-icon>
+                                <strong>Reply</strong>
+                            </md-button>
+                        </span>
                 </div>
             <div>
             </div>
