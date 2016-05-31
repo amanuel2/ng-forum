@@ -1,16 +1,23 @@
 #Pre-Release Version 0.9 
 
 This update you no longer have to login! 
+
 Icons work now, except flagging since it requires private messaging
+
 Enable upvoting 
+
 And much more feautres!!
 
 Bug Fixes.
+
 #PLANNED Version 0.9 Pre-Release
 
 Bug fixes
+
 Enable upvoting 
+
 Enable Liking
+
 Etc...
 
 #Version 0.8 Pre-Release
