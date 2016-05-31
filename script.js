@@ -2,34 +2,39 @@
   var app = angular.module('ForumApp' ,
 
 /*
-                Release 1.0
+                Release 1.1
               ----------------
 
 BACKEND
 --------
-TODO : UPVOTE
-TODO : ADMIN
+TODO : Fix Auth...
+TODO : TOPICBUTTON
+TODO : OAUTH
+TODO : FLAG = PRIVATEMESSAGING
 TODO : IMGUR CONVERSIOIN BASE64
-TODO : EMAIL CONFIRMATION
 TODO : Notifications
 TODO : Points
 TODO : LOCALIZE, NO URL.
-TODO : Accept Anwser ^^
-TODO : (Amanuel) Think about adding 'Posts: 42342', which will be counting a number of written posts, I can put it for example in posts ;)
 TODO : ADD CACHE IMAGES COMPRESSION
 TODO: Users online(Not Neccecary)
+TODO: DONT put alll script tag in index.html
+TODO: Fix a loop, when you want a username which is already used (try to take 'Shimizo' when registering ;) )
 
 FRONTEND
 ---------
-TODO : FIX HOMEPAGE BACK NOT FULL
-TODO : LOOK HERE GUYS!!!!!!!!!!!!!!!!!!!!!!!!! Please Fix The Icons on topicDesc.html.. i want it to look like this: http://i.imgur.com/S0A9Z22.png .... Add a More icon button that will be a drop down to more buttons...
 TODO : FIREFOX HOME PAGE ICONS ARE OFF.
 TODO : global.css chars
+TODO: Fix textbox so it is center
 
 BACKEND AND FRONTEND
 ---------------
 TODO: Add Drag Drop Image upload 
+TODO: 404 PAGE
+TODO: Avatar Dialog says Change email....
 
+-------LATER RELEASES IDEAS--------
+TODO : SESSIONS, for POEPLE TO WORK COLLABORATIVELY
+TODO : We need to think about loading a css file before loading a content from .html file
 
              ----------------
 */
@@ -44,6 +49,7 @@ TODO: Add Drag Drop Image upload
         'angularjs-crypto',
         'ngMdIcons',
         'vcRecaptcha',
+        '720kb.socialshare',
     ]
     
 )
