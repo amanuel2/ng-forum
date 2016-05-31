@@ -1,4 +1,10 @@
+#Pre-Release Version 0.9 
 
+This update you no longer have to login! 
+
+And much more feautres!!
+
+Bug Fixes.
 #PLANNED Version 0.9 Pre-Release
 
 Bug fixes
