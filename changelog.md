@@ -1,7 +1,7 @@
 #Pre-Release Version 0.9 
 
 This update you no longer have to login! 
-
+Icons work now, except flagging since it requires private messaging
 And much more feautres!!
 
 Bug Fixes.
