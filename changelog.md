@@ -2,6 +2,7 @@
 
 This update you no longer have to login! 
 Icons work now, except flagging since it requires private messaging
+Enable upvoting 
 And much more feautres!!
 
 Bug Fixes.
