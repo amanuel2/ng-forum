@@ -1,5 +1,5 @@
 {
-  "name": "Ng-Forum",
+  "name": "ng-forum",
   "homepage": "https://github.com/amanuel2/ng-forum",
   "authors": [
     "Shimzo",
@@ -22,18 +22,20 @@
   ],
   "dependencies": {
     "alertify.js": "alertifyjs#^1.0.10",
-    "angular-cryptography": "^1.0.1",
-    "angular-material-icons": "^0.7.0",
-    "angular-recaptcha": "^3.0.3",
     "angular-material": "^1.0.7",
-    "angular-ui-router": "^0.2.18",
+    "angular-material-icons": "^0.7.0",
+    "angular-cryptography": "^1.0.1",
+    "angular-recaptcha": "^3.0.3",
+    "angular-socialshare": "angularjs-socialshare#^2.1.6",
     "angularfire": "^1.2.0",
     "angularjs-crypto": "^1.4.0",
-    "bootstrap": "^3.3.6",
     "firebase": "^2.4.2",
-    "jquery": "^2.2.3",
-    "jsSHA": "^2.0.2",
     "Materialize": "materialize#^0.97.6",
-    "polymer": "Polymer/polymer#^1.4.0"
+    "sweetalert": "^1.1.3",
+    "polymer": "Polymer/polymer#^1.4.0",
+    "tether-shepherd": "^1.7.1",
+    "vex": "^2.3.4",
+    "angular-ui-router": "^0.2.18",
+    "jsSHA": "^2.0.2"
   }
 }
