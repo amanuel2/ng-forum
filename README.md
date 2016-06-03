@@ -9,7 +9,7 @@ Ng-Forum, meet developers around the globe. :earth_africa:
 ##This Site has not been updated! The Demo, is V 0.8
 
 ## THIS PROJECT IS UNDER HIGH ACTIVE DEVELOPMENT
-This project currently under development and bugs are known to happen! However, if you spot a bug file an issue or submit a pull request. Contributions are always welcome!
+If you want to help please go [here](https://ide.c9.io/amanuel2/ng-fourm#openfile-README.md).This project currently under development and bugs are known to happen! However, if you spot a bug file an issue or submit a pull request. Contributions are always welcome! 
 
 ## Demo
 
