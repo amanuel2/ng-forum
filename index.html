@@ -1,95 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <title>Ng-Forum</title>
 </head>
-<body ng-app="ForumApp">
-	<div>
-		<div ui-view>
-			
-		</div>
-	</div>
-</body>
- <!-- Javascript Libraries -->
- <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
-  <script type="text/javascript" src="bower_components/angular/angular.js"></script>
-  <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-  <script type="text/javascript" src="bower_components/angular-material/angular-material.js"></script>
-  <script type="text/javascript" src="bower_components/angular-animate/angular-animate.js"></script>
-  <script type="text/javascript" src="bower_components/angular-aria/angular-aria.js"></script>
-  <script type="text/javascript" src="bower_components/angular-messages/angular-messages.js"></script>
-  <script type="text/javascript" src="bower_components/firebase/firebase.js"></script>
-  <script type="text/javascript" src="bower_components/angularfire/dist/angularfire.js"></script>
-  <script type="text/javascript" src="lib/Icons/angular-material-icons.min.js"></script>
-  <script type="text/javascript" src="lib/svg-assets-cache/svg-assets-cache.js"></script>
-  <script type="text/javascript" src="views/assets/css/icons/libs/angular-material-icons.min.js"></script>
-  <script type="text/javascript" src="node_modules/alertifyjs/build/alertify.js"></script>
-  <script type="text/javascript" src="bower_components/vex/js/vex.combined.min.js"></script>
-  <script type="text/javascript" src="bower_components/tether/dist/js/tether.min.js"></script>
-  <script type="text/javascript" src="bower_components/tether-shepherd/dist/js/shepherd.min.js"></script>
-  <script type="text/javascript" src="bower_components/jsSHA/src/sha512.js"></script>
-  <script type='text/javascript' src="bower_components/angularjs-crypto/public/js/lib/plugins/CryptoJSCipher.js"></script>
-  <script type='text/javascript' src="bower_components/cryptojslib/rollups/aes.js"></script>
-  <script type='text/javascript' src="bower_components/angularjs-crypto/public/js/lib/plugins/CryptoJSCipher.js"></script>
-  <script type='text/javascript' src="bower_components/angularjs-crypto/public/js/lib/angularjs-crypto.js"></script>
-  <script type='text/javascript' src="lib/Crypto/rollups/aes.js"></script>
-  <script type='text/javascript' src="lib/Crypto/components/mode-ecb.js"></script>
-  <script type='text/javascript' src="bower_components/angular-cryptography/mdo-angular-cryptography.js"></script>
-  <script type='text/javascript' src="bower_components/angular-socialshare/dist/angular-socialshare.js"></script>
-  <script type="text/javascript" src="lib/Crypto/rollups/md5.js"></script>
-  <script type="text/javascript" src="lib/Crypto/rollups/hmac-md5.js"></script>
-  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-  <script src="https://www.google.com/recaptcha/api.js?onload=vcRecaptchaApiLoaded&render=explicit" async defer></script>
-  <script type="text/javascript" src="bower_components/angular-recaptcha/release/angular-recaptcha.js"></script>
-  <!-- Styles -->
-  <link rel="stylesheet" href="bower_components/angular-material/angular-material.css"/>
-  <link rel="stylesheet" href="node_modules/alertifyjs/build/css/alertify.css" />
 
+<body ng-app="ForumApp">
+  <div>
+    <div ui-view>
+
+    </div>
+  </div>
+
+
+
+</body>
+
+<!-- Popular JS Frameworks-->
+<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+
+
+<!-- Material -->
+<script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script type="text/javascript" src="bower_components/angular-material/angular-material.min.js"></script>
+<script type="text/javascript" src="bower_components/angular-animate/angular-animate.min.js"></script>
+<script type="text/javascript" src="bower_components/angular-aria/angular-aria.min.js"></script>
+<script type="text/javascript" src="bower_components/angular-messages/angular-messages.min.js"></script>
+<link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+
+
+
+<!-- Firebase -->
+<script type="text/javascript" src="bower_components/firebase/firebase.min.js"></script>
+<script type="text/javascript" src="bower_components/angularfire/dist/angularfire.min.js"></script>
+
+<!-- Icons -->
+<script type="text/javascript" src="lib/Icons/angular-material-icons.min.js"></script>
+<script type="text/javascript" src="lib/svg-assets-cache/svg-assets-cache.js"></script>
+<script type="text/javascript" src="views/assets/css/icons/libs/angular-material-icons.min.js"></script>
+
+<!-- Alert Beautify -->
+<script type="text/javascript" src="node_modules/alertifyjs/build/alertify.min.js"></script>
+<link rel="stylesheet" href="node_modules/alertifyjs/build/css/alertify.css" />
+<link rel="stylesheet" href="node_modules/alertifyjs/build/css/themes/semantic.min.css" />
+
+<!--- VEC JS -->
+<script src="bower_components/vex/js/vex.combined.min.js"></script>
+<script>
+  vex.defaultOptions.className = 'vex-theme-flat-attack';
+</script>
 <link rel="stylesheet" href="bower_components/vex/css/vex.css" />
-<link rel="stylesheet" href="bower_components/vex/css/vex-theme-wireframe.css" />
-<link rel="stylesheet" src="bower_components/vex/css/vex-theme-flat-attack.css"></script>
-  <link rel="stylesheet" href="bower_components/tether/dist/css/tether-theme-arrows.css" type="text/css" />
-  <link rel="stylesheet" href="bower_components/tether-shepherd/dist/css/shepherd-theme-arrows.css" type="text/css" />
-  <link rel="stylesheet" href="node_modules/alertifyjs/build/css/themes/default.min.css" />
-  <link rel="icon" href="favicon.ico">
-  
-  <!-- Controllers, Services, And App -->
-  <script type="text/javascript" src="script.js"></script>
-  <script type="text/javascript" src="run/authCheck.js"></script>
-  <script type="text/javascript" src="config/mainConfig.js"></script>
-  <script type="text/javascript" src="services/refService.js"></script>
-  <script type="text/javascript" src="services/timeService.js"></script>
-  <script type="text/javascript" src="services/dateService.js"></script>
-  <script type="text/javascript" src="services/otherUserService.js"></script>
-  <script type="text/javascript" src="services/hashService.js"></script>
-  <script type="text/javascript" src="services/editReplyService.js"></script>
-  <script type="text/javascript" src="services/authCheckTrue.js"></script>
-  <script type="text/javascript" src="services/replyService.js"></script>
-  <script type="text/javascript" src="services/editTopicService.js"></script>
-  <script type="text/javascript" src="services/encodeImageToBase64.js"></script>
-  <script type="text/javascript" src="directives/userCardDirective.js"></script>
-  <script type="text/javascript" src="directives/replyDateDirective.js"></script>
-  <script type="text/javascript" src="directives/textareachip.js"></script>
-  <script type="text/javascript" src="directives/customngChange.js"></script>
-  <script type="text/javascript" src="directives/otherUserCard.js"></script>
-  <script type="text/javascript" src="controllers/homeCtrl.js"></script>
-  <script type="text/javascript" src="controllers/newTopicCtrl.js"></script>
-  <script type="text/javascript" src="controllers/newReplyCtrl.js"></script>
-  <script type="text/javascript" src="controllers/editReplyCtrl.js"></script>
-  <script type="text/javascript" src="controllers/authDescCtrl.js"></script>
-  <script type="text/javascript" src="controllers/settings/imageChangeCtrl.js"></script>
-  <script type="text/javascript" src="controllers/authCtrl.js"></script>
-  <script type="text/javascript" src="controllers/authHomeCtrl.js"></script>
-  <script type="text/javascript" src="controllers/topicCtrl.js"></script>
-  <script type="text/javascript" src="controllers/profileCtrl.js"></script>
-  <script type="text/javascript" src="controllers/editTopicCtrl.js"></script>
-  <script type="text/javascript" src="controllers/otherUserProfileCtrl.js"></script>
-  <script type="text/javascript" src="controllers/settingsCtrl.js"></script>
-  <script type="text/javascript" src="filters/dateFilter.js"></script>
-  <script type="text/javascript" src="controllers/settings/usernameChangeCtrl.js"></script>
-  <script type="text/javascript" src="controllers/settings/passwordChangeCtrl.js"></script>
-  <script type="text/javascript" src="controllers/settings/desciptonChange.js"></script>
-  <script type="text/javascript" src="controllers/settings/emailSettingsCtrl.js"></script>
+<link rel="stylesheet" href="bower_components/vex/css/vex-theme-flat-attack.css" />
+
+
+
+<!-- Makrdown Editor-->
+<link rel="stylesheet" type="text/css" href="bower_components/codemirror/lib/codemirror.css">
+<link rel="stylesheet" type="text/css" href="dist/angular-markdown-editor.css">
+<script src="bower_components/showdown/compressed/showdown.js"></script>
+<script type="text/javascript" src="bower_components/codemirror/lib/codemirror.js"></script>
+<script type="text/javascript" src="bower_components/codemirror/addon/mode/overlay.js"></script>
+<script type="text/javascript" src="bower_components/codemirror/mode/markdown/markdown.js"></script>
+<script src="bower_components/angular-resource/angular-resource.min.js"></script>
+<script type="text/javascript" src="dist/angular-markdown-editor.js"></script>
+
+<!--clipboard -->
+<script type="text/javascript" src="bower_components/clipboard/dist/clipboard.min.js"></script>
+
+
+
+<!-- Angular Neccecties -->
+<script type='text/javascript' src="bower_components/angular-socialshare/dist/angular-socialshare.min.js"></script>
+<script src="https://www.google.com/recaptcha/api.js?onload=vcRecaptchaApiLoaded&render=explicit" async defer></script>
+<script type="text/javascript" src="bower_components/angular-recaptcha/release/angular-recaptcha.min.js"></script>
+
+
+<!-- Full Screen -->
+<script type="text/javascript" src="https://cdn.rawgit.com/hrajchert/angular-screenfull/master/dist/angular-screenfull.min.js"></script>
+<script type="text/javascript" src="https://cdn.rawgit.com/amanuel2/Collabs/master/screenfull.min.js"></script>
+
+
+
+
+<!-- MD-TABLE DIRECTIVE-->
+<script type="text/javascript" src="lib/mdDataTable/md-data-table-templates.min.js"></script>
+<script type="text/javascript" src="lib/mdDataTable/md-data-table.min.js"></script>
+<link rel="stylesheet" href="https://rawgit.com/daniel-nagy/md-data-table/master/dist/md-data-table.css">
+<script src="https://rawgit.com/daniel-nagy/md-data-table/master/dist/md-data-table.js"></script>
+
+
+
+<!-- Selectize -->
+<script type="text/javascript" src="bower_components/selectize/dist/js/standalone/selectize.min.js"></script>
+<link rel="stylesheet" href="bower_components/selectize/dist/css/selectize.css" type="text/css" />
+<script type="text/javascript" src="https://cdn.rawgit.com/machineboy2045/angular-selectize/master/dist/angular-selectize.js"></script>
+<link rel="icon" href="favicon.ico">
+
+
+
+<!-- Controllers, Services, Directives, Filters And App -->
+<script type="text/javascript" src="script.js"></script>
+<script type="text/javascript" src="run/minified/authCheck.min.js"></script>
+<script type="text/javascript" src="config/minified/mainConfig.min.js"></script>
+<script type="text/javascript" src="services/minified/refService.min.js"></script>
+<script type="text/javascript" src="services/minified/timeService.min.js"></script>
+<script type="text/javascript" src="services/minified/dateService.min.js"></script>
+<script type="text/javascript" src="services/minified/otherUserService.min.js"></script>
+<script type="text/javascript" src="services/minified/editReplyService.min.js"></script>
+<script type="text/javascript" src="services/minified/authCheckTrue.min.js"></script>
+<script type="text/javascript" src="services/minified/replyService.min.js"></script>
+<script type="text/javascript" src="services/minified/editTopicService.min.js"></script>
+<script type="text/javascript" src="services/minified/letterAvatarService.min.js"></script>
+<script type="text/javascript" src="services/minified/encodeImageToBase64.min.js"></script>
+<script type="text/javascript" src="services/minified/otherUserProfilePageService.min.js"></script>
+<script type="text/javascript" src="directives/minified/userCardDirective.min.js"></script>
+<script type="text/javascript" src="directives/minified/replyDateDirective.min.js"></script>
+<script type="text/javascript" src="directives/minified/customngChange.min.js"></script>
+<script type="text/javascript" src="directives/minified/otherUserCard.min.js"></script>
+<script type="text/javascript" src="filters/minified/dateFilter.min.js"></script>
+<script type="text/javascript" src="controllers/minified/homeCtrl.min.js"></script>
+<script type="text/javascript" src="controllers/minified/404Controller.min.js"></script>
+<script type="text/javascript" src="controllers/minified/newTopicCtrl.min.js"></script>
+<script type="text/javascript" src="controllers/minified/newReplyCtrl.min.js"></script>
+<script type="text/javascript" src="controllers/minified/editReplyCtrl.min.js"></script>
+<script type="text/javascript" src="controllers/minified/authDescCtrl.min.js"></script>
+<script type="text/javascript" src="controllers/minified/settings/imageChangeCtrl.min.js"></script>
+<script type="text/javascript" src="controllers/minified/authCtrl.min.js"></script>
+<script type="text/javascript" src="controllers/authHomeCtrl.js"></script>
+<script type="text/javascript" src="controllers/minified/topicCtrl.min.js"></script>
+<script type="text/javascript" src="controllers/minified/profileCtrl.min.js"></script>
+<script type="text/javascript" src="controllers/minified/editTopicCtrl.min.js"></script>
+<script type="text/javascript" src="controllers/minified/otherUserProfileCtrl.min.js"></script>
+<script type="text/javascript" src="controllers/minified/settingsCtrl.min.js"></script>
+<script type="text/javascript" src="controllers/minified/otherUserProfilePageCtrl.min.js"></script>
+<script type="text/javascript" src="controllers/minified/settings/usernameChangeCtrl.min.js"></script>
+<script type="text/javascript" src="controllers/minified/settings/passwordChangeCtrl.min.js"></script>
+<script type="text/javascript" src="controllers/minified/settings/desciptonChange.min.js"></script>
+<script type="text/javascript" src="controllers/minified/settings/emailSettingsCtrl.min.js"></script>
+
 </html>

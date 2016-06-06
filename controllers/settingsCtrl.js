@@ -1,19 +1,46 @@
 (function(angular) {
     var app = angular.module('ForumApp');
 
-    app.controller("settingsCtrl", ["$scope", "currentAuth", "refService", "$stateParams", "$mdDialog", "$mdMedia", "$firebaseObject", settingsCtrl])
+    app.controller("settingsCtrl", ["$scope", "refService", "$stateParams", "$mdDialog", "$mdMedia", "$firebaseObject", settingsCtrl])
 
-    function settingsCtrl($scope, currentAuth, refService, $stateParams, $mdDialog, $mdMedia, $firebaseObject) {
+    function settingsCtrl($scope, refService, $stateParams, $mdDialog, $mdMedia, $firebaseObject) {
 
         //Setting Infos....
+        $scope.currentAuthSet = refService.ref().getAuth();
+    
         $scope.userInfo = $firebaseObject(refService.ref().child("UserAuthInfo").child($stateParams.UID))
         $scope.passwordSHARP = "********"
-        $scope.uid = currentAuth.uid;
-        console.log($scope.userInfo)
+        $scope.uid = $scope.currentAuthSet.uid;
         $scope.desc = "See your descripton in the profile."
+        
+        function isPassChange(){
+           if($scope.currentAuthSet.provider == 'twitter' || $scope.currentAuthSet.provider == 'google'
+                || $scope.currentAuthSet.provider == 'github')
+            {
+                return true;
+            } 
+            else{
+                return false;
+            }
+        }
+        
         
     
         $scope.changeEmail = function(ev) {
+            if(isPassChange() == true)
+            {
+               $mdDialog.show(
+                  $mdDialog.alert()
+                    .parent(angular.element(document.getElementsByTagName("body")))
+                    .clickOutsideToClose(true)
+                    .title('Email')
+                    .textContent('Cant change email since your logged in from a provider')
+                    .ariaLabel('Alert Dialog Demo')
+                    .ok('Got it!')
+                    .targetEvent(ev)
+                ); 
+            }
+            else{
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
             $mdDialog.show({
                     controller: 'emailSettingsCtrl',
@@ -41,6 +68,7 @@
             }, function(wantsFullScreen) {
                 $scope.customFullscreen = (wantsFullScreen === true);
             });
+            }
         }
 
         $scope.descriptonChange = function(ev) {
@@ -74,7 +102,22 @@
         }
 
         $scope.changePassword = function(ev) {
-            var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
+            
+            if(isPassChange() == true)
+            {
+               $mdDialog.show(
+                  $mdDialog.alert()
+                    .parent(angular.element(document.getElementsByTagName("body")))
+                    .clickOutsideToClose(true)
+                    .title('Password')
+                    .textContent('Cant change password since your logged in from a provider')
+                    .ariaLabel('Alert Dialog Demo')
+                    .ok('Got it!')
+                    .targetEvent(ev)
+                ); 
+            }
+            else{
+                var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
             $mdDialog.show({
                     controller: 'passwordChangeCtrl',
                     templateUrl: 'views/settings/passwordChange.html',
@@ -101,6 +144,8 @@
             }, function(wantsFullScreen) {
                 $scope.customFullscreen = (wantsFullScreen === true);
             });
+            }
+            
         }
         $scope.changeUsername = function(ev) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;

@@ -1,9 +1,9 @@
 (function(angular) {
     var app = angular.module('ForumApp')
 
-    app.controller('newReplyCtrl', ["$scope", "$mdDialog", "refService", "currentAuth","replyService","timeService", newReplyCtrl])
+    app.controller('newReplyCtrl', ["$scope", "$firebaseObject", "$mdDialog", "refService", "currentAuth", "replyService", "timeService", "$stateParams", "$firebaseArray", newReplyCtrl])
 
-    function newReplyCtrl($scope, $mdDialog, refService, currentAuth,replyService,timeService) {
+    function newReplyCtrl($scope, $firebaseObject, $mdDialog, refService, currentAuth, replyService, timeService, $stateParams, $firebaseArray) {
         $scope.hide = function() {
             $mdDialog.hide();
         };
@@ -14,33 +14,67 @@
             $mdDialog.hide(answer);
         };
 
-        console.log(replyService);
-        $scope.submitNewReply = function(){
-            refService.ref().child("UserAuthInfo").child(currentAuth.uid).on("value", function(snapshot) {
-                $scope.userAvatar = snapshot.val().Image;
-                $scope.userName = snapshot.val().Username;
-                $scope.userEmail = snapshot.val().Email;
+        $scope.submitNewReply = function() {
+            $scope.currentAuthGet = refService.ref().getAuth();
+
+            $scope.numRepliesAlready = $firebaseArray(refService.ref().child("Replies").child($stateParams.USERNAME + $stateParams.POST))
+
+            $scope.numRepliesAlready.$loaded(function(data) {
+                refService.ref().child("UserAuthInfo").child($scope.currentAuthGet.uid).on("value", function(snapshot) {
+                    $scope.userAvatar = snapshot.val().Image;
+                    $scope.userName = snapshot.val().Username;
+                    $scope.userEmail = snapshot.val().Email;
+
+                })
+                var pushingR = refService.ref().child("Replies").child(replyService.creatorUsername + replyService.postNum).push({
+                    replyCreatorUsername: $scope.userName,
+                    replyCreatorAvatar: $scope.userAvatar,
+                    replyCreatorEmail: $scope.userEmail,
+                    replyCreatorUID: $scope.currentAuthGet.uid,
+                    replyCreatorValue: $scope.reply.sentence,
+                    replyCreatorDate: Date.now(),
+                    Replynum: data.length,
+                    replyCreatorDateParsed: timeService.getTimeF(new Date(parseInt(Date.now()))),
+                    topicCreatorUsername: replyService.creatorUsername,
+                    topicCreatorUID: replyService.creatorUID,
+                    topicCreatorTitle: replyService.creatorTitle,
+                    topicCreatorAvatar: replyService.creatorAvatar,
+                    topicCreatorSince: replyService.timeSinceCreated
+
+                })
+                refService.ref().child("Replies").child(replyService.creatorUsername + replyService.postNum).child(pushingR.key()).update({
+                    pushKey: pushingR.key()
+                })
+
+                $scope.lastAct = $firebaseObject(refService.ref().child("Topics"));
+                $scope.lastAct.$loaded(function(dataLast) {
+                    dataLast.forEach(function(snapDataLastAct) {
+                        if (snapDataLastAct.Postnum == $stateParams.POST) {
+                            refService.ref().child("Topics").child(snapDataLastAct.pushKey).update({
+                                LastActivity: Date.now(),
+                            })
+                            refService.ref().child("Topics").child(snapDataLastAct.pushKey).once("value", function(snapREPVIEWS) {
+                                if (!snapREPVIEWS.val().RepliesNum) {
+                                    console.log(snapREPVIEWS)
+                                    refService.ref().child("Topics").child(snapDataLastAct.pushKey).update({
+                                        RepliesNum: (1)
+                                    })
+                                } else {
+                                    refService.ref().child("Topics").child(snapDataLastAct.pushKey).update({
+                                        RepliesNum: (snapREPVIEWS.val().RepliesNum + 1)
+                                    })
+                                }
+
+
+                            })
+                        }
+                    })
+                })
+                $mdDialog.cancel();
+
 
             })
-            var pushingR = refService.ref().child("Replies").child(replyService.creatorUsername + replyService.postNum).push({
-                replyCreatorUsername : $scope.userName,
-                replyCreatorAvatar : $scope.userAvatar,
-                replyCreatorEmail : $scope.userEmail,
-                replyCreatorUID : currentAuth.uid,
-                replyCreatorValue : $scope.reply.sentence,
-                replyCreatorDate : Date.now(),
-                replyCreatorDateParsed : timeService.getTimeF(new Date(parseInt(Date.now()))),
-                topicCreatorUsername : replyService.creatorUsername,
-                topicCreatorUID : replyService.creatorUID,
-                topicCreatorTitle : replyService.creatorTitle,
-                topicCreatorAvatar : replyService.creatorAvatar,
-                topicCreatorSince : replyService.timeSinceCreated
-                
-            })
-            refService.ref().child("Replies").child(replyService.creatorUsername + replyService.postNum).child(pushingR.key()).update({
-                    pushKey : pushingR.key()
-            })
-            $mdDialog.cancel();
+
         }
 
     }

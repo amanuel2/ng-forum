@@ -1,12 +1,48 @@
 (function(angular) {
 
-    var app = angular.module('ForumApp');
+  var app = angular.module('ForumApp');
 
-    app.controller('homeCtrl', ["$scope", "$state","refService","authCheckTrueService", homeCtrl])
-    
-    function homeCtrl($scope, $state,refService,authCheckTrueService){
-         //var checkAuth = refService.ref().getAuth() ? $state.go("authHome.desc") : console.log("Not Logged In");
-        authCheckTrueService.checkAuth(refService.ref(), "authHome.desc");
+  app.controller('homeCtrl', ["$scope", "$state", "refService", homeCtrl])
+
+  function homeCtrl($scope, $state, refService) {
+    //var checkAuth = refService.ref().getAuth() ? $state.go("authHome.desc") : console.log("Not Logged In");
+    // authCheckTrueService.checkAuth(refService.ref(), "authHome.desc");
+
+    var circle = document.querySelector('.material-btn');
+    var link = document.querySelector('.material-content').querySelectorAll('li');
+    var ham = document.querySelector('.material-hamburger');
+    var main = document.querySelector('main');
+    var win = window;
+
+    function openMenu(event) {
+
+      circle.classList.toggle('active');
+      ham.classList.toggle('material-close');
+      main.classList.toggle('active');
+      for (var i = 0; i < link.length; i++) {
+        link[i].classList.toggle('active');
+      }
+      event.preventDefault();
+      event.stopImmediatePropagation();
     }
+
+    function closeMenu() {
+      if (circle.classList.contains('active')) {
+        circle.classList.remove('active');
+        for (var i = 0; i < link.length; i++) {
+          link[i].classList.toggle('active');
+        }
+        ham.classList.remove('material-close');
+        main.classList.remove('active');
+      }
+    }
+
+    circle.addEventListener('click', openMenu, false);
+
+    win.addEventListener('click', closeMenu, false);
+
+
+
+  }
 
 })(angular);

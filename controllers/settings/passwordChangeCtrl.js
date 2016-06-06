@@ -1,9 +1,9 @@
 (function(angular){
     var app = angular.module('ForumApp')
     
-    app.controller('passwordChangeCtrl', ["$scope","refService","currentAuth","$mdDialog","hashService", passwordChangeCtrl])
+    app.controller('passwordChangeCtrl', ["$scope","refService","currentAuth","$mdDialog", passwordChangeCtrl])
     
-    function passwordChangeCtrl($scope,refService,currentAuth,$mdDialog,hashService){
+    function passwordChangeCtrl($scope,refService,currentAuth,$mdDialog){
         $scope.hide = function() {
             $mdDialog.hide();
         };
@@ -15,8 +15,7 @@
         };
         
         $scope.changePasswordDialog = function(){
-          
-          var actualNewPassword = hashService.AESCrypt($scope.passwordChangeNew, 'dada', 'dada')
+
             refService.ref().changePassword({
               email: $scope.emailNormal,
               oldPassword: $scope.passwordChangeOld,
@@ -34,10 +33,9 @@
                     alertify.error("Error changing password:", error);
                 }
               } else {
-                refService.ref().child("UserAuthInfo").child(currentAuth.uid).update({
-                  Password : actualNewPassword
-                })
                 alertify.success("User password changed successfully!");
+                location.reload(true);
+                location.reload(true);
                 $mdDialog.cancel();
               }
             });

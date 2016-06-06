@@ -1,9 +1,9 @@
 (function(angular){
     var app = angular.module('ForumApp')
     
-    app.controller('usernameChangeCtrl', ["$scope","refService","currentAuth","$mdDialog","hashService", usernameChangeCtrl])
+    app.controller('usernameChangeCtrl', ["$scope","refService","currentAuth","$mdDialog", usernameChangeCtrl])
     
-    function usernameChangeCtrl($scope,refService,currentAuth,$mdDialog,hashService){
+    function usernameChangeCtrl($scope,refService,currentAuth,$mdDialog){
         $scope.hide = function() {
             $mdDialog.hide();
         };
@@ -52,7 +52,8 @@
                             })
                         })
                     })
-                    
+            location.reload(true);
+                location.reload(true);        
             $mdDialog.cancel();
         }
     }

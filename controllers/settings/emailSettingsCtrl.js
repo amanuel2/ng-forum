@@ -1,9 +1,9 @@
 (function(angular){
     var app = angular.module('ForumApp');
     
-    app.controller('emailSettingsCtrl', ["$scope","refService","currentAuth","$mdDialog","hashService", emailSettingsCtrl])
+    app.controller('emailSettingsCtrl', ["$scope","refService","currentAuth","$mdDialog", emailSettingsCtrl])
     
-    function emailSettingsCtrl($scope,refService,currentAuth,$mdDialog,hashService){
+    function emailSettingsCtrl($scope,refService,currentAuth,$mdDialog){
 
         $scope.hide = function() {
             $mdDialog.hide();
@@ -16,9 +16,9 @@
         };
 
         $scope.changeEmailDialog = function(){
+           
             var email = $scope.emailChange || $scope.emailChange.toString;
             var oldEmail = $scope.emailChangeOld;
-            var oldPassword = hashService.AESCrypt($scope.passwordChangeOld,'dsds','dsds') 
             refService.ref().changeEmail({
                 oldEmail: oldEmail,
                 newEmail: email,
@@ -75,6 +75,8 @@
                             })
                         })
                     })
+                    location.reload(true);
+                    location.reload(true);
                     $mdDialog.cancel();
                 }
             });
