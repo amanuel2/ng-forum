@@ -6,14 +6,14 @@ Ng-Forum, meet developers around the globe. :earth_africa:
  [![Join the chat at https://gitter.im/amanuel2/ng-forum](https://badges.gitter.im/amanuel2/ng-forum.svg)](https://gitter.im/amanuel2/ng-forum?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 
-##This Site has not been updated! The Demo, is V 0.8
+##This Site is updated! The Demo, is V 1.0
 
 ## THIS PROJECT IS UNDER HIGH ACTIVE DEVELOPMENT
 If you want to help please go [here](https://ide.c9.io/amanuel2/ng-fourm#openfile-README.md).This project currently under development and bugs are known to happen! However, if you spot a bug file an issue or submit a pull request. Contributions are always welcome! 
 
 ## Demo
 
-Yes, [here](http://ng-forum.site88.net) is the demo.[AS OF 5/29/2016] .
+Yes, [here](http://ng-forum.site88.net) is the demo.[AS OF 6/6/2016] .
 
 ##Contributors
 Table, like this one :
