@@ -6,12 +6,26 @@ Ng-Forum, meet developers around the globe. :earth_africa:
  [![Join the chat at https://gitter.im/amanuel2/ng-forum](https://badges.gitter.im/amanuel2/ng-forum.svg)](https://gitter.im/amanuel2/ng-forum?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 
-## WARNING
-This project currently under development and bugs are known to happen! However, if you spot a bug file an issue or submit a pull request. Contributions are always welcome!
+##This Site has not been updated! The Demo, is V 0.8
+
+## THIS PROJECT IS UNDER HIGH ACTIVE DEVELOPMENT
+If you want to help please go [here](https://ide.c9.io/amanuel2/ng-fourm#openfile-README.md).This project currently under development and bugs are known to happen! However, if you spot a bug file an issue or submit a pull request. Contributions are always welcome! 
 
 ## Demo
 
-Yes, [here](http://ng-forum.site88.net) is the demo.[AS OF 5/24/2016]
+Yes, [here](http://ng-forum.site88.net) is the demo.[AS OF 5/29/2016] .
+
+##Contributors
+Table, like this one :
+
+Name          |   Position    | Descripton |
+------------- | ------------- | -----------|
+Amanuel Bogale|    Backend Leader   |  15 year old programming entusasist. Likes to play around with C/C++          |
+Mohamed Nasrullah| Manager  |    NodeJS/Mongo DB Programmer.         |
+Jeffrey Crowder| FrontEnd Co-Leader/Backend Member  |    16 year old programmer. Likes to play around with bunch of lines of code         |
+Adrian Kopytko (Shimizo)| FrontEnd Leader  |    HTML/CSS Entusasist. Hates Frameworks, likes to build from ground up. Like a pro :)       |
+
+
 
 ## What is this project? What makes this project unique?
 This project is a forum app for developers around the world, to gather up ask, answer questions!
@@ -28,12 +42,15 @@ What makes this unique, is that this is the only open source AngularJS forum bui
 
 ```bash
 $ npm install
+$ npm install bower -g
 $ bower install
 ```
 
+If problems like npm is not defined, then you have to install NodeJS and NPM, or any other problems Please take a look on the [Wiki Page](https://github.com/amanuel2/ng-forum/wiki)
+
 ## Is this being built collaboratively?
 
-Absolutely! On GitHub via this repository and at [Cloud9](https://ide.c9.io/amanuel2/fourm2).
+Absolutely! On GitHub via this repository and at [Cloud9](https://ide.c9.io/amanuel2/ng-fourm#openfile-README.md).
 
 
 ## Want contribute to the project?
@@ -43,7 +60,7 @@ Three ways you can contribute with the project:
 1. Please [be welcoming](http://contributor-covenant.org/).
 2. File an issue with your bug report or problem.
 3. Submit a pull request with your changes.
-4. Join us on [Cloud9](https://ide.c9.io/amanuel2/fourm2) to develop it collaboratively.
+4. Join us on [Cloud9](https://ide.c9.io/amanuel2/ng-fourm#openfile-README.md) to develop it collaboratively.
 
 # Licence:
 
@@ -56,4 +73,3 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
