@@ -2,6 +2,8 @@
   var app = angular.module('ForumApp' ,
 
 /*
+
+RELEASE 1.0 CODE CHANGES : https://github.com/amanuel2/ng-forum/commit/bfa46d42108b400c6b2c0c814ec1960e88a659aa
                 Release 1.1
               ----------------
 DO NOT FORGET TO CHANGE DATABASE WHEN PUSH TO GITHUB! https://uniquecoders.firebaseio.com/
