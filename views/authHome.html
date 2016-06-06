@@ -1,73 +1,9 @@
 <head>
-  <link rel="stylesheet" href="views/assets/css/files/authHome.css" type="text/css" />
+  <link rel="stylesheet" href="views/assets/css/files/minified/authHome.min.css" type="text/css" />
 </head>
-<!--
-<div class="toolbardemoBasicUsage">
-  <md-content>
-    <md-toolbar class="md-hue-2">
-      <div class="md-toolbar-tools">
-        <md-button class="md-icon-button" aria-label="Menu">
-          <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
-        </md-button>
-        <h2>
-          <span>Welcome {{Username}}</span>
-        </h2>
-        
-        <div class="logged" ng-if="authData != null">
-          <span flex=""></span>
-          <md-button class="md-icon-button notifications_icon" aria-label="Favorite">
-            <ng-md-icon icon="notifications_none" style="fill: greenyellow;" size="30"></ng-md-icon> 
-            <!--notifications_active-->
-            <!--
-          </md-button>
-  
-  
-          <md-menu>
-            <md-button class="md-icon-button" aria-label="More" id="avatar_menu" ng-click="openMenu($mdOpenMenu, $event)">
-              <img class="avatar" src="{{image}}" />
-            </md-button>
-            <md-menu-content width="4">
-              <md-menu-item>
-                <md-button ui-sref="authHome.desc">
-                  <ng-md-icon icon="forum" style="fill: black" size="20"></ng-md-icon>
-                  Forum
-                </md-button>
-              </md-menu-item>
-              <md-menu-item>
-                <md-button ng-click="goToProfile();">
-                  <ng-md-icon icon="perm_identity" style="fill: black" size="20"></ng-md-icon>
-                  Profile
-                </md-button>
-              </md-menu-item>
-              <md-menu-item>
-                <md-button ng-click="goToSettings();">
-                  <ng-md-icon icon="settings" style="fill: black" size="20"></ng-md-icon>
-                  Settings
-                </md-button>
-              </md-menu-item>
-              <md-menu-item>
-                <md-button ng-click="logout();">
-                  <ng-md-icon icon="logout" style="fill: black" size="20"></ng-md-icon>
-                  Logout
-                </md-button>
-              </md-menu-item>
-            </md-menu-content>
-          </md-menu>
-        </div>
 
-        <div class="logged" ng-if="authData==null">
-          <md-button class="md-raised md-warn" ui-sref="auth">
-            <ng-md-icon icon="person" style="fill:white" size="20"></ng-md-icon>
-              Login/Signup
-          </md-button>
-        </div>
-        
-      </div>
-    </md-toolbar>
-</div>
--->
 
-<div class="menu">
+<div class="menu" id="IDMENU">
   <div class="welcome-things">
     <md-button class="md-icon-button" aria-label="Menu">
       <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
@@ -79,12 +15,13 @@
 
         <md-button class="md-icon-button notifications_icon notifications-wrapper" aria-label="Favorite">
           <ng-md-icon icon="notifications_none" style="fill: greenyellow;" size="30"></ng-md-icon> 
-          <!--notifications_active-->
+          notifications_active
+          
         </md-button>
           
         <md-menu>
           <md-button class="user-avatar-wrapper" aria-label="More" ng-click="openMenu($mdOpenMenu, $event)">
-            <img class="user-avatar" src="{{image}}">
+            <img class="user-avatar" ng-src="{{image}}">
           </md-button>
             <md-menu-content width="4">
               <md-menu-item>

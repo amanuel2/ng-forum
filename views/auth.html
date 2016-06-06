@@ -1,5 +1,6 @@
 <head>
-    <link rel="stylesheet" href="views/assets/css/files/auth.css" type="text/css" />
+    <link rel="stylesheet" href="views/assets/css/files/minified/auth.min.css" type="text/css" />
+    
 </head>
 
 
@@ -38,6 +39,21 @@
                             <ng-md-icon icon="cloud_done" style="fill: #29b6f6" size="20" id="buttonIcon"></ng-md-icon>
                             Login
                         </md-button>
+                    </div>
+                     <span style="color:red;">Or Login With</span>
+                    <span class="social_icon">
+                        <md-button class="md-icon-button"  ng-click="oAuthLogin('twitter')">
+                            <ng-md-icon icon="twitter" style="fill: #0084b4" size="20"></ng-md-icon>
+                        </md-button>
+                        <md-button class="md-icon-button" ng-click="oAuthLogin('github')">
+                            <ng-md-icon icon="github-circle" style="fill: #666666" size="20" ></ng-md-icon>
+                        </md-button>
+                        <md-button class="md-icon-button" ng-click="oAuthLogin('google')">
+                            <ng-md-icon icon="google-plus-box" style="fill: #d34836" size="20" ></ng-md-icon>
+                        </md-button>
+                    </span>
+                    <div>
+                        
                     </div>
                     <md-button class="md-raised md-accent" ng-click="forgotPass();">
                         <ng-md-icon icon="security" style="fill: white" size="20" id="twitterLogin"></ng-md-icon>
@@ -97,11 +113,8 @@
                             on-success="setResponse()"
                         ></div>
                     </span>
-                   <span>Or Register With</span>
+                   <span style="color:red;">Or Register With</span>
                     <span class="social_icon">
-                        <md-button class="md-icon-button" ng-click="oAuth('facebook')">
-                            <ng-md-icon icon="facebook-box" style="fill: #3b5998" size="20" ></ng-md-icon>
-                        </md-button>
                         <md-button class="md-icon-button"  ng-click="oAuth('twitter')">
                             <ng-md-icon icon="twitter" style="fill: #0084b4" size="20"></ng-md-icon>
                         </md-button>

@@ -1,8 +1,137 @@
- <user-card-directive 
-        name="{{Username}}" 
-        theme="forest" 
-        image="{{image}}" 
-        email="{{Email}}" 
-        uid="{{UID}}"
-        desc="{{desc}}">
-  </user-card-directive>
+<!--<span class="private_session_span">-->
+<!--            <md-button class="md-warn md-raised" >-->
+<!--              <ng-md-icon icon="code" style="fill:white" size="30"></ng-md-icon>-->
+<!--               Private Session-->
+<!--            </md-button>-->
+<!--          </span>-->
+          
+<!--          <span class="private_session_span">-->
+<!--            <md-button class="md-warn md-raised">-->
+<!--              <ng-md-icon icon="chat" style="fill:white" size="30"></ng-md-icon>-->
+<!--               Private Chat-->
+<!--            </md-button>-->
+<!--          </span>-->
+<head>
+        <link rel="stylesheet" href="views/assets/css/files/minified/profile.min.css" type="text/css" />
+</head>
+
+  
+<div ng-cloak>
+  <md-content>
+    <div>
+      <span class ="image_and_icon_container">
+        <img src="{{image}}" class="profile-image">
+      
+        </span>
+        <div class="backgroundImage" style="height=20px"> 
+       
+       </span>
+       <span>
+         <span class="private_session_span">
+            <md-button class="md-warn md-raised" >
+              <ng-md-icon icon="code" style="fill:white" size="30"></ng-md-icon>
+               Private Session
+            </md-button>
+          </span>
+          <span class="private_chat_span">
+            <md-button class="md-warn md-raised" >
+              <ng-md-icon icon="chat" style="fill:white" size="30"></ng-md-icon>
+               Private Chat
+            </md-button>
+          </span>
+          <span class="desc">
+                <strong>{{desc}}</strong>
+          </span>
+         <img src="{{backImage}}" class="profile-bg">
+       </span>
+          
+          <div class="profile-list" layout="row">
+              <h4>Name : <span ng-bind="Username"></span></h4>
+              <h4 ng-if="Moderator == false">Views : {{ProfileViews}}</h4>
+              <span class="follow_class" ng-if="Moderator == false">
+                 <span class="following"><h4>{{Followers}} Followers</h4></span>
+                 <span class="followers"><h4>{{Following}} Following</h4></span>
+              </span>
+              <span class="modTrueStuff">
+                <h4 ng-if="Moderator == true">Views : {{ProfileViews}}</h4>
+                 <span class="follow_classTRUE" ng-if="Moderator == true">
+                   <span class="followingTRUE"><h4>{{Followers}} Followers</h4></span>
+                   <span class="followersTRUE"><h4>{{Following}} Following</h4></span>
+                </span>
+              </span>
+              <span class="moderator_not" ng-if="Moderator == true">
+                <ng-md-icon icon="contacts" class="moderator_badge" style="fill:#FFEA00" size="20"></ng-md-icon>
+                <h4 class="moderator_class">Respected Moderator</h4>
+              </span>
+              <span class="moderator_not" ng-if="Moderator == false"><h4>Normal User</h4></span>
+              <span class="precence">
+                <strong>{{isPresent}}</strong>
+              </span>
+              
+            </div>
+        </div>
+    </div>
+    <div layout="row" flex class="content-wrapper">
+      
+      
+        
+        <md-sidenav layout="column" id="sidenav" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
+          <md-list class="muppet-list">
+            <md-item>
+              <md-item-content class="profile-buttons">
+                <md-button ng-click="selectMuppet(it)" >
+                  <ng-md-icon icon="forum" style="fill: #F44336" size="40"></ng-md-icon> 
+                  Topics
+                </md-button>
+                 <md-button ng-click="selectMuppet(it)">
+                  <ng-md-icon icon="reply_all" style="fill: #00BCD4" size="40"></ng-md-icon> 
+                  Replies
+                </md-button>
+                <md-button ng-click="selectMuppet(it)">
+                  <ng-md-icon icon="people" style="fill: #FFC107" size="40"></ng-md-icon> 
+                  Groups
+                </md-button>
+                <md-button ng-click="selectMuppet(it)">
+                   <ng-md-icon icon="chat" style="fill: #FF5722" size="40"></ng-md-icon> 
+                  ChatRooms
+                </md-button>
+                <md-button ng-click="selectMuppet(it)">
+                  <ng-md-icon icon="person_add" style="fill: #4CAF50" size="40"></ng-md-icon> 
+                  Followers
+                </md-button>
+                <md-button ng-click="selectMuppet(it)">
+                  <ng-md-icon icon="collections_bookmark" style="fill: #009688" size="40"></ng-md-icon> 
+                  BookMarks
+                </md-button>
+                <md-button ng-click="selectMuppet(it)">
+                   <ng-md-icon icon="code" style="fill: #1DE9B6" size="40"></ng-md-icon> 
+                  Public Sessions
+                </md-button>
+                <md-button ng-click="SelectMuppet(it)">
+                  <ng-md-icon icon="settings" style="fill:#C0C0C0" size="40"></ng-md-icon>
+                  Settings
+                </md-button>
+              </md-item-content>
+            </md-item>
+          </md-list>
+        </md-sidenav>
+        <div layout="column" flex class="content-wrapper" id="primary-col">
+            <md-content layout="column" flex class="md-padding">
+              <h4>In Construction</h4>
+             
+              <div class="cell">
+
+             </div>
+            </md-content>
+        </div>
+    </div>
+  </md-content>
+</div>
+</div>
+
+
+        
+        
+        
+
+        

@@ -1,5 +1,5 @@
 <head>
-    <link rel="stylesheet" href="views/assets/css/files/settings.css" type="text/css" />
+    <link rel="stylesheet" href="views/assets/css/files/minified/settings.min.css" type="text/css" />
 </head>
 
 
@@ -22,12 +22,12 @@
                 <br>
                 <span class="info">Password : {{passwordSHARP}}</span>
                 
-                <md-button class="md-raised md-accent" ng-click="changePassword($event);">
+                <md-button class="md-raised md-accent" id="password_button" ng-click="changePassword($event);">
                     Change
                 </md-button>
                 <br>
                 <div>
-                    <span class="info">Avatar :</span> <img src="{{userInfo.Image}}" class="avatarr avatar-img"/>
+                    <span class="info">Avatar :</span> <img ng-src="{{userInfo.Image}}" class="avatarr avatar-img"/>
                     <md-button class="md-raised" ng-click="changeImage($event);">
                         Change
                     </md-button>
@@ -36,7 +36,7 @@
                 <span class="info">UID : {{uid}}</span>
               </md-tab>
               <md-tab label="Update Descripton">
-                   <p class="info">{{desc}}</p>
+                   <p class="info">See Your Descripton in your profile page</p>
                    <md-button class="md-accent" ng-click="descriptonChange($event);">Update Descripton</md-button>
               </md-tab>
               <md-tab label="Logout" ng-click="logout();">Logout</md-tab>

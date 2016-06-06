@@ -9,12 +9,17 @@
             height: 350px;
              margin-left: auto;
             margin-right: auto;
+           border-style:solid;
+           border-color:#808080;
+          padding: 10px;
         }
+       
     </style>
+    
 </head>
 
 
-<md-dialog aria-label="Mango (Fruit)"  ng-cloak>
+<md-bottom-sheet aria-label="Mango (Fruit)"  ng-cloak>
     <form>
         <md-toolbar>
             <div class="md-toolbar-tools">
@@ -25,12 +30,12 @@
                 </md-button>
             </div>
         </md-toolbar>
-        <md-dialog-content style="width:1000px;height:700px; ">
+       
             <h1></h1>
             <md-input-container style="width: 500px; height:400px;">
                 <label>Reply</label>
 
-                <textarea class="text_area" ng-model="reply.sentence" rows="300" md-select-on-focus ></textarea>
+               <textarea class="text_area" ng-model="reply.sentence" rows="300" md-select-on-focus ></textarea>
             </md-input-container>
             <br>
             <br>
@@ -40,19 +45,5 @@
                 <strong>Submit</strong>
             </md-button>
 
-        </md-dialog-content>
-        <md-dialog-actions layout="row">
-            <md-button href="javascript:void(0)" target="_blank" md-autofocus>
-               Unique Coders
-            </md-button>
-            <span flex></span>
-            <img src="https://lh3.googleusercontent.com/z_dVaAGWaYGLulTy0drwYY6QpdABEOq718yBnFyw6Ejbu9T_r4-3FyOVCb0aNw=w400" id="ashely"/> Was Ashely Usefull?
-            <md-button ng-click="answer('not useful')" >
-                Not Useful
-            </md-button>
-            <md-button ng-click="answer('useful')" style="margin-right:20px;" >
-                Useful
-            </md-button>
-        </md-dialog-actions>
     </form>
-</md-dialog>
+</md-bottom-sheet>

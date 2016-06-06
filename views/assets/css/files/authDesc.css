@@ -17,10 +17,19 @@
   /* IE 10+ */
   user-select: none;
   /* Likely future */ }
+  
+  html, body{
+  background: #DDDDDD;
+}
 #MD-ICON-1 {
     position: relative;
     left: -40px;
     bottom: -23px;
+}
+
+.avatar_custom{
+  width:20px;
+  height:20px;
 }
 
 .avatar_creator {
@@ -47,3 +56,20 @@
       font-weight: bold;
       margin-right: 50px;
     }
+    
+.user-avatar-wrapper {
+  padding: 0;
+  margin: 0;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  min-width: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.user-avatar {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
