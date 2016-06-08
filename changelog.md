@@ -3,8 +3,11 @@
 Bug Fixes. 
 
 Added many features:
+
 -Following
+
 -Profile Page now is semi-complete (visualy)
+
 And much more!
 
 #Pre-Release Version 0.9 
