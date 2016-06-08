@@ -1,3 +1,12 @@
+#Pre-Release Version 1.0
+
+Bug Fixes. 
+
+Added many features:
+-Following
+-Profile Page now is semi-complete (visualy)
+And much more!
+
 #Pre-Release Version 0.9 
 
 This update you no longer have to login! 
