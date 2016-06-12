@@ -26,6 +26,7 @@ Amanuel Bogale|    Backend Leader   |  15 year old programming entusasist. Likes
 Mohamed Nasrullah| Manager  |    NodeJS/Mongo DB Programmer.         |
 Jeffrey Crowder| FrontEnd Co-Leader/Backend Member  |    16 year old programmer. Likes to play around with bunch of lines of code         |
 Adrian Kopytko (Shimizo)| FrontEnd Leader  |    HTML/CSS Entusasist. Hates Frameworks, likes to build from ground up. Like a pro :)       |
+Kevin James | Backend, Fronend Master  |   Awesome Freelancer! Loves to work with AngularJS and Firebase. Likes Material Design, and one of his best abilitites, make readble and reusable code.     |
 
 
 
