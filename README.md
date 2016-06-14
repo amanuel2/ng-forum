@@ -7,6 +7,7 @@ Ng-Forum, meet developers around the globe. :earth_africa:
 
 [![ReviewNinja](https://app.review.ninja/56410865/badge)](https://app.review.ninja/amanuel2/ng-forum)
 [![](https://cldup.com/jWUT4QFLnq.png)](https://ng-forum.slack.com)
+[![](https://codeship.com/projects/157873/status?branch=master)](https://codeship.com/projects/157873/status?branch=master)
 
 ![](http://i.imgur.com/egrG55Z.png)
 
