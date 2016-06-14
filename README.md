@@ -7,7 +7,6 @@ Ng-Forum, meet developers around the globe. :earth_africa:
 
 [![ReviewNinja](https://app.review.ninja/56410865/badge)](https://app.review.ninja/amanuel2/ng-forum)
 [![](https://cldup.com/jWUT4QFLnq.png)](https://ng-forum.slack.com)
-[![](https://codeship.com/projects/157873/status?branch=master)](https://codeship.com/projects/157873/status?branch=master)
 
 ![](http://i.imgur.com/egrG55Z.png)
 
@@ -33,7 +32,7 @@ Amanuel Bogale|    Backend Leader   |  15 year old programming entusasist. Likes
 Mohamed Nasrullah| Manager  |    NodeJS/Mongo DB Programmer.         |
 Jeffrey Crowder| FrontEnd Co-Leader/Backend Member  |    16 year old programmer. Likes to play around with bunch of lines of code         |
 Adrian Kopytko (Shimizo)| FrontEnd Leader  |    HTML/CSS Entusasist. Hates Frameworks, likes to build from ground up. Like a pro :)       |
-Kevin James | Backend, Fronend Master  |   Awesome Freelancer! Loves to work with AngularJS and Firebase. Likes Material Design, and one of his best abilitites, make readble and reusable code.     |
+[Kyle Roach](https://github.com/iroachie) | Frontend Lover. Gulp Enthuasist  |   Awesome Frontend! Very skilled with project organization, and gulp :wink:     |
 
 
 
