@@ -5,7 +5,7 @@ Ng-Forum, meet developers around the globe. :earth_africa:
 
  [![Join the chat at https://gitter.im/amanuel2/ng-forum](https://badges.gitter.im/amanuel2/ng-forum.svg)](https://gitter.im/amanuel2/ng-forum?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-
+[![ReviewNinja](https://app.review.ninja/56410865/badge)](https://app.review.ninja/amanuel2/ng-forum)
 [![](https://cldup.com/jWUT4QFLnq.png)](https://ng-forum.slack.com)
 
 ![](http://i.imgur.com/egrG55Z.png)
