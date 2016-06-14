@@ -31,8 +31,8 @@ Name          |   Position    | Descripton |
 Amanuel Bogale|    Backend Leader   |  15 year old programming entusasist. Likes to play around with C/C++          |
 Mohamed Nasrullah| Manager  |    NodeJS/Mongo DB Programmer.         |
 Jeffrey Crowder| FrontEnd Co-Leader/Backend Member  |    16 year old programmer. Likes to play around with bunch of lines of code         |
-Adrian Kopytko (Shimizo)| FrontEnd Leader  |    HTML/CSS Entusasist. Hates Frameworks, likes to build from ground up. Like a pro :)       |
-[Kyle Roach](https://github.com/iroachie) | Frontend Lover. Gulp Enthuasist  |   Awesome Frontend! Very skilled with project organization, and gulp :wink:     |
+Adrian Kopytko (Shimizo)| FrontEnd   |    HTML/CSS Entusasist. Hates Frameworks, likes to build from ground up. Like a pro :)       |
+[Kyle Roach](https://github.com/iroachie) | Frontend, Project Organization. |   Awesome Frontend! Very skilled with project organization, and gulp :wink:     |
 
 
 
