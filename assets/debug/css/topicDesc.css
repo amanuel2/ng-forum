@@ -1,0 +1,130 @@
+        #CREATOR_TITLE {
+            color: #204056;
+            font-weight: bold;
+        }
+        
+        .toolbar_new_topic {
+            display: none;
+        }
+        
+        .dividerTitle {
+            width: 500px;
+        }
+        
+        .encloseTopic.ng-scope {
+            padding-left: 60px;
+        }
+        
+        .avatar_creator {
+            border-radius: 50%;
+            position: relative;
+            top: 20px;
+            width: 45px;
+            height: 45px;
+        }
+        
+        span.username_creator {
+            position: relative;
+            top: 3px;
+        }
+        
+        .topic_sentence {
+            position: relative;
+            width: 1001px;
+            height: 350px;
+            top: 40px;
+            left: 60px;
+            color: #204056;
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            line-height: 19px;
+        }
+        
+        span.time_since.ng-binding {
+            top: 20px;
+            right: 300px;
+        }
+        
+        .enclose_replies.ng-scope {
+            position: relative;
+            bottom: 180px;
+        }
+        
+        button#REPLY_BUTTON {
+            position: relative;
+            top: -150px;
+            left: 600px;
+        }
+        
+        span#date_reply {
+            position: relative;
+            left: 700px;
+        }
+        
+        .cursors_AV:hover {
+            cursor: pointer;
+        }
+        
+        .upvote_icons.ng-scope {
+            position: relative;
+            bottom: 550px;
+            left: 600px;
+        }
+        
+        .down_vote_button {
+            position: relative;
+            top: 40px;
+        }
+        
+        .already_voted_sign.ng-scope {
+            position: relative;
+            bottom: 490px;
+            left: 590px;
+        }
+        
+        .views_view_count {
+            /* left: 20px; */
+            position: relative;
+            left: 640px;
+            top: -440px;
+        }
+        
+        .topic_sentence.ng-binding {
+            width: 500px;
+        }
+        
+        .stats_enclose {
+            position: relative;
+            bottom: 130px;
+            height: 60px;
+        }
+        
+        .buttonBackIcon {
+            right: 20px;
+        }
+        
+        span.GOBACKBUTTON {
+            left: -45px;
+            position: relative;
+        }
+        
+        span.time_topic {
+            position: relative;
+            left: 420px;
+            /* height: 50px; */
+            /* width: 50px; */
+            bottom: 160px;
+        }
+        
+        button.md-icon-button.reply_icon.md-button.md-ink-ripple {
+            right: 900px;
+        }
+        
+        .creatorUsername {
+            font-weight: bold;
+        }
+        
+        .post-info {
+            display: flex;
+            justify-content: space-between;
+        }

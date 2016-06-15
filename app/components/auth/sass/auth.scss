@@ -1,0 +1,608 @@
+//colors
+$color_gray_nurse_approx: #e9e9e9;
+$color_storm_dust_approx: #666;
+$color_amaranth_approx: #ed2553;
+$black_12: rgba(0,0,0,0.12);
+$black_24: rgba(0,0,0,0.24);
+$white: #fff;
+$black_16: rgba(0,0,0,0.16);
+$black_23: rgba(0,0,0,0.23);
+$color_tuatara_approx: #363636;
+$black_19: rgba(0,0,0,0.19);
+$concrete: #f2f2f2;
+$alabaster: #fafafa;
+$color_log_cabin_approx: #212121;
+$color_star_dust_approx: #9d9d9d;
+$color_tapa_approx: #757575;
+$color_mercury_approx: #e3e3e3;
+$color_alto_approx: #ddd;
+$color_quill_gray_approx: #d3d3d3;
+$color_pink_swan_approx: #bababa;
+$white_80: rgba(255,255,255,0.8);
+$white_90: rgba(255,255,255,0.9);
+$color_picton_blue_approx: #4099ff;
+$black: #000;
+$color_mountain_mist_approx: #999;
+$color_valencia_approx: #dd4b39;
+$color_french_rose_approx: #ea4c89;
+$color_cardinal_approx: #cb2027;
+$color_azure_approx: #3b5998;
+$color_guardsman_red_approx: #b00;
+
+//fonts
+$font_0: Comic Sans;
+$font_1: Comic Sans MS;
+$font_2: cursive;
+$font_3: RobotoDraft;
+$font_4: Roboto;
+$font_5: sans-serif;
+
+//urls
+$url_0: url(https://wallpaperspal.com/wp-content/uploads/Google-Material-Design-Wallpaper.jpg);
+
+//@extend-elements
+//original selectors
+//#codepen, #portfolio
+%extend_1 {
+	position: fixed;
+	bottom: 30px;
+	right: 30px;
+	background: $color_tuatara_approx;
+	width: 56px;
+	height: 56px;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 100%;
+	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+	box-shadow: 0 1px 3px $black_12,0 1px 2px $black_24;
+	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+	transition: .3s ease;
+	color: $white;
+	text-align: center;
+}
+
+//original selectors
+//.container.active .card.alt .title, .container.active .card.alt .input-container, .container.active .card.alt .button-container
+%extend_2 {
+	left: 0;
+	opacity: 1;
+	visibility: visible;
+	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+	transition: .3s ease;
+}
+
+//original selectors
+//.card .input-container .bar:before, .card .input-container .bar:after
+%extend_3 {
+	content: '';
+	position: absolute;
+	background: $color_amaranth_approx;
+	width: 0;
+	height: 2px;
+	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+	transition: .2s ease;
+}
+
+//original selectors
+//.card.alt .title, .card.alt .input-container, .card.alt .button-container
+%extend_4 {
+	left: 100px;
+	opacity: 0;
+	visibility: hidden;
+}
+
+
+html {
+	background-image: $url_0;
+}
+#Header {
+	font-family: $font_0, $font_1, $font_2;
+}
+.pen-title {
+	padding: 50px 0;
+	text-align: center;
+	letter-spacing: 2px;
+	h1 {
+		margin: 0 0 20px;
+		font-size: 48px;
+		font-weight: 300;
+	}
+	span {
+		font-size: 12px;
+		.fa {
+			color: $color_amaranth_approx;
+		}
+		a {
+			color: $color_amaranth_approx;
+			font-weight: 600;
+			text-decoration: none;
+		}
+	}
+}
+.rerun {
+	margin: 0 0 30px;
+	text-align: center;
+	a {
+		cursor: pointer;
+		display: inline-block;
+		background: $color_amaranth_approx;
+		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+		border-radius: 3px;
+		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+		box-shadow: 0 1px 3px $black_12,0 1px 2px $black_24;
+		padding: 10px 20px;
+		color: $white;
+		text-decoration: none;
+		//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+		transition: .3s ease;
+		&:hover {
+			//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+			box-shadow: 0 3px 6px $black_16,0 3px 6px $black_23;
+		}
+	}
+}
+#codepen {
+	@extend %extend_1;
+	i {
+		line-height: 56px;
+	}
+	&:hover {
+		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+		box-shadow: 0 10px 20px $black_19,0 6px 6px $black_23;
+	}
+}
+#portfolio {
+	@extend %extend_1;
+	bottom: 96px;
+	right: 36px;
+	background: $color_amaranth_approx;
+	width: 44px;
+	height: 44px;
+	animation: buttonFadeInUp 1s ease;
+	i {
+		line-height: 56px;
+		line-height: 44px;
+	}
+	&:hover {
+		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+		box-shadow: 0 10px 20px $black_19,0 6px 6px $black_23;
+	}
+}
+.container {
+	position: relative;
+	max-width: 460px;
+	width: 100%;
+	margin: 0 auto 100px;
+	&.active .card {
+		&:first-child {
+			background: $concrete;
+			margin: 0 15px;
+		}
+		&:nth-child(2) {
+			background: $alabaster;
+			margin: 0 10px;
+		}
+		&.alt {
+			top: 20px;
+			right: 0;
+			width: 100%;
+			min-width: 100%;
+			height: auto;
+			//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+			border-radius: 5px;
+			padding: 60px 0 40px;
+			overflow: hidden;
+			.toggle {
+				position: absolute;
+				top: 40px;
+				right: -70px;
+				//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+				box-shadow: none;
+				//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+				transform: scale(10);
+				//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+				transition: transform .3s ease;
+				&:before {
+					content: '';
+				}
+			}
+			.title {
+				@extend %extend_2;
+				//Instead of the line below you could use @include transition-delay($delay-1, $delay-2, $delay-3, $delay-4, $delay-5, $delay-6, $delay-7, $delay-8, $delay-9, $delay-10)
+				transition-delay: .3s;
+			}
+			.input-container {
+				@extend %extend_2;
+				//Instead of the line below you could use @include transition-delay($delay-1, $delay-2, $delay-3, $delay-4, $delay-5, $delay-6, $delay-7, $delay-8, $delay-9, $delay-10)
+				transition-delay: .4s;
+				&:nth-child(2) {
+					//Instead of the line below you could use @include transition-delay($delay-1, $delay-2, $delay-3, $delay-4, $delay-5, $delay-6, $delay-7, $delay-8, $delay-9, $delay-10)
+					transition-delay: .5s;
+				}
+				&:nth-child(3) {
+					//Instead of the line below you could use @include transition-delay($delay-1, $delay-2, $delay-3, $delay-4, $delay-5, $delay-6, $delay-7, $delay-8, $delay-9, $delay-10)
+					transition-delay: .6s;
+				}
+			}
+			.button-container {
+				@extend %extend_2;
+				//Instead of the line below you could use @include transition-delay($delay-1, $delay-2, $delay-3, $delay-4, $delay-5, $delay-6, $delay-7, $delay-8, $delay-9, $delay-10)
+				transition-delay: .7s;
+			}
+		}
+	}
+}
+.card {
+	position: relative;
+	background: $white;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 5px;
+	padding: 60px 0 40px;
+	//Instead of the line below you could use @include box-sizing($bs)
+	box-sizing: border-box;
+	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+	box-shadow: 0 1px 3px $black_12,0 1px 2px $black_24;
+	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+	transition: .3s ease;
+	&:first-child {
+		background: $alabaster;
+		height: 10px;
+		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+		border-radius: 5px 5px 0 0;
+		margin: 0 10px;
+		padding: 0;
+	}
+	.title {
+		position: relative;
+		z-index: 1;
+		border-left: 5px solid $color_amaranth_approx;
+		margin: 0 0 35px;
+		padding: 10px 0 10px 50px;
+		color: $color_amaranth_approx;
+		font-size: 32px;
+		font-weight: 600;
+		text-transform: uppercase;
+	}
+	.input-container {
+		position: relative;
+		margin: 0 60px 50px;
+		input {
+			outline: none;
+			z-index: 1;
+			position: relative;
+			background: none;
+			width: 100%;
+			height: 60px;
+			border: 0;
+			color: $color_log_cabin_approx;
+			font-size: 24px;
+			font-weight: 400;
+			&:focus {
+				~ label {
+					color: $color_star_dust_approx;
+					//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+					transform: translate(-12%,-50%) scale(0.75);
+				}
+				~ .bar {
+					&:before {
+						width: 50%;
+					}
+					&:after {
+						width: 50%;
+					}
+				}
+			}
+			&:valid ~ label {
+				color: $color_star_dust_approx;
+				//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+				transform: translate(-12%,-50%) scale(0.75);
+			}
+		}
+		label {
+			position: absolute;
+			top: 0;
+			left: 0;
+			color: $color_tapa_approx;
+			font-size: 24px;
+			font-weight: 300;
+			line-height: 60px;
+			//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+			transition: .2s ease;
+		}
+		.bar {
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			background: $color_tapa_approx;
+			width: 100%;
+			height: 1px;
+			&:before {
+				@extend %extend_3;
+				left: 50%;
+			}
+			&:after {
+				@extend %extend_3;
+				right: 50%;
+			}
+		}
+	}
+	.button-container {
+		margin: 0 60px;
+		text-align: center;
+		button {
+			outline: 0;
+			cursor: pointer;
+			position: relative;
+			display: inline-block;
+			background: 0;
+			width: 240px;
+			border: 2px solid $color_mercury_approx;
+			padding: 20px 0;
+			font-size: 24px;
+			font-weight: 600;
+			line-height: 1;
+			text-transform: uppercase;
+			overflow: hidden;
+			//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+			transition: .3s ease;
+			span {
+				position: relative;
+				z-index: 1;
+				color: $color_alto_approx;
+				//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+				transition: .3s ease;
+			}
+			&:before {
+				content: '';
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				display: block;
+				background: $color_amaranth_approx;
+				width: 30px;
+				height: 30px;
+				//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+				border-radius: 100%;
+				margin: -15px 0 0 -15px;
+				opacity: 0;
+				//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+				transition: .3s ease;
+			}
+			&:hover {
+				border-color: $color_amaranth_approx;
+				span {
+					color: $color_amaranth_approx;
+				}
+			}
+			&:active {
+				border-color: $color_amaranth_approx;
+				span {
+					color: $color_amaranth_approx;
+					color: $white;
+				}
+				&:before {
+					opacity: 1;
+					//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+					transform: scale(10);
+				}
+			}
+			&:focus {
+				border-color: $color_amaranth_approx;
+				span {
+					color: $color_amaranth_approx;
+					color: $white;
+				}
+				&:before {
+					opacity: 1;
+					//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+					transform: scale(10);
+				}
+			}
+		}
+	}
+	.footer {
+		margin: 40px 0 0;
+		color: $color_quill_gray_approx;
+		font-size: 24px;
+		font-weight: 300;
+		text-align: center;
+		a {
+			color: inherit;
+			text-decoration: none;
+			//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+			transition: .3s ease;
+			&:hover {
+				color: $color_pink_swan_approx;
+			}
+		}
+	}
+	&.alt {
+		position: absolute;
+		top: 40px;
+		right: -70px;
+		z-index: 10;
+		width: 140px;
+		height: 140px;
+		background: none;
+		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+		border-radius: 100%;
+		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+		box-shadow: none;
+		padding: 0;
+		//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+		transition: .3s ease;
+		.toggle {
+			position: relative;
+			background: $color_amaranth_approx;
+			width: 140px;
+			height: 140px;
+			//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+			border-radius: 100%;
+			//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+			box-shadow: 0 1px 3px $black_12,0 1px 2px $black_24;
+			color: $white;
+			font-size: 58px;
+			line-height: 140px;
+			text-align: center;
+			cursor: pointer;
+			&:before {
+				content: '\f040';
+				display: inline-block;
+				font: normal normal normal 14px/1 FontAwesome;
+				font-size: inherit;
+				text-rendering: auto;
+				//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+				transform: translate(0,0);
+			}
+		}
+		.title {
+			@extend %extend_4;
+			position: relative;
+			border-color: $white;
+			color: $white;
+			.close {
+				cursor: pointer;
+				position: absolute;
+				top: 0;
+				right: 60px;
+				display: inline;
+				color: $white;
+				font-size: 58px;
+				font-weight: 400;
+				&:before {
+					content: '\00d7';
+				}
+			}
+		}
+		.input-container {
+			@extend %extend_4;
+			input {
+				color: $white;
+				&:focus {
+					~ label {
+						color: $white;
+					}
+					~ .bar {
+						&:before {
+							background: $white;
+						}
+						&:after {
+							background: $white;
+						}
+					}
+				}
+				&:valid ~ label {
+					color: $white;
+				}
+			}
+			label {
+				color: $white_80;
+			}
+			.bar {
+				background: $white_80;
+			}
+		}
+		.button-container {
+			@extend %extend_4;
+			button {
+				width: 100%;
+				background: $white;
+				border-color: $white;
+				span {
+					color: $color_amaranth_approx;
+				}
+				&:hover {
+					background: $white_90;
+				}
+				&:active:before {
+					display: none;
+				}
+				&:focus:before {
+					display: none;
+				}
+			}
+		}
+	}
+}
+@-webkit-keyframes buttonFadeInUp {
+	0% {
+		bottom: 30px;
+		opacity: 0;
+	}
+}
+@keyframes buttonFadeInUp {
+	0% {
+		bottom: 30px;
+		opacity: 0;
+	}
+}
+.circle {
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 50%;
+	margin: .15em;
+	font-size: 3em;
+}
+.fa-twitter {
+	background: $color_picton_blue_approx;
+	color: $white;
+	padding: .05em .07em;
+	&:before {
+		content: "\f099";
+		position: relative;
+		left: 7px;
+		top: 6px;
+	}
+}
+.fa-github {
+	background: $black;
+	color: $color_mountain_mist_approx;
+	padding: .05em .07em;
+	&:before {
+		content: "\f09b";
+		position: relative;
+		top: 6px;
+		left: 8.65px;
+	}
+}
+.fa-google-plus {
+	color: $white;
+	background: $color_valencia_approx;
+	padding: .1em;
+}
+.fa-dribbble {
+	color: $color_french_rose_approx;
+}
+.fa-pinterest {
+	color: $color_cardinal_approx;
+}
+.fa-facebook {
+	background: $color_azure_approx;
+	color: $white;
+	padding: .05em .3em;
+}
+.fa-youtube {
+	background: $color_guardsman_red_approx;
+	color: $white;
+	padding: .25em;
+}
+body.ng-scope {
+	background: $color_gray_nurse_approx;
+	color: $color_storm_dust_approx;
+	font-family: $font_3, $font_4, $font_5;
+	font-size: 14px;
+}
+i.fa {
+	&.fa-twitter.circle {
+		width: 30px;
+		height: 30px;
+		position: relative;
+		left: 30px;
+		top: 48px;
+	}
+	&.fa-github.circle {
+		height: 30px;
+		width: 30px;
+		position: relative;
+		left: 383px;
+		bottom: 53px;
+	}
+}

@@ -1,0 +1,79 @@
+.menu {
+	height: 64px;
+	width: 100%;
+	background-color: #1565c0;
+	color: rgba(255,255,255,0.87);
+	font-size: 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	.welcome-things {
+		display: flex;
+		align-items: center;
+		.username {
+			margin-left: 10px;
+			font-weight: 700;
+			font-size: 24px;
+		}
+	}
+	.page-nav {
+		display: flex;
+		align-items: center;
+		margin-right: 30px;
+		.logged-user {
+			display: flex;
+			align-items: center;
+			.notifications-wrapper {
+				display: flex;
+				align-items: center;
+				margin-right: 20px;
+			}
+			.user-avatar-wrapper {
+				padding: 0;
+				margin: 0;
+				height: 50px;
+				width: 50px;
+				border-radius: 50%;
+				min-width: 50px;
+				display: flex;
+				align-items: center;
+			}
+			.user-avatar {
+				height: 50px;
+				width: 50px;
+				border-radius: 50%;
+			}
+		}
+		.not-logged-user {
+			display: flex;
+			align-items: center;
+			margin-right: 10px;
+		}
+	}
+}
+div#IDMENU {
+	background: #38abe3;
+}
+button#menu1 {
+	position: relative;
+	right: 70px;
+	top: 2px;
+	border-radius: 50%;
+	height: 50px;
+	width: 50px;
+}
+button.md-icon-button.notifications_icon.notifications-wrapper.md-button.md-ink-ripple {
+	position: relative;
+	right: 100px;
+}
+@media (min-width: 992px) {
+	.menu {
+		height: 74px;
+		.welcome-things {
+			.username {
+				font-size: 28px;
+				margin-left: 15px;
+			}
+		}
+	}
+}

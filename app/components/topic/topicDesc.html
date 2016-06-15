@@ -1,0 +1,344 @@
+<head>
+      <meta name="viewport" content="width=1200">
+    <!-- MARKDOWN -->
+    <link rel="stylesheet" href="bower_components/highlightjs/styles/tomorrow-night-bright.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/amanuel2/MathGame/master/highlightjs/styles.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/amanuel2/MathGame/master/highlightjs/tomorrow-night-bright.css">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Markdown -->
+
+    <!-- MDL -->
+
+    <!-- Material Design Lite -->
+    <script src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+    <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
+    <!-- Material Design icon font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <!--MDL -->
+    <link rel="stylesheet" href="app/components/topic/css/topicDesc.min.css" type="text/css" />
+      <link rel="stylesheet" href="app/components/newTopic/css/newTopic.min.css" type="text/css" />
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+</head>
+
+<md-button class="md-icon-button backward" ng-click="goBackTopic();">
+    <ng-md-icon style="fill:black" icon="keyboard_backspace" size="40"></ng-md-icon>
+</md-button>
+<div class="topic-desc-wrapper" class="fill-browser" >
+    <h1 class="topic-title">{{creatorTitle}}</h1>
+    <div class="topic-info">
+        <div class="topic-author-info">
+            <img ng-src="{{creatorAvatar}}" class="avatar">
+            <span class="username">{{creatorUsername}}</span>
+        </div>
+        <div class="topic-stats">
+            <span class="views-stats">{{countViews}} Views</span>
+            <span> Asked {{timeSinceCreated}}</span>
+        </div>
+    </div>
+           <span class="replies_num_container">
+            <span id="repliesNumSpan">
+                {{repliesNum}} {{repliesNum >1 ? 'Replies' : 'Reply'}}
+            </span>
+        </span>
+    <!-- END OF POST-INFO -->
+
+    <div class="topic-sentence">
+        <p class="topic-text" id="creatorValue" ng-bind-html="creatorValue | emoteFilter"></p>
+    </div>
+
+    <div class="tags">
+        <span class="tmp-tag" ng-repeat="tags in tagsTopicRep">
+            <md-button>
+                <ng-md-icon class="tmp-icon" icon="keyboard_arrow_right" size="20"></ng-md-icon>
+                <span>{{tags}}</span>
+        </md-button>
+        </span>
+    </div>
+
+    <div class="topic-buttons">
+        <div class="topic-voting">
+            <span class="vote-counting">
+                {{countVote}} <span ng-if="currentAuthGet==null;"> Vote </span>
+            </span>
+            <span ng-if="currentAuthGet!=null;">
+                <div class="vote-icons">
+                    <md-button class="md-icon-button" aria-label="Custom Icon Button" ng-click="upVote();">
+                        <ng-md-icon icon="thumb_up" id="upVoteIcon"  size="20" ng-class="upVoteCheck();"></ng-md-icon>
+                    </md-button>
+                    <md-button class="md-icon-button" aria-label="Custom Icon Button" ng-click="downVote();">
+                        <ng-md-icon icon="thumb_down"  id="downVoteIcon"  size="20" ng-class="downVoteCheck();"></ng-md-icon>
+                    </md-button>
+                </div>  
+            </span>
+        </div>
+         <span ng-if="deleteTopicPriv();">        
+            <span class="delete_topic_button">
+                <md-button class="md-icon-button">
+                        <md-button class="md-icon-button animation-target" ng-click="deleteTopic()">
+                            <md-tooltip md-direction="top">
+                              Delete
+                            </md-tooltip>
+                            <ng-md-icon icon="delete" style="fill: #ff6400;" size="20"></ng-md-icon> 
+                        </md-button>
+                </md-button>
+            </span>
+        </span>
+        <span ng-if="editTopicPriv();">        
+            <span class="edit_topic_button">
+                <md-button class="md-icon-button">
+                        <md-button class="md-icon-button animation-target" ng-click="editTopic($event)">
+                            <md-tooltip md-direction="top">
+                              Edit
+                            </md-tooltip>
+                            <ng-md-icon icon="edit" style="fill: #ff6400;" size="20"></ng-md-icon> 
+                        </md-button>
+                </md-button>
+            </span>
+        </span>
+        <span ng-if="currentAuthGet!=null;">        
+            <span class="bookmark_topic_button">
+                <md-button class="md-icon-button">
+                        <md-tooltip md-direction="top">
+                            Bookmark
+                        </md-tooltip>
+                        <span ng-if="bookMarkToggleTopic == true" ng-click="bookmarkClickOutlineTopic();">
+                            <ng-md-icon icon="bookmark_outline" style="fill: #ff6400;" size="20"></ng-md-icon>
+                        </span>
+                        <span ng-if="bookMarkToggleTopic == false" ng-click="bookmarkClickNonOutlineTopic();">
+                             <ng-md-icon icon="bookmark" style="fill: #009688;" size="20"></ng-md-icon>
+                        </span>
+                </md-button>
+            </span>
+        </span>
+        <span ng-if="flagSee();" class="container_flag_icon">
+           <span class="icon_flag_topic">
+                    <md-button class="md-icon-button" ng-click="">
+                        <md-tooltip md-direction="top">
+                            Flag
+                        </md-tooltip>
+                        <ng-md-icon icon="flag" style="fill: #ff6400;" size="20"></ng-md-icon> 
+                    </md-button>
+            </span>
+
+        </span>
+        <span class="icon_share_topic">
+        <md-menu>
+            <md-button class="md-icon-button" ng-click="openShareMenu($mdOpenMenu, $event)">
+                <md-tooltip md-direction="top">
+                    Share
+                </md-tooltip>
+                <ng-md-icon icon="share" style="fill: #ff6400;" size="20"></ng-md-icon>
+            </md-button>
+            <md-menu-content width="4">
+                <md-menu-item>
+                    <md-button socialshare socialshare-provider="facebook" socialshare-text="Look at my post! Here : " socialshare-hashtags="angularjs, ng-forum, replies , programming" socialshare-url="{{urlSHARINGCURRENT}}">
+                        <ng-md-icon icon="facebook-box" style="fill: #3b5998" size="20"></ng-md-icon>
+                        Facebook
+                    </md-button>
+                </md-menu-item>
+                <md-menu-item>
+                    <md-button socialshare socialshare-provider="twitter" socialshare-text="Look at my post! Here :" socialshare-hashtags="angularjs, ng-forum, replies , programming" socialshare-url="{{urlSHARINGCURRENT}}">
+                        <ng-md-icon icon="twitter" style="fill: #0084b4" size="20"></ng-md-icon>
+                        Twitter
+                    </md-button>
+                </md-menu-item>
+                <md-menu-item>
+                    <md-button socialshare socialshare-provider="linkedin" socialshare-text="Ng-Forum Post" socialshare-description=" Look at my post! Here : {{urlSHARINGCURRENT}} " socialshare-source="angularjs, ng-forum, replies , programming" socialshare-url="{{urlSHARINGCURRENT}}">
+                        <ng-md-icon icon="linkedin-box" style="fill: #007bb5" size="20"></ng-md-icon>
+                        Linkedin
+                    </md-button>
+                </md-menu-item>
+                <md-menu-item>
+                    <md-button socialshare socialshare-provider="google" socialshare-url="{{urlSHARINGCURRENT}}">
+                        <ng-md-icon icon="google-plus-box" style="fill: #d34836" size="20"></ng-md-icon>
+                        Google+
+                    </md-button>
+                </md-menu-item>
+            </md-menu-content>
+        </md-menu>
+        </span>
+        <span ng-if="currentAuthGet!=null;">    
+            <md-button class="md-raised md-accent" ng-click="replyTopic($event)">
+                <ng-md-icon icon="reply" style="fill: #0affcf;" size="20" class="icon_reply_topic"></ng-md-icon>
+                Reply
+            </md-button>
+        </span>
+        <span ng-if="currentAuthGet==null;">
+            <md-button class="md-raised md-accent" ng-click="notAuthReplyTopic()">
+                <ng-md-icon icon="reply" style="fill: #0affcf;" size="20" class="icon_reply_topic"></ng-md-icon>
+                Reply
+            </md-button>
+        </span>
+    </div>
+    <!-- END OF TOPIC-BUTTONS -->
+    <section>
+    <md-list>
+        
+        <!-- CLASS BEST ANEDER -->
+        <!-- Md-listitem -->
+        <!-- img best-answer-img-->
+        
+        <h2 class="replies-title">Replies</h2>
+        <md-list-item class="comment" ng-repeat="reps in replies">
+            <span ng-class="classBestAnwser(reps);">
+            <!-- User Block -->
+            <img ng-if="isChecked(reps) == true" class="best-answer-img" src="https://cdn4.iconfinder.com/data/icons/everyday-2/64/check_mark_checkmark_materialdesign_approved_ok_approve-512.png">
+            <div class="single-comment">
+                <div class="post-author-comment-info">
+                    <div class="post-author-info">
+                        <img ng-src="{{reps.replyCreatorAvatar}}" class="avatar cursors_AV" alt="Something Went Wong" ng-click="goToProfile(reps);" href="javascript:void(0);" />
+                        <span class="username cursors_AV" ng-click="goToProfile(reps,$event);" style="cursor:pointer;">{{reps.replyCreatorUsername}}</span>
+                    </div>
+                    <div class="comment-info">
+                        <span>{{reps.replyCreatorDate | dateFilter}}</span>
+                    </div>
+                </div>
+                <p ng-bind-html="reps.replyCreatorValue | emoteFilter"></p>
+            </div>
+
+            <div class="buttons-wrapper" ng-if="currentAuthGet!=null;">
+                <span ng-if="funcCheckEDIT(reps);">
+                    <span class="edit_reply_button">
+                        <md-button class="md-icon-button" ng-click="editReply($event,reps)">
+                            <md-tooltip md-direction="top">
+                              Edit
+                            </md-tooltip>
+                            <ng-md-icon icon="edit" style="fill: #ff6400;" size="20"></ng-md-icon> 
+                        </md-button>
+                    </span>
+                </span>
+                <span>
+                    <md-button ng-if="isBestAnwser(reps)" class="md-icon-button" ng-click="">
+                        <md-tooltip md-direction="top">
+                            Best Anwser
+                        </md-tooltip>
+                        <span ng-if="isChecked(reps) == false"  ng-click="notChecked(reps);">
+                            <ng-md-icon icon="check_box_outline_blank" style="fill: #ff6400;" size="20"></ng-md-icon> 
+                        </span>
+                        <span ng-if="isChecked(reps) == true" ng-click="checked(reps);">
+                            <ng-md-icon icon="check_box" style="fill: #00E676;" size="20"></ng-md-icon> 
+                        </span>
+                    </md-button>
+                </span>
+                <span ng-if="canDeleteCheck(reps);">
+                    <span class="delete_icon_topic">
+                        <md-button class="md-icon-button" ng-click="deletePost(reps);">
+                            <md-tooltip md-direction="top">
+                                Delete
+                            </md-tooltip>
+                            <ng-md-icon icon="delete" style="fill: #ff6400;" size="20"></ng-md-icon> 
+                        </md-button>
+                    </span>
+                </span>
+                <span ng-if="isLikeable(reps)">
+                    <md-button class="md-icon-button" ng-click="">
+                        <md-tooltip md-direction="top">
+                              Like
+                        </md-tooltip>
+                        <span ng-if="likeBox(reps) == false" ng-click="likeBoxNoNgClick(reps);">
+                             <ng-md-icon icon="favorite_border" style="fill: #ff6400;" size="20"></ng-md-icon>
+                        </span>
+                        <span ng-if="likeBox(reps) == true" ng-click="likeBoxYesNgClick(reps);">
+                                    <ng-md-icon icon="favorite" style="fill: #E91E63;" size="20"></ng-md-icon>
+                        </span>
+                </md-button>
+                </span>
+                <!--<span ng-if="isBookmarkable(reps)">-->
+                <!--    <md-button class="md-icon-button" ng-model="reps.Replynum">-->
+                <!--        <md-tooltip md-direction="top">-->
+                <!--            Bookmark-->
+                <!--        </md-tooltip>-->
+                <!--        <span ng-if="bookmarkBoxNo" ng-click="bookmarkBoxNoNgClick(reps);">-->
+                <!--            <ng-md-icon icon="bookmark_outline" style="fill: #ff6400;" size="20"></ng-md-icon>-->
+                <!--        </span>-->
+                <!--<span ng-if="bookmarkBoxYes" ng-click="bookmarkBoxYesNgClick(reps);">-->
+                <!--             <ng-md-icon icon="bookmark" style="fill: #009688;" size="20"></ng-md-icon>-->
+                <!--        </span>-->
+                <!--</md-button>-->
+                <!--</span>-->
+                <span ng-if="isShareble(reps)">
+                    <md-menu>
+                        <md-button class="md-icon-button"  ng-click="openShareMenu($mdOpenMenu, $event)">
+                            <md-tooltip md-direction="top">
+                                Share
+                            </md-tooltip>
+                            <ng-md-icon icon="share" style="fill: #ff6400;" size="20"></ng-md-icon> 
+                        </md-button>
+                        <md-menu-content width="4">
+                            <md-menu-item>
+                                <md-button 
+                                    socialshare
+                                    socialshare-provider="facebook"
+                                    socialshare-text="Look at my post! Here : "
+                                    socialshare-hashtags="angularjs, ng-forum, replies , programming"
+                                    socialshare-url="{{urlSHARINGCURRENT}}">
+                                    <ng-md-icon icon="facebook-box" style="fill: #3b5998" size="20"></ng-md-icon>
+                                        Facebook
+                                </md-button>
+                            </md-menu-item>
+                            <md-menu-item>
+                                <md-button 
+                                    socialshare
+                                    socialshare-provider="twitter"
+                                    socialshare-text="Look at my post! Here :"
+                                    socialshare-hashtags="angularjs, ng-forum, replies , programming"
+                                    socialshare-url="{{urlSHARINGCURRENT}}">
+                                    <ng-md-icon icon="twitter" style="fill: #0084b4" size="20"></ng-md-icon>
+                                        Twitter
+                                </md-button>
+                            </md-menu-item>
+                            <md-menu-item>
+                                <md-button 
+                                    socialshare
+                                    socialshare-provider="linkedin"
+                                    socialshare-text="Ng-Forum Post"
+                                    socialshare-description=" Look at my post! Here : {{urlSHARINGCURRENT}} "
+                                    socialshare-source="angularjs, ng-forum, replies , programming"
+                                    socialshare-url="{{urlSHARINGCURRENT}}">
+                                    <ng-md-icon icon="linkedin-box" style="fill: #007bb5" size="20"></ng-md-icon>
+                                        Linkedin
+                                </md-button>
+                            </md-menu-item>
+                            <md-menu-item>
+                                <md-button 
+                                    socialshare
+                                    socialshare-provider="google"
+                                    socialshare-url="{{urlSHARINGCURRENT}}">
+                                    <ng-md-icon icon="google-plus-box" style="fill: #d34836" size="20"></ng-md-icon>
+                                        Google+
+                                </md-button>
+                            </md-menu-item>
+                        </md-menu-content>
+                    </md-menu>
+                </span>
+                <span ng-if="isFlaggable(reps)">
+                    <md-button class="md-icon-button" ng-click="">
+                        <md-tooltip md-direction="top">
+                            Flag
+                        </md-tooltip>
+                        <ng-md-icon icon="flag" style="fill: #ff6400;" size="20"></ng-md-icon> 
+                    </md-button>
+                </span>
+                <span ng-if="isReplyable(reps)">
+                    <md-button class="md-accent" ng-click="replyTopic($event)">
+                        <md-tooltip md-direction="top">
+                            Reply
+                        </md-tooltip>
+                        <ng-md-icon icon="reply" style="fill: #0affcf;" size="20"></ng-md-icon>
+                        <strong>Reply</strong>
+                    </md-button>
+                </span>
+                
+                <span class="likes_list">
+                    
+                </span>
+            </div>
+          </span>
+        </md-list-item>
+    </md-list>
+  </section>
+</div>

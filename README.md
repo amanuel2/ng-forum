@@ -1,13 +1,17 @@
 
 <h1 align="center"> Ng-Forum</h1>
 
-Ng-Forum, meet developers around the globe.
+Ng-Forum, meet developers around the globe. :earth_africa:
 
  [![Join the chat at https://gitter.im/amanuel2/ng-forum](https://badges.gitter.im/amanuel2/ng-forum.svg)](https://gitter.im/amanuel2/ng-forum?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 
 ## WARNING
 This project currently under development and bugs are known to happen! However, if you spot a bug file an issue or submit a pull request. Contributions are always welcome!
+
+## Demo
+
+Yes, [here](http://ng-forum.site88.net) is the demo.[AS OF 5/24/2016]
 
 ## What is this project? What makes this project unique?
 This project is a forum app for developers around the world, to gather up ask, answer questions!
@@ -31,9 +35,6 @@ $ bower install
 
 Absolutely! On GitHub via this repository and at [Cloud9](https://ide.c9.io/amanuel2/fourm2).
 
-## Is there a demo available?
-
-No, it is coming soon.
 
 ## Want contribute to the project?
 

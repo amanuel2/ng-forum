@@ -1,0 +1,146 @@
+<head>
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" type="text/css" />
+  <link rel="stylesheet" href="app/components/authDesc/css/authDesc.min.css" type="text/css" />
+  <link rel="stylesheet" href="app/components/newTopic/css/newTopic.min.css" type="text/css" />
+
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+
+</head>
+
+<div class="toolbar_new_topic" ng-if="authDataDesc!=null">
+  <md-button id="NEW_TOPIC_BUTTON" ng-click="showNewTopic($event)">
+    <ng-md-icon icon="add_box" style="fill: white" size="20" id="add_icon"></ng-md-icon>
+    <span id="text_new_topic" color="white">Create a New Topic</span>
+  </md-button>
+</div>
+
+
+<md-autocomplete class="search_autocomplete" md-search-text="searchText" md-items="topic in topicName | filter:searchText" md-selected-item="selectedItem" md-item-text="topic.Title" md-min-length="0" md-selected-item-change="goToTOPICAUTCOMPLETE(topic)"
+  placeholder="&#xF002; Search Topics....">
+  <md-item-template>
+    <span class="item-metadata">
+            <span class="item-metastat">
+             <img alt="{{ topic.Avatar }}" ng-src="{{ topic.Avatar }}" class="md-avatar avatar_creator" /> 
+            </span>
+    <span>{{topic.Title}}</span>
+    </span>
+  </md-item-template>
+  <md-not-found>
+    No Match found... Please try again.
+  </md-not-found>
+</md-autocomplete>
+
+
+<md-list ng-cloak md-whiteframe="24"  flex-sm="55" flex-gt-sm="45" flex-gt-md="45">
+  <md-list-item ng-repeat="topic in topicName" class="md-3-line" ng-click="goToTopic(topic.Avatar,topic.DateCreated,topic.Email,topic.Title,topic.UID,topic.Username,topic.Value,topic.Postnum);">
+    <img alt="{{ topic.name }}" ng-src="{{ topic.Avatar }}" class="md-avatar" />
+    <div class="md-list-item-text" layout="column">
+      <h3><strong>{{topic.Title}}</strong></h3>
+      <p>{{ topic.Username }}</p>
+      <p> <strong></strong>
+ 
+        <span class="date_created">
+         <strong>CREATED : {{topic.DateCreated | nonFullDateFilter}}</strong></p>
+  </span>
+    </div>
+          <ul class="tags">
+            <li ><a ng-repeat="tags in topic.Tags" href="javascript:void(0);">{{tags}}</a></li>
+          </ul>
+    <span class="last_activity">
+      <ng-md-icon icon="history" style="fill: #009688" size="20"></ng-md-icon> 
+       {{topic.LastActivity | dateFilter}}
+    </span>
+    <span class="views_list md-secondary">
+            {{topic.ViewsLen || 0}}
+            <span class="chat">
+            <ng-md-icon icon="visibility" style="fill: #4CAF50" size="20"></ng-md-icon> 
+            </span>
+    </span>
+    <span class="replies_list md-secondary">
+            {{topic.RepliesNum || 0}}
+            <span class="replies_icon">
+            <ng-md-icon icon="chat" style="fill: #03A9F4" size="20"></ng-md-icon> 
+            </span>
+    </span>
+    <span class="replies_list md-secondary" ng-if="bookmarked();">
+            <span class="bookmark_icon">
+                <ng-md-icon icon="bookmark" style="fill: #009688" size="20"></ng-md-icon> 
+            </span>
+    </span>
+    
+    
+    
+    <md-icon class="md-secondary" ng-click="doSecondaryAction($event)" aria-label="Chat" md-svg-icon="communication:message"></md-icon>
+    <div class="divider_custom">
+      
+    </div>
+  </md-list-item>
+  
+</md-list>
+
+
+<!--  <md-content layout="column" flex>-->
+
+<!--  <md-card>-->
+
+<!--    <md-toolbar class="md-table-toolbar md-default" ng-hide="false">-->
+<!--      <div class="md-toolbar-tools">-->
+<!--        <span>Topics</span>-->
+<!--        <div flex></div>-->
+<!--        <md-button class="md-icon-button" ng-click="loadStuff()">-->
+<!--          <md-icon>refresh</md-icon>-->
+<!--        </md-button>-->
+<!--      </div>-->
+<!--    </md-toolbar>-->
+
+<!--   <md-toolbar class="md-table-toolbar alternate" ng-show="selected.length">-->
+<!--            <div class="md-toolbar-tools">-->
+<!--              <span>{{selected.length}} {{selected.length > 1 ? 'items' : 'item'}} selected</span>-->
+<!--            </div>-->
+<!--  </md-toolbar>-->
+
+<!--    <md-table-container>-->
+<!--      <table md-table md-row-select="true" multiple="true" ng-model="selected" md-progress="promise">-->
+<!--        <thead ng-if="true" md-head>-->
+<!--          <tr md-row>-->
+<!--            <th md-column md-order-by="username" ><span>Title</span></th>-->
+<!--            <th md-column><span>Creator</span></th>-->
+<!--            <th md-column md-numeric ><span>Replies</span></th>-->
+<!--            <th md-column md-numeric ><span>Tag</span></th>-->
+<!--            <th md-column md-numeric ><span>Users</span></th>-->
+<!--            <th md-column md-numeric><span>Views</span></th>-->
+<!--            <th md-column md-numeric  hide-gt-xs show-gt-md><span>Last Activity</span></th>-->
+<!--            <th md-column md-order-by="Comment">-->
+<!--              <md-icon>comments</md-icon>-->
+<!--              <span>Comments</span>-->
+<!--            </th>-->
+<!--          </tr>-->
+<!--        </thead>-->
+<!--        <tbody md-body>-->
+<!--          <tr md-row md-select="topic"  md-auto-select="true" ng-repeat="topic in topicName | orderBy: query.order | limitTo: query.limit : (query.page -1) * query.limit" >-->
+<!--            <td md-cell ng-click="goToTopic(topic.Avatar,topic.DateCreated,topic.Email,topic.Title,topic.UID,topic.Username,topic.Value,topic.Postnum);">{{topic.Title}}</td>-->
+<!--            <td md-cell>-->
+<!--                 <img alt="{{ topic.Avatar }}" ng-src="{{ topic.Avatar }}" class="md-avatar avatar_custom" />{{topic.Username}}-->
+<!--            </td>-->
+<!--            <td md-cell>{{topic.RepliesNum || 0}}</td>-->
+<!--            <td md-cell>-->
+<!--              <md-select placeholder="Assign Tag..." ng-model="topic.Postnum" md-on-open="loadUsers(topic)" style="min-width: 200px;">-->
+<!--                <md-option ng-repeat="tag in tagsOption">{{tag}}</md-option>-->
+<!--              </md-select>-->
+<!--            </td>-->
+<!--            <td md-cell>{{topic.Username}}</td>-->
+<!--            <td md-cell>{{topic.ViewsLen || 0}}</td>-->
+<!--            <td md-cell hide-gt-xs show-gt-md>{{topic.LastActivity | dateFilter}}</td>-->
+<!--            <td md-cell ng-click="editComment($event, topic)">-->
+<!--              {{topic.Comment || 'Add a comment'}}-->
+<!--            </td>-->
+<!--          </tr>-->
+<!--        </tbody>-->
+<!--      </table>-->
+<!--    </md-table-container>-->
+
+<!--    <md-table-pagination md-limit="5" md-limit-options="[5, 10, 15]" md-page="1" md-total="{{topicName.length}}" md-page-select="true" md-boundary-links="true"></md-table-pagination>-->
+<!--  </md-card>-->
+<!--</md-content>-->

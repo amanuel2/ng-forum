@@ -1,0 +1,112 @@
+
+
+<head>
+  <!-- Chartjs -->
+
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">-->
+  <meta name="viewport" content="1200">
+  <!-- Mateiral Design Lite -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
+  <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+  <link rel="stylesheet" href="app/components/profile/css/profile.min.css" type="text/css" />
+</head>
+
+<div class="mdl-grid--no-spacing user-profile-header">
+  <img src="{{backImage}}" class="user-background">
+  <div class="mdl-cell mdl-cell--12-col user-bar">
+    <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--primary">
+      <i class="material-icons">code</i>
+    </button>
+    <img class="avatar-big mdl-badge" data-badge="♥" src="{{image}}"  >
+    <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored">
+      <i class="material-icons">chat_bubble</i>
+    </button>
+  </div>
+</div>
+<div class="mdl-grid">
+  <div class="badges">
+    <span class="gold_badge">
+      <ng-md-icon icon="kitchen" size="30" style="fill:#FFC107;background: #FFC107;">
+      </ng-md-icon>
+       <span class="num_gold_badges">
+          <strong>12</strong>
+        </span>
+    </span>
+    <span class="silver_badge">
+      <ng-md-icon icon="kitchen" size="30" style="fill:#BDBDBD ;background: #BDBDBD;">
+      </ng-md-icon>
+       <span class="num_silver_badges">
+          <strong>13</strong>
+        </span>
+    </span>
+    <span class="bronze_badge">
+      <ng-md-icon icon="kitchen" size="30" style="fill:#795548 ;background: #795548">
+      </ng-md-icon>
+       <span class="num_bronze_badges">
+          <strong>13</strong>
+        </span>
+    </span>
+  </div>
+  <div class="mdl-cell mdl-cell--12-col user-info">
+    <h2 class="username">{{Username}}</h2>
+    <p class="user-desc">{{desc}}</p>
+  </div>
+</div>
+<span class="mdl-badge online_badge" data-badge="♥">
+  <i class="material-icons">group_add</i>
+</span>
+<div class="mdl-grid ff-card ">
+  <div class="mdl-cell mdl-cell--12-col">
+    <div class="mdl-card user-stats">
+      <div class="followers_container">
+        <div class="mdl-card__title">
+           <h2 class="mdl-card__title-text ff-card-supp-title"><i class="material-icons">group</i>Followers</h2>
+        </div>
+        <div class="mdl-card__supporting-text ff-card-supp-text">32112</div>
+      </div>
+      <div class="following_container">
+        <div class="mdl-card__title">
+           <h2 class="mdl-card__title-text ff-card-supp-title"><i class="material-icons">group_add</i>Following</h2>
+        </div>
+        <div class="mdl-card__supporting-text ff-card-supp-text">333</div>
+      </div>
+      <div class="icon_stats_container">
+          <md-card-title-text class="stats_icon_cover">
+             <ng-md-icon icon="poll" size="100" style="fill:white;"></ng-md-icon>
+          </md-card-title-text>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  <md-card class="followersClass md-whiteframe-24dp" md-theme="default"  md-theme-watch>
+    <md-header class="activity_header">Activity</md-header>
+        <md-card-title>
+          <span class="bar_chart" id="bar_chart_container">
+            
+          </span>
+        </md-card-title>
+    </md-card>
+
+
+<!--
+<div class="mdl-grid user-best">
+  <div class="mdl-cell mdl-cell--6-col user-best-replies">
+    <div class="mdl-cell mdl-cell-3-col"></div>
+    <div class="mdl-cell mdl-cell-3-col"></div>
+    <div class="mdl-cell mdl-cell-3-col"></div>
+    <div class="mdl-cell mdl-cell-3-col"></div>
+  </div>
+  <div class="mdl-cell mdl-cell--6-col user-best-topics">
+    <div class="mdl-cell mdl-cell-3-col"></div>
+    <div class="mdl-cell mdl-cell-3-col"></div>
+    <div class="mdl-cell mdl-cell-3-col"></div>
+    <div class="mdl-cell mdl-cell-3-col"></div>
+  </div>
+</div>
+-->
+
+<!--http://i.imgur.com/Kh4MbwG.jpg-->

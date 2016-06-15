@@ -1,0 +1,78 @@
+<head>
+    <style>
+        #ashely{
+            width:50px;
+            height:50px;
+        }
+        textarea#input_2 {
+            width: 500px;
+            height: 350px;
+             margin-left: auto;
+            margin-right: auto;
+           border-style:solid;
+           border-color:#808080;
+          padding: 10px;
+        }
+       
+    </style>
+    
+</head>
+
+
+<md-bottom-sheet aria-label="Mango (Fruit)"  ng-cloak>
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>New Reply</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <ng-md-icon icon="close" style="fill: white" size="20"></ng-md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+       
+             <form name="myForm" >
+        <md-header>
+            <h2>Create a new Reply</h2>
+            Drag Down, or press <kbd>ESC</kbd> To quit
+        </md-header>
+        
+
+
+        <div class="topic-sentence">
+            <md-whiteframe class="topic-contents-wrapper" id="frameCONTENT">
+                <div class="topic-contents">
+                    <div class="icons">
+                        <md-button class="md-icon-button" ng-click="shortcuts('code');"><md-tooltip md-direction="top"> Insert Code </md-tooltip><ng-md-icon icon="code" style="fill" size="20"></ng-md-icon></md-button>
+                        <md-button class="md-icon-button" ng-click="shortcuts('header')"><md-tooltip md-direction="top"> Header </md-tooltip><ng-md-icon icon="format_size" style="fill" size"10"></ng-md-icon></md-button>
+                        <md-button class="md-icon-button btn" data-clipboard-action="cut" data-clipboard-target="#markdownUserType"><md-tooltip md-direction="top"> Cut </md-tooltip><ng-md-icon  icon="content_cut" style="fill" size="20"></ng-md-icon></md-button>
+                        <md-button class="md-icon-button btn" data-clipboard-target="#markdownUserType"> <md-tooltip md-direction="top"> Copy </md-tooltip> <ng-md-icon icon="content_copy" style="fill" size"10"></ng-md-icon></md-button>  
+                        <md-button class="md-icon-button" ng-click="shortcuts('bold');"> <md-tooltip md-direction="top"> Bold </md-tooltip> <ng-md-icon icon="format_bold" style="fill" size"10"></ng-md-icon></md-button>
+                        <md-button class="md-icon-button" ng-click="shortcuts('italics');"> <md-tooltip md-direction="top"> Italic </md-tooltip><ng-md-icon icon="format_italic" style="fill" size"10"></ng-md-icon></md-button>
+                        <md-button class="md-icon-button" ng-click="shortcuts('image');"> <md-tooltip md-direction="top"> Insert Image </md-tooltip> <ng-md-icon icon="image" style="fill" size"10"></ng-md-icon></md-button>
+                        <md-button class="md-icon-button" ng-click="shortcuts('quote');"> <md-tooltip md-direction="top"> Insert Quote </md-tooltip> <ng-md-icon icon="format_quote" style="fill" size"10"></ng-md-icon></md-button>
+                        <md-button class="md-icon-button" ng-click="undoAndRedo($event,'undo');"> <md-tooltip md-direction="top"> Undo </md-tooltip> <ng-md-icon icon="undo" style="fill" size"10"></ng-md-icon></md-button>
+                        <md-button class="md-icon-button" ng-click="undoAndRedo($event,'redo');"> <md-tooltip md-direction="top"> Redo </md-tooltip><ng-md-icon icon="redo" style="fill" size"10"></ng-md-icon></md-button>
+                        <md-button class="md-icon-button" ng-click="shortcuts('number')"> <md-tooltip md-direction="top"> Numbered List </md-tooltip> <ng-md-icon icon="format_list_numbered" style="fill" size"10"></ng-md-icon></md-button>
+                        <md-button class="md-icon-button" ng-click="shortcuts('bullet')"> <md-tooltip md-direction="top"> Bulleted List </md-tooltip> <ng-md-icon icon="format_list_bulleted" style="fill" size"10"></ng-md-icon></md-button>
+                        <md-button class="md-icon-button" ng-click="shortcuts('horizontal');"> <md-tooltip md-direction="top"> Horizontal Rule </md-tooltip> <ng-md-icon icon="line_weight" style="fill" size"10"></ng-md-icon></md-button>
+                        <md-button class="md-icon-button" ng-click="shortcuts('url')"><md-tooltip md-direction="top"> Insert URL </md-tooltip><ng-md-icon icon="insert_link" style="fill" size"10"></ng-md-icon></md-button>
+                        <md-button class="md-icon-button" ><md-tooltip md-direction="top"> FullScreen </md-tooltip><ng-md-icon icon="fullscreen" style="fill" size"10"></ng-md-icon></md-button>
+                        <md-button class="md-icon-button" ng-click="shortcuts('help')"><md-tooltip md-direction="top"> Help </md-tooltip><ng-md-icon icon="help" style="fill" size"10"></ng-md-icon></md-button>
+                    </div>
+                    <textarea class="markdown-text-area" id="markdownUserType" ng-model="markdownData"></textarea>
+                </div>
+            </md-whiteframe>
+            <div class="markdown-wrapper">
+                <span class="markdown-preview">Preview</span>
+                <div class="markdown-show" id="markdown_preview_box" contenteditable="true"
+                    ng-bind-html="outputText" ng-bind-markdown="markdownData">
+                </div>
+            </div>
+        </div>
+        <md-button class="md-raised md-default" ng-click="cancel();">Cancel</md-button>
+        <md-button class="md-raised md-primary" ng-click="submitNewReply();" ng-disabled="myForm.$invalid">Submit</md-button>
+        </form>
+
+    </form>
+</md-bottom-sheet>

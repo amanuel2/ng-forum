@@ -1,0 +1,269 @@
+<head>
+  <style>
+    .tooltip_offline {
+      position: relative;
+    }
+    
+    .tooltip_online {
+      position: relative;
+    }
+    
+    .toolbar_new_topic {
+      display: none;
+    }
+    
+    #ashely {
+      width: 50px;
+      height: 50px;
+    }
+    
+    textarea#input_2 {
+      width: 500px;
+      height: 200px;
+    }
+    
+    html {
+      width: 100%;
+      height: 100%;
+      background: -webkit-radial-gradient(closest-corner, rgba(16, 47, 70, 0) 60%, rgba(16, 47, 70, 0.26)), -webkit-linear-gradient(108deg, #26d0ce, #1a2980 90%);
+    }
+    
+    .avatar_creatorS {
+      border-radius: 50%;
+      border-color: black;
+      position: relative;
+      width: 50px;
+      height: 50px;
+      padding: 20px;
+    }
+    
+    .otherUserProfile-wrapper {
+      box-sizing: border-box;
+    }
+    
+    .private_chat.md-button.md-ink-ripple {
+      position: relative;
+      left: 800px;
+      bottom: 180px;
+    }
+    
+    body {
+      background: #F3F3F3;
+      color: #666666;
+      font-size: 14px;
+      font-family: 'Open Sans';
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    
+    input {
+      display: block;
+      background: rgba(0, 0, 0, 0.1);
+      border: 0;
+      border-radius: 2px;
+      margin: 20px auto 10px;
+      padding: 15px 20px;
+      color: #666666;
+      line-height: normal;
+      font-size: 14px;
+    }
+    
+    label {
+      display: block;
+      margin: 0 0 40px;
+      font-size: 12px;
+      text-align: center;
+    }
+    
+    label:before {
+      content: 'Username: ';
+      font-weight: 600;
+    }
+    
+    .card {
+      background: #FFFFFF;
+      width: 300px;
+      border-radius: 4px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    
+    .card-header {
+      position: relative;
+      background: #303841;
+      height: 200px;
+      text-align: center;
+      overflow: hidden;
+    }
+    
+    .card-header__avatar {
+      background: #303841;
+      background-position: center 30%;
+      background-size: 100%;
+      height: 100%;
+      width: 100%;
+    }
+    
+    .card-header__follow {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: #FFFFFF;
+      border-radius: 2px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      padding: 6px 10px;
+      color: #333333;
+      font-size: 10px;
+      font-weight: 600;
+      line-height: normal;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    
+    .card-content {
+      text-align: center;
+      padding: 30px 20px;
+    }
+    
+    .card-content__username {
+      margin: 0 0 10px;
+      color: #333333;
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    
+    .card-content__username .badge {
+      display: inline-block;
+      background: #FCD000;
+      border-radius: 2px;
+      margin: 0 10px 0;
+      padding: 4px;
+      color: #333333;
+      font-size: 10px;
+      font-weight: 600;
+      vertical-align: middle;
+    }
+    
+    .card-content__bio {
+      color: #666666;
+      font-size: 12px;
+    }
+    
+    .card-footer {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+      flex-direction: row;
+      -webkit-flex-wrap: nowrap;
+      -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+      -webkit-box-pack: justify;
+      -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      background: #F3F3F3;
+      padding: 15px 40px;
+      color: #333333;
+      font-size: 14px;
+      font-weight: 600;
+      text-align: center;
+    }
+    
+    .card-footer .label {
+      display: block;
+      margin: 4px 0 0;
+      color: #666666;
+      font-size: 10px;
+      font-weight: 400;
+    }
+    
+    .code {
+      background: rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      border-radius: 2px;
+      margin: 40px auto 100px;
+      font-family: monospace;
+      overflow: hidden;
+      overflow-x: auto;
+    }
+    
+    .code:before {
+      content: 'HTML Code';
+      display: block;
+      padding: 20px 20px 0;
+      color: #333333;
+      font-weight: 600;
+    }
+    
+    .card-header__avatar {
+      background: url('http://cs624223.vk.me/v624223037/2b1bb/GRTKddkmXiw.jpg');
+    }
+  </style>
+</head>
+<md-dialog aria-label="Mango (Fruit)" ng-cloak>
+  <form>
+
+    <md-dialog-content>
+
+      <div class="container">
+        <!-- User Card-->
+        <div class="card">
+          <!-- Header -->
+          <div class="card-header">
+            <div class="card-header__avatar">
+            </div>
+            <md-button class="card-header__follow" ng-click="addFolower();" ng-if="currentAuthGetOTHER.uid!=otherUserUID">
+              Follow
+            </md-button>
+          </div>
+          <!-- Content-->
+          <div class="card-content">
+
+            <span ng-if="precence == true">
+                       <md-button class="md-icon-button">
+                          <ng-md-icon icon="lens" style="fill: #76FF03;" size="20"></ng-md-icon>  
+                          
+                            
+                          <md-tooltip class="tooltip_online">{{otherUserUsername}} is online</md-tooltip>
+                        
+                          </md-button>
+                      </span>
+            <span ng-if="precence == false">
+                        <md-button class="md-icon-button" >
+                        <md-tooltip class="tooltip_offline">{{otherUserUsername}} last seen {{timeSinceNoPage}}</md-tooltip>
+                          <ng-md-icon icon="lens" style="fill: #BDBDBD;" size="20"></ng-md-icon> </md-button>
+                      </span>
+            <div class="card-content__username">
+              <span id="USERNAME_OTHER_USER" ng-click="goToPage();" style="cursor:pointer;">
+                          {{otherUserUsername}} 
+                        </span>
+              <span ng-if="$scope.ACTUALinfo.Moderator == true" class="badge">
+                              MODERATOR
+                          </span>
+            </div>
+            <div class="card-content__bio">{{otherDesc}}</div>
+          </div>
+          <!-- Footer-->
+          <div class="card-footer">
+            <div class="card-footer__pens"> <span>{{count}}</span>
+              <div class="label">Topics</div>
+            </div>
+            <div class="card-footer__followers"> <span>{{numFollowers}}</span>
+              <div class="label">Followers</div>
+            </div>
+            <div class="card-footer__following"> <span>{{numFollowing}}</span>
+              <div class="label">Following</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </md-dialog-content>
+  </form>
+</md-dialog>

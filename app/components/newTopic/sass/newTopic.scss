@@ -1,0 +1,132 @@
+md-bottom-sheet {
+	transform: none !important;
+	display: flex !important;
+	flex-direction: column;
+}
+md-input-container {
+	margin-bottom: 0 !important;
+}
+h1 {
+	margin-top: 5px !important;
+}
+.topic-sentence {
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: column;
+	.topic-contents-wrapper {
+		width: 100%;
+		box-sizing: border-box;
+		.topic-contents {
+			padding-right: 10px;
+			width: 100%;
+		}
+		.markdown-text-area {
+			width: 100%;
+			height: 300px;
+		}
+	}
+	.markdown-wrapper {
+		width: 100%;
+		display: flex;
+		justify-content: flex-start;
+		flex-direction: column;
+		.markdown-preview {
+			align-self: flex-end;
+			font-size: 34px;
+			padding-right: 15px;
+			position: relative;
+			right: 750px;
+		}
+		.markdown-show {
+			width: 100%;
+			word-break: break-all;
+			padding: 5px 15px;
+		}
+	}
+}
+.title-wrapper {
+	display: block;
+}
+html {
+	font-family: roboto;
+}
+.sel-wrap {
+	position: relative;
+}
+.input-group {
+	padding: 25px;
+	label {
+		position: absolute;
+		bottom: 13px;
+		left: 15px;
+		z-index: 2;
+		transition: all .2s ease-out;
+		pointer-events: none;
+		color: grey;
+	}
+	label.filled {
+		left: 5px;
+		transform: translateY(-160%);
+		display: inherit;
+	}
+	label.active {
+		color: blue;
+	}
+}
+.selectize-control.single {
+	.selectize-input {
+		border: none;
+		background-image: none;
+		box-shadow: 0 1px 3px 0 rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12);
+		border-radius: 2px;
+		background-color: #fafafa;
+		input {
+			height: inherit;
+		}
+	}
+	.selectize-dropdown.single {
+		box-sizing: border-box;
+		box-shadow: 0 2px 5px rgba(0,0,0,.25);
+		border: none;
+		.option {
+			line-height: 36px;
+			height: 36px;
+		}
+		.option.active {
+			background-color: #dcdcdc;
+		}
+		.option.selected {
+			background-color: Silver;
+		}
+	}
+}
+@media (min-width: 992px) {
+	.md-button.md-icon-button {
+		margin: 0 !important;
+	}
+	.topic-sentence {
+		display: flex;
+		justify-content: space-between;
+		flex-direction: row;
+		.topic-contents-wrapper {
+			width: 50%;
+			box-sizing: border-box;
+			.topic-contents {
+				padding-right: 10px;
+				width: 100%;
+			}
+			.markdown-text-area {
+				width: 100%;
+				height: 300px;
+			}
+		}
+		.markdown-wrapper {
+			width: 50%;
+			.markdown-show {
+				width: 100%;
+				word-break: break-all;
+				padding: 5px 15px;
+			}
+		}
+	}
+}
