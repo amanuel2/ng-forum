@@ -67,7 +67,7 @@ Absolutely! On GitHub via this repository and at [Cloud9](https://ide.c9.io/aman
 Three ways you can contribute with the project:
 
 1. Please [be welcoming](http://contributor-covenant.org/).
-2. File an issue with your bug report or problem. (Please see our <a href="https://github.com/amanuel2/ng-forum/wiki/How-to-write-a-issue.">How To Write A Issue Wiki</a> before writing your first issue!!!
+2. File an issue with your bug report or problem. (Please see our <a href="https://github.com/amanuel2/ng-forum/wiki/How-to-write-a-issue.">How To Write A Issue Wiki</a> before writing your first issue!!!)
 3. Submit a pull request with your changes.
 4. Join us on [Cloud9](https://ide.c9.io/amanuel2/ng-fourm#openfile-README.md) to develop it collaboratively.
 
