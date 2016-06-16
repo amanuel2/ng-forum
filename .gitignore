@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 bower_components
 .sass-cache/
 .c9/
@@ -5,3 +6,8 @@ bower_components
 .idea/
 node_modules
 src/assets/dist
+=======
+
+/c9/*
+git/
+>>>>>>> f0ad963ad1cdaef62f8fc70355d5af7e736899f7

@@ -12,7 +12,11 @@ $mdThemingProvider.theme("default")
     
     $stateProvider.state('home', {
       url: '',
+<<<<<<< HEAD:app/app.config.js
       templateUrl: 'app/components/home/home.html',
+=======
+      templateUrl: 'views/home.html',
+>>>>>>> f0ad963ad1cdaef62f8fc70355d5af7e736899f7:config/mainConfig.js
       controller: 'homeCtrl',
     })
     $stateProvider.state('auth', {
@@ -45,7 +49,11 @@ $mdThemingProvider.theme("default")
 
     $stateProvider.state('authHome.topic', {
       url: '/topic/:POST/:USERNAME',
+<<<<<<< HEAD:app/app.config.js
       templateUrl: 'app/components/topic/topicDesc.html',
+=======
+      templateUrl: 'views/topicDesc.html',
+>>>>>>> f0ad963ad1cdaef62f8fc70355d5af7e736899f7:config/mainConfig.js
       controller: 'topicCtrl',
       resolve: {
         // controller will not be loaded until $waitForAuth resolves
@@ -54,7 +62,11 @@ $mdThemingProvider.theme("default")
     })
     $stateProvider.state('authHome.profile', {
       url: '/profile/:UID',
+<<<<<<< HEAD:app/app.config.js
       templateUrl: 'app/components/profile/profile.html',
+=======
+      templateUrl: 'views/profile.html',
+>>>>>>> f0ad963ad1cdaef62f8fc70355d5af7e736899f7:config/mainConfig.js
       controller: 'profileCtrl',
       resolve: {
         // controller will not be loaded until $waitForAuth resolves
@@ -84,13 +96,18 @@ $mdThemingProvider.theme("default")
     
     $stateProvider.state('ErrorFourOFour', {
       url: '/404',
+<<<<<<< HEAD:app/app.config.js
       templateUrl: 'app/components/404/404.html',
+=======
+      templateUrl: 'views/404.html',
+>>>>>>> f0ad963ad1cdaef62f8fc70355d5af7e736899f7:config/mainConfig.js
       controller: '404Controller',
       resolve: {
         // controller will not be loaded until $waitForAuth resolves
         // Auth refers to our $firebaseAuth wrapper in the example above
       }
     })
+<<<<<<< HEAD:app/app.config.js
     $stateProvider.state('loading', {
       url:'/loading',
       templateUrl:'app/components/loading/loading.html',
@@ -104,6 +121,13 @@ $mdThemingProvider.theme("default")
      $stateProvider.state('authHome.otherUserPage', {
       url: '/:USERNAME/Activity',
       templateUrl: 'app/components/otherUserProfilePage/otherUserProfilePage.html',
+=======
+    
+    
+     $stateProvider.state('authHome.otherUserPage', {
+      url: '/:USERNAME/Activity',
+      templateUrl: 'views/otherUserProfilePage.html',
+>>>>>>> f0ad963ad1cdaef62f8fc70355d5af7e736899f7:config/mainConfig.js
       controller: 'otherUserProfilePageCtrl',
       resolve: {
         // controller will not be loaded until $waitForAuth resolves

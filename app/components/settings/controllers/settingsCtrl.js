@@ -1,9 +1,13 @@
 (function(angular) {
 
+<<<<<<< HEAD:app/components/settings/controllers/settingsCtrl.js
  'use strict';    
     angular
         .module('ForumApp')
         .controller("settingsCtrl", ["$scope", "refService", "$stateParams", "$mdDialog", "$mdMedia", "$firebaseObject", settingsCtrl])
+=======
+    app.controller("settingsCtrl", ["$scope", "refService", "$stateParams", "$mdDialog", "$mdMedia", "$firebaseObject", settingsCtrl])
+>>>>>>> f0ad963ad1cdaef62f8fc70355d5af7e736899f7:controllers/settingsCtrl.js
 
     function settingsCtrl($scope, refService, $stateParams, $mdDialog, $mdMedia, $firebaseObject) {
 
