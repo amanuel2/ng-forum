@@ -36,7 +36,10 @@ Aman
 TODO : SHOW THE USERS AVATAR THAT LIKED THE REPLY. <- Dont know how to do that..
 TODO:Badges Backend
 <<<<<<< HEAD
+<<<<<<< HEAD
 TODO : NEW TOPIC EMOTION LIST
+=======
+>>>>>>> 1c68c528c9227cdac110502577608079197a7cfb
 =======
 >>>>>>> 1c68c528c9227cdac110502577608079197a7cfb
 TODO: Points 
