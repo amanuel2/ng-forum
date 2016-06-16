@@ -65,4 +65,5 @@ button.md-icon-button.notifications_icon.notifications-wrapper.md-button.md-ink-
       font-size: 28px;
       margin-left: 15px; } }
 
-/*# sourceMappingURL=authHome.css.map */
+#demo-menu-lower-right {
+  display: none; }

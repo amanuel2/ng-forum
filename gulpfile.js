@@ -83,6 +83,7 @@ gulp.task('scripts', function() {
 
 
 gulp.task('serve', function() {
+    //COMMENT OUT AFTER CONSTRUCTION_END
     // browserSync.init({
     //     server: {
     //         baseDir: './'
@@ -108,6 +109,29 @@ gulp.task('serve', function() {
     gulp.watch("app/components/**/**/*.scss", ['compileSCSS']);
 })
 
+gulp.task('serveFiles', function() {
+     browserSync.init({
+         server: {
+             baseDir: './'
+         }
+     });
+      gulp.src('./')
+         .pipe(webserver({
+           port:8080,
+           host: process.env.IP,
+           fallback: 'index.html',
+           livereload: {
+             enable: true, 
+             filter: function(fileName) {
+               if (fileName.match(/.map$/))  
+                 return false;
+               else 
+                 return true;
+             }
+           }
+         }));
+     gulp.watch('**/**/*.html').on('change', browserSync.reload);
+})
 
 
 
@@ -232,6 +256,7 @@ gulp.task('compileSCSS',
 gulp.task('authSCSS', function(done){
     gulp.src('app/components/auth/sass/auth.scss')
         .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('assets/HISTORY/CSS/authSCSS'))
         .pipe(minifyCss({
               keepSpecialComments: 0
         }))
@@ -243,6 +268,7 @@ gulp.task('authSCSS', function(done){
 gulp.task('404SCSS', function(done){
     gulp.src('app/components/404/sass/404.scss')
         .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('assets/HISTORY/CSS/404SCSS'))
         .pipe(minifyCss({
               keepSpecialComments: 0
         }))
@@ -254,6 +280,7 @@ gulp.task('404SCSS', function(done){
 gulp.task('authDescSCSS', function(done){
     gulp.src('app/components/authDesc/sass/authDesc.scss')
         .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('assets/HISTORY/CSS/authDescSCSS'))
         .pipe(minifyCss({
               keepSpecialComments: 0
         }))
@@ -265,6 +292,7 @@ gulp.task('authDescSCSS', function(done){
 gulp.task('authHomeSCSS', function(done){
     gulp.src('app/components/authHome/sass/authHome.scss')
         .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('assets/HISTORY/CSS/authHomeSCSS'))
         .pipe(minifyCss({
               keepSpecialComments: 0
         }))
@@ -276,6 +304,7 @@ gulp.task('authHomeSCSS', function(done){
 gulp.task('homeSCSS', function(done){
     gulp.src('app/components/home/sass/homeMat.scss')
         .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('assets/HISTORY/CSS/homeSCSS'))
         .pipe(minifyCss({
               keepSpecialComments: 0
         }))
@@ -287,6 +316,7 @@ gulp.task('homeSCSS', function(done){
 gulp.task('loadingSCSS', function(done){
     gulp.src('app/components/loading/sass/loading.scss')
         .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('assets/HISTORY/CSS/loadingSCSS'))
         .pipe(minifyCss({
               keepSpecialComments: 0
         }))
@@ -298,6 +328,7 @@ gulp.task('loadingSCSS', function(done){
 gulp.task('newReplySCSS', function(done){
     gulp.src('app/components/newReply/sass/newReply.scss')
         .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('assets/HISTORY/CSS/newReplySCSS'))
         .pipe(minifyCss({
               keepSpecialComments: 0
         }))
@@ -309,6 +340,7 @@ gulp.task('newReplySCSS', function(done){
 gulp.task('newTopicSCSS', function(done){
     gulp.src('app/components/newTopic/sass/newTopic.scss')
         .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('assets/HISTORY/CSS/newTopicSCSS'))
         .pipe(minifyCss({
               keepSpecialComments: 0
         }))
@@ -320,6 +352,7 @@ gulp.task('newTopicSCSS', function(done){
 gulp.task('otherUserProfilePageSCSS', function(done){
     gulp.src('app/components/otherUserProfilePage/sass/otherUserProfilePage.scss')
         .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('assets/HISTORY/CSS/otherUserProfilePageSCSS'))
         .pipe(minifyCss({
               keepSpecialComments: 0
         }))
@@ -331,6 +364,7 @@ gulp.task('otherUserProfilePageSCSS', function(done){
 gulp.task('profileSCSS', function(done){
     gulp.src('app/components/profile/sass/profile.scss')
         .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('assets/HISTORY/CSS/profileSCSS'))
         .pipe(minifyCss({
               keepSpecialComments: 0
         }))
@@ -342,6 +376,7 @@ gulp.task('profileSCSS', function(done){
 gulp.task('settingsSCSS', function(done){
     gulp.src('app/components/settings/sass/settings.scss')
         .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('assets/HISTORY/CSS/settingsSCSS'))
         .pipe(minifyCss({
               keepSpecialComments: 0
         }))
@@ -353,6 +388,7 @@ gulp.task('settingsSCSS', function(done){
 gulp.task('topicSCSS', function(done){
     gulp.src('app/components/topic/sass/topicDesc.scss')
         .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('assets/HISTORY/CSS/topicSCSS'))
         .pipe(minifyCss({
               keepSpecialComments: 0
         }))
