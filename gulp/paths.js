@@ -2,7 +2,7 @@ module.exports = {
     dest: 'assets/dist',
     js: [
         'app/app.module.js',
-        'app/app.run.js',
+    //    'app/app.run.js',
         'app/app.config.js',
     //  'app/shared/**/*.module.js',
         'app/shared/**/*.js',

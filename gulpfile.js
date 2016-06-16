@@ -10,12 +10,12 @@ var gulp = require("gulp"),
      expect = require('gulp-expect-file'),
      sass = require('gulp-sass'),
      es = require('event-stream'),
-     ng_annotate = require('gulp-ng-annotate'),
      $ = require('gulp-load-plugins')(), 
      minifyCss = require('gulp-minify-css'),
      rename = require('gulp-rename'),
      browserSync = require('browser-sync').create(),
-     webserver = require('gulp-webserver');
+     webserver = require('gulp-webserver'),
+     combiner = require('stream-combiner2');
 
 var base = 'app';
 // var minifyCss = require('gulp-minify-css');
@@ -33,16 +33,20 @@ var PATHS_SASS = {
     
 }
 // combines all js files into one and create sourcemaps for them
-gulp.task('scripts', function(done) {
-    gulp.src(paths.js)
-    .pipe(sourceMaps.init())
-        .pipe(concat('app.min.js'))
-        .pipe(ngAnnotate())
-        .pipe(uglify().on('error', util.log))
-    .pipe(sourceMaps.write('.'))
-    .pipe(gulp.dest(paths.dest))
-    .on('error', util.log)
-    .on('end', done);
+gulp.task('scripts', function() {
+    var combined = combiner.obj([
+        gulp.src(paths.js),
+        sourceMaps.init(),
+        ngAnnotate(),
+        concat('app.min.js'),
+        uglify(),
+        sourceMaps.write('.'),
+        gulp.dest(paths.dest)
+        ]);
+        
+  combined.on('error', console.error.bind(console));
+
+  return combined;
 });
 
 gulp.task('serve', function() {
@@ -51,7 +55,6 @@ gulp.task('serve', function() {
             baseDir: './'
         }
     });
-    
     gulp.watch('**/**/*.html').on('change', browserSync.reload);
     gulp.watch("app/components/**/**/*{.js}", ["scripts"]);
     gulp.watch("app/components/**/**/*.scss", ['test']);
