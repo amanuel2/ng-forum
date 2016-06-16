@@ -54,13 +54,13 @@ function switch_change(str,args){
 }
 
 
-// watch_js_app.on('change', function(f) {
-//     switch_change(getFileName(f.path),true)
-// });
+ watch_js_app.on('change', function(f) {
+    // switch_change(getFileName(f.path),true)
+ });
 
-// watch_scss_app.on('change', function(f) {
-//   switch_change(getFileName(f.path),false)
-// });
+ watch_scss_app.on('change', function(f) {
+ // switch_change(getFileName(f.path),false)
+ });
 
 //IN CONSTRUCTION END
 
@@ -82,30 +82,8 @@ gulp.task('scripts', function() {
 });
 
 
-gulp.task('serve', function() {
-    //COMMENT OUT AFTER CONSTRUCTION_END
-    // browserSync.init({
-    //     server: {
-    //         baseDir: './'
-    //     }
-    // });
-    //  gulp.src('./')
-    //     .pipe(webserver({
-    //       port:8080,
-    //       host: process.env.IP,
-    //       fallback: 'index.html',
-    //       livereload: {
-    //         enable: true, 
-    //         filter: function(fileName) {
-    //           if (fileName.match(/.map$/))  
-    //             return false;
-    //           else 
-    //             return true;
-    //         }
-    //       }
-    //     }));
-    // gulp.watch('**/**/*.html').on('change', browserSync.reload);
-    gulp.watch("app/components/**/**/*{.js}", ["scripts"]);
+gulp.task('watch', function() {
+    gulp.watch("app/components/**/**/*.js", ["scripts"]);
     gulp.watch("app/components/**/**/*.scss", ['compileSCSS']);
 })
 

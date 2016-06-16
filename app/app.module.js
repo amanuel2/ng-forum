@@ -35,6 +35,7 @@ Aman
 ------
 TODO : SHOW THE USERS AVATAR THAT LIKED THE REPLY. <- Dont know how to do that..
 TODO:Badges Backend
+TODO : NEW TOPIC EMOTION LIST
 TODO: Points 
 TODO: @name and #topic
 TODO : OTHERUSERPROFILEPAGE

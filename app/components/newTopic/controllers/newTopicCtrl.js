@@ -26,8 +26,7 @@
         String.prototype.replaceAll = function(str1, str2, ignore) {
             return this.replace(new RegExp(str1.replace(/([\/\,\!\\\^\$\{\}\[\]\(\)\.\*\+\?\|\<\>\-\&])/g,"\\$&"),(ignore?"gi":"g")),(typeof(str2)=="string")?str2.replace(/\$/g,"$$$$"):str2);
         } 
-        
-        console.log();
+        $scope.currentAuthGet = refService.ref().getAuth();
          marked.setOptions({
             renderer: new marked.Renderer(),
             gfm: true,
@@ -210,7 +209,7 @@
 
             var search = $firebaseArray(refService.ref().child("Topics"))
             search.$loaded(function(data) {
-                refService.ref().child("UserAuthInfo").child(currentAuth.uid).on("value", function(snapshot) {
+                refService.ref().child("UserAuthInfo").child($scope.currentAuthGet.uid).on("value", function(snapshot) {
                     $scope.userAvatar = snapshot.val().Image;
                     $scope.userName = snapshot.val().Username;
                     $scope.userEmail = snapshot.val().Email;
@@ -223,7 +222,7 @@
                         Username: $scope.userName,
                         Email: $scope.userEmail,
                         Avatar: $scope.userAvatar,
-                        UID: currentAuth.uid,
+                        UID: $scope.currentAuthGet.uid,
                         Tags: $scope.tagsSelectedFireBase,
                         Postnum: data.length,
                         IsAcceptedAnwser: false,
