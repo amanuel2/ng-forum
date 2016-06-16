@@ -1,3 +1,4 @@
+$white = #fff
 .user-background {
 	width: 100%;
 	height: 400px;
@@ -14,7 +15,7 @@
 	height: 200px;
 	width: 200px;
 	border-radius: 50%;
-	border: 4px solid #FFF;
+	border: 4px solid $white;
 }
 .user-info {
 	display: flex;
@@ -64,7 +65,7 @@ img.user-background {
 	height: 550px;
 }
 span.following_num {
-	color: #fff;
+	color: $white;
 }
 span.silver_badge {
 	position: relative;
@@ -75,7 +76,7 @@ md-header.activity_header {
 	font-weight: 700;
 	font-family: 'Roboto';
 	font-size: 44px;
-	color: #fff;
+	color: $white;
 	position: relative;
 	left: 163px;
 	top: 10px;
@@ -120,7 +121,7 @@ md-card-title-text {
 	top: 27px;
 }
 span.followers_num {
-	color: #fff;
+	color: $white;
 }
 md-card-title-text.stats_icon_cover {
 	position: relative;
@@ -138,6 +139,10 @@ span.bronze_badge {
 	bottom: 1280px;
 }
 span.md-subhead.md-subhead-followers {
-	color: #fff;
+	color: $white;
 	font-size: 20px;
+}
+.precence_act{
+	color:$white;
+	width
 }

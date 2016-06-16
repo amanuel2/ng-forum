@@ -17,6 +17,7 @@ var gulp = require("gulp"),
      browserSync = require('browser-sync').create(),
      webserver = require('gulp-webserver'),
      combiner = require('stream-combiner2'),
+     gzip = require('gulp-gzip'),
      watch_js_app = gulp.watch('app/components/**/**/*{.js}'),
      watch_scss_app = gulp.watch('app/components/**/**/*.scss');
 
@@ -35,6 +36,7 @@ var PATHS_SASS = {
     ]
     
 }
+
 
 function getFileName(fullFilePath) {
     return ((fullFilePath.substring(fullFilePath.lastIndexOf('/'),fullFilePath.length)).replace('/', ''))
@@ -72,6 +74,7 @@ gulp.task('scripts', function() {
         ngAnnotate(),
         concat('app.min.js'),
         uglify(),
+   //     gzip({ append: false }),
         sourceMaps.write('.'),
         gulp.dest(paths.dest)
         ]);
@@ -152,6 +155,7 @@ gulp.task('scripts:vendor', function() {
    return gulp.src(paths.vendor_js)
      .pipe(concat('vendor.min.js'))
      .pipe(uglify({ mangle: false, compress:true, output: { beautify: false } }))
+     //.pipe(gzip({ append: false , gzipOptions: { level: 2 } }))
      .pipe(gulp.dest(paths.dest));
 });
 

@@ -3,10 +3,10 @@
   'use strict';    
     angular
             .module('ForumApp')
-            .controller('topicCtrl', ["$scope", "$stateParams", "refService", "editReplyService", "dateService", "$firebaseArray", "timeService", "$mdBottomSheet", "$mdMedia", "$mdDialog", "replyService", "$firebaseObject", "$state", "otherUserService", "editTopicService", topicCtrl])
+            .controller('topicCtrl', ["$scope", "$stateParams", "refService", "editReplyService", "dateService", "$firebaseArray", "timeService", "$mdBottomSheet", "$mdMedia", "$mdDialog", "replyService", "$firebaseObject", "$state", "otherUserService", "editTopicService","topicLikesService", topicCtrl])
 
 
-    function topicCtrl($scope, $stateParams, refService, editReplyService, dateService, $firebaseArray, timeService, $mdBottomSheet, $mdMedia, $mdDialog, replyService, $firebaseObject, $state, otherUserService, editTopicService) {
+    function topicCtrl($scope, $stateParams, refService, editReplyService, dateService, $firebaseArray, timeService, $mdBottomSheet, $mdMedia, $mdDialog, replyService, $firebaseObject, $state, otherUserService, editTopicService,topicLikesService) {
         var currentAuth = refService.ref().getAuth();
         $scope.currentAuthGet = refService.ref().getAuth();
 
@@ -982,6 +982,58 @@ $scope.objBookmark = $firebaseObject(refService.ref().child("Topics"))
                 $mdBottomSheet.show({
                         controller: 'newReplyCtrl',
                         templateUrl: 'app/components/newReply/newReply.html',
+                        parent: angular.element(document.body),
+                        resolve: {
+                            // controller will not be loaded until $waitForAuth resolves
+                            // Auth refers to our $firebaseAuth wrapper in the example above
+                            "currentAuth": ["refService", function(refService) {
+                                // $waitForAuth returns a promise so the resolve waits for it to complete
+                                return refService.refAuth().$requireAuth();
+                            }]
+                        },
+                        targetEvent: ev,
+                        clickOutsideToClose: true,
+                        fullscreen: useFullScreen
+                    })
+                    .then(function(answer) {
+                        //Then Argument
+                    }, function() {
+                        //Canceled Dialog
+                    });
+            }
+            else {
+                return null;
+            }
+        }
+        $scope.repliesLikesNum = [];
+        var count_likes = 0;
+        refService.ref().child("Replies").child($stateParams.USERNAME+$stateParams.POST).on("value", function(snapRepNum){
+            snapRepNum.forEach(function(snapRepNumChild){
+                    var key = snapRepNumChild.key();
+                    var childData = snapRepNumChild.val();
+                    if(childData.Likes){
+                        
+                       for(var i in childData.Likes)
+                            count_likes++;
+                        
+                        $scope.repliesLikesNum.push(count_likes)
+                        count_likes = 0;
+                        
+                            
+                    }
+                    //    $scope.repliesLikesNum.push(childData.Likes)
+                    else
+                        $scope.repliesLikesNum.push(0)
+            })
+        })    
+        
+        $scope.seeTopicLikes = function(num_likes, rep, ev){
+             if (ev) {
+                 topicLikesService.setInfo(num_likes, rep);
+                var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
+                $mdDialog.show({
+                        controller: 'viewTopicLikes',
+                        templateUrl : 'app/components/viewTopicLikes/viewTopicLikes.html',
                         parent: angular.element(document.body),
                         resolve: {
                             // controller will not be loaded until $waitForAuth resolves

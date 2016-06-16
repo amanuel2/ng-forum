@@ -11,7 +11,14 @@
   <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
   <link rel="stylesheet" href="app/components/profile/css/profile.min.css" type="text/css" />
 </head>
-
+<div class='content'>
+  <div class='verified local'>
+    <div class='content-wrapper'>
+      <div class='content icon-only'>
+        <div class='check'></div>
+      </div>
+    </div>
+  
 <div class="mdl-grid--no-spacing user-profile-header">
   <img src="{{backImage}}" class="user-background">
   <div class="mdl-cell mdl-cell--12-col user-bar">
@@ -48,14 +55,14 @@
         </span>
     </span>
   </div>
+    <span class="precence_act">
+      
+    </span>
   <div class="mdl-cell mdl-cell--12-col user-info">
     <h2 class="username">{{Username}}</h2>
     <p class="user-desc">{{desc}}</p>
   </div>
 </div>
-<span class="mdl-badge online_badge" data-badge="♥">
-  <i class="material-icons">group_add</i>
-</span>
 <div class="mdl-grid ff-card ">
   <div class="mdl-cell mdl-cell--12-col">
     <div class="mdl-card user-stats">

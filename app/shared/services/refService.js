@@ -5,7 +5,7 @@
     
     function refService($firebaseAuth){
         this.ref = function() {
-            return new Firebase('https://uniquecoders.firebaseio.com/');
+            return new Firebase('https://uniquecodersforums.firebaseio.com/');
         }
         this.refAuth = function() {
             return $firebaseAuth(this.ref());

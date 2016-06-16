@@ -1,3 +1,7 @@
+$grey: #fff;
+$plum: #8e44ad;
+$shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 8px 0 rgba(0, 0, 0, 0.12);
+
 .menu {
 	height: 64px;
 	width: 100%;
@@ -78,6 +82,35 @@ button.md-icon-button.notifications_icon.notifications-wrapper.md-button.md-ink-
 	}
 }
 
-// #demo-menu-lower-right {
-// 	display:none;
-// }
+
+
+.follow {
+  width: 42px;
+  height: 42px;
+  border-radius: 50px;
+  background: #03A9F4;
+  display: block;
+  margin: 300px auto 0;
+  white-space: nowrap;
+  padding: 13px;
+  box-sizing: border-box;
+  color: white;
+  transition: all 0.2s ease;
+  font-family: Roboto, sans-serif;
+  text-decoration: none;
+  box-shadow: 0 5px 6px 0 rgba(0,0,0,0.2);
+  i {
+    margin-right: 20px;
+    transition: margin-right 0.2s ease;
+  }
+  &:hover {
+    width: 134px;
+    i {
+      margin-right: 10px;
+    }
+  }
+}
+
+
+
+

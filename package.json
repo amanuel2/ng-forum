@@ -25,6 +25,7 @@
     "prismjs": "^1.5.0"
   },
   "devDependencies": {
+    "gulp-gzip": "^1.4.0",
     "gulp-webserver": "^0.9.1",
     "stream-combiner2": "^1.1.1"
   },

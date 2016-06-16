@@ -44,63 +44,9 @@
          var index_two = arrayOfPrevious5Days[2];
          var index_three = arrayOfPrevious5Days[3];
          var index_four = arrayOfPrevious5Days[4];
-        var TOPICS_COUNT = [
-            index_zero_obj = {
-                COUNT : 0
-            },
-             index_one_obj = {
-                COUNT : 0
-            },
-             index_two_obj = {
-                COUNT : 0
-            },
-             index_three_obj = {
-                COUNT : 0
-            },
-             index_four_obj = {
-                COUNT : 0
-            },
-        ]
-        var REPLIES_COUNT = 0;
-        refService.ref().child("Topics").once("value", function(snapsnap){
-            snapsnap.forEach(function(childSnao){
-                  var key = childSnao.key();
-                  var childData = childSnao.val();
-                  
-                  if(childData.UID == $stateParams.UID){
-                      var parsed = new Date(parseInt((childData.DateCreated))); 
-                      parsed = JSON.stringify(parsed);
-                     parsed = parsed.replaceAll('"', '');
-                     parsed = parsed.substring(8,10);
-                     var parsed = parseInt(parsed);
-                     if(parsed == index_zero)
-                         (TOPICS_COUNT[0].COUNT++)
-                     else if(parsed == index_one)
-                         (TOPICS_COUNT[1].COUNT++);
-                     else if(parsed == index_two)
-                         (TOPICS_COUNT[2].COUNT++);
-                     else if(parsed == index_three)
-                         (TOPICS_COUNT[3].COUNT++);
-                     else if(parsed == index_four)
-                         (TOPICS_COUNT[4].COUNT++);
-                  }
-            })
-        })
+           
         
-        console.log(TOPICS_COUNT);
-        var TOPICS_COUNT_ARRAY = [TOPICS_COUNT[0].Count, TOPICS_COUNT[1].Count,TOPICS_COUNT[2].Count,TOPICS_COUNT[3].Count,TOPICS_COUNT[4].Count]
-        
-        // MaterialCharts.bar("#bar_chart_container", {
-        //     "datasets": {
-        //         "values": TOPICS_COUNT_ARRAY,
-        //         "labels": arrayOfPrevious5Days
-        //         , "color": "blue"
-        //     },
-        //     "height": "240px",
-        //     "width": "444px",
-        //     "shadowDepth": "0"
-        // }) 
-       
+        console.log(arrayOfPrevious5Days)
          var obj = $firebaseObject(refService.ref().child("UserAuthInfo").child($scope.currentAuthGetPro.uid));
          var objPres = $firebaseObject(refService.ref().child("presence"));
          

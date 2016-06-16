@@ -169,6 +169,8 @@
                 Reply
             </md-button>
         </span>
+        
+
     </div>
     <!-- END OF TOPIC-BUTTONS -->
     <section>
@@ -179,7 +181,7 @@
         <!-- img best-answer-img-->
         
         <h2 class="replies-title">Replies</h2>
-        <md-list-item class="comment" ng-repeat="reps in replies">
+        <md-list-item class="comment" ng-repeat="reps in replies track by $index">
             <span ng-class="classBestAnwser(reps);">
             <!-- User Block -->
             <img ng-if="isChecked(reps) == true" class="best-answer-img" src="https://cdn4.iconfinder.com/data/icons/everyday-2/64/check_mark_checkmark_materialdesign_approved_ok_approve-512.png">
@@ -328,10 +330,11 @@
                         <strong>Reply</strong>
                     </md-button>
                 </span>
-                
-                <span class="likes_list">
-                    
-                </span>
+                <md-button class="md-raised" ng-click="seeTopicLikes(repliesLikesNum[$index], reps, $event)">
+                    <span class="likes_list">
+                         {{repliesLikesNum[$index]}} Likes
+                    </span>
+                </md-button>
             </div>
           </span>
         </md-list-item>

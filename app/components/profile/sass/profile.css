@@ -1,0 +1,41 @@
+/*
+Error: Invalid CSS after "$white ": expected ":", was "= #fff"
+        on line 1 of /home/ubuntu/workspace/app/components/profile/sass/profile.scss
+
+1: $white = #fff
+2: .user-background {
+3: 	width: 100%;
+4: 	height: 400px;
+5: 	z-index: 0;
+6: }
+
+Backtrace:
+/home/ubuntu/workspace/app/components/profile/sass/profile.scss:1
+/mnt/shared/lib/ruby/2.2.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:1191:in `expected'
+/mnt/shared/lib/ruby/2.2.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:1125:in `expected'
+/mnt/shared/lib/ruby/2.2.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:1120:in `tok!'
+/mnt/shared/lib/ruby/2.2.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:619:in `variable'
+/mnt/shared/lib/ruby/2.2.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:675:in `block_child'
+/mnt/shared/lib/ruby/2.2.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:665:in `block_contents'
+/mnt/shared/lib/ruby/2.2.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:125:in `stylesheet'
+/mnt/shared/lib/ruby/2.2.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:41:in `parse'
+/mnt/shared/lib/ruby/2.2.0/gems/sass-3.4.22/lib/sass/engine.rb:406:in `_to_tree'
+/mnt/shared/lib/ruby/2.2.0/gems/sass-3.4.22/lib/sass/engine.rb:381:in `_render_with_sourcemap'
+/mnt/shared/lib/ruby/2.2.0/gems/sass-3.4.22/lib/sass/engine.rb:298:in `render_with_sourcemap'
+/mnt/shared/lib/ruby/2.2.0/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:492:in `update_stylesheet'
+/mnt/shared/lib/ruby/2.2.0/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+/mnt/shared/lib/ruby/2.2.0/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:209:in `each'
+/mnt/shared/lib/ruby/2.2.0/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/mnt/shared/lib/ruby/2.2.0/gems/sass-3.4.22/lib/sass/plugin.rb:82:in `update_stylesheets'
+/mnt/shared/lib/ruby/2.2.0/gems/sass-3.4.22/lib/sass/exec/sass_scss.rb:340:in `watch_or_update'
+/mnt/shared/lib/ruby/2.2.0/gems/sass-3.4.22/lib/sass/exec/sass_scss.rb:51:in `process_result'
+/mnt/shared/lib/ruby/2.2.0/gems/sass-3.4.22/lib/sass/exec/base.rb:52:in `parse'
+/mnt/shared/lib/ruby/2.2.0/gems/sass-3.4.22/lib/sass/exec/base.rb:19:in `parse!'
+/mnt/shared/lib/ruby/2.2.0/gems/sass-3.4.22/bin/scss:13:in `<top (required)>'
+/nix/store/yrs58pvf72cn1mcax0s685yw2dqzzvqv-ruby-1.9.3-p484/bin/scss:23:in `load'
+/nix/store/yrs58pvf72cn1mcax0s685yw2dqzzvqv-ruby-1.9.3-p484/bin/scss:23:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid CSS after \"$white \": expected \":\", was \"= #fff\"\A         on line 1 of /home/ubuntu/workspace/app/components/profile/sass/profile.scss\A \A 1: $white = #fff\A 2: .user-background {\A 3: 	width: 100%;\A 4: 	height: 400px;\A 5: 	z-index: 0;\A 6: }"; }
