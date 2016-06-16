@@ -1,4 +1,5 @@
 //Require Gulp
+//Constants
 var gulp = require("gulp"),
      ngAnnotate = require("gulp-ng-annotate"),
      uglify = require("gulp-uglify"),
@@ -15,7 +16,9 @@ var gulp = require("gulp"),
      rename = require('gulp-rename'),
      browserSync = require('browser-sync').create(),
      webserver = require('gulp-webserver'),
-     combiner = require('stream-combiner2');
+     combiner = require('stream-combiner2'),
+     watch_js_app = gulp.watch('app/components/**/**/*{.js}'),
+     watch_scss_app = gulp.watch('app/components/**/**/*.scss');
 
 var base = 'app';
 // var minifyCss = require('gulp-minify-css');
@@ -32,6 +35,35 @@ var PATHS_SASS = {
     ]
     
 }
+
+function getFileName(fullFilePath) {
+    return ((fullFilePath.substring(fullFilePath.lastIndexOf('/'),fullFilePath.length)).replace('/', ''))
+}
+
+//IN CONSTRUCTION BEGIN
+function switch_change(str,args){
+//     //if(args == false) {
+//      // switch(str) {
+//       //  case 'authHome.scss':
+//             //authHomeSCSS();
+            
+//       }
+//     }
+//   // else
+//         //scriptsFunc();
+}
+
+
+// watch_js_app.on('change', function(f) {
+//     switch_change(getFileName(f.path),true)
+// });
+
+// watch_scss_app.on('change', function(f) {
+//   switch_change(getFileName(f.path),false)
+// });
+
+//IN CONSTRUCTION END
+
 // combines all js files into one and create sourcemaps for them
 gulp.task('scripts', function() {
     var combined = combiner.obj([
@@ -49,36 +81,34 @@ gulp.task('scripts', function() {
   return combined;
 });
 
+
 gulp.task('serve', function() {
-    browserSync.init({
-        server: {
-            baseDir: './'
-        }
-    });
-    gulp.watch('**/**/*.html').on('change', browserSync.reload);
+    // browserSync.init({
+    //     server: {
+    //         baseDir: './'
+    //     }
+    // });
+    //  gulp.src('./')
+    //     .pipe(webserver({
+    //       port:8080,
+    //       host: process.env.IP,
+    //       fallback: 'index.html',
+    //       livereload: {
+    //         enable: true, 
+    //         filter: function(fileName) {
+    //           if (fileName.match(/.map$/))  
+    //             return false;
+    //           else 
+    //             return true;
+    //         }
+    //       }
+    //     }));
+    // gulp.watch('**/**/*.html').on('change', browserSync.reload);
     gulp.watch("app/components/**/**/*{.js}", ["scripts"]);
-    gulp.watch("app/components/**/**/*.scss", ['test']);
+    gulp.watch("app/components/**/**/*.scss", ['compileSCSS']);
 })
 
 
-
-gulp.task('serve', function() {
-  gulp.src('./')
-    .pipe(webserver({
-      port:8080,
-      host: process.env.IP,
-      fallback: 'index.html',
-      livereload: {
-        enable: true, 
-        filter: function(fileName) {
-          if (fileName.match(/.map$/))  
-            return false;
-           else 
-            return true;
-        }
-      }
-    }));
-});
 
 
 

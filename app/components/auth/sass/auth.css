@@ -31,7 +31,7 @@
   visibility: hidden; }
 
 html {
-  background-image: url(https://wallpaperspal.com/wp-content/uploads/Google-Material-Design-Wallpaper.jpg); }
+  background: #e9e9e9; }
 
 #Header {
   font-family: Comic Sans, Comic Sans MS, cursive; }
@@ -354,20 +354,14 @@ html {
   color: #fff;
   padding: .05em .07em; }
   .fa-twitter:before {
-    content: "\f099";
-    position: relative;
-    left: 7px;
-    top: 6px; }
+    content: "\f099"; }
 
 .fa-github {
   background: #000;
   color: #999;
   padding: .05em .07em; }
   .fa-github:before {
-    content: "\f09b";
-    position: relative;
-    top: 6px;
-    left: 8.65px; }
+    content: "\f09b"; }
 
 .fa-google-plus {
   color: #fff;
@@ -397,16 +391,12 @@ body.ng-scope {
   font-size: 14px; }
 
 i.fa.fa-twitter.circle {
-  width: 30px;
-  height: 30px;
   position: relative;
   left: 30px;
   top: 48px; }
 i.fa.fa-github.circle {
-  height: 30px;
-  width: 30px;
   position: relative;
-  left: 383px;
-  bottom: 53px; }
+  margin-left: 360px;
+  top: -70px; }
 
 /*# sourceMappingURL=auth.css.map */

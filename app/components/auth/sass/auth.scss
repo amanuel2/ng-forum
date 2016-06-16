@@ -92,7 +92,7 @@ $url_0: url(https://wallpaperspal.com/wp-content/uploads/Google-Material-Design-
 
 
 html {
-	background-image: $url_0;
+	background: $color_gray_nurse_approx;
 }
 #Header {
 	font-family: $font_0, $font_1, $font_2;
@@ -547,9 +547,6 @@ html {
 	padding: .05em .07em;
 	&:before {
 		content: "\f099";
-		position: relative;
-		left: 7px;
-		top: 6px;
 	}
 }
 .fa-github {
@@ -558,9 +555,6 @@ html {
 	padding: .05em .07em;
 	&:before {
 		content: "\f09b";
-		position: relative;
-		top: 6px;
-		left: 8.65px;
 	}
 }
 .fa-google-plus {
@@ -592,17 +586,14 @@ body.ng-scope {
 }
 i.fa {
 	&.fa-twitter.circle {
-		width: 30px;
-		height: 30px;
 		position: relative;
 		left: 30px;
 		top: 48px;
 	}
 	&.fa-github.circle {
-		height: 30px;
-		width: 30px;
-		position: relative;
-		left: 383px;
-		bottom: 53px;
+	   position: relative;
+	   margin-left: 360px;
+	   top: -70px;	
 	}
 }
+

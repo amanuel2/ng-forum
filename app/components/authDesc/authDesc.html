@@ -6,7 +6,6 @@
   <script>
     hljs.initHighlightingOnLoad();
   </script>
-
 </head>
 
 <div class="toolbar_new_topic" ng-if="authDataDesc!=null">
@@ -79,68 +78,3 @@
   </md-list-item>
   
 </md-list>
-
-
-<!--  <md-content layout="column" flex>-->
-
-<!--  <md-card>-->
-
-<!--    <md-toolbar class="md-table-toolbar md-default" ng-hide="false">-->
-<!--      <div class="md-toolbar-tools">-->
-<!--        <span>Topics</span>-->
-<!--        <div flex></div>-->
-<!--        <md-button class="md-icon-button" ng-click="loadStuff()">-->
-<!--          <md-icon>refresh</md-icon>-->
-<!--        </md-button>-->
-<!--      </div>-->
-<!--    </md-toolbar>-->
-
-<!--   <md-toolbar class="md-table-toolbar alternate" ng-show="selected.length">-->
-<!--            <div class="md-toolbar-tools">-->
-<!--              <span>{{selected.length}} {{selected.length > 1 ? 'items' : 'item'}} selected</span>-->
-<!--            </div>-->
-<!--  </md-toolbar>-->
-
-<!--    <md-table-container>-->
-<!--      <table md-table md-row-select="true" multiple="true" ng-model="selected" md-progress="promise">-->
-<!--        <thead ng-if="true" md-head>-->
-<!--          <tr md-row>-->
-<!--            <th md-column md-order-by="username" ><span>Title</span></th>-->
-<!--            <th md-column><span>Creator</span></th>-->
-<!--            <th md-column md-numeric ><span>Replies</span></th>-->
-<!--            <th md-column md-numeric ><span>Tag</span></th>-->
-<!--            <th md-column md-numeric ><span>Users</span></th>-->
-<!--            <th md-column md-numeric><span>Views</span></th>-->
-<!--            <th md-column md-numeric  hide-gt-xs show-gt-md><span>Last Activity</span></th>-->
-<!--            <th md-column md-order-by="Comment">-->
-<!--              <md-icon>comments</md-icon>-->
-<!--              <span>Comments</span>-->
-<!--            </th>-->
-<!--          </tr>-->
-<!--        </thead>-->
-<!--        <tbody md-body>-->
-<!--          <tr md-row md-select="topic"  md-auto-select="true" ng-repeat="topic in topicName | orderBy: query.order | limitTo: query.limit : (query.page -1) * query.limit" >-->
-<!--            <td md-cell ng-click="goToTopic(topic.Avatar,topic.DateCreated,topic.Email,topic.Title,topic.UID,topic.Username,topic.Value,topic.Postnum);">{{topic.Title}}</td>-->
-<!--            <td md-cell>-->
-<!--                 <img alt="{{ topic.Avatar }}" ng-src="{{ topic.Avatar }}" class="md-avatar avatar_custom" />{{topic.Username}}-->
-<!--            </td>-->
-<!--            <td md-cell>{{topic.RepliesNum || 0}}</td>-->
-<!--            <td md-cell>-->
-<!--              <md-select placeholder="Assign Tag..." ng-model="topic.Postnum" md-on-open="loadUsers(topic)" style="min-width: 200px;">-->
-<!--                <md-option ng-repeat="tag in tagsOption">{{tag}}</md-option>-->
-<!--              </md-select>-->
-<!--            </td>-->
-<!--            <td md-cell>{{topic.Username}}</td>-->
-<!--            <td md-cell>{{topic.ViewsLen || 0}}</td>-->
-<!--            <td md-cell hide-gt-xs show-gt-md>{{topic.LastActivity | dateFilter}}</td>-->
-<!--            <td md-cell ng-click="editComment($event, topic)">-->
-<!--              {{topic.Comment || 'Add a comment'}}-->
-<!--            </td>-->
-<!--          </tr>-->
-<!--        </tbody>-->
-<!--      </table>-->
-<!--    </md-table-container>-->
-
-<!--    <md-table-pagination md-limit="5" md-limit-options="[5, 10, 15]" md-page="1" md-total="{{topicName.length}}" md-page-select="true" md-boundary-links="true"></md-table-pagination>-->
-<!--  </md-card>-->
-<!--</md-content>-->

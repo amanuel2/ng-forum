@@ -64,5 +64,7 @@ button.md-icon-button.notifications_icon.notifications-wrapper.md-button.md-ink-
     .menu .welcome-things .username {
       font-size: 28px;
       margin-left: 15px; } }
+#demo-menu-lower-right {
+  display: none; }
 
 /*# sourceMappingURL=authHome.css.map */
