@@ -1,0 +1,9 @@
+## Customize dependencies
+dependencies:
+  pre:
+    - npm install  # install from a different package manager
+    - bower install #bower libs
+    ## Customize test commands
+test:
+  override:
+    - gulp serve #serving file
