@@ -1,0 +1,82 @@
+{
+  "name": "alertifyjs",
+  "version": "1.6.1",
+  "description": "AlertifyJS is a javascript framework for developing pretty browser dialogs and notifications.",
+  "homepage": "http://alertifyjs.com",
+  "keywords": [
+    "alertifyjs",
+    "alert",
+    "confirm",
+    "prompt",
+    "dialog",
+    "alertify",
+    "javascript framework",
+    "pretty dialogs"
+  ],
+  "author": {
+    "name": "Mohammad Younes",
+    "email": "Mohammad@alertifyjs.com",
+    "url": "http://alertifyjs.com"
+  },
+  "bugs": {
+    "url": "https://github.com/MohammadYounes/AlertifyJS/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/MohammadYounes/AlertifyJS.git"
+  },
+  "main": "./build/alertify.js",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-cli": "~0.1",
+    "grunt-rtlcss": "x.x.x",
+    "grunt-autoprefixer": "x.x.x",
+    "grunt-contrib-less": "x.x.x",
+    "grunt-contrib-cssmin": "x.x.x",
+    "grunt-contrib-copy": "x.x.x",
+    "grunt-contrib-jshint": "~0.6.4",
+    "grunt-contrib-uglify": "~0.9.1",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-connect": "~0.5.0",
+    "grunt-contrib-compress": "x.x.x",
+    "grunt-banner": "~0.3.1",
+    "docpad": "~6.69.0",
+    "docpad-plugin-eco": "~2.1.0",
+    "docpad-plugin-marked": "~2.2.1",
+    "docpad-plugin-partials": "~2.9.1",
+    "docpad-plugin-highlightjs": "~2.2.2",
+    "docpad-plugin-ghpages": "~2.4.3",
+    "docpad-plugin-livereload": "~2.6.0"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://opensource.org/licenses/mit-license.php"
+    }
+  ],
+  "gitHead": "508be013a614c339b629afe6c7c8bfc22d8a3322",
+  "_id": "alertifyjs@1.6.1",
+  "scripts": {},
+  "_shasum": "582e4bca42b4be4362efc9dcc224a15565041b3f",
+  "_from": "alertifyjs@>=1.6.1 <2.0.0",
+  "_npmVersion": "2.11.3",
+  "_nodeVersion": "0.12.7",
+  "_npmUser": {
+    "name": "myounes",
+    "email": "myounes@gmail.com"
+  },
+  "dist": {
+    "shasum": "582e4bca42b4be4362efc9dcc224a15565041b3f",
+    "tarball": "https://registry.npmjs.org/alertifyjs/-/alertifyjs-1.6.1.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "myounes",
+      "email": "myounes@gmail.com"
+    }
+  ],
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/alertifyjs/-/alertifyjs-1.6.1.tgz"
+}

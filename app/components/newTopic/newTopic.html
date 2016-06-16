@@ -1,0 +1,68 @@
+<head>
+ <!--   <link href="node_modules/Prismjs/themes/prism.css" rel="stylesheet" />-->
+	<!--<script src="node_modules/prismjs/prism.js"></script>-->
+
+</head>
+<md-bottom-sheet class="md-list md-has-header" ng-cloak>
+    <form name="myForm" ngsf-fullscreen>
+        <md-header>
+            <h2>Create a new topic</h2>
+            Drag Down, or press <kbd>ESC</kbd> To quit
+        </md-header>
+        
+        <md-input-container class="title-wrapper">
+            <input name="title" placeholder="What is the topic about?" type="text" ng-model="topic.title" ng-minlength="10" ng-maxlength="25" required>
+        </md-input-container>
+        
+        <p ng-show="myForm.title.$error.minlength" style="color:red;">Topic Title is too short.</p>
+        <p ng-show="myForm.title.$error.maxlength" style="color:red;">Topic Title is too long.</p>
+        <p ng-show="myForm.title.$error.required"  style="color:red;">Your Topic Title is required.</p>
+        <div class="topic-sentence">
+            <md-whiteframe class="topic-contents-wrapper" id="frameCONTENT">
+                <div class="topic-contents">
+                    <div class="icons">
+                        <md-button class="md-icon-button" ng-click="shortcuts('code');"><md-tooltip md-direction="top"> Insert Code </md-tooltip><ng-md-icon icon="code" style="fill" size="20"></ng-md-icon></md-button>
+                        <md-button class="md-icon-button" ng-click="shortcuts('header')"><md-tooltip md-direction="top"> Header </md-tooltip><ng-md-icon icon="format_size" style="fill" size"10"></ng-md-icon></md-button>
+                        <md-button class="md-icon-button btn" data-clipboard-action="cut" data-clipboard-target="#markdownUserType"><md-tooltip md-direction="top"> Cut </md-tooltip><ng-md-icon  icon="content_cut" style="fill" size="20"></ng-md-icon></md-button>
+                        <md-button class="md-icon-button btn" data-clipboard-target="#markdownUserType"> <md-tooltip md-direction="top"> Copy </md-tooltip> <ng-md-icon icon="content_copy" style="fill" size"10"></ng-md-icon></md-button>  
+                        <md-button class="md-icon-button" ng-click="shortcuts('bold');"> <md-tooltip md-direction="top"> Bold </md-tooltip> <ng-md-icon icon="format_bold" style="fill" size"10"></ng-md-icon></md-button>
+                        <md-button class="md-icon-button" ng-click="shortcuts('italics');"> <md-tooltip md-direction="top"> Italic </md-tooltip><ng-md-icon icon="format_italic" style="fill" size"10"></ng-md-icon></md-button>
+                        <md-button class="md-icon-button" ng-click="shortcuts('image');"> <md-tooltip md-direction="top"> Insert Image </md-tooltip> <ng-md-icon icon="image" style="fill" size"10"></ng-md-icon></md-button>
+                        <md-button class="md-icon-button" ng-click="shortcuts('quote');"> <md-tooltip md-direction="top"> Insert Quote </md-tooltip> <ng-md-icon icon="format_quote" style="fill" size"10"></ng-md-icon></md-button>
+                        <md-button class="md-icon-button" ng-click="undoAndRedo($event,'undo');"> <md-tooltip md-direction="top"> Undo </md-tooltip> <ng-md-icon icon="undo" style="fill" size"10"></ng-md-icon></md-button>
+                        <md-button class="md-icon-button" ng-click="undoAndRedo($event,'redo');"> <md-tooltip md-direction="top"> Redo </md-tooltip><ng-md-icon icon="redo" style="fill" size"10"></ng-md-icon></md-button>
+                        <md-button class="md-icon-button" ng-click="shortcuts('number')"> <md-tooltip md-direction="top"> Numbered List </md-tooltip> <ng-md-icon icon="format_list_numbered" style="fill" size"10"></ng-md-icon></md-button>
+                        <md-button class="md-icon-button" ng-click="shortcuts('bullet')"> <md-tooltip md-direction="top"> Bulleted List </md-tooltip> <ng-md-icon icon="format_list_bulleted" style="fill" size"10"></ng-md-icon></md-button>
+                        <md-button class="md-icon-button" ng-click="shortcuts('horizontal');"> <md-tooltip md-direction="top"> Horizontal Rule </md-tooltip> <ng-md-icon icon="line_weight" style="fill" size"10"></ng-md-icon></md-button>
+                        <md-button class="md-icon-button" ng-click="shortcuts('url')"><md-tooltip md-direction="top"> Insert URL </md-tooltip><ng-md-icon icon="insert_link" style="fill" size"10"></ng-md-icon></md-button>
+                        <md-button class="md-icon-button" ngsf-toggle-fullscreen><md-tooltip md-direction="top"> FullScreen </md-tooltip><ng-md-icon icon="fullscreen" style="fill" size"10"></ng-md-icon></md-button>
+                        <md-button class="md-icon-button" ng-click="shortcuts('help')"><md-tooltip md-direction="top"> Help </md-tooltip><ng-md-icon icon="help" style="fill" size"10"></ng-md-icon></md-button>
+                    </div>
+                    <textarea class="markdown-text-area" id="markdownUserType" ng-model="markdownData"></textarea>
+                </div>
+            </md-whiteframe>
+            <div class="markdown-wrapper">
+                <span class="markdown-preview">Preview</span>
+                <div class="markdown-show" id="markdown_preview_box" contenteditable="true"
+                    ng-bind-html="outputText" ng-bind-markdown="markdownData">
+                </div>
+            </div>
+        </div>
+        
+        <div class="tags_chip">
+<selectize name="tagsSelector" placeholder='Add Tags' options='defaultTags' name='myName' config="myConfig" ng-model="tagsSelected" ng-disabled='disable' required='true'></selectize>
+        <p ng-show="myForm.tagsSelector.$error.required"  style="color:red;">You need tags</p>
+
+<form action="">
+  <div class="input-group">
+    <div class="sel-wrap">
+    </div>
+  </div>
+</form>
+
+        </div>
+        <md-button class="md-raised md-default" ng-click="logicToGoBack();">Cancel</md-button>
+        <md-button class="md-raised md-primary" ng-click="submitNewTopic();" ng-disabled="myForm.$invalid">Submit</md-button>
+    </form>
+</md-bottom-sheet>
+

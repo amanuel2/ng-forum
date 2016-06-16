@@ -1,0 +1,46 @@
+/* line 2, sass/global.sass */
+.profile-image {
+  float: left;
+  width: 20%;
+  height: 250px;
+}
+/* line 7, sass/global.sass */
+.profile-bg {
+  width: 80%;
+  height: 250px;
+  float: right;
+}
+/* line 12, sass/global.sass */
+.profile-list {
+  clear: both;
+  background-color: #b0bec5;
+  padding: 10px 0;
+}
+/* line 17, sass/global.sass */
+.profile-list * {
+  display: inline-block;
+  margin: 0 10px;
+}
+/* line 21, sass/global.sass */
+.profile-buttons > .md-button {
+  clear: both;
+  display: block;
+}
+
+/* line 25, sass/global.sass */
+.communicate_icon_button {
+  position: relative;
+  left: 1740px;
+  top: 9px;
+}
+
+/* line 30, sass/global.sass */
+.tools-communicate {
+  background: #b0bec5;
+  position: relative;
+}
+
+/* line 34, sass/global.sass */
+.image_and_icon_container {
+  position: relative;
+}

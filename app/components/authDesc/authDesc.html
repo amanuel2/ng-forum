@@ -1,0 +1,80 @@
+<head>
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" type="text/css" />
+  <link rel="stylesheet" href="app/components/authDesc/css/authDesc.min.css" type="text/css" />
+  <link rel="stylesheet" href="app/components/newTopic/css/newTopic.min.css" type="text/css" />
+
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+</head>
+
+<div class="toolbar_new_topic" ng-if="authDataDesc!=null">
+  <md-button id="NEW_TOPIC_BUTTON" ng-click="showNewTopic($event)">
+    <ng-md-icon icon="add_box" style="fill: white" size="20" id="add_icon"></ng-md-icon>
+    <span id="text_new_topic" color="white">Create a New Topic</span>
+  </md-button>
+</div>
+
+
+<md-autocomplete class="search_autocomplete" md-search-text="searchText" md-items="topic in topicName | filter:searchText" md-selected-item="selectedItem" md-item-text="topic.Title" md-min-length="0" md-selected-item-change="goToTOPICAUTCOMPLETE(topic)"
+  placeholder="&#xF002; Search Topics....">
+  <md-item-template>
+    <span class="item-metadata">
+            <span class="item-metastat">
+             <img alt="{{ topic.Avatar }}" ng-src="{{ topic.Avatar }}" class="md-avatar avatar_creator" /> 
+            </span>
+    <span>{{topic.Title}}</span>
+    </span>
+  </md-item-template>
+  <md-not-found>
+    No Match found... Please try again.
+  </md-not-found>
+</md-autocomplete>
+
+
+<md-list ng-cloak md-whiteframe="24"  flex-sm="55" flex-gt-sm="45" flex-gt-md="45">
+  <md-list-item ng-repeat="topic in topicName" class="md-3-line" ng-click="goToTopic(topic.Avatar,topic.DateCreated,topic.Email,topic.Title,topic.UID,topic.Username,topic.Value,topic.Postnum);">
+    <img alt="{{ topic.name }}" ng-src="{{ topic.Avatar }}" class="md-avatar" />
+    <div class="md-list-item-text" layout="column">
+      <h3><strong>{{topic.Title}}</strong></h3>
+      <p>{{ topic.Username }}</p>
+      <p> <strong></strong>
+ 
+        <span class="date_created">
+         <strong>CREATED : {{topic.DateCreated | nonFullDateFilter}}</strong></p>
+  </span>
+    </div>
+          <ul class="tags">
+            <li ><a ng-repeat="tags in topic.Tags" href="javascript:void(0);">{{tags}}</a></li>
+          </ul>
+    <span class="last_activity">
+      <ng-md-icon icon="history" style="fill: #009688" size="20"></ng-md-icon> 
+       {{topic.LastActivity | dateFilter}}
+    </span>
+    <span class="views_list md-secondary">
+            {{topic.ViewsLen || 0}}
+            <span class="chat">
+            <ng-md-icon icon="visibility" style="fill: #4CAF50" size="20"></ng-md-icon> 
+            </span>
+    </span>
+    <span class="replies_list md-secondary">
+            {{topic.RepliesNum || 0}}
+            <span class="replies_icon">
+            <ng-md-icon icon="chat" style="fill: #03A9F4" size="20"></ng-md-icon> 
+            </span>
+    </span>
+    <span class="replies_list md-secondary" ng-if="bookmarked();">
+            <span class="bookmark_icon">
+                <ng-md-icon icon="bookmark" style="fill: #009688" size="20"></ng-md-icon> 
+            </span>
+    </span>
+    
+    
+    
+    <md-icon class="md-secondary" ng-click="doSecondaryAction($event)" aria-label="Chat" md-svg-icon="communication:message"></md-icon>
+    <div class="divider_custom">
+      
+    </div>
+  </md-list-item>
+  
+</md-list>

@@ -1,0 +1,38 @@
+# Notes:
+#   - Minimal appveyor.yml file is an empty file. All sections are optional.
+#   - Indent each level of configuration with 2 spaces. Do not use tabs!
+#   - All section names are case-sensitive.
+#   - Section names should be unique on each level.
+
+#---------------------------------#
+#      general configuration      #
+#---------------------------------#
+
+# version format
+version: 1.0.{build}
+
+# you can use {branch} name in version format too
+# version: 1.0.{build}-{branch}
+
+# branches to build
+branches:
+  # whitelist
+  only:
+    - master
+    - production
+
+  # blacklist
+  except:
+    - gh-pages
+    
+install:
+  # by default, all script lines are interpreted as batch
+  #- echo This is batch
+  # to run script as a PowerShell command prepend it with ps:
+  #- ps: Write-Host 'This is PowerShell'
+  # batch commands start from cmd:
+  - cmd: echo bower install
+  - cmd: echo npm install
+  
+# build platform, i.e. x86, x64, Any CPU.
+platform: Any CPU  

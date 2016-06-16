@@ -1,0 +1,73 @@
+<head>
+  <!-- Material Design Lite -->
+  <script src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+  <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
+  <!-- Material Design icon font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="app/components/authHome/css/authHome.min.css" type="text/css" />
+</head>
+
+
+<div class="menu" id="IDMENU">
+  <div class="welcome-things">
+    <md-button class="md-icon-button" aria-label="Menu">
+      <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
+    </md-button>
+    <span class="username">Welcome {{Username}}</span>
+  </div>
+  <nav class="page-nav">
+    <div class="logged-user" ng-if="authData != null">
+
+      <md-button class="md-icon-button notifications_icon notifications-wrapper" aria-label="Favorite">
+        <ng-md-icon icon="notifications_none" style="fill: greenyellow;" size="30"></ng-md-icon>
+        notifications_active
+      </md-button>
+    <button id="demo-menu-lower-right"
+            class="mdl-button mdl-js-button mdl-button--icon">
+      <i class="material-icons">more_vert</i>
+    </button>
+    
+
+      <button id="menu1" class="mdl-button mdl-js-button mdl-button--icon">
+  <img class="user-avatar" ng-src="{{image}}">
+</button>
+
+      <ul class="mdl-menu mdl-js-menu" for="menu1">
+        <li class="mdl-menu__item" ui-sref="authHome.desc">
+          <ng-md-icon icon="forum" style="fill: black" size="20"></ng-md-icon>
+          Forum
+        </li>
+        <li class="mdl-menu__item" ng-click="goToProfile()">
+          <ng-md-icon icon="perm_identity" style="fill: black" size="20"></ng-md-icon>
+          Profile
+        </li>
+        <li class="mdl-menu__item" ng-click="goToSettings()">
+          <ng-md-icon icon="settings" style="fill: black" size="20"></ng-md-icon>
+          Settings
+        </li>
+        <li class="mdl-menu__item" ng-click="logout();">
+          <ng-md-icon icon="logout" style="fill: black" size="20"></ng-md-icon>
+          Logout
+        </li>
+      </ul>
+
+    </div>
+
+    <div class="not-logged-user" ng-if="authData==null">
+      <md-button class="md-raised md-warn" ui-sref="auth">
+        <ng-md-icon icon="person" style="fill:white" size="20"></ng-md-icon>
+        Login/Signup
+      </md-button>
+    </div>
+</div>
+<!-- END OF IF LOGGED -->
+</nav>
+</div>
+<!-- END OF MENU -->
+
+
+
+
+<div ui-view>
+
+</div>

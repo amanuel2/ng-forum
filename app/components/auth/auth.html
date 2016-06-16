@@ -1,0 +1,60 @@
+<head>
+    <link rel="stylesheet" href="app/components/auth/css/auth.min.css" type="text/css" />
+    
+</head>
+<div class="pen-title">
+  <span id="Header"><h1>Ng-Forum</h1></span>
+</div>
+<div class="container" ng-class="{active: enabled}">
+  <div class="card"></div>
+  <div class="card">
+    <h1 class="title">Login</h1>
+    <form name="login">
+      <div class="input-container">
+        <input type="text" id="Username" ng-model= "user.email" required="required"/>
+        <label for="Username">Email</label>
+        <div class="bar"></div>
+      </div>
+      <div class="input-container">
+        <input type="password" id="Password" ng-model= "user.password" required="required"/>
+        <label for="Password">Password</label>
+        <div class="bar"></div>
+      </div>
+    <i class="fa fa-twitter circle" style="cursor:pointer;" ng-click="oAuthLogin('twitter');"></i>
+    
+      <div class="button-container" ng-click ="loginAUTH();">
+        <button><span>Go</span></button>
+      </div>
+      
+      <i class="fa fa-github circle" style="cursor:pointer;" ng-click="oAuthLogin('github');"></i>
+      
+      <div class="footer"><a href="#/auth" ng-click="forgotPass();">Forgot your password?</a></div>
+    </form>
+  </div>
+  <div class="card alt">
+    <div class="toggle" ng-click ="toggleClass()"></div>
+    <h1 class="title">Register
+      <div class="close" ng-click="close()"></div>
+    </h1>
+    <form>
+      <div class="input-container">
+        <input type="text" id="Username" ng-model = "register.username" required="required"/>
+        <label for="Username">Username</label>
+        <div class="bar"></div>
+      </div>
+      <div class="input-container">
+        <input type="text" id="Username" ng-model= "register.email" required="required"/>
+        <label for="Username">Email</label>
+        <div class="bar"></div>
+      </div>
+      <div class="input-container">
+        <input type="password" id="Password" ng-model= "register.password" required="required"/>
+        <label for="Password">Password</label>
+        <div class="bar"></div>
+      </div>
+      <div class="button-container">
+        <button ng-click= "regissterForm()"><span>Register</span></button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,138 @@
+.user-background {
+  width: 100%;
+  height: 400px;
+  z-index: 0; }
+
+.user-bar {
+  z-index: 1;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: -104px; }
+
+.avatar-big {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  border: 4px solid #FFF; }
+
+.user-info {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center; }
+
+.username:after {
+  content: "";
+  display: block;
+  width: 80%;
+  height: 2px;
+  background-color: #009688;
+  margin: 5px auto 0; }
+
+.user-desc:after {
+  content: "";
+  display: block;
+  width: 80%;
+  height: 2px;
+  background-color: #009688;
+  margin: 5px auto 0; }
+
+.user-stats {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  background-color: #8bc34a; }
+
+.ff-card {
+  display: flex;
+  justify-content: center; }
+
+.ff-card-supp-title {
+  font-weight: 700; }
+
+.ff-card-supp-text {
+  font-size: 20px;
+  text-align: center; }
+
+img.user-background {
+  height: 550px; }
+
+span.following_num {
+  color: #fff; }
+
+span.silver_badge {
+  position: relative;
+  left: 699px;
+  bottom: -10.5px; }
+
+md-header.activity_header {
+  font-weight: 700;
+  font-family: 'Roboto';
+  font-size: 44px;
+  color: #fff;
+  position: relative;
+  left: 163px;
+  top: 10px; }
+
+md-card.followersClass.ng-scope.md-default-theme {
+  width: 474px;
+  height: 282px;
+  position: relative;
+  left: 1304px;
+  top: -230px;
+  background-color: #ffa000 !important;
+  width: 474px;
+  height: 282px;
+  position: relative;
+  left: 1304px;
+  top: -230px; }
+
+span.md-subhead.md-subhead-following {
+  font-weight: 700;
+  font-size: 20px; }
+
+span.mdl-badge.ng-scope {
+  position: relative;
+  top: -371px;
+  left: 796px; }
+
+span.gold_badge {
+  position: relative;
+  left: 640px;
+  top: 10px; }
+
+md-card-title-text {
+  position: relative;
+  left: 45px; }
+
+.followers_container {
+  position: relative;
+  top: 24px; }
+
+.following_container {
+  position: relative;
+  top: 27px; }
+
+span.followers_num {
+  color: #fff; }
+
+md-card-title-text.stats_icon_cover {
+  position: relative;
+  top: 1175px;
+  left: 130px; }
+
+span.bronze_badge {
+  position: relative;
+  left: 754px;
+  bottom: -9px; }
+
+.icon_stats_container {
+  position: relative;
+  right: 352px;
+  bottom: 1280px; }
+
+span.md-subhead.md-subhead-followers {
+  color: #fff;
+  font-size: 20px; }

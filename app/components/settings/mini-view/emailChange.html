@@ -1,0 +1,58 @@
+<head>
+    <style>
+        #ashely{
+            width:50px;
+            height:50px;
+        }
+        textarea#input_2 {
+            width: 500px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+
+<md-dialog aria-label="Mango (Fruit)"  ng-cloak>
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Change Email</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <ng-md-icon icon="close" style="fill: white" size="20"></ng-md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content style="width:1000px;height:700px; ">
+
+            <md-input-container>
+                <label>Old Email</label>
+                <input type="text" ng-model="emailChangeOld"/>
+            </md-input-container>
+            <br>
+            <md-input-container>
+                <label>Old Password</label>
+                <input type="text" ng-model="passwordChangeOld"/>
+            </md-input-container>
+            <br>
+            <md-input-container>
+                <label>Change Email</label>
+                <input type="text" ng-model="emailChange"/>
+            </md-input-container>
+            <br>
+            <md-button md-theme="default" class="md-raised" ng-click="changeEmailDialog();">
+                Change Email
+            </md-button>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <img src="https://lh3.googleusercontent.com/z_dVaAGWaYGLulTy0drwYY6QpdABEOq718yBnFyw6Ejbu9T_r4-3FyOVCb0aNw=w400" id="ashely"/> Was Ashely Usefull?
+            <md-button ng-click="answer('not useful')" >
+                Not Useful
+            </md-button>
+            <md-button ng-click="answer('useful')" style="margin-right:20px;" >
+                Useful
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>
