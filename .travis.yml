@@ -3,6 +3,8 @@ nodejs:
     -  6.2.1
 before_script:
     -  'bower install'
+    -  'npm install -g bower'
+    -  'npm install -g gulp'
     -  'npm install'
 after_script:
     -  'gulp serveFiles'
