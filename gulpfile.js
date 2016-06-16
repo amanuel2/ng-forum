@@ -14,7 +14,8 @@ var gulp = require("gulp"),
      $ = require('gulp-load-plugins')(), 
      minifyCss = require('gulp-minify-css'),
      rename = require('gulp-rename'),
-     browserSync = require('browser-sync').create();
+     browserSync = require('browser-sync').create(),
+     webserver = require('gulp-webserver');
 
 var base = 'app';
 // var minifyCss = require('gulp-minify-css');
@@ -55,6 +56,27 @@ gulp.task('serve', function() {
     gulp.watch("app/components/**/**/*{.js}", ["scripts"]);
     gulp.watch("app/components/**/**/*.scss", ['test']);
 })
+
+
+
+gulp.task('serve', function() {
+  gulp.src('./')
+    .pipe(webserver({
+      port:8080,
+      host: process.env.IP,
+      fallback: 'index.html',
+      livereload: {
+        enable: true, 
+        filter: function(fileName) {
+          if (fileName.match(/.map$/))  
+            return false;
+           else 
+            return true;
+        }
+      }
+    }));
+});
+
 
 
 //IN CONSTRUCTION BEGIN
