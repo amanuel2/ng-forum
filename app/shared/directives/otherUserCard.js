@@ -1,7 +1,8 @@
 (function(angular) {
-    var app = angular.module('ForumApp')
-
-    app.directive('otherUserCard', otherUserCard)
+   'use strict'; 
+     angular
+     .module('ForumApp')
+     .directive('otherUserCard', otherUserCard)
 
     function otherUserCard() {
         return {

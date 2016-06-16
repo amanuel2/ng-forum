@@ -40,9 +40,6 @@
                                 var keyNest = EvenChild.key();
                                 var childDataNest = EvenChild.val();
                                 if(childDataNest.replyCreatorUID == UID){
-                                    //JackPot
-                                   console.log(key)
-                                   console.log(childDataNest.pushKey)
                                   ref.child("Replies").child(key).child(childDataNest.pushKey).update
                                     ({
                                         replyCreatorAvatar : srcData                   

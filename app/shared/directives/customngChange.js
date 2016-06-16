@@ -1,7 +1,9 @@
 (function(angular){
-    var app = angular.module('ForumApp')
+    'use strict';
     
-    app.directive('customOnChange', customOnChange);
+    angular
+    .module('ForumApp')
+    .directive('customOnChange', customOnChange);
 
     function customOnChange(){
         return {

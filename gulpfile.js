@@ -82,15 +82,7 @@ gulp.task('scripts', function() {
 });
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 gulp.task('watch', function() {
-=======
-gulp.task('serve', function() {
->>>>>>> 1c68c528c9227cdac110502577608079197a7cfb
-=======
-gulp.task('serve', function() {
->>>>>>> 1c68c528c9227cdac110502577608079197a7cfb
     gulp.watch("app/components/**/**/*.js", ["scripts"]);
     gulp.watch("app/components/**/**/*.scss", ['compileSCSS']);
 })
