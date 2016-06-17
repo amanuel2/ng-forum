@@ -1,7 +1,4 @@
 {
   "plugins": ["angular"],
-  "globals": {
-     "angular": false,
-     "Firebase": false
-   }
+  "globals": {}
 }

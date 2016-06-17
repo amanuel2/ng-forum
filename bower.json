@@ -44,5 +44,8 @@
     "font-awesome": "^4.6.3",
     "vex": "^2.3.4",
     "webcomponentsjs": "^0.7.20"
+  },
+  "resolutions": {
+    "angular": "1.5.7"
   }
 }
