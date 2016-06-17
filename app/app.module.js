@@ -42,14 +42,12 @@
 
 
 
- TODO: AVATAR ON CLICK NO WORK
-
  BACKEND
  --------
  Aman
  ------
- TODO:  Badges Backend
  TODO:  @name and #topic
+ TODO:  Badges Backend
  TODO : OTHERUSERPROFILEPAGE
  TODO : PRIVATE MESSAGE/PUBLIC
  TODO : FLAG = PRIVATE MESSAGING MODERATORS
