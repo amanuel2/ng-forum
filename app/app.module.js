@@ -14,7 +14,7 @@ angular
         'ngSanitize',
         'vcRecaptcha',
         'angularScreenfull',
-        'selectize',
+        'selectize', 
         '720kb.socialshare'
     ]
 );
@@ -26,17 +26,35 @@ angular
 PRODUCTION MODE DATABASE - https://uniquecoders.firebaseio.com/
 DEVELOPMENT MODE DATABASE - https://uniquecodersforums.firebaseio.com/
 
-TODO: CREATE HOSTING ENVIORMENT
+POINTS
+---------------
+Points Change----|
+                 |__ Lower-----------|
+                 |__ Higher---|      |__ TOPIC DOWNVOTE
+                              |___ TOPIC UPVOTE
+                              |___ REPLY LIKE
+                              |___ REPLY BEST_ANWSER
+                              
+                              
+TECHNIQUE:
+
+        CHANGE DATABASE DIFFRENT SYSTEM. DONT 
+        CHANGE ACTUAL POINTS TO STOP HIJACK OF POINTS.
+
+LIKESOBJ-----
+            |___UID___
+                      |__ +{POINT} , -{POINT}
+                 
 
 
 BACKEND
 --------
 Aman
 ------
-TODO:Badges Backend
+TODO:  Badges Backend
 TODO : NEW TOPIC EMOTION LIST
-TODO: Points 
-TODO: @name and #topic
+TODO:  Points 
+TODO:  @name and #topic
 TODO : OTHERUSERPROFILEPAGE
 TODO : PRIVATE MESSAGE/PUBLIC
 TODO : FLAG = PRIVATE MESSAGING MODERATORS

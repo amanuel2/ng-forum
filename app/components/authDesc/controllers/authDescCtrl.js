@@ -41,9 +41,10 @@
                         snapshotBookMarkOutlineTopic.forEach(function(evenChildBook) {
                                 var bookkey = evenChildBook.key();
                                 var bookchildData = evenChildBook.val();
-                                if(bookchildData.Bookmarks[$scope.authDataDesc.uid].Bookmark == true)
-                                    returne = "True"
-                                    
+                                if(bookchildData.Bookmarks) {
+                                    if(bookchildData.Bookmarks[$scope.authDataDesc.uid].Bookmark == true)
+                                        returne = "True"
+                                }
                         })
                 })
             return returne;

@@ -121,6 +121,7 @@
                                                                 following: 0,
                                                                 profileViews: 0,
                                                                 Precence: -1,
+                                                                Points : 0,
                                                             })
                                                             alertify.success("Sucessfully Reistered. Login Now!");
                                                             refService.ref().unauth();
@@ -142,6 +143,7 @@
                                                                 following: 0,
                                                                 profileViews: 0,
                                                                 Precence: -1,
+                                                                Points : 0,
                                                             })
                                                             alertify.success("Sucessfully Reistered. Login Now!");
                                                             refService.ref().unauth();
@@ -164,6 +166,7 @@
                                                             following: 0,
                                                             profileViews: 0,
                                                             Precence: -1,
+                                                            Points : 0,
                                                         })
                                                         alertify.success("Sucessfully Reistered. Login Now!");
                                                         refService.ref().unauth();
@@ -224,6 +227,7 @@
                                                                         following: 0,
                                                                         profileViews: 0,
                                                                         Precence: -1,
+                                                                        Points : 0,
                                                                     })
                                                                     alertify.success("Sucessfully Reistered. Login Now!");
                                                                     refService.ref().unauth();
@@ -245,6 +249,7 @@
                                                                         following: 0,
                                                                         profileViews: 0,
                                                                         Precence: -1,
+                                                                        Points : 0,
                                                                     })
                                                                     alertify.success("Sucessfully Reistered. Login Now!");
                                                                     refService.ref().unauth();
@@ -349,7 +354,6 @@
                                     function() {
                                         var letterAvatar = letterAvatarService.getLetterURL($scope.register.username, $scope.loadImageJSON);
                                         setTimeout(function() {
-                                            console.log(letterAvatar);
                                             refService.ref().child("UserAuthInfo").child(userData.uid).set({
                                                 Username: $scope.register.username,
                                                 Email: $scope.register.email,
@@ -366,6 +370,7 @@
                                                 following: 0,
                                                 profileViews: 0,
                                                 Precence: -1,
+                                                Points : 0,
                                             });
 
                                         }, 1500)

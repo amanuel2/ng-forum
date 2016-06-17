@@ -1,12 +1,12 @@
 (function(angular) {
-    
-  'use strict';    
+
+    'use strict';
     angular
-            .module('ForumApp')
-            .controller('topicCtrl', ["$scope", "$stateParams", "refService", "editReplyService", "dateService", "$firebaseArray", "timeService", "$mdBottomSheet", "$mdMedia", "$mdDialog", "replyService", "$firebaseObject", "$state", "otherUserService", "editTopicService","topicLikesService", topicCtrl])
+        .module('ForumApp')
+        .controller('topicCtrl', ["$scope", "$stateParams", "refService", "editReplyService", "dateService", "$firebaseArray", "timeService", "$mdBottomSheet", "$mdMedia", "$mdDialog", "replyService", "$firebaseObject", "$state", "otherUserService", "editTopicService", "topicLikesService", topicCtrl])
 
 
-    function topicCtrl($scope, $stateParams, refService, editReplyService, dateService, $firebaseArray, timeService, $mdBottomSheet, $mdMedia, $mdDialog, replyService, $firebaseObject, $state, otherUserService, editTopicService,topicLikesService) {
+    function topicCtrl($scope, $stateParams, refService, editReplyService, dateService, $firebaseArray, timeService, $mdBottomSheet, $mdMedia, $mdDialog, replyService, $firebaseObject, $state, otherUserService, editTopicService, topicLikesService) {
         var currentAuth = refService.ref().getAuth();
         $scope.currentAuthGet = refService.ref().getAuth();
 
@@ -48,7 +48,7 @@
             }
         });
 
-     
+
 
 
 
@@ -84,9 +84,10 @@
             $scope.thisUser = $firebaseObject(refService.ref().child("UserAuthInfo").child($scope.currentAuthGet.uid));
             $scope.isModerator;
             $scope.currentUserAvatar;
-            $scope.thisUser.$loaded(function(data){
-               $scope.isModerator = data.Moderator;
-               $scope.currentUserAvatar = data.Image;
+            $scope.thisUser.$loaded(function(data) {
+                $scope.isModerator = data.Moderator;
+                $scope.currentUserAvatar = data.Image;
+
             })
         })
 
@@ -173,6 +174,23 @@
 
         //Setting Voting
         //Adding them...
+        function upVoteRegister(data) {
+            $scope.TOTAL_POINTS = 0;
+            refService.ref().child("UserAuthInfo").child($scope.creatorUID).child("PointsOBJ").child($scope.currentAuthGet.uid + "TOPIC:" + $stateParams.POST).set({
+                Point: +5
+            })
+            refService.ref().child("UserAuthInfo").child($scope.creatorUID).child("PointsOBJ").once("value", function(downVoteCheck) {
+
+                for (var i in downVoteCheck.val())
+                    $scope.TOTAL_POINTS = $scope.TOTAL_POINTS + (downVoteCheck.val()[i].Point)
+
+                refService.ref().child("UserAuthInfo").child($scope.creatorUID).update({
+                    Points: $scope.TOTAL_POINTS
+                })
+
+            })
+
+        }
         $scope.upVote = function() {
             refService.ref().child("Topics").once("value", function(snapshot) {
                 snapshot.forEach(function(childSnapshot) {
@@ -182,6 +200,7 @@
                         refService.ref().child("Topics").child(childData.pushKey).child("Vote").child(currentAuth.uid).set({
                             Vote: 1
                         })
+                        upVoteRegister(childData);
                     }
                 })
             })
@@ -196,6 +215,24 @@
 
         }
 
+        function downVotePointRegister(data) {
+            $scope.TOTAL_POINTS = 0;
+            refService.ref().child("UserAuthInfo").child($scope.creatorUID).child("PointsOBJ").child($scope.currentAuthGet.uid + "TOPIC:" + $stateParams.POST).set({
+                Point: -2
+            })
+            refService.ref().child("UserAuthInfo").child($scope.creatorUID).child("PointsOBJ").once("value", function(downVoteCheck) {
+
+                for (var i in downVoteCheck.val())
+                    $scope.TOTAL_POINTS = $scope.TOTAL_POINTS + (downVoteCheck.val()[i].Point)
+
+                refService.ref().child("UserAuthInfo").child($scope.creatorUID).update({
+                    Points: $scope.TOTAL_POINTS
+                })
+
+            })
+
+        }
+
         $scope.downVote = function() {
             refService.ref().child("Topics").once("value", function(snapshot) {
                 snapshot.forEach(function(childSnapshot) {
@@ -205,6 +242,7 @@
                         refService.ref().child("Topics").child(childData.pushKey).child("Vote").child(currentAuth.uid).set({
                             Vote: -1
                         })
+                        downVotePointRegister(childData);
                     }
                 })
             })
@@ -394,8 +432,7 @@
         }
 
 
-        /////////
-        //https://ng-fourm-amanuel2.c9users.io/index.html#/authHome/topic/0/Amanuel
+
         $scope.urlSHARINGCURRENT = 'https://ng-fourm-amanuel2.c9users.io/index.html#/authHome/topic/' + $stateParams.POST + '/' + $stateParams.USERNAME
 
         $scope.openShareMenu = function($mdOpenMenu, ev) {
@@ -407,9 +444,9 @@
         $scope.funcCheckEDIT = function(reps) {
             if (currentAuth.uid == reps.replyCreatorUID)
                 return true;
-            else if($scope.isModerator == true)
+            else if ($scope.isModerator == true)
                 return true;
-            else 
+            else
                 return false;
         }
         $scope.goBackTopic = function() {
@@ -424,20 +461,20 @@
                 return true;
         }
         $scope.isBestAnwser = function(rep) {
-            if($scope.isModerator == true)
+            if ($scope.isModerator == true)
                 return true;
-            else if(currentAuth.uid == rep.replyCreatorUID)
+            else if (currentAuth.uid == rep.replyCreatorUID)
                 return true;
             else
                 return false;
         }
-        
- 
+
+
 
         $scope.isLikeable = function(rep) {
             if (currentAuth.uid == rep.replyCreatorUID)
                 return false;
-            else if(currentAuth.uid == null)
+            else if (currentAuth.uid == null)
                 return false;
             else
                 return true;
@@ -472,78 +509,120 @@
 
 
         ////Check Box
-        
-             
-                
-     
-                
-                function isCheckedHelper(rep){
-                    var returnerCheck = "";
-                    refService.ref().child("Topics").once("value", function(snapshotBestAnwserOutlineTopic) {
-                    snapshotBestAnwserOutlineTopic.forEach(function(evenChildBook) {
-                            var bookkey = evenChildBook.key();
-                            var bookchildData = evenChildBook.val();
-                            if (bookchildData.Postnum == $stateParams.POST) {
-                                refService.ref().child("Topics").child(bookchildData.pushKey).child("BestAnwser").once("value", function(snapBest){
-                                    if(snapBest.val().isBestAnwser == true && snapBest.val().replyNumber == rep.Replynum)
-                                            returnerCheck = "True"; 
-                                    else
-                                        returnerCheck = "False";
-                                })
+
+
+
+
+
+        function isCheckedHelper(rep) {
+            var returnerCheck = "";
+            refService.ref().child("Topics").once("value", function(snapshotBestAnwserOutlineTopic) {
+                snapshotBestAnwserOutlineTopic.forEach(function(evenChildBook) {
+                    var bookkey = evenChildBook.key();
+                    var bookchildData = evenChildBook.val();
+                    if (bookchildData.Postnum == $stateParams.POST) {
+                        refService.ref().child("Topics").child(bookchildData.pushKey).child("BestAnwser").once("value", function(snapBest) {
+                            if(snapBest.val()) {
+                                if (snapBest.val().isBestAnwser == true && snapBest.val().replyNumber == rep.Replynum)
+                                    returnerCheck = "True";
+                                else
+                                    returnerCheck = "False";
                             }
+                            else
+                                returnerCheck = "False";
                         })
-                    })
-                  return returnerCheck;    
-                }
-                
-                $scope.isChecked = function(rep){
-                    if(isCheckedHelper(rep) == "True")
-                        return true;
-                    else
-                        return false;
-                }
-                
-                $scope.classBestAnwser = function(rep){
-                    if(isCheckedHelper(rep) == "True")
-                        return "best-answer";
-                    else
-                        return "none";
-                }
+                    }
+                })
+            })
+            return returnerCheck;
+        }
+
+        $scope.isChecked = function(rep) {
+            if (isCheckedHelper(rep) == "True")
+                return true;
+            else
+                return false;
+        }
+
+        $scope.classBestAnwser = function(rep) {
+            if (isCheckedHelper(rep) == "True")
+                return "best-answer";
+            else
+                return "none";
+        }
+
+       function bestAnwserRegister(rep) {
+            $scope.TOTAL_POINTS_BEST_ANWSERY_LIKES = 0;
+            refService.ref().child("UserAuthInfo").child(rep.replyCreatorUID).child("PointsOBJ").child($scope.currentAuthGet.uid + "TOPIC:" + $stateParams.POST + "REPLY:" + rep.Replynum + "BESTANSWER").set({
+                Point: 15
+            })
+            refService.ref().child("UserAuthInfo").child(rep.replyCreatorUID).child("PointsOBJ").once("value", function(downVoteCheck) {
+
+                for (var i in downVoteCheck.val())
+                    $scope.TOTAL_POINTS_BEST_ANWSERY_LIKES = $scope.TOTAL_POINTS_BEST_ANWSERY_LIKES + (downVoteCheck.val()[i].Point)
+
+                refService.ref().child("UserAuthInfo").child(rep.replyCreatorUID).update({
+                    Points: $scope.TOTAL_POINTS_BEST_ANWSERY_LIKES
+                })
+
+            })
+
+        }
+        function unbestAnwserRegister(rep) {
+            $scope.TOTAL_POINTS_BEST_ANSWERN_LIKES = 0;
+            refService.ref().child("UserAuthInfo").child(rep.replyCreatorUID).child("PointsOBJ").child($scope.currentAuthGet.uid + "TOPIC:" + $stateParams.POST + "REPLY:" + rep.Replynum + "BESTANSWER").set({
+                Point: 0
+            })
+            refService.ref().child("UserAuthInfo").child(rep.replyCreatorUID).child("PointsOBJ").once("value", function(downVoteCheck) {
+
+                for (var i in downVoteCheck.val())
+                    $scope.TOTAL_POINTS_BEST_ANSWERN_LIKES = $scope.TOTAL_POINTS_BEST_ANSWERN_LIKES + (downVoteCheck.val()[i].Point)
+
+                refService.ref().child("UserAuthInfo").child(rep.replyCreatorUID).update({
+                    Points: $scope.TOTAL_POINTS_BEST_ANSWERN_LIKES
+                })
+
+            })
+
+        }
+        
         
         $scope.notChecked = function(rep) {
             $scope.isChecked = true;
-            
+
             refService.ref().child("Topics").once("value", function(snapshotBestAnwserOutlineTopic) {
-                    snapshotBestAnwserOutlineTopic.forEach(function(evenChildBook) {
-                        var bookkey = evenChildBook.key();
-                        var bookchildData = evenChildBook.val();
-                        if (bookchildData.Postnum == $stateParams.POST) {
-                            refService.ref().child("Topics").child(bookchildData.pushKey).child("BestAnwser").update({
-                                isBestAnwser : true,
-                                replyNumber : rep.Replynum
-                            })
-                        }
-                    })
+                snapshotBestAnwserOutlineTopic.forEach(function(evenChildBook) {
+                    var bookkey = evenChildBook.key();
+                    var bookchildData = evenChildBook.val();
+                    if (bookchildData.Postnum == $stateParams.POST) {
+                        refService.ref().child("Topics").child(bookchildData.pushKey).child("BestAnwser").update({
+                            isBestAnwser: true,
+                            replyNumber: rep.Replynum
+                        })
+                        bestAnwserRegister(rep);
+                    }
                 })
-            
+            })
+
         }
-        
+
         $scope.checked = function(rep) {
-             $scope.isChecked = false;
-             refService.ref().child("Topics").once("value", function(snapshotBestAnwserOutlineTopic) {
-                    snapshotBestAnwserOutlineTopic.forEach(function(evenChildBook) {
-                        var bookkey = evenChildBook.key();
-                        var bookchildData = evenChildBook.val();
-                        if (bookchildData.Postnum == $stateParams.POST) {
-                            refService.ref().child("Topics").child(bookchildData.pushKey).child("BestAnwser").update({
-                                isBestAnwser : false,
-                                replyNumber : null
-                            })
-                        }
-                    })
+            $scope.isChecked = false;
+            refService.ref().child("Topics").once("value", function(snapshotBestAnwserOutlineTopic) {
+                snapshotBestAnwserOutlineTopic.forEach(function(evenChildBook) {
+                    var bookkey = evenChildBook.key();
+                    var bookchildData = evenChildBook.val();
+                    if (bookchildData.Postnum == $stateParams.POST) {
+                        refService.ref().child("Topics").child(bookchildData.pushKey).child("BestAnwser").update({
+                            isBestAnwser: false,
+                            replyNumber: null
+                        })
+                        unbestAnwserRegister(rep);
+                    }
                 })
+            })
         }
-        
+
         // $scope.checkBoxNot = false;
         // $scope.checkBoxYes = false;
         // $scope.checkBoxTrueCheck = $firebaseArray(refService.ref().child("Topics"));
@@ -658,70 +737,107 @@
         ////Like
         $scope.likeBoxNo = true;
         $scope.likeBoxYes = false;
-        
-        function liked(rep){
+
+        function liked(rep) {
             var returner = "";
-            refService.ref().child("Replies").child($stateParams.USERNAME+$stateParams.POST).once("value", function(snapshotLikeOutlineTopic) {
-                    snapshotLikeOutlineTopic.forEach(function(evenChildBook) {
-                        var bookkey = evenChildBook.key();
-                        var bookchildData = evenChildBook.val();
-                        if (bookchildData.Replynum == (rep.Replynum)) {
-                            refService.ref().child("Replies").child($stateParams.USERNAME+$stateParams.POST).child(bookchildData.pushKey).child("Likes").child($scope.currentAuthGet.uid).once("value", function(snapp){
-                                if(snapp.val() == null)
+            refService.ref().child("Replies").child($stateParams.USERNAME + $stateParams.POST).once("value", function(snapshotLikeOutlineTopic) {
+                snapshotLikeOutlineTopic.forEach(function(evenChildBook) {
+                    var bookkey = evenChildBook.key();
+                    var bookchildData = evenChildBook.val();
+                    if (bookchildData.Replynum == (rep.Replynum)) {
+                        refService.ref().child("Replies").child($stateParams.USERNAME + $stateParams.POST).child(bookchildData.pushKey).child("Likes").child($scope.currentAuthGet.uid).once("value", function(snapp) {
+                            if (snapp.val() == null)
+                                returner = "False";
+                            else {
+                                if (snapp.val().Like == true)
+                                    returner = "True"
+                                else
                                     returner = "False";
-                                else{
-                                    if(snapp.val().Like == true)
-                                        returner = "True"
-                                    else
-                                        returner = "False";
-                                }    
-                            })
-                        }
-                    })
-                }) 
-            return returner;    
+                            }
+                        })
+                    }
+                })
+            })
+            return returner;
         }
-        $scope.likeBox = function(rep){
-            if(liked(rep) == "True")
+        $scope.likeBox = function(rep) {
+            if (liked(rep) == "True")
                 return true;
-            else if(liked(rep) == "False")
+            else if (liked(rep) == "False")
                 return false;
         }
 
+        function likeRegister(rep) {
+            $scope.TOTAL_POINTS_REPLIES_LIKES = 0;
+            refService.ref().child("UserAuthInfo").child(rep.replyCreatorUID).child("PointsOBJ").child($scope.currentAuthGet.uid + "TOPIC:" + $stateParams.POST + "REPLY:" + rep.Replynum).set({
+                Point: 5
+            })
+            refService.ref().child("UserAuthInfo").child(rep.replyCreatorUID).child("PointsOBJ").once("value", function(downVoteCheck) {
+
+                for (var i in downVoteCheck.val())
+                    $scope.TOTAL_POINTS_REPLIES_LIKES = $scope.TOTAL_POINTS_REPLIES_LIKES + (downVoteCheck.val()[i].Point)
+
+                refService.ref().child("UserAuthInfo").child(rep.replyCreatorUID).update({
+                    Points: $scope.TOTAL_POINTS_REPLIES_LIKES
+                })
+
+            })
+
+        }
+        function unLikeRegister(rep) {
+            $scope.TOTAL_POINTS_REPLIES_LIKES = 0;
+            refService.ref().child("UserAuthInfo").child(rep.replyCreatorUID).child("PointsOBJ").child($scope.currentAuthGet.uid + "TOPIC:" + $stateParams.POST + "REPLY:" + rep.Replynum).set({
+                Point: 0
+            })
+            refService.ref().child("UserAuthInfo").child(rep.replyCreatorUID).child("PointsOBJ").once("value", function(downVoteCheck) {
+
+                for (var i in downVoteCheck.val())
+                    $scope.TOTAL_POINTS_REPLIES_LIKES = $scope.TOTAL_POINTS_REPLIES_LIKES + (downVoteCheck.val()[i].Point)
+
+                refService.ref().child("UserAuthInfo").child(rep.replyCreatorUID).update({
+                    Points: $scope.TOTAL_POINTS_REPLIES_LIKES
+                })
+
+            })
+
+        }
+        
         $scope.likeBoxNoNgClick = function(rep) {
             //Your About To Like the Post
             $scope.likeBoxYes = true;
             $scope.likeBoxNo = false;
-            refService.ref().child("Replies").child($stateParams.USERNAME+$stateParams.POST).once("value", function(snapshotLikeOutlineTopic) {
-                    snapshotLikeOutlineTopic.forEach(function(evenChildBook) {
-                        var bookkey = evenChildBook.key();
-                        var bookchildData = evenChildBook.val();
-                        if (bookchildData.Replynum == (rep.Replynum)) {
-                            refService.ref().child("Replies").child($stateParams.USERNAME+$stateParams.POST).child(bookchildData.pushKey).child("Likes").child($scope.currentAuthGet.uid).update({
-                                Like: true,
-                                Avatar : $scope.currentUserAvatar
-                            })
-                        }
-                    })
+            refService.ref().child("Replies").child($stateParams.USERNAME + $stateParams.POST).once("value", function(snapshotLikeOutlineTopic) {
+                snapshotLikeOutlineTopic.forEach(function(evenChildBook) {
+                    var bookkey = evenChildBook.key();
+                    var bookchildData = evenChildBook.val();
+                    if (bookchildData.Replynum == (rep.Replynum)) {
+                        refService.ref().child("Replies").child($stateParams.USERNAME + $stateParams.POST).child(bookchildData.pushKey).child("Likes").child($scope.currentAuthGet.uid).update({
+                            Like: true,
+                            Avatar: $scope.currentUserAvatar
+                        })
+                        likeRegister(rep);
+                    }
                 })
+            })
         }
 
 
         $scope.likeBoxYesNgClick = function(rep) {
             $scope.likeBoxYes = false;
             $scope.likeBoxNo = true;
-            refService.ref().child("Replies").child($stateParams.USERNAME+$stateParams.POST).once("value", function(snapshotLikeOutlineTopic) {
-                    snapshotLikeOutlineTopic.forEach(function(evenChildBook) {
-                        var bookkey = evenChildBook.key();
-                        var bookchildData = evenChildBook.val();
-                        if (bookchildData.Replynum == (rep.Replynum)) {
-                            refService.ref().child("Replies").child($stateParams.USERNAME+$stateParams.POST).child(bookchildData.pushKey).child("Likes").child($scope.currentAuthGet.uid).update({
-                                Like: false,
-                                Avarar : $scope.currentUserAvatar
-                            })
-                        }
-                    })
+            refService.ref().child("Replies").child($stateParams.USERNAME + $stateParams.POST).once("value", function(snapshotLikeOutlineTopic) {
+                snapshotLikeOutlineTopic.forEach(function(evenChildBook) {
+                    var bookkey = evenChildBook.key();
+                    var bookchildData = evenChildBook.val();
+                    if (bookchildData.Replynum == (rep.Replynum)) {
+                        refService.ref().child("Replies").child($stateParams.USERNAME + $stateParams.POST).child(bookchildData.pushKey).child("Likes").child($scope.currentAuthGet.uid).update({
+                            Like: false,
+                            Avarar: $scope.currentUserAvatar
+                        })
+                        unLikeRegister(rep);
+                    }
                 })
+            })
         }
 
 
@@ -744,155 +860,157 @@
         //Like Views
 
 
-/*
-$scope.objBookmark = $firebaseObject(refService.ref().child("Topics"))
-                     $scope.objBookmark.$loaded(function(dataBook){
-                         for(var prop in dataBook){
-                             console.log(prop);
-                             if(dataBook[prop] !== null) {
-                                 if(dataBook[prop].Postnum == $stateParams.POST) {
-                                     refService.ref().child("Topics").child(dataBook[prop].pushKey).child("Bookmarks").child($scope.currentAuthGet.uid).on("value", function(snapap){
-                                           if(snapap.val() !== null) {
-                                               $scope.bookMarkToggleTopic = !(snapap.val().Bookmark);
-                                           }
-                                     })
+        /*
+        $scope.objBookmark = $firebaseObject(refService.ref().child("Topics"))
+                             $scope.objBookmark.$loaded(function(dataBook){
+                                 for(var prop in dataBook){
+                                     console.log(prop);
+                                     if(dataBook[prop] !== null) {
+                                         if(dataBook[prop].Postnum == $stateParams.POST) {
+                                             refService.ref().child("Topics").child(dataBook[prop].pushKey).child("Bookmarks").child($scope.currentAuthGet.uid).on("value", function(snapap){
+                                                   if(snapap.val() !== null) {
+                                                       $scope.bookMarkToggleTopic = !(snapap.val().Bookmark);
+                                                   }
+                                             })
+                                         }
+                                     }
                                  }
-                             }
-                         }
-                     })
-                    
-                      $scope.tagCheckPrev = $firebaseObject(refService.ref().child("Constants").child("Tags"));
+                             })
+                            
+                              $scope.tagCheckPrev = $firebaseObject(refService.ref().child("Constants").child("Tags"));
 
- 
-                    refService.ref().child("Topics").once("value", function(snapshotBookMarkOutlineTopic) {
-                            snapshotBookMarkOutlineTopic.forEach(function(evenChildBook) {
-                                var bookkey = evenChildBook.key();
-                                var bookchildData = evenChildBook.val();
-                                if (bookchildData.Postnum == $stateParams.POST) {
-                                    var firebaseCheckBookmark = $firebaseObject(refService.ref().child("Topics").child(bookchildData.pushKey).child("Bookmarks"))
-                                    firebaseCheckBookmark.$loaded(function(dataC) {
-                                        if(dataC[$scope.currentAuthGet.uid]){
-                                            refService.ref().child("Topics").child(bookchildData.pushKey).child("Bookmarks").child($scope.currentAuthGet.uid).on("value", function(snapap){
-                                               if(snapap.val() !== null) {
-                                                   $scope.bookMarkToggleTopic = snapap.val().Bookmark;
-                                               }
+         
+                            refService.ref().child("Topics").once("value", function(snapshotBookMarkOutlineTopic) {
+                                    snapshotBookMarkOutlineTopic.forEach(function(evenChildBook) {
+                                        var bookkey = evenChildBook.key();
+                                        var bookchildData = evenChildBook.val();
+                                        if (bookchildData.Postnum == $stateParams.POST) {
+                                            var firebaseCheckBookmark = $firebaseObject(refService.ref().child("Topics").child(bookchildData.pushKey).child("Bookmarks"))
+                                            firebaseCheckBookmark.$loaded(function(dataC) {
+                                                if(dataC[$scope.currentAuthGet.uid]){
+                                                    refService.ref().child("Topics").child(bookchildData.pushKey).child("Bookmarks").child($scope.currentAuthGet.uid).on("value", function(snapap){
+                                                       if(snapap.val() !== null) {
+                                                           $scope.bookMarkToggleTopic = snapap.val().Bookmark;
+                                                       }
+                                                    })
+                                                }
+                                                else
+                                                    $scope.bookMarkToggleTopic = true;
                                             })
+                                            
                                         }
-                                        else
-                                            $scope.bookMarkToggleTopic = true;
                                     })
-                                    
-                                }
-                            })
-                     })
-            
-*/
+                             })
+                    
+        */
         //TOPIC BUTTONS//////////////////BEGIN//////////////////////////////////////
-        
+
         function VoteHelper() {
             var returne = ''
             refService.ref().child("Topics").once("value", function(snapshotBookMarkOutlineTopic) {
-                    snapshotBookMarkOutlineTopic.forEach(function(evenChildBook) {
-                        var bookkey = evenChildBook.key();
-                        var bookchildData = evenChildBook.val();
-                        if (bookchildData.Postnum == $stateParams.POST) {
-                            refService.ref().child("Topics").child(bookchildData.pushKey).child("Vote").child($scope.currentAuthGet.uid).once("value", function(snapSHOT){
-                                if(snapSHOT.val().Vote == 1)
+                snapshotBookMarkOutlineTopic.forEach(function(evenChildBook) {
+                    var bookkey = evenChildBook.key();
+                    var bookchildData = evenChildBook.val();
+                    if (bookchildData.Postnum == $stateParams.POST) {
+                        refService.ref().child("Topics").child(bookchildData.pushKey).child("Vote").child($scope.currentAuthGet.uid).once("value", function(snapSHOT) {
+                            if(snapSHOT.val()) {
+                                if (snapSHOT.val().Vote == 1)
                                     returne = 'Up';
-                                else if(snapSHOT.val().Vote == -1)
+                                else if (snapSHOT.val().Vote == -1)
                                     returne = 'Down'
-                            })
-                        }
-                    })
+                            }
+                        })
+                    }
                 })
-            return returne;    
+            })
+            return returne;
         }
-        $scope.upVoteCheck = function(){
-            if(VoteHelper() == 'Up')
+        $scope.upVoteCheck = function() {
+            if (VoteHelper() == 'Up')
                 return 'upvote';
         }
-        
+
         $scope.downVoteCheck = function() {
-            if(VoteHelper() == 'Down')
+            if (VoteHelper() == 'Down')
                 return 'downvote';
         }
 
         //BookMark
-            //Ng-if
-                //Toggle
-                    //$scope.bookMarkToggleTopic = true;
-                     $scope.objBookmark = $firebaseObject(refService.ref().child("Topics"))
-                      $scope.objBookmark.$loaded(function(dataBook){
-                          for(var prop in dataBook){
-                              if(dataBook[prop] !== null) {
-                                  if(dataBook[prop].Postnum == $stateParams.POST) {
-                                      refService.ref().child("Topics").child(dataBook[prop].pushKey).child("Bookmarks").child($scope.currentAuthGet.uid).on("value", function(snapap){
-                                           if(snapap.val() !== null) {
-                                               $scope.bookMarkToggleTopic = !(snapap.val().Bookmark);
-                                           }
-                                           else
-                                            $scope.bookMarkToggleTopic = true;
-                                      })
-                                  }
-                              }
-                          }
-                      })
-            //Ng-Click        
-            $scope.bookmarkClickOutlineTopic = function() {
-                refService.ref().child("Topics").once("value", function(snapshotBookMarkOutlineTopic) {
-                    snapshotBookMarkOutlineTopic.forEach(function(evenChildBook) {
-                        var bookkey = evenChildBook.key();
-                        var bookchildData = evenChildBook.val();
-                        if (bookchildData.Postnum == $stateParams.POST) {
-                            refService.ref().child("Topics").child(bookchildData.pushKey).child("Bookmarks").child($scope.currentAuthGet.uid).update({
-                                Bookmark: true
+        //Ng-if
+        //Toggle
+        //$scope.bookMarkToggleTopic = true;
+        $scope.objBookmark = $firebaseObject(refService.ref().child("Topics"))
+        $scope.objBookmark.$loaded(function(dataBook) {
+                for (var prop in dataBook) {
+                    if (dataBook[prop] !== null) {
+                        if (dataBook[prop].Postnum == $stateParams.POST) {
+                            refService.ref().child("Topics").child(dataBook[prop].pushKey).child("Bookmarks").child($scope.currentAuthGet.uid).on("value", function(snapap) {
+                                if (snapap.val() !== null) {
+                                    $scope.bookMarkToggleTopic = !(snapap.val().Bookmark);
+                                }
+                                else
+                                    $scope.bookMarkToggleTopic = true;
                             })
                         }
-                    })
-                })
-                $scope.bookMarkToggleTopic = false;
-            }
-            $scope.bookmarkClickNonOutlineTopic = function() {
-                refService.ref().child("Topics").once("value", function(snapshotBookMarkOutlineTopic) {
-                    snapshotBookMarkOutlineTopic.forEach(function(evenChildBook) {
-                        var bookkey = evenChildBook.key();
-                        var bookchildData = evenChildBook.val();
-                        if (bookchildData.Postnum == $stateParams.POST) {
-                            refService.ref().child("Topics").child(bookchildData.pushKey).child("Bookmarks").child($scope.currentAuthGet.uid).update({
-                                Bookmark: false
-                            })
-                        }
-                    })
-                })
-                $scope.bookMarkToggleTopic = true;
-            }
-        
-        //Edit
-            //ng-if
-                $scope.editTopicPriv = function(){
-                    if($scope.isModerator == true) 
-                        return true;
-                    else if($scope.creatorUID == $scope.currentAuthGet.uid)
-                        return true;
-                    else
-                        return false;
+                    }
                 }
-                       $scope.flagSee = function(){
-                           if($scope.isModerator == true)
-                                return true;
-                            else if(currentAuth.uid == $scope.creatorUID)
-                                return false;
-                            else if(currentAuth.uid == null)
-                                return false;
-                            else
-                                return true;
-                        }
-                
-            //ng-click
-                $scope.editTopic = function(ev){
-                    if (ev) {
-                        var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
-                         $mdDialog.show({
+            })
+            //Ng-Click        
+        $scope.bookmarkClickOutlineTopic = function() {
+            refService.ref().child("Topics").once("value", function(snapshotBookMarkOutlineTopic) {
+                snapshotBookMarkOutlineTopic.forEach(function(evenChildBook) {
+                    var bookkey = evenChildBook.key();
+                    var bookchildData = evenChildBook.val();
+                    if (bookchildData.Postnum == $stateParams.POST) {
+                        refService.ref().child("Topics").child(bookchildData.pushKey).child("Bookmarks").child($scope.currentAuthGet.uid).update({
+                            Bookmark: true
+                        })
+                    }
+                })
+            })
+            $scope.bookMarkToggleTopic = false;
+        }
+        $scope.bookmarkClickNonOutlineTopic = function() {
+            refService.ref().child("Topics").once("value", function(snapshotBookMarkOutlineTopic) {
+                snapshotBookMarkOutlineTopic.forEach(function(evenChildBook) {
+                    var bookkey = evenChildBook.key();
+                    var bookchildData = evenChildBook.val();
+                    if (bookchildData.Postnum == $stateParams.POST) {
+                        refService.ref().child("Topics").child(bookchildData.pushKey).child("Bookmarks").child($scope.currentAuthGet.uid).update({
+                            Bookmark: false
+                        })
+                    }
+                })
+            })
+            $scope.bookMarkToggleTopic = true;
+        }
+
+        //Edit
+        //ng-if
+        $scope.editTopicPriv = function() {
+            if ($scope.isModerator == true)
+                return true;
+            else if ($scope.creatorUID == $scope.currentAuthGet.uid)
+                return true;
+            else
+                return false;
+        }
+        $scope.flagSee = function() {
+            if ($scope.isModerator == true)
+                return true;
+            else if (currentAuth.uid == $scope.creatorUID)
+                return false;
+            else if (currentAuth.uid == null)
+                return false;
+            else
+                return true;
+        }
+
+        //ng-click
+        $scope.editTopic = function(ev) {
+            if (ev) {
+                var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
+                $mdDialog.show({
                         controller: 'editTopicPanelCtrl',
                         templateUrl: 'app/components/editTopicPanel/editTopicPanel.html',
                         parent: angular.element(document.body),
@@ -913,64 +1031,64 @@ $scope.objBookmark = $firebaseObject(refService.ref().child("Topics"))
                     }, function() {
                         //Canceled Dialog
                     });
-                     
-                    }
-                    else {
-                        return null;
-                    }
-                }
-                
-                $scope.canDeleteCheck = function(rep) {
-                    if($scope.isModerator == true) 
-                        return true;
-                    else
-                        return false;
-                }
-                
+
+            }
+            else {
+                return null;
+            }
+        }
+
+        $scope.canDeleteCheck = function(rep) {
+            if ($scope.isModerator == true)
+                return true;
+            else
+                return false;
+        }
+
         //Delete
-            //Ng-if
-                $scope.deleteTopicPriv = function() {
-                    if($scope.isModerator == true) 
-                        return true;
-                    else
-                        return false;
+        //Ng-if
+        $scope.deleteTopicPriv = function() {
+            if ($scope.isModerator == true)
+                return true;
+            else
+                return false;
+        }
+
+        //Ng-Click
+        $scope.deleteTopic = function() {
+            vex.dialog.confirm({
+                message: 'Are you sure you want to delete this topic?',
+                callback: function(value) {
+                    if (value == true) {
+                        refService.ref().child("Topics").once("value", function(snapshotTopic) {
+                            snapshotTopic.forEach(function(evenChildBook) {
+                                var bookkey = evenChildBook.key();
+                                var bookchildData = evenChildBook.val();
+                                if (bookchildData.Postnum == $stateParams.POST) {
+                                    refService.ref().child("Topics").child(bookchildData.pushKey)
+                                        .remove(function(error) {
+                                            if (error)
+                                                alertify.error("Deleting Topic Failed");
+                                            else {
+                                                refService.ref().child("Replies").child($stateParams.USERNAME + $stateParams.POST)
+                                                    .remove(function(error) {
+                                                        if (error)
+                                                            alertify.error("Deleting Topic Failed");
+                                                        else {
+                                                            alertify.success("Deleted, Successfully")
+                                                        }
+                                                    })
+                                            }
+                                        })
+                                }
+                            })
+                        })
+                    }
                 }
-                
-            //Ng-Click
-                $scope.deleteTopic = function() {
-                     vex.dialog.confirm({
-                         message: 'Are you sure you want to delete this topic?',
-                         callback: function(value) {
-                             if (value == true) {
-                                 refService.ref().child("Topics").once("value", function(snapshotTopic) {
-                                     snapshotTopic.forEach(function(evenChildBook) {
-                                         var bookkey = evenChildBook.key();
-                                         var bookchildData = evenChildBook.val();
-                                         if (bookchildData.Postnum == $stateParams.POST) {
-                                             refService.ref().child("Topics").child(bookchildData.pushKey)
-                                                 .remove(function(error) {
-                                                     if (error)
-                                                         alertify.error("Deleting Topic Failed");
-                                                     else {
-                                                         refService.ref().child("Replies").child($stateParams.USERNAME + $stateParams.POST)
-                                                             .remove(function(error) {
-                                                                 if (error)
-                                                                     alertify.error("Deleting Topic Failed");
-                                                                 else {
-                                                                    alertify.success("Deleted, Successfully")
-                                                                 }
-                                                             })
-                                                     }
-                                                 })
-                                         }
-                                     })
-                                 })
-                             }
-                         }
-                     });
-                }
-                
-                
+            });
+        }
+
+
 
         //TOPIC BUTTONS///////////////////END///////////////////////////////////////
         $scope.replyTopic = function(ev) {
@@ -1007,33 +1125,33 @@ $scope.objBookmark = $firebaseObject(refService.ref().child("Topics"))
         }
         $scope.repliesLikesNum = [];
         var count_likes = 0;
-        refService.ref().child("Replies").child($stateParams.USERNAME+$stateParams.POST).on("value", function(snapRepNum){
-            snapRepNum.forEach(function(snapRepNumChild){
-                    var key = snapRepNumChild.key();
-                    var childData = snapRepNumChild.val();
-                    if(childData.Likes){
-                        
-                       for(var i in childData.Likes)
-                            count_likes++;
-                        
-                        $scope.repliesLikesNum.push(count_likes)
-                        count_likes = 0;
-                        
-                            
-                    }
-                    //    $scope.repliesLikesNum.push(childData.Likes)
-                    else
-                        $scope.repliesLikesNum.push(0)
+        refService.ref().child("Replies").child($stateParams.USERNAME + $stateParams.POST).on("value", function(snapRepNum) {
+            snapRepNum.forEach(function(snapRepNumChild) {
+                var key = snapRepNumChild.key();
+                var childData = snapRepNumChild.val();
+                if (childData.Likes) {
+
+                    for (var i in childData.Likes)
+                        count_likes++;
+
+                    $scope.repliesLikesNum.push(count_likes)
+                    count_likes = 0;
+
+
+                }
+                //    $scope.repliesLikesNum.push(childData.Likes)
+                else
+                    $scope.repliesLikesNum.push(0)
             })
-        })    
-        
-        $scope.seeTopicLikes = function(num_likes, rep, ev){
-             if (ev) {
-                 topicLikesService.setInfo(num_likes, rep);
+        })
+
+        $scope.seeTopicLikes = function(num_likes, rep, ev) {
+            if (ev) {
+                topicLikesService.setInfo(num_likes, rep);
                 var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
                 $mdDialog.show({
                         controller: 'viewTopicLikes',
-                        templateUrl : 'app/components/viewTopicLikes/viewTopicLikes.html',
+                        templateUrl: 'app/components/viewTopicLikes/viewTopicLikes.html',
                         parent: angular.element(document.body),
                         resolve: {
                             // controller will not be loaded until $waitForAuth resolves

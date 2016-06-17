@@ -22,10 +22,8 @@
               refService.ref().child("Replies").child($stateParams.USERNAME+$stateParams.POST).child($scope.rep.pushKey).on("value", function(snapRepNum){
                   snapRepNum.forEach(function(snapRepNumChild){
                         if(typeof snapRepNumChild.val() == 'object') {
-                              console.log("THIS :  ", snapRepNumChild.val()) 
-                              for(var i in snapRepNumChild.val()){
+                              for(var i in snapRepNumChild.val())
                                   $scope.avatars.push(snapRepNumChild.val()[i].Avatar);
-                              }
                         }
                   })
               })
