@@ -25,7 +25,13 @@
                               for(var i in snapRepNumChild.val())
                                   $scope.avatars.push(snapRepNumChild.val()[i].Avatar);
                         }
+                        
+                        setTimeout(function(){
+                            topicLikesService.resetInfo();
+                        },100)
                   })
               })
+              
+
           }
 })(angular);

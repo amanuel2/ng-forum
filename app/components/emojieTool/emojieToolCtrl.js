@@ -29,7 +29,12 @@
                         $mdDialog.hide(answer);
                     };
                     
-              var emojieTool = emojieTool.getElementInfo();
+              emojieTool.resetElementInfo();
+              
+                $scope.emojieClick = function(val) {
+                  emojieTool.setElementInfo(val);
+                  console.log("Clcked " , emojieTool.getElementInfo());
+                }
              
            }
 })(angular);

@@ -27,13 +27,13 @@
         <md-dialog-content>
             <div class="emojie_list">
                 <md-tabs md-dynamic-height md-border-bottom class="md-accent">
-                    <md-tab label="Smilies" >
+                    <md-tab label="Smilies">
                         <md-content class="md-padding" style="background-color: #26C6DA;">
                             <span class="key_value_repeat" ng-repeat="emojie in emojieListCtrl">
-                     <md-button class="md-icon-button">
-                        <span ng-bind-html="emojie.img">
-                         </span>
-                            </md-button>
+                                 <md-button class="md-icon-button" aria-label="emojie_icons" ng-click="emojieClick(emojie);">
+                                    <span ng-bind-html="emojie.img">
+                                    </span>
+                                 </md-button>
                             </span>
                         </md-content>
                     </md-tab>
@@ -48,7 +48,6 @@
                         </md-content>
                     </md-tab>
                 </md-tabs>
-
             </div>
         </md-dialog-content>
         <md-dialog-actions layout="row">

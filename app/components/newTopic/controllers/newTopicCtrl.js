@@ -45,6 +45,10 @@
             }
           });
           
+          if(emojieTool.getElementInfo() !== null) {
+             console.log(emojieTool.getElementInfo()) 
+          }
+          
          $scope.emojieList = {
             ':)': '<img src="assets/emoji/emoji-E056.png"/>',
             ':smile:': '<img src="assets/emoji/emoji-E056.png"/>',
