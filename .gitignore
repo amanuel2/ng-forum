@@ -1,8 +1,5 @@
 bower_components
-.sass-cache/
 .c9/
-.git/
 .idea/
 node_modules
 assets/dist
-app/assets/dist
