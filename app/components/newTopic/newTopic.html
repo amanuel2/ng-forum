@@ -20,7 +20,7 @@
             <md-whiteframe class="topic-contents-wrapper" id="frameCONTENT">
                 <div class="topic-contents">
                     <div class="icons">
-                        <md-button class="md-icon-button" ng-click="shortcuts('code');"><md-tooltip md-direction="top"> Insert Code </md-tooltip><ng-md-icon icon="code" style="fill" size="20"></ng-md-icon></md-button>
+                        <md-button class="md-icon-button" ng-click="shortcuts('code')"><md-tooltip md-direction="top"> Insert Code </md-tooltip><ng-md-icon icon="code" style="fill" size="20"></ng-md-icon></md-button>
                         <md-button class="md-icon-button" ng-click="shortcuts('header')"><md-tooltip md-direction="top"> Header </md-tooltip><ng-md-icon icon="format_size" style="fill" size"10"></ng-md-icon></md-button>
                         <md-button class="md-icon-button btn" data-clipboard-action="cut" data-clipboard-target="#markdownUserType"><md-tooltip md-direction="top"> Cut </md-tooltip><ng-md-icon  icon="content_cut" style="fill" size="20"></ng-md-icon></md-button>
                         <md-button class="md-icon-button btn" data-clipboard-target="#markdownUserType"> <md-tooltip md-direction="top"> Copy </md-tooltip> <ng-md-icon icon="content_copy" style="fill" size"10"></ng-md-icon></md-button>  
@@ -36,6 +36,7 @@
                         <md-button class="md-icon-button" ng-click="shortcuts('url')"><md-tooltip md-direction="top"> Insert URL </md-tooltip><ng-md-icon icon="insert_link" style="fill" size"10"></ng-md-icon></md-button>
                         <md-button class="md-icon-button" ngsf-toggle-fullscreen><md-tooltip md-direction="top"> FullScreen </md-tooltip><ng-md-icon icon="fullscreen" style="fill" size"10"></ng-md-icon></md-button>
                         <md-button class="md-icon-button" ng-click="shortcuts('help')"><md-tooltip md-direction="top"> Help </md-tooltip><ng-md-icon icon="help" style="fill" size"10"></ng-md-icon></md-button>
+                        <md-button class="md-icon-button" ng-click="emojieStart($event)"><md-tooltip md-direction="top"> Emojies </md-tooltip><ng-md-icon icon="insert_emoticon" style="fill" size"10"></ng-md-icon></md-button>
                     </div>
                     <textarea class="markdown-text-area" id="markdownUserType" ng-model="markdownData"></textarea>
                 </div>

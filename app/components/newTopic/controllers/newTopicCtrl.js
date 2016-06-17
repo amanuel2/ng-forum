@@ -2,12 +2,12 @@
     'use struct';
   angular
     .module('ForumApp')
-    .controller('newTopicCtrl', ["$scope", "$mdDialog", "$firebaseArray","emojiListService", "refService", "$firebaseArray", "$firebaseObject", "$mdBottomSheet", '$http', newTopicCtrl])
+    .controller('newTopicCtrl', ["$scope", "$mdDialog", "$firebaseArray","emojieTool","$mdMedia","emojiListService", "refService", "$firebaseArray", "$firebaseObject", "$mdBottomSheet", '$http', newTopicCtrl])
 
 
  
   
-    function newTopicCtrl($scope, $mdDialog, $firebaseArray,emojiListService, refService, $firebaseArray, $firebaseObject, $mdBottomSheet, $http) {
+    function newTopicCtrl($scope, $mdDialog, $firebaseArray,emojieTool,$mdMedia,emojiListService, refService, $firebaseArray, $firebaseObject, $mdBottomSheet, $http) {
         $scope.hide = function() {
             $mdDialog.hide();
         };
@@ -58,9 +58,8 @@
             ':tounge_stuck_out:': '<img src="assets/emoji/emoji-E105.png"/> ',
             ':X': '<img src="assets/emoji/emoji-E40C.png"/>',
             ':cant_talk:': '<img src="assets/emoji/emoji-E40C.png"/>',
-            //No :text: for this Begin
             'xD': '<img src="assets/emoji/emoji-E770.png"/>',
-            //Done
+            ':laugh_dang:' : '<img src="assets/emoji/emoji-E770.png"/>',
             '-1': '<img src="assets/emoji/emoji-E421.png"/>',
             ':minus_one:': '<img src="assets/emoji/emoji-E421.png"/>',
             '+1': '<img src="assets/emoji/emoji-E00E.png"/>',
@@ -182,7 +181,7 @@
                     break;
 
                 case 'horizontal':
-                    element.value += "\n\n ----"
+                    element.value += "\n\n -----"
                     break;
 
                 case 'paste':
@@ -192,11 +191,45 @@
                     else {
                         alertify.error(window.clipboardData.getData('Text'));
                     }
-
+                    
+                case 'emojies':
+                     
                 case 'help':
                     window.open('https://simplemde.com/markdown-guide');
                     break;
 
+            }
+        }
+        
+        $scope.emojieStart = function(ev) {
+             if (ev) {
+                 var element = document.getElementById('markdownUserType');
+                emojieTool.setElementInfo(element);
+                var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
+                $mdDialog.show({
+                        controller: 'emojieToolCtrl',
+                        templateUrl: 'app/components/emojieTool/emojieTool.html',
+                        parent: angular.element(document.body),
+                        resolve: {
+                            // controller will not be loaded until $waitForAuth resolves
+                            // Auth refers to our $firebaseAuth wrapper in the example above
+                            "currentAuth": ["refService", function(refService) {
+                                // $waitForAuth returns a promise so the resolve waits for it to complete
+                                return refService.refAuth().$requireAuth();
+                            }]
+                        },
+                        targetEvent: ev,
+                        clickOutsideToClose: true,
+                        fullscreen: useFullScreen
+                    })
+                    .then(function(answer) {
+                        //Then Argument
+                    }, function() {
+                        //Canceled Dialog
+                    });
+            }
+            else {
+                return null;
             }
         }
         $scope.submitNewTopic = function() {

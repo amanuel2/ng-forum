@@ -47,13 +47,14 @@ LIKESOBJ-----
                  
 
 
+TODO: AVATAR ON CLICK NO WORK
+
 BACKEND
 --------
 Aman
 ------
 TODO:  Badges Backend
 TODO : NEW TOPIC EMOTION LIST
-TODO:  Points 
 TODO:  @name and #topic
 TODO : OTHERUSERPROFILEPAGE
 TODO : PRIVATE MESSAGE/PUBLIC
