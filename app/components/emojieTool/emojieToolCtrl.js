@@ -32,8 +32,8 @@
               emojieTool.resetElementInfo();
               
                 $scope.emojieClick = function(val) {
-                  emojieTool.setElementInfo(val);
-                  console.log("Clcked " , emojieTool.getElementInfo());
+                  document.getElementById('markdownUserType').value += ( " " + val.name )
+                  $mdDialog.cancel();
                 }
              
            }

@@ -26,14 +26,20 @@
         </md-toolbar>
         <md-dialog-content>
             <div class="emojie_list">
-                <md-tabs md-dynamic-height md-border-bottom class="md-accent">
+                <md-tabs md-dynamic-height md-border-bottom>
                     <md-tab label="Smilies">
-                        <md-content class="md-padding" style="background-color: #26C6DA;">
+                        <md-content class="md-padding" >
                             <span class="key_value_repeat" ng-repeat="emojie in emojieListCtrl">
-                                 <md-button class="md-icon-button" aria-label="emojie_icons" ng-click="emojieClick(emojie);">
-                                    <span ng-bind-html="emojie.img">
-                                    </span>
-                                 </md-button>
+                                 <!--<md-button class="md-icon-button" aria-label="emojie_icons" ng-click="emojieClick(emojie);">-->
+                                 <!--   <span ng-bind-html="emojie.img">-->
+                                 <!--   </span>-->
+                                 <!--</md-button>-->
+                                 <md-button class="md-icon-button" ng-click="emojieClick(emojie);">
+                                    <md-tooltip md-direction="top">
+                                        {{emojie.name}}
+                                    </md-tooltip>
+                                    <span ng-bind-html="emojie.img"></span>
+                                </md-button>
                             </span>
                         </md-content>
                     </md-tab>

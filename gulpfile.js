@@ -9,7 +9,10 @@ var gulp = require('gulp'),
     browserSync = require('browser-sync').create(),
     combiner = require('stream-combiner2'),
     autoprefixer = require('gulp-autoprefixer'),
-    paths = require('./gulp/paths');
+    paths = require('./gulp/paths'),
+    minifyCss = require('gulp-minify-css'),
+    rename = require('gulp-rename');
+
 
 
 gulp.task('clean', function () {
@@ -56,18 +59,186 @@ gulp.task('sass', function () {
         .pipe(browserSync.stream());
 });
 
-
 gulp.task('serve', ['sass', 'scripts'], function () {
     browserSync.init({
+         ui: {
+           port: 8080
+          },
+        port:8080,
+         host: process.env.IP,
         server: {
-            baseDir: './'
+            port: 8080,
+            baseDir: './',
         }
     });
 
     gulp.watch('**/**/*.html').on('change', browserSync.reload);
-    gulp.watch('./app/**/**/*.sass', ['sass']);
+    gulp.watch('./app/**/**/*.scss', ['sass']);
     gulp.watch('./app/**/*.js', ['scripts']);
     gulp.watch('./assets/dist/*.js').on('change', browserSync.reload);
 });
 
-gulp.task('build', ['sass', 'scripts', 'scripts']);
+gulp.task('watch', function(){
+    gulp.watch('./app/**/**/*.scss', ['sass', 'compileSCSS']);
+    gulp.watch('./app/**/*.js', ['scripts']);
+})
+
+gulp.task('build', ['sass', 'scripts']);
+
+
+/////////////////////////////////////////////
+
+gulp.task('compileSCSS', 
+
+                         [
+                            '404SCSS','authSCSS', 'authDescSCSS', 
+                            'authHomeSCSS', 'homeSCSS','loadingSCSS',
+                            'newReplySCSS','newTopicSCSS', 'otherUserProfilePageSCSS',
+                            'profileSCSS', 'settingsSCSS', 'topicSCSS'
+                         ]
+          )
+
+
+gulp.task('authSCSS', function(done){
+    gulp.src('app/components/auth/sass/auth.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('assets/HISTORY/CSS/authSCSS'))
+        .pipe(minifyCss({
+              keepSpecialComments: 0
+        }))
+        .pipe(rename({ extname: '.min.css' }))
+        .pipe(gulp.dest('app/components/auth/css'))
+        .on('end', done)
+})
+
+gulp.task('404SCSS', function(done){
+    gulp.src('app/components/404/sass/404.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('assets/HISTORY/CSS/404SCSS'))
+        .pipe(minifyCss({
+              keepSpecialComments: 0
+        }))
+        .pipe(rename({ extname: '.min.css' }))
+        .pipe(gulp.dest('app/components/404/css'))
+        .on('end', done)
+})
+
+gulp.task('authDescSCSS', function(done){
+    gulp.src('app/components/authDesc/sass/authDesc.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('assets/HISTORY/CSS/authDescSCSS'))
+        .pipe(minifyCss({
+              keepSpecialComments: 0
+        }))
+        .pipe(rename({ extname: '.min.css' }))
+        .pipe(gulp.dest('app/components/authDesc/css'))
+        .on('end', done)
+})
+
+gulp.task('authHomeSCSS', function(done){
+    gulp.src('app/components/authHome/sass/authHome.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('assets/HISTORY/CSS/authHomeSCSS'))
+        .pipe(minifyCss({
+              keepSpecialComments: 0
+        }))
+        .pipe(rename({ extname: '.min.css' }))
+        .pipe(gulp.dest('app/components/authHome/css'))
+        .on('end', done)
+})
+
+gulp.task('homeSCSS', function(done){
+    gulp.src('app/components/home/sass/homeMat.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('assets/HISTORY/CSS/homeSCSS'))
+        .pipe(minifyCss({
+              keepSpecialComments: 0
+        }))
+        .pipe(rename({ extname: '.min.css' }))
+        .pipe(gulp.dest('app/components/home/css'))
+        .on('end', done)
+})
+
+gulp.task('loadingSCSS', function(done){
+    gulp.src('app/components/loading/sass/loading.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('assets/HISTORY/CSS/loadingSCSS'))
+        .pipe(minifyCss({
+              keepSpecialComments: 0
+        }))
+        .pipe(rename({ extname: '.min.css' }))
+        .pipe(gulp.dest('app/components/loading/css'))
+        .on('end', done)
+})
+
+gulp.task('newReplySCSS', function(done){
+    gulp.src('app/components/newReply/sass/newReply.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('assets/HISTORY/CSS/newReplySCSS'))
+        .pipe(minifyCss({
+              keepSpecialComments: 0
+        }))
+        .pipe(rename({ extname: '.min.css' }))
+        .pipe(gulp.dest('app/components/newReply/css'))
+        .on('end', done)
+})
+
+gulp.task('newTopicSCSS', function(done){
+    gulp.src('app/components/newTopic/sass/newTopic.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('assets/HISTORY/CSS/newTopicSCSS'))
+        .pipe(minifyCss({
+              keepSpecialComments: 0
+        }))
+        .pipe(rename({ extname: '.min.css' }))
+        .pipe(gulp.dest('app/components/newTopic/css'))
+        .on('end', done)
+})
+
+gulp.task('otherUserProfilePageSCSS', function(done){
+    gulp.src('app/components/otherUserProfilePage/sass/otherUserProfilePage.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('assets/HISTORY/CSS/otherUserProfilePageSCSS'))
+        .pipe(minifyCss({
+              keepSpecialComments: 0
+        }))
+        .pipe(rename({ extname: '.min.css' }))
+        .pipe(gulp.dest('app/components/otherUserProfilePage/css'))
+        .on('end', done)
+})
+
+gulp.task('profileSCSS', function(done){
+    gulp.src('app/components/profile/sass/profile.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('assets/HISTORY/CSS/profileSCSS'))
+        .pipe(minifyCss({
+              keepSpecialComments: 0
+        }))
+        .pipe(rename({ extname: '.min.css' }))
+        .pipe(gulp.dest('app/components/profile/css'))
+        .on('end', done)
+})
+
+gulp.task('settingsSCSS', function(done){
+    gulp.src('app/components/settings/sass/settings.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('assets/HISTORY/CSS/settingsSCSS'))
+        .pipe(minifyCss({
+              keepSpecialComments: 0
+        }))
+        .pipe(rename({ extname: '.min.css' }))
+        .pipe(gulp.dest('app/components/settings/css'))
+        .on('end', done)
+})
+
+gulp.task('topicSCSS', function(done){
+    gulp.src('app/components/topic/sass/topicDesc.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('assets/HISTORY/CSS/topicSCSS'))
+        .pipe(minifyCss({
+              keepSpecialComments: 0
+        }))
+        .pipe(rename({ extname: '.min.css' }))
+        .pipe(gulp.dest('app/components/topic/css'))
+        .on('end', done)
+})
