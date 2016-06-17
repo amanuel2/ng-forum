@@ -47,5 +47,6 @@
   },
   "resolutions": {
     "angular": "1.5.7"
-  }
+  },
+  "devDependencies": {}
 }

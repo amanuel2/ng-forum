@@ -2,15 +2,16 @@
     'use struct';
   angular
     .module('ForumApp')
-    .controller('newTopicCtrl', ["$scope", "$mdDialog", "$firebaseArray","emojieTool","$mdMedia","emojiListService", "refService", "$firebaseArray", "$firebaseObject", "$mdBottomSheet", '$http', newTopicCtrl])
+    .controller('newTopicCtrl', ["$scope", "$mdDialog","emojiListService", "$firebaseArray","emojieTool","$mdMedia","emojiListService", "refService", "$firebaseArray", "$firebaseObject", "$mdBottomSheet", '$http', newTopicCtrl])
 
-
- 
   
-    function newTopicCtrl($scope, $mdDialog, $firebaseArray,emojieTool,$mdMedia,emojiListService, refService, $firebaseArray, $firebaseObject, $mdBottomSheet, $http) {
+    function newTopicCtrl($scope, $mdDialog, emojiListService,$firebaseArray,emojieTool,$mdMedia,emojiListService, refService, $firebaseArray, $firebaseObject, $mdBottomSheet, $http) {
+
+
         $scope.hide = function() {
             $mdDialog.hide();
         };
+       
         $scope.cancel = function() {
             $mdDialog.cancel();
         };
@@ -49,26 +50,7 @@
              console.log(emojieTool.getElementInfo()) 
           }
           
-         $scope.emojieList = {
-            ':)': '<img src="assets/emoji/emoji-E056.png"/>',
-            ':smile:': '<img src="assets/emoji/emoji-E056.png"/>',
-            ':(': '<img src="assets/emoji/emoji-E058.png"/> ',
-            ':sad:': '<img src="assets/emoji/emoji-E058.png"/> ',
-            ':D': '<img src="assets/emoji/emoji-E415.png"/> ',
-            ':smiley:': '<img src="assets/emoji/emoji-E415.png"/> ',
-            ':;': '<img src="assets/emoji/emoji-E057.png"/> ',
-            ':very_happy:': '<img src="assets/emoji/emoji-E057.png"/> ',
-            ':P': '<img src="assets/emoji/emoji-E105.png"/> ',
-            ':tounge_stuck_out:': '<img src="assets/emoji/emoji-E105.png"/> ',
-            ':X': '<img src="assets/emoji/emoji-E40C.png"/>',
-            ':cant_talk:': '<img src="assets/emoji/emoji-E40C.png"/>',
-            'xD': '<img src="assets/emoji/emoji-E770.png"/>',
-            ':laugh_dang:' : '<img src="assets/emoji/emoji-E770.png"/>',
-            '-1': '<img src="assets/emoji/emoji-E421.png"/>',
-            ':minus_one:': '<img src="assets/emoji/emoji-E421.png"/>',
-            '+1': '<img src="assets/emoji/emoji-E00E.png"/>',
-            ':plus_one:': '<img src="assets/emoji/emoji-E00E.png"/>'
-          }
+         $scope.emojieList =emojiListService.getEmojies();
         $scope.$watch('markdownData', function(current, original) {
           $scope.outputText = marked(current);
           //EMOJIE LIST {PARAM} {https://github.com/amanuel2/ng-forum/wiki/How-to-write-emotions}

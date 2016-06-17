@@ -35,6 +35,8 @@
             })
         })
         
+       
+        
         function bookmarked(rep){
             var returne = "False"
                 refService.ref().child("Topics").once("value", function(snapshotBookMarkOutlineTopic) {

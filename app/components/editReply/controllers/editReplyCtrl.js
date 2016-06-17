@@ -4,9 +4,9 @@
     
     angular
             .module('ForumApp')
-            .controller('editReplyCtrl', ["$scope","$mdDialog","currentAuth","refService","editTopicService","editReplyService","$mdMedia", editReplyFunc])
+            .controller('editReplyCtrl', ["$scope",'emojiListService',"$mdDialog","currentAuth","refService","editTopicService","editReplyService","$mdMedia", editReplyFunc])
     
-    function editReplyFunc($scope,$mdDialog,currentAuth,refService,editTopicService,editReplyService,$mdMedia){
+    function editReplyFunc($scope,emojiListService,$mdDialog,currentAuth,refService,editTopicService,editReplyService,$mdMedia){
         $scope.hide = function() {
             $mdDialog.hide();
         };
@@ -42,27 +42,7 @@
             }
         });
 
-        $scope.emojieList = {
-            ':)': '<img src="assets/emoji/emoji-E056.png"/>',
-            ':smile:': '<img src="assets/emoji/emoji-E056.png"/>',
-            ':(': '<img src="assets/emoji/emoji-E058.png"/> ',
-            ':sad:': '<img src="assets/emoji/emoji-E058.png"/> ',
-            ':D': '<img src="assets/emoji/emoji-E415.png"/> ',
-            ':smiley:': '<img src="assets/emoji/emoji-E415.png"/> ',
-            ':;': '<img src="assets/emoji/emoji-E057.png"/> ',
-            ':very_happy:': '<img src="assets/emoji/emoji-E057.png"/> ',
-            ':P': '<img src="assets/emoji/emoji-E105.png"/> ',
-            ':tounge_stuck_out:': '<img src="assets/emoji/emoji-E105.png"/> ',
-            ':X': '<img src="assets/emoji/emoji-E40C.png"/>',
-            ':cant_talk:': '<img src="assets/emoji/emoji-E40C.png"/>',
-            //No :text: for this Begin
-            'xD': '<img src="assets/emoji/emoji-E770.png"/>',
-            //Done
-            '-1': '<img src="assets/emoji/emoji-E421.png"/>',
-            ':minus_one:': '<img src="assets/emoji/emoji-E421.png"/>',
-            '+1': '<img src="assets/emoji/emoji-E00E.png"/>',
-            ':plus_one:': '<img src="assets/emoji/emoji-E00E.png"/>'
-        }
+        $scope.emojieList = emojiListService.getEmojies();
          $scope.myConfig = {
             create: true,
             onChange: function(value) {
