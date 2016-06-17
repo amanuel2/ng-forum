@@ -18,30 +18,37 @@
         <ng-md-icon icon="notifications_none" style="fill: greenyellow;" size="30"></ng-md-icon>
         notifications_active
       </md-button>
-
-      <button id="menu1" class="mdl-button mdl-js-button mdl-button--icon">
-        <img class="user-avatar" ng-src="{{image}}">
-      </button>
-
-      <ul class="mdl-menu mdl-js-menu" for="menu1">
-        <li class="mdl-menu__item" ui-sref="authHome.desc">
-          <ng-md-icon icon="forum" style="fill: black" size="20"></ng-md-icon>
-          Forum
-        </li>
-        <li class="mdl-menu__item" ng-click="goToProfile()">
-          <ng-md-icon icon="perm_identity" style="fill: black" size="20"></ng-md-icon>
-          Profile
-        </li>
-        <li class="mdl-menu__item" ng-click="goToSettings()">
-          <ng-md-icon icon="settings" style="fill: black" size="20"></ng-md-icon>
-          Settings
-        </li>
-        <li class="mdl-menu__item" ng-click="logout();">
-          <ng-md-icon icon="logout" style="fill: black" size="20"></ng-md-icon>
-          Logout
-        </li>
-      </ul>
-
+       <md-menu>
+          <md-button class="user-avatar-wrapper" aria-label="More" ng-click="openMenu($mdOpenMenu, $event)">
+            <img class="user-avatar" ng-src="{{image}}">
+          </md-button>
+            <md-menu-content width="4">
+              <md-menu-item>
+                 <md-button ui-sref="authHome.desc">
+                  <ng-md-icon icon="forum" style="fill: black" size="20"></ng-md-icon>
+                  Forum
+                </md-button>
+              </md-menu-item>
+              <md-menu-item>
+                <md-button ng-click="goToProfile();">
+                  <ng-md-icon icon="perm_identity" style="fill: black" size="20"></ng-md-icon>
+                  Profile
+                </md-button>
+              </md-menu-item>
+              <md-menu-item>
+                <md-button ng-click="goToSettings();">
+                  <ng-md-icon icon="settings" style="fill: black" size="20"></ng-md-icon>
+                  Settings
+                </md-button>
+              </md-menu-item>
+              <md-menu-item>
+                <md-button ng-click="logout();">
+                  <ng-md-icon icon="logout" style="fill: black" size="20"></ng-md-icon>
+                  Logout
+                </md-button>
+              </md-menu-item>
+            </md-menu-content>
+          </md-menu>
     </div>
 
     <div class="not-logged-user" ng-if="authData==null">
