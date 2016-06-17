@@ -49,7 +49,6 @@
  Aman
  ------
  TODO:  Badges Backend
- TODO : NEW TOPIC EMOTION LIST
  TODO:  @name and #topic
  TODO : OTHERUSERPROFILEPAGE
  TODO : PRIVATE MESSAGE/PUBLIC

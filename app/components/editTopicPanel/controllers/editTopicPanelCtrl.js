@@ -3,9 +3,9 @@
 
     angular
         .module('ForumApp')
-        .controller('editTopicPanelCtrl', ['$scope', 'refService', '$firebaseObject', '$stateParams', '$firebaseArray', '$mdDialog', editTopicPanelCtrlfunc]);
+        .controller('editTopicPanelCtrl', ['$scope', 'refService', '$firebaseObject', '$stateParams', '$firebaseArray', '$mdDialog','$mdMedia', editTopicPanelCtrlfunc]);
 
-    function editTopicPanelCtrlfunc($scope, refService, $firebaseObject, $stateParams, $firebaseArray, $mdDialog) {
+    function editTopicPanelCtrlfunc($scope, refService, $firebaseObject, $stateParams, $firebaseArray, $mdDialog,$mdMedia) {
         String.prototype.replaceAt = function(index, character) {
             return this.substr(0, index) + character + this.substr(index + character.length);
         }
@@ -145,10 +145,12 @@
                 case 'help':
                     window.open('https://simplemde.com/markdown-guide');
                     break;
+                    
+                case 'emojies':
+                    window.open('https://github.com/amanuel2/ng-forum/wiki/How-to-write-emotions');      
 
             }
         }
-
         $scope.editTopicPan = function() {
             var indexSelected = $scope.tagsSelected;
              $scope.tagsSelectedFireBase = [];
