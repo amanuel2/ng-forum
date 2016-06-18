@@ -46,10 +46,12 @@ What makes this unique, is that this is the only open source AngularJS forum bui
 
 ## How to use/setup?
 
-```bash
-$ npm install
-$ npm install bower -g
-$ bower install
+```shell
+$ npm install # Install Npm Dependencies
+$ npm install bower -g #If You dont have Bower.
+$ bower install # Install Bower Dependencies
+$ npm install gulp -g  #If you dont have Gulp.
+$ gulp serve # To Serve Files
 ```
 
 If problems like npm is not defined, then you have to install NodeJS and NPM, or any other problems Please take a look on the [Wiki Page](https://github.com/amanuel2/ng-forum/wiki)
