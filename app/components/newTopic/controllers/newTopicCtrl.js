@@ -27,6 +27,18 @@
         String.prototype.replaceAll = function(str1, str2, ignore) {
             return this.replace(new RegExp(str1.replace(/([\/\,\!\\\^\$\{\}\[\]\(\)\.\*\+\?\|\<\>\-\&])/g, "\\$&"), (ignore ? "gi" : "g")), (typeof(str2) == "string") ? str2.replace(/\$/g, "$$$$") : str2);
         }
+        
+        angular.element(document).ready(function() {
+             $("#e1").select2({
+              placeholder: "Select2 input",
+              allowClear: true,
+              
+              // match strings that begins with (instead of contains):
+              matcher: function(term, text) {
+                    return text.toUpperCase().indexOf(term.toUpperCase())==0;
+              }
+            });
+        })
         var elem_hash = '';
         $scope.dataTrib = [];
         $scope.dataTribHash = [];
@@ -98,6 +110,8 @@
         if (emojieTool.getElementInfo() !== null) {
             console.log(emojieTool.getElementInfo())
         }
+        
+       
 
         $scope.emojieList = emojiListService.getEmojies();
         $scope.$watch('markdownData', function(current, original) {
@@ -106,6 +120,7 @@
             for (var prop in $scope.emojieList)
                 $scope.outputText = $scope.outputText.replaceAll(prop, $scope.emojieList[prop]);
         });
+        
         //Load Tags If Not Done...
         var defaultTags = ["Assembly", "C", "C++", "Java", "Javascript", "Firebase", "AngularFire", "MongoDB", "NodeJS",
             "Go", "PHP", "MySQL", "Postgree", "Ruby", "Python", "Perl", ".Net", "ASP.Net", "C#", "Visual Basic", "VB.net", "AngularJS", "Materializecss"
@@ -113,8 +128,21 @@
 
         $scope.isThereTag = false;
 
+    $scope.users = [
+          { id: 1, name: 'Bob' },
+          { id: 2, name: 'Sally' },
+          { id: 3, name: 'Jill' },
+          { id: 4, name: 'Jane' }
+        ];
         $scope.defaultTags = $firebaseArray(refService.ref().child("Constants").child('Tags').child("Default"));
-
+        
+        $scope.valTag;
+        angular.element(document).ready(function(){
+            $('#e1').on("change", function(e) { 
+               // what you would like to happen
+                $scope.valTag = e.val;
+            });
+        })
 
         $scope.myConfig = {
             create: true,
@@ -268,12 +296,8 @@
             }
         }
         $scope.submitNewTopic = function() {
-            var indexSelected = $scope.tagsSelected;
-            $scope.tagsSelectedFireBase = [];
-            //$scope.defaultTags
-            for (var i = 0; i < indexSelected.length; i++) {
-                $scope.tagsSelectedFireBase.push($scope.defaultTags[indexSelected[i]].Name)
-            }
+            for(var i=0; i<$scope.valTag.length; i++)
+                $scope.valTag[i] = ($scope.valTag[i].replace(":", "")).replace(/[0-9]/g, "")
 
             var search = $firebaseArray(refService.ref().child("Topics"))
             search.$loaded(function(data) {
@@ -291,7 +315,7 @@
                         Email: $scope.userEmail,
                         Avatar: $scope.userAvatar,
                         UID: $scope.currentAuthGet.uid,
-                        Tags: $scope.tagsSelectedFireBase,
+                        Tags: $scope.valTag,
                         Postnum: data.length,
                         IsAcceptedAnwser: false,
                         Votes: 0,

@@ -49,6 +49,7 @@
     "angular": "1.5.7"
   },
   "devDependencies": {
-    "tribute": "^1.0.5"
+    "tribute": "^1.0.5",
+    "ng-selectize": "^0.0.6"
   }
 }
