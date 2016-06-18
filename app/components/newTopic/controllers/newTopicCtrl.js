@@ -40,7 +40,7 @@
                 })
                 var tribute = new Tribute({
                     trigger: '@',
-                    values: $scope.dataTrib
+                    values: $scope.dataTrib,
                 })
                 angular.element(document).ready(function() {
                     tribute.attach(document.getElementById('markdownUserType'));
@@ -60,7 +60,10 @@
             })
              var tribute_hash = new Tribute({
                     trigger: '#',
-                    values: ($scope.dataTribHash)
+                    values: ($scope.dataTribHash),
+                    selectTemplate: function (item) {
+                        return (item.original.value).replace("@", "");
+                      },
                 })
                 angular.element(document).ready(function() {
                     setTimeout(function() {

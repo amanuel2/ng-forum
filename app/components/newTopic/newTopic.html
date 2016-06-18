@@ -50,16 +50,10 @@
             </div>
         </div>
         <div class="tags_chip">
-<selectize name="tagsSelector" placeholder='Add Tags' options='defaultTags' name='myName' config="myConfig" ng-model="tagsSelected" ng-disabled='disable' required='true'></selectize>
+<selectize name="tagsSelector" placeholder='Add Tags' options='defaultTags' config="myConfig" ng-model="tagsSelected" ng-disabled='disable' required='true'></selectize>
         <p ng-show="myForm.tagsSelector.$error.required"  style="color:red;">You need tags</p>
-
-<form action="">
-  <div class="input-group">
-    <div class="sel-wrap">
-    </div>
+        <form></form>
   </div>
-</form>
-
         </div>
         <md-button class="md-raised md-default" ng-click="logicToGoBack();">Cancel</md-button>
         <md-button class="md-raised md-primary" ng-click="submitNewTopic();" ng-disabled="myForm.$invalid">Submit</md-button>
