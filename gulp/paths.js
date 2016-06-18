@@ -20,6 +20,7 @@ module.exports = {
         'bower_components/firebase/firebase.js',
         'bower_components/angularfire/dist/angularfire.min.js',
         'bower_components/angular-material-icons/angular-material-icons.min.js',
+        'bower_components/selectize/dist/js/standalone/selectize.js',
         'assets/lib/angular-selectize/angular-selectize.js',
         'bower_components/tribute/dist/tribute.js',
         'bower_components/angular-sanitize/angular-sanitize.js',
@@ -33,7 +34,6 @@ module.exports = {
         'bower_components/angular-recaptcha/release/angular-recaptcha.min.js',
         'assets/lib/angular-screenfull/angular-screenfull.min.js',
         'assets/lib/screenfull/screenfull.min.js',
-        'bower_components/selectize/dist/js/standalone/selectize.min.js'
     ],
     vendor_styles: [
         'bower_components/selectize/dist/css/selectize.css',

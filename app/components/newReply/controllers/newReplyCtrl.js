@@ -1,10 +1,10 @@
 (function(angular) {
-'use strict';
+    'use strict';
     angular
         .module('ForumApp')
-        .controller('newReplyCtrl', ["$scope","emojiListService", "$firebaseObject", "$mdDialog", "refService","$mdMedia", "currentAuth", "replyService", "timeService", "$stateParams", "$firebaseArray", newReplyCtrl])
+        .controller('newReplyCtrl', ["$scope", "emojiListService", "$firebaseObject", "$mdDialog", "refService", "$mdMedia", "currentAuth", "replyService", "timeService", "$stateParams", "$firebaseArray", newReplyCtrl])
 
-    function newReplyCtrl($scope,emojiListService, $firebaseObject, $mdDialog, refService, $mdMedia,currentAuth, replyService, timeService, $stateParams, $firebaseArray) {
+    function newReplyCtrl($scope, emojiListService, $firebaseObject, $mdDialog, refService, $mdMedia, currentAuth, replyService, timeService, $stateParams, $firebaseArray) {
         $scope.hide = function() {
             $mdDialog.hide();
         };
@@ -14,42 +14,89 @@
         $scope.answer = function(answer) {
             $mdDialog.hide(answer);
         };
-        
+
         String.prototype.replaceAll = function(str1, str2, ignore) {
-            return this.replace(new RegExp(str1.replace(/([\/\,\!\\\^\$\{\}\[\]\(\)\.\*\+\?\|\<\>\-\&])/g,"\\$&"),(ignore?"gi":"g")),(typeof(str2)=="string")?str2.replace(/\$/g,"$$$$"):str2);
-        } 
-        
-        
-         marked.setOptions({
+            return this.replace(new RegExp(str1.replace(/([\/\,\!\\\^\$\{\}\[\]\(\)\.\*\+\?\|\<\>\-\&])/g, "\\$&"), (ignore ? "gi" : "g")), (typeof(str2) == "string") ? str2.replace(/\$/g, "$$$$") : str2);
+        }
+
+        var elem_hash = '';
+        $scope.dataTrib = [];
+        $scope.dataTribHash = [];
+        refService.ref().child("UserAuthInfo").once("value", function(snapUser) {
+            snapUser.forEach(function(snapUserEach) {
+                var key = snapUserEach.key();
+                var val = snapUserEach.val();
+                $scope.dataTrib.push({
+                    key: '<img src="' + val.Image + '" width="30px" height="30px"/> ' + val.Username,
+                    value: val.Username
+                })
+                var tribute = new Tribute({
+                    trigger: '@',
+                    values: $scope.dataTrib,
+                })
+                angular.element(document).ready(function() {
+                    tribute.attach(document.getElementById('markdownUserType'));
+                })
+
+            })
+        })
+
+        refService.ref().child("Topics").once("value", function(snapTopic) {
+            snapTopic.forEach(function(snapTopicEven) {
+                var key = snapTopicEven.key();
+                var val = snapTopicEven.val();
+                $scope.dataTribHash.push({
+                    key: "#" + val.Postnum + ":" + val.Title,
+                    value: "#" + (val.Postnum)
+                })
+            })
+            var tribute_hash = new Tribute({
+                trigger: '#',
+                values: ($scope.dataTribHash),
+                selectTemplate: function(item) {
+                    return (item.original.value).replace("@", "");
+                },
+            })
+            angular.element(document).ready(function() {
+                setTimeout(function() {
+                    tribute_hash.attach(document.getElementById('markdownUserType'));
+                }, 500)
+            })
+        })
+
+
+
+        marked.setOptions({
             renderer: new marked.Renderer(),
             gfm: true,
             tables: true,
             breaks: false,
             pedantic: false,
-            sanitize: false, 
+            sanitize: false,
             smartLists: true,
             smartypants: false,
-            highlight: function (code, lang) {
-              if (lang) {
-                return hljs.highlight(lang, code).value;
-              } else {
-                return hljs.highlightAuto(code).value;
-              }
+            highlight: function(code, lang) {
+                if (lang) {
+                    return hljs.highlight(lang, code).value;
+                }
+                else {
+                    return hljs.highlightAuto(code).value;
+                }
             }
-          });
-          
-         $scope.emojieList = emojiListService.getEmojies();
-        $scope.$watch('markdownData', function(current, original) {
-          if(current)
-                $scope.outputText = marked(current);
-          //EMOJIE LIST {PARAM} {https://github.com/amanuel2/ng-forum/wiki/How-to-write-emotions}
-          if($scope.outputText) {
-              for(var prop in $scope.emojieList)
-                  $scope.outputText = $scope.outputText.replaceAll(prop, $scope.emojieList[prop]); 
-          }
         });
-        
-                $scope.shortcuts = function(shortcutName) {
+
+        $scope.emojieList = emojiListService.getEmojies();
+        $scope.$watch('markdownData', function(current, original) {
+            if (current)
+                $scope.outputText = marked(current);
+            //EMOJIE LIST {PARAM} {https://github.com/amanuel2/ng-forum/wiki/How-to-write-emotions}
+            if ($scope.outputText) {
+                for (var prop in $scope.emojieList)
+                    $scope.outputText = $scope.outputText.replaceAll(prop, $scope.emojieList[prop]);
+            }
+        });
+
+        $scope.shortcuts = function(shortcutName) {
             var element = document.getElementById('markdownUserType');
             switch (shortcutName) {
                 case 'bold':
@@ -97,20 +144,20 @@
                     else {
                         alertify.error(window.clipboardData.getData('Text'));
                     }
-                    
+
                 case 'emojies':
-                     
+
                 case 'help':
                     window.open('https://simplemde.com/markdown-guide');
                     break;
 
             }
         }
-        
-        
-         $scope.emojieStart = function(ev) {
-             if (ev) {
-                 var element = document.getElementById('markdownUserType');
+
+
+        $scope.emojieStart = function(ev) {
+            if (ev) {
+                var element = document.getElementById('markdownUserType');
                 //emojieTool.setElementInfo(element);
                 var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
                 $mdDialog.show({
@@ -139,8 +186,8 @@
                 return null;
             }
         }
-        
-        $scope.emojieFunc = function () {
+
+        $scope.emojieFunc = function() {
             console.log("DS")
         }
 
@@ -189,7 +236,8 @@
                                     refService.ref().child("Topics").child(snapDataLastAct.pushKey).update({
                                         RepliesNum: (1)
                                     })
-                                } else {
+                                }
+                                else {
                                     refService.ref().child("Topics").child(snapDataLastAct.pushKey).update({
                                         RepliesNum: (snapREPVIEWS.val().RepliesNum + 1)
                                     })

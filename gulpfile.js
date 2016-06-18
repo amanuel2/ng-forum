@@ -6,7 +6,7 @@ var gulp = require('gulp'),
     sourceMaps = require('gulp-sourcemaps'),
     util = require('gulp-util'),
     sass = require('gulp-sass'),
-    browserSync = require('browser-sync').create(),
+//    browserSync = require('browser-sync').create(),
     combiner = require('stream-combiner2'),
     autoprefixer = require('gulp-autoprefixer'),
     paths = require('./gulp/paths'),
@@ -56,11 +56,11 @@ gulp.task('sass', function () {
             .pipe(sass(opts).on('error', sass.logError))
         .pipe(sourceMaps.write())
         .pipe(gulp.dest(paths.dest))
-        .pipe(browserSync.stream());
+//        .pipe(browserSync.stream());
 });
 
 gulp.task('serve', ['sass', 'scripts'], function () {
-    browserSync.init({
+    /*browserSync.init({
          ui: {
            port: 8080
           },
@@ -70,12 +70,12 @@ gulp.task('serve', ['sass', 'scripts'], function () {
             port: 8080,
             baseDir: './',
         }
-    });
+    });*/
 
-    gulp.watch('**/**/*.html').on('change', browserSync.reload);
+    gulp.watch('**/**/*.html').on('change'/*, browserSync.reload*/);
     gulp.watch('./app/**/**/*.scss', ['sass']);
     gulp.watch('./app/**/*.js', ['scripts']);
-    gulp.watch('./assets/dist/*.js').on('change', browserSync.reload);
+    gulp.watch('./assets/dist/*.js').on('change'/*, browserSync.reload*/);
 });
 
 gulp.task('watch', function(){
