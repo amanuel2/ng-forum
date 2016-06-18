@@ -11,7 +11,7 @@
             'vcRecaptcha',
             'angularScreenfull',
             'selectize',
-            'djds4rce.angular-socialshare'
+            '720kb.socialshare'
         ]
     );
 })(angular);
@@ -48,7 +48,6 @@
  ------
  BUGS
  -----
- SELECTIZE
  SHARING
  TODO:  Badges Backend
  TODO : OTHERUSERPROFILEPAGE
@@ -59,8 +58,7 @@
  Nasr
  Kyle
  -----
- TODO : FIX BUG AUTHOME.HTML
- TODO : BROWSER-SYNC
+ TODO : TAGS IN AUTHDESC>HTML TOPIC LISTING TAGS.
  TODO : GZIP
 
 
