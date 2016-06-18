@@ -21,6 +21,7 @@ module.exports = {
         'bower_components/angularfire/dist/angularfire.min.js',
         'bower_components/angular-material-icons/angular-material-icons.min.js',
         'assets/lib/angular-selectize/angular-selectize.js',
+        'bower_components/tribute/dist/tribute.js',
         'bower_components/angular-sanitize/angular-sanitize.js',
         'assets/lib/alertifyjs/build/alertify.min.js',
         'bower_components/vex/js/vex.combined.min.js',

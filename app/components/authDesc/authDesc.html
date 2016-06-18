@@ -5,7 +5,7 @@
   <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" type="text/css" />
   <link rel="stylesheet" href="app/components/authDesc/css/authDesc.min.css" type="text/css" />
   <link rel="stylesheet" href="app/components/newTopic/css/newTopic.min.css" type="text/css" />
-        <!-- Material Design Lite -->
+  <!-- Material Design Lite -->
   <script src="https://code.getmdl.io/1.1.3/material.min.js"></script>
   <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
   <!-- Material Design icon font -->
@@ -40,21 +40,21 @@
 </md-autocomplete>
 
 
-<md-list ng-cloak md-whiteframe="24"  flex-sm="55" flex-gt-sm="45" flex-gt-md="45">
+<md-list ng-cloak md-whiteframe="24" flex-sm="55" flex-gt-sm="45" flex-gt-md="45">
   <md-list-item ng-repeat="topic in topicName" class="md-3-line" ng-click="goToTopic(topic.Avatar,topic.DateCreated,topic.Email,topic.Title,topic.UID,topic.Username,topic.Value,topic.Postnum);">
     <img alt="{{ topic.name }}" ng-src="{{ topic.Avatar }}" class="md-avatar" />
     <div class="md-list-item-text" layout="column">
       <h3><strong>{{topic.Title}}</strong></h3>
       <p>{{ topic.Username }}</p>
       <p> <strong></strong>
- 
+
         <span class="date_created">
          <strong>CREATED : {{topic.DateCreated | nonFullDateFilter}}</strong></p>
   </span>
     </div>
-          <ul class="tags">
-            <li ><a ng-repeat="tags in topic.Tags" href="javascript:void(0);">{{tags}}</a></li>
-          </ul>
+    <ul class="tags">
+      <li><a ng-repeat="tags in topic.Tags" href="javascript:void(0);">{{tags}}</a></li>
+    </ul>
     <span class="last_activity">
       <ng-md-icon icon="history" style="fill: #009688" size="20"></ng-md-icon> 
        {{topic.LastActivity | dateFilter}}
@@ -76,13 +76,13 @@
                 <ng-md-icon icon="bookmark" style="fill: #009688" size="20"></ng-md-icon> 
             </span>
     </span>
-    
-    
-    
+
+
+
     <md-icon class="md-secondary" ng-click="doSecondaryAction($event)" aria-label="Chat" md-svg-icon="communication:message"></md-icon>
     <div class="divider_custom">
-      
+
     </div>
   </md-list-item>
-  
+
 </md-list>

@@ -72,7 +72,6 @@ html {
   background-color: #fafafa; }
   .selectize-control.single .selectize-input input {
     height: inherit; }
-
 .selectize-control.single .selectize-dropdown.single {
   box-sizing: border-box;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
@@ -88,6 +87,7 @@ html {
 @media (min-width: 992px) {
   .md-button.md-icon-button {
     margin: 0 !important; }
+
   .topic-sentence {
     display: flex;
     justify-content: space-between;
@@ -107,8 +107,9 @@ html {
         width: 100%;
         word-break: break-all;
         padding: 5px 15px; } }
-
 .avatar {
   width: 50px;
   height: 50px;
   border-radius: 50%; }
+
+/*# sourceMappingURL=newTopic.css.map */

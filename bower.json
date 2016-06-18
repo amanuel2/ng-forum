@@ -48,5 +48,7 @@
   "resolutions": {
     "angular": "1.5.7"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "tribute": "^1.0.5"
+  }
 }

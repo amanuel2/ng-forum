@@ -46,7 +46,7 @@
  --------
  Aman
  ------
- TODO:  @name and #topic
+ TODO:  #topic BUG
  TODO:  Badges Backend
  TODO : OTHERUSERPROFILEPAGE
  TODO : PRIVATE MESSAGE/PUBLIC
