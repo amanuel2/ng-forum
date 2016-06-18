@@ -72,16 +72,13 @@
         </div>
         
         <div class="tags_chip">
-<selectize placeholder='Add Tags' options='defaultTags' name='myName' config="myConfig" ng-model="tagsSelected" ng-disabled='disable' required='true'></selectize>
-
-<form action="">
-  <div class="input-group">
-    <div class="sel-wrap">
-    </div>
+<!--Tags : <select selectize="myConfig" options="users" ng-model="selected" ng-disabled="disabled"></select>-->
+<select multiple  id="e1" style="width:100%" ng-model="tagsSelected"  name="tagsSelector" ng-required="true">
+    <option ng-repeat="tag in defaultTags" >{{tag.ID}}:{{tag.Name}}</option>
+</select>
+        <p ng-show="myForm.tagsSelector.$error.required"  style="color:red;">You need tags</p>
+        <form></form>
   </div>
-</form>
-
-        </div>
         <md-button class="md-raised md-default" ng-click="cancel();">Cancel</md-button>
         <md-button class="md-raised md-primary" ng-click="editTopicPan();" ng-disabled="myForm.$invalid">Submit</md-button>
     </form>

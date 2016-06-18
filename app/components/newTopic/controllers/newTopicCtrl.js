@@ -30,7 +30,7 @@
         
         angular.element(document).ready(function() {
              $("#e1").select2({
-              placeholder: "Select2 input",
+              placeholder: "Tags...",
               allowClear: true,
               
               // match strings that begins with (instead of contains):
@@ -106,12 +106,6 @@
                 }
             }
         });
-
-        if (emojieTool.getElementInfo() !== null) {
-            console.log(emojieTool.getElementInfo())
-        }
-        
-       
 
         $scope.emojieList = emojiListService.getEmojies();
         $scope.$watch('markdownData', function(current, original) {

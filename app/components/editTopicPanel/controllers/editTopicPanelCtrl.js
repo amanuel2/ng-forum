@@ -34,6 +34,18 @@
 
             })
         })
+        
+        angular.element(document).ready(function() {
+             $("#e1").select2({
+              placeholder: "Tags...",
+              allowClear: true,
+              
+              // match strings that begins with (instead of contains):
+              matcher: function(term, text) {
+                    return text.toUpperCase().indexOf(term.toUpperCase())==0;
+              }
+            });
+        })
 
         refService.ref().child("Topics").once("value", function(snapTopic) {
             snapTopic.forEach(function(snapTopicEven) {
@@ -100,6 +112,17 @@
                 }
             }
         })
+        
+          $scope.valTag;
+        angular.element(document).ready(function(){
+            $('#e1').on("change", function(e) { 
+               // what you would like to happen
+                $scope.valTag = (e.val);
+            });
+        })
+
+
+
         $scope.myConfig = {
             create: true,
             onChange: function(value) {
@@ -110,6 +133,16 @@
             maxItems: 5,
             required: true,
         }
+        
+        //$scope.preTags;
+        
+        // refService.ref().child("Topics").once("value", function(snapTag){
+        //     snapTag.forEach(function(snapTagChild){
+        //         if(snapTagChild.val().Postnum == $stateParams.POST) {
+        //             $scope.tagsSelected = snapTagChild.val().Tags;
+        //         }
+        //     })
+        // })
 
         $scope.$watch('editValue', function(current, original) {
 
@@ -178,12 +211,11 @@
             }
         }
         $scope.editTopicPan = function() {
-            var indexSelected = $scope.tagsSelected;
+            console.log($scope.valTag);
+            for(var i=0; i<$scope.valTag.length; i++)
+                $scope.valTag[i] = ($scope.valTag[i].replace(":", "")).replace(/[0-9]/g, "")
+                
             $scope.tagsSelectedFireBase = [];
-            //$scope.defaultTags
-            for (var i = 0; i < indexSelected.length; i++) {
-                $scope.tagsSelectedFireBase.push($scope.defaultTags[indexSelected[i]].Name)
-            }
             $scope.editTextStuff = $firebaseObject(refService.ref().child("Topics"))
             $scope.editTextStuff.$loaded(function(daDATA) {
                 for (var prop in daDATA) {
@@ -192,7 +224,7 @@
                             refService.ref().child("Topics").child(daDATA[prop].pushKey).update({
                                 Value: $scope.editValue,
                                 Title: $scope.editTitle,
-                                Tags: $scope.tagsSelectedFireBase
+                                Tags: $scope.valTag
                             })
                         }
                     }

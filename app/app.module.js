@@ -46,9 +46,6 @@
  --------
  Aman
  ------
- BUGS
- -----
- SHARING
  TODO:  Badges Backend
  TODO : OTHERUSERPROFILEPAGE
  TODO : PRIVATE MESSAGE/PUBLIC
