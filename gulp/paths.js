@@ -23,6 +23,7 @@ module.exports = {
         'bower_components/tribute/dist/tribute.js',
         'bower_components/angular-sanitize/angular-sanitize.js',
         'assets/lib/alertifyjs/build/alertify.min.js',
+        'bower_components/js/angular-local-storage.min.js',
         'bower_components/vex/js/vex.combined.min.js',
         'bower_components/clipboard/dist/clipboard.min.js',
         'bower_components/marked/lib/marked.js',

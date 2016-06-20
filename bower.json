@@ -52,6 +52,7 @@
   "devDependencies": {
     "tribute": "^1.0.5",
     "ng-selectize": "^0.0.6",
-    "angular-socialshare": "angularjs-socialshare#^2.1.12"
+    "angular-socialshare": "angularjs-socialshare#^2.1.12",
+    "angular-local-storage": "^0.2.7"
   }
 }

@@ -10,7 +10,7 @@
             'ngSanitize',
             'vcRecaptcha',
             'angularScreenfull',
-            'selectize',
+            'LocalStorageModule',
             '720kb.socialshare'
         ]
     );

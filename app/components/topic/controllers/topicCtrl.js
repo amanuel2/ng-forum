@@ -3,13 +3,25 @@
     'use strict';
     angular
         .module('ForumApp')
-        .controller('topicCtrl', ["$scope","emojiListService", "$stateParams", "refService", "editReplyService", "dateService", "$firebaseArray", "timeService", "$mdBottomSheet", "$mdMedia", "$mdDialog", "replyService", "$firebaseObject", "$state", "otherUserService", "editTopicService", "topicLikesService", "badgesService", topicCtrl])
+        .controller('topicCtrl', ["$scope","localStorageService","emojiListService", "$stateParams", "refService", "editReplyService", "dateService", "$firebaseArray", "timeService", "$mdBottomSheet", "$mdMedia", "$mdDialog", "replyService", "$firebaseObject", "$state", "otherUserService", "editTopicService", "topicLikesService", "badgesService", topicCtrl])
 
 
-    function topicCtrl($scope,emojiListService, $stateParams, refService, editReplyService, dateService, $firebaseArray, timeService, $mdBottomSheet, $mdMedia, $mdDialog, replyService, $firebaseObject, $state, otherUserService, editTopicService, topicLikesService, badgesService) {
+    function topicCtrl($scope,localStorageService,emojiListService, $stateParams, refService, editReplyService, dateService, $firebaseArray, timeService, $mdBottomSheet, $mdMedia, $mdDialog, replyService, $firebaseObject, $state, otherUserService, editTopicService, topicLikesService, badgesService) {
         var currentAuth = refService.ref().getAuth();
         $scope.currentAuthGet = refService.ref().getAuth();
 
+
+
+        if($scope.currentAuthGet){
+           if(localStorageService.get($stateParams.POST) == null);
+           else 
+               localStorageService.remove($stateParams.POST);
+        }
+        else{
+            if(localStorageService.get($stateParams.POST) == null)
+                localStorageService.set($stateParams.POST, generateUUID(16));
+        }
+            
         function generateUUID(length) {
             var d = new Date().getTime();
             var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
@@ -25,10 +37,16 @@
         }
         else {
             currentAuth = {
-                uid: generateUUID(16)
+                uid: localStorageService.get($stateParams.POST)
             }
         }
 
+        if($scope.currentAuthGet == null) {
+            $scope.currentAuthGet = {
+                uid : localStorageService.get($stateParams.POST)
+            }
+        }
+            
         marked.setOptions({
             renderer: new marked.Renderer(),
             gfm: true,
@@ -990,7 +1008,7 @@
         $scope.editTopicPriv = function() {
             if ($scope.isModerator == true)
                 return true;
-            else if ($scope.creatorUID == $scope.currentAuthGet.uid)
+            else if ($scope.creatorUID == ($scope.currentAuthGet.uid || currentAuth.uid))
                 return true;
             else
                 return false;

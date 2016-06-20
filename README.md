@@ -51,6 +51,8 @@ $ npm install # Install Npm Dependencies
 $ npm install bower -g #If You dont have Bower.
 $ bower install # Install Bower Dependencies
 $ npm install gulp -g  #If you dont have Gulp.
+$ gulp scripts:vendor # Install Dependencies In Gulp
+$ gulp scripts #Install written code
 $ gulp serve # To Serve Files
 ```
 
