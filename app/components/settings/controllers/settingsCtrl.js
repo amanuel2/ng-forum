@@ -3,9 +3,9 @@
  'use strict';    
     angular
         .module('ForumApp')
-        .controller("settingsCtrl", ["$scope", "refService", "$stateParams", "$mdDialog", "$mdMedia", "$firebaseObject", settingsCtrl])
+        .controller("settingsCtrl", ["$scope", "refService", "$stateParams", "$mdDialog", "$mdMedia", "$firebaseObject","$state", settingsCtrl])
 
-    function settingsCtrl($scope, refService, $stateParams, $mdDialog, $mdMedia, $firebaseObject) {
+    function settingsCtrl($scope, refService, $stateParams, $mdDialog, $mdMedia, $firebaseObject,$state) {
 
         //Setting Infos....
         $scope.currentAuthSet = refService.ref().getAuth();
@@ -24,6 +24,14 @@
             else{
                 return false;
             }
+        }
+        
+        if($scope.currentAuthSet.uid == $stateParams.UID) {
+            
+        }
+        else
+        {
+            $state.go("auth");
         }
         
         

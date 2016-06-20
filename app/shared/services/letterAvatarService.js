@@ -11,112 +11,112 @@
 
 		"a": {
 			"letter": "A",
-			"URL": "http://imgur.com/fmJfhIO.png"
+			"URL": "https://i.imgsafe.org/80702e6a48.png"
 		},
 
 		"b": {
 			"letter": "B",
-			"URL": "http://imgur.com/TAZ9VPU.png"
+			"URL": "https://i.imgsafe.org/8071bc0a44.png"
 		},
 
 		"c": {
 			"letter": "C",
-			"URL": "http://imgur.com/yyxf8Xa.png"
+			"URL": "https://i.imgsafe.org/8074bcecd7.png"
 		},
 
 		"d": {
 			"letter": "D",
-			"URL": "http://imgur.com/t3WVsh0.png"
+			"URL": "https://i.imgsafe.org/8076021adb.png"
 		},
 
 		"e": {
 			"letter": "E",
-			"URL": "http://imgur.com/Pe4sgjI.png"
+			"URL": "https://i.imgsafe.org/8076c1e58c.png"
 		},
 
 		"f": {
 			"letter": "F",
-			"URL": "http://imgur.com/6T8Bgeq.png"
+			"URL": "https://i.imgsafe.org/8077d37398.png"
 		},
 		"g": {
 			"letter": "G",
-			"URL": "http://imgur.com/BGsTWtG.png"
+			"URL": "https://i.imgsafe.org/8078c68317.png"
 		},
 		"h": {
 			"letter": "H",
-			"URL": "http://imgur.com/o5K40Jd.png"
+			"URL": "https://i.imgsafe.org/807961a8bd.png"
 		},
 		"i": {
 			"letter": "I",
-			"URL": "http://imgur.com/sdt7apQ.png"
+			"URL": "https://i.imgsafe.org/8079fcc67d.png"
 		},
 		"j": {
 			"letter": "J",
-			"URL": "http://imgur.com/msHLCHR.png"
+			"URL": "https://i.imgsafe.org/807a8d7f0f.png"
 		},
 		"k": {
 			"letter": "K",
-			"URL": "http://imgur.com/eoAJeWD.png"
+			"URL": "https://i.imgsafe.org/807b86c6f3.png"
 		},
 		"l": {
 			"letter": "L",
-			"URL": "http://imgur.com/zMVTSnK.png"
+			"URL": "https://i.imgsafe.org/807c95d97d.png"
 		},
 		"m": {
 			"letter": "M",
-			"URL": "http://imgur.com/IDCb4on.png"
+			"URL": "https://i.imgsafe.org/807e3ac2d8.png"
 		},
 		"n": {
 			"letter": "N",
-			"URL": "http://imgur.com/8AxVHBb.png"
+			"URL": "https://i.imgsafe.org/807f4f28f3.png"
 		},
 		"o": {
 			"letter": "O",
-			"URL": "http://imgur.com/cTdwHBz.png"
+			"URL": "https://i.imgsafe.org/80804f11ee.png"
 		},
 		"p": {
 			"letter": "P",
-			"URL": "http://imgur.com/l92WBfJ.png"
+			"URL": "https://i.imgsafe.org/808141e6d7.png"
 		},
 		"q": {
 			"letter": "Q",
-			"URL": "http://imgur.com/R2NdDC0.png"
+			"URL": "https://i.imgsafe.org/8081fc5643.png"
 		},
 		"r": {
 			"letter": "R",
-			"URL": "http://imgur.com/TRBbK6s.png"
+			"URL": "https://i.imgsafe.org/8082bc920e.png"
 		},
 		"s": {
 			"letter": "S",
-			"URL": "http://imgur.com/Yg5pCrN.png"
+			"URL": "https://i.imgsafe.org/808407a7c8.png"
 		},
 		"t": {
 			"letter": "T",
-			"URL": "http://imgur.com/t44cYPo.png"
+			"URL": "https://i.imgsafe.org/80850ef5bc.png"
 		},
 		"u": {
 			"letter": "U",
-			"URL": "http://imgur.com/rwe2jHk.png"
+			"URL": "https://i.imgsafe.org/8085d081ef.png"
 		},
 		"v": {
 			"letter": "V",
-			"URL": "http://imgur.com/tEuWVjS.png"
+			"URL": "https://i.imgsafe.org/8086a80704.png"
 		},
 		"w": {
 			"letter": "W",
-			"URL": "http://imgur.com/4YrkhS9.png"
+			"URL": "https://i.imgsafe.org/80876e07ac.png"
 		},
 		"x": {
 			"letter": "X",
-			"URL": "http://imgur.com/rdCCRVK.png"
+			"URL": "https://i.imgsafe.org/808811fc04.png"
 		},
 		"y": {
 			"letter": "Y",
-			"URL": "http://imgur.com/IZLfNSA.png"
+			"URL": "https://i.imgsafe.org/8088daddd7.png"
 		},
 		"z": {
 			"letter": "Z",
-			"URL": "http://imgur.com/qarqErq.png"
+			"URL": "https://i.imgsafe.org/8089ce1ead.png"
 		}
 
 	},
@@ -125,48 +125,48 @@
 
 		"0": {
 			"number": "0",
-			"URL": "http://imgur.com/1rkedvr.png"
+			"URL": "https://i.imgsafe.org/808b5e9427.png"
 		},
 		"1": {
 			"number": "1",
-			"URL": "http://imgur.com/WqINV9y.png"
+			"URL": "https://i.imgsafe.org/808c31726a.png"
 		},
 		"2": {
 			"number": "2",
-			"URL": "http://imgur.com/ILrgc45.png"
+			"URL": "https://i.imgsafe.org/808e69280f.png"
 		},
 		"3": {
 			"number": "3",
-			"URL": "http://imgur.com/hO7ULVQ.png"
+			"URL": "https://i.imgsafe.org/808f82b8e4.png"
 		},
 		"4": {
 			"number": "4",
-			"URL": "http://imgur.com/7lSq5mn.png"
+			"URL": "https://i.imgsafe.org/8090c37df7.png"
 		},
 		"5": {
 			"number": "5",
-			"URL": "http://imgur.com/7DhaPD3.png"
+			"URL": "https://i.imgsafe.org/809177bd5e.png"
 		},
 		"6": {
 			"number": "6",
-			"URL": "http://imgur.com/vQigaLy.png"
+			"URL": "https://i.imgsafe.org/809295a3dc.png"
 		},
 		"7": {
 			"number": "7",
-			"URL": "http://imgur.com/Mq1EyLj.png"
+			"URL": "https://i.imgsafe.org/80938a0f43.png"
 		},
 		"8": {
 			"number": "8",
-			"URL": "http://imgur.com/fqL6zzY.png"
+			"URL": "https://i.imgsafe.org/809490f006.png"
 		},
 		"9": {
 			"number": "9",
-			"URL": "http://imgur.com/aeHrAeS.png"
+			"URL": "https://i.imgsafe.org/8095cb42bd.png"
 		}
 
 	},
 
-	"Mystery": "http://imgur.com/mM5vPqB.png"
+	"Mystery": "https://i.imgsafe.org/80971f0be0.png"
 };
           
             
