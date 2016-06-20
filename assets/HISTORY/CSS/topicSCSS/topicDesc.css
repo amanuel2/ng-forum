@@ -7,6 +7,9 @@
   padding-bottom: 10px;
   border-bottom: 1px solid #BBDEFB; }
 
+.html_container {
+  overflow-x: hidden; }
+
 .topic-info {
   display: flex;
   justify-content: space-between;
