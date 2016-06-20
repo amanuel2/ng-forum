@@ -1,3 +1,8 @@
+#Pre-Release Version 1.0.3
+Mnany Bug Fix.
+Complete redesign develpoment enviorment.
+New UI
+
 #Pre-Release Version 1.0
 
 Bug Fixes. 

@@ -1,4 +1,4 @@
-(function (angular) {
+(function(angular) {
 
     'use strict';
     angular
@@ -13,22 +13,22 @@
         $scope.currentAuthGetHome = refService.ref().getAuth();
 
         if ($scope.currentAuthGetHome != null) {
-            var amOnline = new Firebase('https://uniquecoders.firebaseio.com/.info/connected');
-            var userRef = new Firebase('https://uniquecoders.firebaseio.com/presence/' + $scope.currentAuthGetHome.uid);
-            amOnline.on('value', function (snapshot) {
+            var amOnline = refService.ref();
+            var userRef = refService.ref().child("presence").child($scope.currentAuthGetHome.uid);
+            amOnline.on('value', function(snapshot) {
                 if (snapshot.val()) {
                     userRef.onDisconnect().set(Firebase.ServerValue.TIMESTAMP);
                     userRef.set("Online");
                 }
             });
 
-            document.onIdle = function () {
+            document.onIdle = function() {
                 userRef.set('idle');
             }
-            document.onAway = function () {
+            document.onAway = function() {
                 userRef.set('away');
             }
-            document.onBack = function (isIdle, isAway) {
+            document.onBack = function(isIdle, isAway) {
                 userRef.set('online');
             }
         }
@@ -38,12 +38,12 @@
 
         //ADD TAGS
         if (!alertify.myAlert) {
-            alertify.dialog('myAlert', function () {
+            alertify.dialog('myAlert', function() {
                 return {
-                    main: function (message) {
+                    main: function(message) {
                         this.message = message;
                     },
-                    setup: function () {
+                    setup: function() {
                         return {
                             buttons: [{
                                 text: "Ok!",
@@ -54,7 +54,7 @@
                             }
                         };
                     },
-                    prepare: function () {
+                    prepare: function() {
                         this.setContent(this.message);
                     }
                 }
@@ -67,10 +67,10 @@
 
         if ($scope.authData) {
             var currentAuth = refService.ref().getAuth();
-            refService.ref().onAuth(function (authData) {})
+            refService.ref().onAuth(function(authData) {})
 
             var obj = $firebaseObject(refService.ref().child("UserAuthInfo").child(currentAuth.uid));
-            obj.$loaded(function (data) {
+            obj.$loaded(function(data) {
                     $scope.Username = data.Username;
                     $scope.Email = data.Email;
                     $scope.UID = currentAuth.uid;
@@ -81,7 +81,7 @@
 
                     }
                 },
-                function (error) {
+                function(error) {
                     console.error("Error:", error);
                 }
             );
@@ -104,22 +104,22 @@
             );
         }
 
-        $scope.goToProfile = function () {
+        $scope.goToProfile = function() {
             $state.go("authHome.profile", {
                 "UID": $scope.currentAuthGetHome.uid
             })
         }
-        $scope.openMenu = function ($mdOpenMenu, ev) {
+        $scope.openMenu = function($mdOpenMenu, ev) {
             $mdOpenMenu(ev);
         }
 
-        $scope.logout = function () {
+        $scope.logout = function() {
             refService.ref().unauth();
             location.reload(true);
             location.reload(true);
         }
 
-        $scope.goToSettings = function () {
+        $scope.goToSettings = function() {
             $state.go("authHome.settings", {
                 "UID": $scope.UID,
                 "USERNAME": $scope.Username
@@ -131,10 +131,10 @@
         ///////BADGES HANDLING START//////////////////////////////////////
         $scope.arrBadges = badgesService.getReplyBadges();
         $scope.activeUserBadgeCount = 0;
-        refService.ref().child("Replies").once("value", function (repSnap) {
-            repSnap.forEach(function (repSnapChild) {
+        refService.ref().child("Replies").once("value", function(repSnap) {
+            repSnap.forEach(function(repSnapChild) {
                 //amanuelhi0
-                repSnapChild.forEach(function (repSnapChild2) {
+                repSnapChild.forEach(function(repSnapChild2) {
                     //-KKQtkhkau9bMerPKVrk
                     if (repSnapChild2.val().replyCreatorUID == $scope.currentAuthGetHome.uid) {
                         $scope.activeUserBadgeCount++;
@@ -150,7 +150,7 @@
                 }
                 else {
                     refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("BronzeBadge").child("RankOne").remove(
-                        function (error) {
+                        function(error) {
                             if (error)
                                 alertify.error("Internal Error");
                             else {
@@ -165,7 +165,7 @@
                 }
                 else {
                     refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("BronzeBadge").child("RankTwo").remove(
-                        function (error) {
+                        function(error) {
                             if (error)
                                 alertify.error("Internal Error");
                             else {
@@ -181,7 +181,7 @@
                 else {
 
                     refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("BronzeBadge").child("RankThree").remove(
-                        function (error) {
+                        function(error) {
                             if (error)
                                 alertify.error("Internal Error");
                             else {
@@ -198,7 +198,7 @@
 
                 else {
                     refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("BronzeBadge").child("RankFour").remove(
-                        function (error) {
+                        function(error) {
                             if (error)
                                 alertify.error("Internal Error");
                             else {
@@ -215,7 +215,7 @@
                 }
                 else {
                     refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("SilverBadge").child("RankOne").remove(
-                        function (error) {
+                        function(error) {
                             if (error)
                                 alertify.error("Internal Error");
                             else {
@@ -230,7 +230,7 @@
                 }
                 else {
                     refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("SilverBadge").child("RankTwo").remove(
-                        function (error) {
+                        function(error) {
                             if (error)
                                 alertify.error("Internal Error");
                             else {
@@ -245,7 +245,7 @@
                 }
                 else {
                     refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("SilverBadge").child("RankThree").remove(
-                        function (error) {
+                        function(error) {
                             if (error)
                                 alertify.error("Internal Error");
                             else {
@@ -261,7 +261,7 @@
 
                 else {
                     refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("SilverBadge").child("RankFour").remove(
-                        function (error) {
+                        function(error) {
                             if (error)
                                 alertify.error("Internal Error");
                             else {
@@ -280,7 +280,7 @@
 
                 else {
                     refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("GoldBadge").child("RankOne").remove(
-                        function (error) {
+                        function(error) {
                             if (error)
                                 alertify.error("Internal Error");
                             else {
@@ -295,7 +295,7 @@
                 }
                 else {
                     refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("GoldBadge").child("RankTwo").remove(
-                        function (error) {
+                        function(error) {
                             if (error)
                                 alertify.error("Internal Error");
                             else {
@@ -312,7 +312,7 @@
 
                 else {
                     refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("GoldBadge").child("RankThree").remove(
-                        function (error) {
+                        function(error) {
                             if (error)
                                 alertify.error("Internal Error");
                             else {
@@ -329,7 +329,7 @@
 
                 else {
                     refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("GoldBadge").child("RankFour").remove(
-                        function (error) {
+                        function(error) {
                             if (error)
                                 alertify.error("Internal Error");
                             else {
@@ -347,7 +347,7 @@
 
                 else {
                     refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("PlatinumBadge").child("RankOne").remove(
-                        function (error) {
+                        function(error) {
                             if (error)
                                 alertify.error("Internal Error");
                             else {
@@ -363,7 +363,7 @@
                 }
                 else {
                     refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("PlatinumBadge").child("RankTwo").remove(
-                        function (error) {
+                        function(error) {
                             if (error)
                                 alertify.error("Internal Error");
                             else {
@@ -378,7 +378,7 @@
                 }
                 else {
                     refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("PlatinumBadge").child("RankThree").remove(
-                        function (error) {
+                        function(error) {
                             if (error)
                                 alertify.error("Internal Error");
                             else {
@@ -395,7 +395,7 @@
 
                 else {
                     refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("PlatinumBadge").child("RankFour").remove(
-                        function (error) {
+                        function(error) {
                             if (error)
                                 alertify.error("Internal Error");
                             else {

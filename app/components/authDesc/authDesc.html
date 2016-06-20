@@ -42,7 +42,7 @@
 
 
 <md-list ng-cloak md-whiteframe="24" flex-sm="55" flex-gt-sm="45" flex-gt-md="45">
-  <md-list-item ng-repeat="topic in topicName" class="md-3-line" ng-click="goToTopic(topic.Avatar,topic.DateCreated,topic.Email,topic.Title,topic.UID,topic.Username,topic.Value,topic.Postnum);">
+  <md-list-item ng-repeat="topic in topicName track by $index" class="md-3-line" ng-click="goToTopic(topic.Avatar,topic.DateCreated,topic.Email,topic.Title,topic.UID,topic.Username,topic.Value,topic.Postnum);">
     <img alt="{{ topic.name }}" ng-src="{{ topic.Avatar }}" class="md-avatar" />
     <div class="md-list-item-text" layout="column">
       <h3><strong>{{topic.Title}}</strong></h3>
@@ -54,7 +54,7 @@
   </span>
     </div>
     <ul class="tags">
-      <li><a ng-repeat="tags in topic.Tags" href="javascript:void(0);">{{tags}}</a></li>
+      <li><a  href="javascript:void(0);">{{topic.Tags[$index]}}</a></li>
     </ul>
     <span class="last_activity">
       <ng-md-icon icon="history" style="fill: #009688" size="20"></ng-md-icon> 

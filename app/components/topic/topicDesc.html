@@ -157,7 +157,7 @@
             </md-menu-content>
         </md-menu>
         </span>
-        <span ng-if="currentAuthGet!=null;">    
+        <span ng-if="currentAuthGet!=null;" ng-click="scrollDownReply();">    
             <md-button class="md-raised md-accent" ng-click="replyTopic($event)">
                 <ng-md-icon icon="reply" style="fill: #0affcf;" size="20" class="icon_reply_topic"></ng-md-icon>
                 Reply
@@ -322,7 +322,7 @@
                     </md-button>
                 </span>
                 <span ng-if="isReplyable(reps)">
-                    <md-button class="md-accent" ng-click="replyTopic($event)">
+                    <md-button class="md-accent" ng-click="scrollDownReply()">
                         <md-tooltip md-direction="top">
                             Reply
                         </md-tooltip>
@@ -344,6 +344,8 @@
 
 
 
+ <span ng-if="currentAuthGet!=null;">    
+
     <form>
         <md-toolbar>
             <div class="md-toolbar-tools">
@@ -361,8 +363,6 @@
             Drag Down, or press <kbd>ESC</kbd> To quit
         </md-header>
         
-
-
         <div class="topic-sentence">
             <md-whiteframe class="topic-contents-wrapper" id="frameCONTENT">
                 <div class="topic-contents">
@@ -400,3 +400,4 @@
         </form>
 
     </form>
+    </span>

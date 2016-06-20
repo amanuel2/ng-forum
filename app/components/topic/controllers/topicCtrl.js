@@ -190,6 +190,9 @@
 
         }
 
+        $scope.scrollDownReply = function(){
+                  $("html, body").animate({ scrollTop: $(document).height() }, 1000);
+            }
         //Setting Voting
         //Adding them...
         function upVoteRegister(data) {
