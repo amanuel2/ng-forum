@@ -42,14 +42,14 @@
                 <md-button class="md-raised md-accent" id="password_button" ng-click="changePassword($event);">
                     Change
                 </md-button>
-                
+                <br>
                 <span class="info">UID : {{uid}}  (DONT TELL ANYONE YOUR UID!)</span>
                 <br>
                   
               </md-tab>
               <md-tab label="Dangerous">
                   
-                  Delete User <md-button class="md-accent md-raised" id="deleteUserButton"> DELETE USER </md-button>
+                  Delete User <md-button class="md-accent md-raised" id="deleteUserButton" ng-click="deleteUser();"> DELETE USER </md-button>
               </md-tab>
             </md-tabs>
          </md-content>

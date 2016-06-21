@@ -1057,11 +1057,9 @@
                         templateUrl: 'app/components/editTopicPanel/editTopicPanel.html',
                         parent: angular.element(document.body),
                         resolve: {
-                            // controller will not be loaded until $waitForAuth resolves
-                            // Auth refers to our $firebaseAuth wrapper in the example above
+
                             "currentAuth": ["refService", function(refService) {
-                                // $waitForAuth returns a promise so the resolve waits for it to complete
-                                return refService.refAuth().$requireAuth();
+                             
                             }]
                         },
                         targetEvent: ev,
@@ -1069,16 +1067,27 @@
                         fullscreen: useFullScreen
                     })
                     .then(function(answer) {
-                        //Then Argument
+                      
                     }, function() {
-                        //Canceled Dialog
+                      
                     });
+                 }
 
-            }
-            else {
-                return null;
-            }
+           /* refService.ref().child("Topics").once("value", function(snap){
+                snap.forEach(function(snapChild){
+                    if(snapChild.val().Postnum == $stateParams.POST){
+                        $scope.markdownData = snapChild.val().Value;
+                         $("html, body").animate({ scrollTop: $(document).height() }, 1000);
+                    }
+                })
+            })*/
+            
         }
+        
+
+        
+        $scope.titleReply = "Create a New Reply";
+        $scope.replyTagsShow = false;
 
         $scope.canDeleteCheck = function(rep) {
             if ($scope.isModerator == true)

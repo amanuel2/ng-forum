@@ -12,7 +12,7 @@
 </head>
 
 
-<md-dialog aria-label="Mango (Fruit)"  ng-cloak>
+<md-dialog aria-label="Mango (Fruit)"  ng-cloak style="width: 720px;">
     <form>
         <md-toolbar>
             <div class="md-toolbar-tools">
@@ -27,7 +27,7 @@
            
  <form name="myForm">
         <md-header>
-            <h2>Create a new topic</h2>
+            <h2>Edit topic</h2>
             Press <kbd>ESC</kbd> To quit
         </md-header>
         
@@ -63,17 +63,11 @@
                     <textarea class="markdown-text-area" id="markdownUserType" ng-model="editValue"></textarea>
                 </div>
             </md-whiteframe>
-            <div class="markdown-wrapper">
-                <span class="markdown-preview">Preview</span>
-                <div class="markdown-show" id="markdown_preview_box" contenteditable="true"
-                    ng-bind-html="outputText" ng-bind-markdown="outputText">
-                </div>
-            </div>
         </div>
         
         <div class="tags_chip">
 <!--Tags : <select selectize="myConfig" options="users" ng-model="selected" ng-disabled="disabled"></select>-->
-<select multiple  id="e1" style="width:100%" ng-model="tagsSelected"  name="tagsSelector" ng-required="true">
+<select multiple  id="e1" style="    width: 670px;" ng-model="tagsSelected"  name="tagsSelector" ng-required="true">
     <option ng-repeat="tag in defaultTags" >{{tag.ID}}:{{tag.Name}}</option>
 </select>
         <p ng-show="myForm.tagsSelector.$error.required"  style="color:red;">You need tags</p>

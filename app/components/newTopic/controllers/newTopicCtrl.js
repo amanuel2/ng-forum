@@ -121,13 +121,6 @@
         ]
 
         $scope.isThereTag = false;
-
-    $scope.users = [
-          { id: 1, name: 'Bob' },
-          { id: 2, name: 'Sally' },
-          { id: 3, name: 'Jill' },
-          { id: 4, name: 'Jane' }
-        ];
         $scope.defaultTags = $firebaseArray(refService.ref().child("Constants").child('Tags').child("Default"));
         
         $scope.valTag;

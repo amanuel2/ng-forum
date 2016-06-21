@@ -11,7 +11,6 @@
             'vcRecaptcha',
             'angularScreenfull',
             'LocalStorageModule',
-            'angular-timeline',
             '720kb.socialshare'
         ]
     );
@@ -47,17 +46,27 @@
  --------
  Aman
  ------
+ TODO : EDIT TOPIC/REPLY CHANGES
+ TODO : TAGS
  TODO : DISCOURSE REPLY BAR
+ TODO : PROFILE
+ TODO : SETTINGS
+ TODO : BADGES
  TODO : TOURING
- TODO:  Badges Backend
+ TODO: Add Drag Drop Image upload
  TODO : OTHERUSERPROFILEPAGE
  TODO : PRIVATE MESSAGE/PUBLIC
  TODO : FLAG = PRIVATE MESSAGING MODERATORS
  TODO : Notifications
+ TODO: Online icon profile
+ TODO : SESSIONS
+ TODO : CHATS
+ 
  Kyle
  -----
- TODO : TAGS IN AUTHDESC>HTML TOPIC LISTING TAGS.
- TODO : GZIP
+ TODO : FIX DESCRIPTON IN PROFILE PAGE
+ TODO: LOADING SCREEN.. <-- NEED TO FIX AND SHOW ME HOW TO MAKE RESPONSIVE
+ TODO : NEW TOPIC.HTML
 
 
 
@@ -66,40 +75,21 @@
 
  Shim
  ------
- TODO:FIX AUTH.HTML's NON SHOWING LINES. PLEASE ASK AMANUEL FOR MORE INFO.
- TODO: NEWTOPIC.html, EDITTOPIC, and STUFF LIKE THAT FIX DO NOT FORGET TO Ask AMANUEL FOR MORE INFO PLZ
  TODO: 404 Page
- TODO: Online icon profile
- TODO: LOADING SCREEN.. <-- NEED TO FIX AND SHOW ME HOW TO MAKE RESPONSIVE
- TODO: Badges Front
 
  Jeff
  -----
  TODO : DOCS .(LATER WE WILL PUT A GUIDE FOR COMPANIES TO USE THIS FORUM)
- TODO: 404 Page
- TODO: Online icon profile
- TODO: LOADING SCREEN.. <-- NEED TO FIX AND SHOW ME HOW TO MAKE RESPONSIVE
- Todo: badges Front
- ALL Frontend
- -----------
-
- TODO : FIX DESCRIPTON IN PROFILE PAGE
- TODO : RESELOUTION PROFILE AVATAR IN PROFILE PAGE
-
- TODO : Fix textbox so it is center
 
  BACKEND AND FRONTENDs
  ---------------
- TODO: Add Drag Drop Image upload
- TODO: Add settings to Profile (Allow to open from)
- TODO: Downvote Best Answer
- TODO: AutoCorrect and Spell Check for editor http://www.javascriptspellcheck.com/
 
+ 
  -------LATER RELEASES IDEAS--------
 
+ TODO : GZIP
  TODO : SESSIONS, for POEPLE TO WORK COLLABORATIVELY
  TODO : PYTHON INTERPRETOR : http://www.skulpt.org/ PHP: https://phpjs.hertzen.com/console.html. C++: https://ide.c9.io/amanuel2/ruby_interpreator_in_js#openfile-README.md
- TODO : TOURING
 
 
  HELPERS

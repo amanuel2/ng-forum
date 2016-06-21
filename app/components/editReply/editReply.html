@@ -12,7 +12,7 @@
 </head>
 
 
-<md-dialog aria-label="Mango (Fruit)"  ng-cloak>
+<md-dialog aria-label="Mango (Fruit)"  ng-cloak style="width: 720px;">
     <form>
         <md-toolbar>
             <div class="md-toolbar-tools">
@@ -54,12 +54,6 @@
                     <textarea class="markdown-text-area" id="markdownUserType" ng-model="editValue"></textarea>
                 </div>
             </md-whiteframe>
-            <div class="markdown-wrapper">
-                <span class="markdown-preview">Preview</span>
-                <div class="markdown-show" id="markdown_preview_box" contenteditable="true"
-                    ng-bind-html="outputText" ng-bind-markdown="outputText">
-                </div>
-            </div>
         </div>
         
         <div class="tags_chip">
