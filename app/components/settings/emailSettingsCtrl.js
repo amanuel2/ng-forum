@@ -5,6 +5,9 @@
     
     function emailSettingsCtrl($scope,refService,currentAuth,$mdDialog){
 
+          $scope.getUID = refService.ref().getAuth();
+           
+           console.log($scope.getUID);
         $scope.hide = function() {
             $mdDialog.hide();
         };
@@ -17,7 +20,57 @@
 
         $scope.changeEmailDialog = function(){
            
-            var email = $scope.emailChange || $scope.emailChange.toString;
+           
+           if($scope.getUID.provider == 'twitter' || $scope.getUID.provider == 'github') {
+               
+                refService.ref().child("UserAuthInfo").child(currentAuth.uid).update({
+                        Email: $scope.emailChange
+                    })
+                    
+                    
+                    alertify.success("User email changed successfully!");
+            //Updating Topics
+                    refService.ref().child("Topics").once("value", function(snapshot) {
+
+                        snapshot.forEach(function(childSnapshot) {
+                            var key = childSnapshot.key();
+                            var childData = childSnapshot.val();
+                            if (childData.UID == currentAuth.uid) {
+                                refService.ref().child("Topics").child(childData.pushKey).update({
+                                    Email: $scope.emailChange
+                                })
+                            }
+                        })
+                    })
+                    
+            //Updating Replise
+                    
+                    refService.ref().child("Replies").once("value", function(snapshot) {
+
+                        snapshot.forEach(function(childSnapshot) {
+                            var key = childSnapshot.key();
+                            var childData = childSnapshot.val();
+                            childSnapshot.forEach(function(EvenChild){
+                                var keyNest = EvenChild.key();
+                                var childDataNest = EvenChild.val();
+                                if(childDataNest.replyCreatorUID == currentAuth.uid){
+                                  refService.ref().child("Replies").child(key).child(childDataNest.pushKey).update
+                                    ({
+                                        replyCreatorEmail : $scope.emailChange                   
+                                    })
+                                }
+                            })
+                        })
+                    })
+                    location.reload(true);
+                    location.reload(true);
+                    $mdDialog.cancel();
+               
+           }
+ 
+            else
+            {
+                 var email = $scope.emailChange || $scope.emailChange.toString;
             var oldEmail = $scope.emailChangeOld;
             refService.ref().changeEmail({
                 oldEmail: oldEmail,
@@ -80,6 +133,13 @@
                     $mdDialog.cancel();
                 }
             });
+            }
+           
         }
     }
 })(angular);
+
+/*
+
+                    
+                    */

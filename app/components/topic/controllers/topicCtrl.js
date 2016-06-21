@@ -189,7 +189,28 @@
 
 
         }
+        
+        $scope.side = "right"
 
+
+        $scope.sideFunctoin = function() {
+            if($scope.side == 'right')
+                return 'left';
+            else
+                return 'right';
+        }
+         $scope.events = [{
+            badgeClass: 'info',
+            badgeIconClass: 'glyphicon-check',
+            title: 'First heading',
+            content: 'Some awesome content.'
+          }, {
+            badgeClass: 'warning',
+            badgeIconClass: 'glyphicon-credit-card',
+            title: 'Second heading',
+            content: 'More awesome content.'
+          }];
+  
         $scope.scrollDownReply = function(){
                   $("html, body").animate({ scrollTop: $(document).height() }, 1000);
             }

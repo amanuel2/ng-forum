@@ -11,6 +11,7 @@
             'vcRecaptcha',
             'angularScreenfull',
             'LocalStorageModule',
+            'angular-timeline',
             '720kb.socialshare'
         ]
     );

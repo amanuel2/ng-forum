@@ -30,7 +30,7 @@
                 <input type="text" ng-model="emailChangeOld"/>
             </md-input-container>
             <br>
-            <md-input-container>
+            <md-input-container ng-if="($scope.getUID.provider == 'twitter' || $scope.getUID.provider == 'github')">
                 <label>Old Password</label>
                 <input type="text" ng-model="passwordChangeOld"/>
             </md-input-container>

@@ -24,22 +24,167 @@
 
 
 
+
+        //2 Topics Bronze 1 
+        //10 Bronze 2 
+        //15  Bronze 3 
+        //20 Bronze 4 
+        // 25 Silver 1 
+        // 100 Silver 2 
+        // 160 silver 3 
+        // 172 silver 4 
+        // 205 Gold 1 
+        // 245 Gold 2 
+        // 301 Gold 3 
+        // 345 Gold 4 
+        // 365 Plat 1 
+        // 401 Plat 2 
+        // 465 plat 3 
+        // 500 plat 4 
+    
+    
+
+        //5 TOPICS
+
+
+
+
+        this.getTopicBadges = function() {
+            return ({
+                questionLover: {
+
+                    bronze: {
+                        rankone: {
+                            Title: "Question Lover",
+                            Type: "Bronze",
+                            Rank: "Rank1",
+                            Topics: 2,
+                            pushObj: {
+                                activeUser: {
+                                    rankone: {
+                                        Title: "Question Lover",
+                                        Type: "Bronze",
+                                        Rank: "Rank1",
+                                        Topics: 2,
+                                    }
+                                }
+                            }
+                        },
+                        ranktwo: {
+
+                            Title: "Active Member",
+                            Type: "Bronze",
+                            Rank: "Rank2",
+                            Topics: 10,
+                            pushObj: {
+                                activeUser: {
+                                    rankone: {
+                                        Title: "Active User",
+                                        Type: "Bronze",
+                                        Rank: "Rank2",
+                                        Topics: 10,
+                                    }
+                                }
+                            },
+                        },
+                        rankthree: {
+                            Title: "Hyper Member",
+                            Type: "Bronze",
+                            Rank: "Rank2",
+                            Topics: 20,
+                            pushObj: {
+                                activeUser: {
+                                    rankone: {
+                                        Title: "Hyper Member",
+                                        Type: "Bronze",
+                                        Rank: "Rank3",
+                                        Topics: 20,
+                                    }
+                                }
+                            },
+                        },
+                        rankfour: {
+                            Title: "Addicted Member",
+                            Type: "Bronze",
+                            Rank: "Rank4",
+                            Topics: 25,
+                            pushObj: {
+                                activeUser: {
+                                    rankone: {
+                                        Title: "addicted member",
+                                        Type: "Bronze",
+                                        Rank: "Rank4",
+                                        Topics: 25,
+                                    }
+                                }
+
+                            }
+                        },
+                    },
+                    silver: {
+                        rankone: {
+
+                        },
+                        ranktwo: {
+
+                        },
+                        rankthree: {
+
+                        },
+                        rankfour: {
+
+                        }
+                    },
+                    gold: {
+                        rankone: {
+
+                        },
+                        ranktwo: {
+
+                        },
+                        rankthree: {
+
+                        },
+                        rankfour: {
+
+                        }
+                    },
+                    platinum: {
+                        rankone: {
+
+                        },
+                        ranktwo: {
+
+                        },
+                        rankthree: {
+
+                        },
+                        rankfour: {
+
+                        }
+                    }
+
+
+                }
+            })
+        }
+
         this.getReplyBadges = function() {
             return ({
                 activeUser: {
                     bronze: {
-                        rankone:  {
+                        rankone: {
                             Title: "Active User",
                             Type: "Bronze",
                             Rank: "Rank1",
-                            Replies : 5,
-                            pushObj : {
-                                activeUser : {
-                                    rankone : {
-                                         Title: "Active User",
-                                         Type: "Bronze",
-                                         Rank: "Rank1",
-                                         Replies : 5,
+                            Replies: 5,
+                            pushObj: {
+                                activeUser: {
+                                    rankone: {
+                                        Title: "Active User",
+                                        Type: "Bronze",
+                                        Rank: "Rank1",
+                                        Replies: 5,
                                     }
                                 }
                             }
@@ -49,13 +194,13 @@
                             Type: "Bronze",
                             Rank: "Rank2",
                             Replies: 25,
-                             pushObj : {
-                                activeUser : {
-                                    ranktwo : {
-                                         Title: "Active User",
-                                         Type: "Bronze",
-                                         Rank: "Rank2",
-                                         Replies : 25,
+                            pushObj: {
+                                activeUser: {
+                                    ranktwo: {
+                                        Title: "Active User",
+                                        Type: "Bronze",
+                                        Rank: "Rank2",
+                                        Replies: 25,
                                     }
                                 }
                             }
@@ -64,14 +209,14 @@
                             Title: "Active User",
                             Type: "Bronze",
                             Rank: "Rank3",
-                            Replies:50,
-                            pushObj : {
-                                activeUser : {
-                                    rankthree : {
-                                         Title: "Active User",
-                                         Type: "Bronze",
-                                         Rank: "Rank3",
-                                         Replies : 50,
+                            Replies: 50,
+                            pushObj: {
+                                activeUser: {
+                                    rankthree: {
+                                        Title: "Active User",
+                                        Type: "Bronze",
+                                        Rank: "Rank3",
+                                        Replies: 50,
                                     }
                                 }
                             }
@@ -80,32 +225,32 @@
                             Title: "Active User",
                             Type: "Bronze",
                             Rank: "Rank4",
-                            Replies:75,
-                            pushObj : {
-                                activeUser : {
-                                      rankfour: {
-                                            Title: "Active User",
-                                            Type: "Bronze",
-                                            Rank: "Rank4",
-                                            Replies:75,  
-                                      }
-                                  }
-                              }
+                            Replies: 75,
+                            pushObj: {
+                                activeUser: {
+                                    rankfour: {
+                                        Title: "Active User",
+                                        Type: "Bronze",
+                                        Rank: "Rank4",
+                                        Replies: 75,
+                                    }
+                                }
+                            }
                         },
                     },
                     silver: {
-                        rankone:  {
+                        rankone: {
                             Title: "Active User",
                             Type: "Silver",
                             Rank: "Rank1",
-                            Replies:100,
-                            pushObj : {
-                                activeUser : {
-                                    rankone : {
-                                         Title: "Active User",
-                                         Type: "Silver",
-                                         Rank: "Rank1",
-                                         Replies : 100,
+                            Replies: 100,
+                            pushObj: {
+                                activeUser: {
+                                    rankone: {
+                                        Title: "Active User",
+                                        Type: "Silver",
+                                        Rank: "Rank1",
+                                        Replies: 100,
                                     }
                                 }
                             }
@@ -115,13 +260,13 @@
                             Type: "Silver",
                             Rank: "Rank2",
                             Replies: 130,
-                            pushObj : {
-                                activeUser : {
-                                    ranktwo : {
-                                         Title: "Active User",
-                                         Type: "Silver",
-                                         Rank: "Rank2",
-                                         Replies : 130,
+                            pushObj: {
+                                activeUser: {
+                                    ranktwo: {
+                                        Title: "Active User",
+                                        Type: "Silver",
+                                        Rank: "Rank2",
+                                        Replies: 130,
                                     }
                                 }
                             }
@@ -130,14 +275,14 @@
                             Title: "Active User",
                             Type: "Silver",
                             Rank: "Rank3",
-                            Replies:165,
-                            pushObj : {
-                                activeUser : {
-                                    rankthree : {
-                                         Title: "Active User",
-                                         Type: "Silver",
-                                         Rank: "Rank3",
-                                         Replies : 165,
+                            Replies: 165,
+                            pushObj: {
+                                activeUser: {
+                                    rankthree: {
+                                        Title: "Active User",
+                                        Type: "Silver",
+                                        Rank: "Rank3",
+                                        Replies: 165,
                                     }
                                 }
                             }
@@ -146,32 +291,32 @@
                             Title: "Active User",
                             Type: "Silver",
                             Rank: "Rank4",
-                            Replies:  215,
-                            pushObj : {
-                                activeUser : {
-                                    rankfour : {
-                                         Title: "Active User",
-                                         Type: "Silver",
-                                         Rank: "Rank4",
-                                         Replies : 215,
+                            Replies: 215,
+                            pushObj: {
+                                activeUser: {
+                                    rankfour: {
+                                        Title: "Active User",
+                                        Type: "Silver",
+                                        Rank: "Rank4",
+                                        Replies: 215,
                                     }
                                 }
                             }
                         },
                     },
                     gold: {
-                        rankone:  {
+                        rankone: {
                             Title: "Active User",
                             Type: "Gold",
                             Rank: "Rank1",
                             Replies: 235,
-                            pushObj : {
-                                activeUser : {
-                                    rankone : {
-                                         Title: "Active User",
-                                         Type: "Gold",
-                                         Rank: "Rank1",
-                                         Replies : 235,
+                            pushObj: {
+                                activeUser: {
+                                    rankone: {
+                                        Title: "Active User",
+                                        Type: "Gold",
+                                        Rank: "Rank1",
+                                        Replies: 235,
                                     }
                                 }
                             }
@@ -181,13 +326,13 @@
                             Type: "Gold",
                             Rank: "Rank2",
                             Replies: 275,
-                            pushObj : {
-                                activeUser : {
-                                    ranktwo : {
-                                         Title: "Active User",
-                                         Type: "Gold",
-                                         Rank: "Rank2",
-                                         Replies : 275,
+                            pushObj: {
+                                activeUser: {
+                                    ranktwo: {
+                                        Title: "Active User",
+                                        Type: "Gold",
+                                        Rank: "Rank2",
+                                        Replies: 275,
                                     }
                                 }
                             }
@@ -197,13 +342,13 @@
                             Type: "Gold",
                             Rank: "Rank3",
                             Replies: 315,
-                            pushObj : {
-                                activeUser : {
-                                    rankthree : {
-                                         Title: "Active User",
-                                         Type: "Gold",
-                                         Rank: "Rank3",
-                                         Replies : 315,
+                            pushObj: {
+                                activeUser: {
+                                    rankthree: {
+                                        Title: "Active User",
+                                        Type: "Gold",
+                                        Rank: "Rank3",
+                                        Replies: 315,
                                     }
                                 }
                             }
@@ -212,32 +357,32 @@
                             Title: "Active User",
                             Type: "Gold",
                             Rank: "Rank4",
-                            Replies : 350,
-                            pushObj : {
-                                activeUser : {
-                                    rankfour : {
-                                         Title: "Active User",
-                                         Type: "Gold",
-                                         Rank: "Rank4",
-                                         Replies : 350,
+                            Replies: 350,
+                            pushObj: {
+                                activeUser: {
+                                    rankfour: {
+                                        Title: "Active User",
+                                        Type: "Gold",
+                                        Rank: "Rank4",
+                                        Replies: 350,
                                     }
                                 }
                             }
                         },
                     },
-                    platinum : {
-                        rankone:  {
+                    platinum: {
+                        rankone: {
                             Title: "Active User",
                             Type: "Platinum",
                             Rank: "Rank1",
-                            Replies : 401,
-                            pushObj : {
-                                activeUser : {
-                                    rankone : {
-                                         Title: "Active User",
-                                         Type: "Platinum",
-                                         Rank: "Rank1",
-                                         Replies : 401,
+                            Replies: 401,
+                            pushObj: {
+                                activeUser: {
+                                    rankone: {
+                                        Title: "Active User",
+                                        Type: "Platinum",
+                                        Rank: "Rank1",
+                                        Replies: 401,
                                     }
                                 }
                             }
@@ -246,14 +391,14 @@
                             Title: "Active User",
                             Type: "Platinum",
                             Rank: "Rank2",
-                            Replies : 580,
-                            pushObj : {
-                                activeUser : {
-                                    ranktwo : {
-                                         Title: "Active User",
-                                         Type: "Platinum",
-                                         Rank: "Rank2",
-                                         Replies : 580,
+                            Replies: 580,
+                            pushObj: {
+                                activeUser: {
+                                    ranktwo: {
+                                        Title: "Active User",
+                                        Type: "Platinum",
+                                        Rank: "Rank2",
+                                        Replies: 580,
                                     }
                                 }
                             }
@@ -262,14 +407,14 @@
                             Title: "Active User",
                             Type: "Platinum",
                             Rank: "Rank3",
-                            Replies : 1000,
-                            pushObj : {
-                                activeUser : {
-                                    rankthree : {
-                                         Title: "Active User",
-                                         Type: "Platinum",
-                                         Rank: "Rank3",
-                                         Replies : 1000,
+                            Replies: 1000,
+                            pushObj: {
+                                activeUser: {
+                                    rankthree: {
+                                        Title: "Active User",
+                                        Type: "Platinum",
+                                        Rank: "Rank3",
+                                        Replies: 1000,
                                     }
                                 }
                             }
@@ -278,18 +423,18 @@
                             Title: "Active User",
                             Type: "Platinum",
                             Rank: "Rank4",
-                            Replies : 5000,
-                             pushObj : {
-                                activeUser : {
-                                    rankfour : {
-                                         Title: "Active User",
-                                         Type: "Platinum",
-                                         Rank: "Rank4",
-                                         Replies : 5000,
+                            Replies: 5000,
+                            pushObj: {
+                                activeUser: {
+                                    rankfour: {
+                                        Title: "Active User",
+                                        Type: "Platinum",
+                                        Rank: "Rank4",
+                                        Replies: 5000,
                                     }
                                 }
                             }
-                            
+
                         },
                     }
                 }

@@ -35,22 +35,8 @@
         }
         
         
-    
+        //SETTING UP CHANIGNE EMAIL
         $scope.changeEmail = function(ev) {
-            if(isPassChange() == true)
-            {
-               $mdDialog.show(
-                  $mdDialog.alert()
-                    .parent(angular.element(document.getElementsByTagName("body")))
-                    .clickOutsideToClose(true)
-                    .title('Email')
-                    .textContent('Cant change email since your logged in from a provider')
-                    .ariaLabel('Alert Dialog Demo')
-                    .ok('Got it!')
-                    .targetEvent(ev)
-                ); 
-            }
-            else{
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
             $mdDialog.show({
                     controller: 'emailSettingsCtrl',
@@ -78,7 +64,6 @@
             }, function(wantsFullScreen) {
                 $scope.customFullscreen = (wantsFullScreen === true);
             });
-            }
         }
 
         $scope.descriptonChange = function(ev) {

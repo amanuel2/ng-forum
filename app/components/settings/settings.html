@@ -8,24 +8,15 @@
     
         <md-content md-theme="default" class="md_content_settings">
             <md-tabs>
-              <md-tab label="Account Info">
+              <md-tab label="Public">
         
-                <span class="info">Email : {{Email}}</span>
-                 <md-button class="md-raised" ng-click="changeEmail($event);">
-                    Change
-                </md-button>
-                <br>
+               
                 <span class="info">Username : {{Username}}</span>
                  <md-button class="md-raised md-primary" ng-click="changeUsername($event);">
                     Change
                 </md-button>
                 <br>
-                <span class="info">Password : {{passwordSHARP}}</span>
-                
-                <md-button class="md-raised md-accent" id="password_button" ng-click="changePassword($event);">
-                    Change
-                </md-button>
-                <br>
+               
                 <div>
                     <span class="info">Avatar :</span> <img ng-src="{{userInfo.Image}}" class="avatarr avatar-img"/>
                     <md-button class="md-raised" ng-click="changeImage($event);">
@@ -33,13 +24,33 @@
                     </md-button>
                 </div>
                 <br>
-                <span class="info">UID : {{uid}}</span>
+                <div>
+                     <p class="info">Descripton(See Descripton In Profile)</p>
+                   <md-button class="md-raised" id="descChange" ng-click="descriptonChange($event);">Update Desripton</md-button>
+                </div>
               </md-tab>
-              <md-tab label="Update Descripton">
-                   <p class="info">See Your Descripton in your profile page</p>
-                   <md-button class="md-accent" ng-click="descriptonChange($event);">Update Descripton</md-button>
+              <md-tab label="Private">
+                  
+                   <span class="info">Email : {{Email}}</span>
+                 <md-button class="md-raised" ng-click="changeEmail($event);">
+                    Change
+                </md-button>
+                <br>
+                
+                 <span class="info">Password : {{passwordSHARP}}</span>
+                
+                <md-button class="md-raised md-accent" id="password_button" ng-click="changePassword($event);">
+                    Change
+                </md-button>
+                
+                <span class="info">UID : {{uid}}  (DONT TELL ANYONE YOUR UID!)</span>
+                <br>
+                  
               </md-tab>
-              <md-tab label="Logout" ng-click="logout();">Logout</md-tab>
+              <md-tab label="Dangerous">
+                  
+                  Delete User <md-button class="md-accent md-raised" id="deleteUserButton"> DELETE USER </md-button>
+              </md-tab>
             </md-tabs>
          </md-content>
 </div>
