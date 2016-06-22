@@ -26,27 +26,372 @@
 
 
         //2 Topics Bronze 1 
-        //10 Bronze 2 
-        //15  Bronze 3 
-        //20 Bronze 4 
-        // 25 Silver 1 
-        // 100 Silver 2 
-        // 160 silver 3 
-        // 172 silver 4 
-        // 205 Gold 1 
-        // 245 Gold 2 
-        // 301 Gold 3 
-        // 345 Gold 4 
-        // 365 Plat 1 
-        // 401 Plat 2 
-        // 465 plat 3 
-        // 500 plat 4 
-    
-    
-
-        //5 TOPICS
+        //10 Bronze Rank 2 
+        //15  Bronze Rank 3 
+        //20 Bronze Rank 4 
+        // 25 Silver Rank 1 
+        // 35 Silver Rank 2 
+        // 50 silver Rank 3 
+        // 75 silver Rank 4  
+        // 100 Gold  Rank 1 
+        // 125 Gold Rank 2 
+        // 150 Gold Rank 3 
+        // 175 Gold Rank4 
+        // 200 Plat Rank1  
+        // 240 Plat Rank2 
+        // 275 plat Rank3 
+        // 300 plat Rank4 
 
 
+
+        //1st day bronze 1
+        //5day bronze 2
+        //20day bronze 3
+        //30day bronze 4
+        //50day silver 1
+        //100day silver 2
+        //120day silver 3
+        //150day silver 4
+        //200day gold 1
+        //225day gold 2
+        //250day gold 3
+        //275 day gold 4
+        //280 day platunum 1
+        //300day playinum 2
+        //330 day playinum 3
+        //350 day platinum 4
+
+
+        this.getDaysVisitedBadges = function() {
+
+            return ({
+
+                daysVisited: {
+
+                    bronze: {
+
+                        rankone: {
+                            Title: "New Comer |",
+                            Type: "Bronze",
+                            Rank: "Rank1",
+                            Days: 1,
+                            pushObj: {
+                                activeUser: {
+                                    rankone: {
+                                        Title: "New Comer |",
+                                        Type: "Bronze",
+                                        Rank: "Rank1",
+                                        Days: 1,
+                                    }
+                                }
+                            }
+
+                        },
+
+                        ranktwo: {
+
+                            Title: "New Comer ||",
+                            Type: "Bronze",
+                            Rank: "Rank2",
+                            Days: 5,
+                            pushObj: {
+                                activeUser: {
+                                    rankone: {
+                                        Title: "New Comer ||",
+                                        Type: "Bronze",
+                                        Rank: "Rank2",
+                                        Days: 5,
+                                    }
+                                }
+                            }
+
+                        },
+
+                        rankthree: {
+
+                            Title: "New Comer |||",
+                            Type: "Bronze",
+                            Rank: "Rank3",
+                            Days: 20,
+                            pushObj: {
+                                activeUser: {
+                                    rankone: {
+                                        Title: "New Comer |||",
+                                        Type: "Bronze",
+                                        Rank: "Rank3",
+                                        Days: 20,
+                                    }
+                                }
+                            }
+
+                        },
+
+                        rankfour: {
+
+                            Title: "New Comer ||||",
+                            Type: "Bronze",
+                            Rank: "Rank4",
+                            Days: 30,
+                            pushObj: {
+                                activeUser: {
+                                    rankone: {
+                                        Title: "New Comer ||||",
+                                        Type: "Bronze",
+                                        Rank: "Rank4",
+                                        Days: 30,
+                                    }
+                                }
+                            }
+
+                        },
+
+                    },
+                    silver: {
+
+                        rankone: {
+
+                            Title: "Moderate Comer |",
+                            Type: "Silver",
+                            Rank: "Rank1",
+                            Days: 50,
+                            pushObj: {
+                                activeUser: {
+                                    rankone: {
+                                        Title: "Moderate Comer |",
+                                        Type: "Silver",
+                                        Rank: "Rank1",
+                                        Days: 50,
+                                    }
+                                }
+                            }
+
+                        },
+
+                        ranktwo: {
+
+                            Title: "Moderate Comer ||",
+                            Type: "Silver",
+                            Rank: "Rank2",
+                            Days: 100,
+                            pushObj: {
+                                activeUser: {
+                                    rankone: {
+                                        Title: "Moderate Comer ||",
+                                        Type: "Silver",
+                                        Rank: "Rank2",
+                                        Days: 100,
+                                    }
+                                }
+                            }
+
+                        },
+
+                        rankthree: {
+
+                            Title: "Moderate Comer |||",
+                            Type: "Silver",
+                            Rank: "Rank3",
+                            Days: 120,
+                            pushObj: {
+                                activeUser: {
+                                    rankone: {
+                                        Title: "Moderate Comer |||",
+                                        Type: "Silver",
+                                        Rank: "Rank3",
+                                        Days: 120,
+                                    }
+                                }
+                            }
+
+                        },
+
+                        rankfour: {
+
+                            Title: "Moderate Comer ||||",
+                            Type: "Silver",
+                            Rank: "Rank4",
+                            Days: 150,
+                            pushObj: {
+                                activeUser: {
+                                    rankone: {
+                                        Title: "Moderate Comer ||||",
+                                        Type: "Silver",
+                                        Rank: "Rank4",
+                                        Days: 150,
+                                    }
+                                }
+                            }
+
+                        },
+
+                    },
+                    gold: {
+
+                        rankone: {
+
+                            Title: "Welcome Back |",
+                            Type: "Gold",
+                            Rank: "Rank1",
+                            Days: 200,
+                            pushObj: {
+                                activeUser: {
+                                    rankone: {
+                                        Title: "Welcome Back |",
+                                        Type: "Gold",
+                                        Rank: "Rank1",
+                                        Days: 200,
+                                    }
+                                }
+                            }
+
+                        },
+
+                        ranktwo: {
+
+
+                            Title: "Welcome Back ||",
+                            Type: "Gold",
+                            Rank: "Rank2",
+                            Days: 225,
+                            pushObj: {
+                                activeUser: {
+                                    rankone: {
+                                        Title: "Welcome Back ||",
+                                        Type: "Gold",
+                                        Rank: "Rank2",
+                                        Days: 225,
+                                    }
+                                }
+                            }
+
+                        },
+
+                        rankthree: {
+
+                            Title: "Welcome Back |||",
+                            Type: "Gold",
+                            Rank: "Rank3",
+                            Days: 250,
+                            pushObj: {
+                                activeUser: {
+                                    rankone: {
+                                        Title: "Welcome Back |||",
+                                        Type: "Gold",
+                                        Rank: "Rank3",
+                                        Days: 250,
+                                    }
+                                }
+                            }
+
+                        },
+
+                        rankfour: {
+
+                            Title: "Welcome Back ||||",
+                            Type: "Gold",
+                            Rank: "Rank4",
+                            Days: 275,
+                            pushObj: {
+                                activeUser: {
+                                    rankone: {
+                                        Title: "Welcome Back ||||",
+                                        Type: "Gold",
+                                        Rank: "Rank4",
+                                        Days: 275,
+                                    }
+                                }
+                            }
+
+                        },
+
+                    },
+                    platinum: {
+
+                        rankone: {
+
+                            Title: "Oldie |",
+                            Type: "Platinum",
+                            Rank: "Rank1",
+                            Days: 280,
+                            pushObj: {
+                                activeUser: {
+                                    rankone: {
+                                        Title: "Oldie |",
+                                        Type: "Platinum",
+                                        Rank: "Rank1",
+                                        Days: 280,
+                                    }
+                                }
+                            }
+
+                        },
+
+                        ranktwo: {
+
+                            Title: "Oldie ||",
+                            Type: "Platinum",
+                            Rank: "Rank2",
+                            Days: 300,
+                            pushObj: {
+                                activeUser: {
+                                    rankone: {
+                                        Title: "Oldie ||",
+                                        Type: "Platinum",
+                                        Rank: "Rank2",
+                                        Days: 300,
+                                    }
+                                }
+                            }
+
+
+                        },
+
+                        rankthree: {
+
+                            Title: "Oldie |||",
+                            Type: "Platinum",
+                            Rank: "Rank3",
+                            Days: 330,
+                            pushObj: {
+                                activeUser: {
+                                    rankone: {
+                                        Title: "Oldie |||",
+                                        Type: "Platinum",
+                                        Rank: "Rank3",
+                                        Days: 330,
+                                    }
+                                }
+                            }
+
+
+                        },
+
+                        rankfour: {
+
+                            Title: "Oldie ||||",
+                            Type: "Platinum",
+                            Rank: "Rank4",
+                            Days: 350,
+                            pushObj: {
+                                activeUser: {
+                                    rankone: {
+                                        Title: "Oldie ||||",
+                                        Type: "Platinum",
+                                        Rank: "Rank4",
+                                        Days: 350,
+                                    }
+                                }
+                            }
+
+
+                        },
+
+                    },
+
+                }
+            })
+
+        }
 
 
         this.getTopicBadges = function() {
@@ -55,14 +400,14 @@
 
                     bronze: {
                         rankone: {
-                            Title: "Question Lover",
+                            Title: "Question Lover |",
                             Type: "Bronze",
                             Rank: "Rank1",
                             Topics: 2,
                             pushObj: {
                                 activeUser: {
                                     rankone: {
-                                        Title: "Question Lover",
+                                        Title: "Question Lover |",
                                         Type: "Bronze",
                                         Rank: "Rank1",
                                         Topics: 2,
@@ -72,14 +417,14 @@
                         },
                         ranktwo: {
 
-                            Title: "Active Member",
+                            Title: "Question Lover ||",
                             Type: "Bronze",
                             Rank: "Rank2",
                             Topics: 10,
                             pushObj: {
                                 activeUser: {
                                     rankone: {
-                                        Title: "Active User",
+                                        Title: "Question Lover ||",
                                         Type: "Bronze",
                                         Rank: "Rank2",
                                         Topics: 10,
@@ -88,33 +433,33 @@
                             },
                         },
                         rankthree: {
-                            Title: "Hyper Member",
+                            Title: "Question Lover |||",
                             Type: "Bronze",
                             Rank: "Rank2",
-                            Topics: 20,
+                            Topics: 15,
                             pushObj: {
                                 activeUser: {
                                     rankone: {
-                                        Title: "Hyper Member",
+                                        Title: "Question Lover |||",
                                         Type: "Bronze",
                                         Rank: "Rank3",
-                                        Topics: 20,
+                                        Topics: 15,
                                     }
                                 }
                             },
                         },
                         rankfour: {
-                            Title: "Addicted Member",
+                            Title: "Question Lover ||||",
                             Type: "Bronze",
                             Rank: "Rank4",
-                            Topics: 25,
+                            Topics: 20,
                             pushObj: {
                                 activeUser: {
                                     rankone: {
-                                        Title: "addicted member",
+                                        Title: "Question Lover ||||",
                                         Type: "Bronze",
                                         Rank: "Rank4",
-                                        Topics: 25,
+                                        Topics: 20,
                                     }
                                 }
 
@@ -124,42 +469,215 @@
                     silver: {
                         rankone: {
 
+                            Title: "Questionare |",
+                            Type: "Silver",
+                            Rank: "Rank1",
+                            Topics: 25,
+                            pushObj: {
+                                activeUser: {
+                                    rankone: {
+                                        Title: "Questionare |",
+                                        Type: "Silver",
+                                        Rank: "Rank1",
+                                        Topics: 25,
+                                    }
+                                }
+
+                            }
+
+
+
                         },
                         ranktwo: {
 
-                        },
-                        rankthree: {
+                            Title: "Questionare ||",
+                            Type: "Silver",
+                            Rank: "Rank2",
+                            Topics: 35,
+                            pushObj: {
+                                activeUser: {
+                                    rankone: {
+                                        Title: "Questionare ||",
+                                        Type: "Silver",
+                                        Rank: "Rank2",
+                                        Topics: 35,
+                                    }
+                                }
+
+                            }
 
                         },
+                        rankthree: {
+                            Title: "Questionare |||",
+                            Type: "Silver",
+                            Rank: "Rank3",
+                            Topics: 50,
+                            pushObj: {
+                                activeUser: {
+                                    rankone: {
+                                        Title: "Questionare |||",
+                                        Type: "Silver",
+                                        Rank: "Rank3",
+                                        Topics: 50,
+                                    }
+                                }
+
+                            }
+                        },
                         rankfour: {
+                            Title: "Questionare ||||",
+                            Type: "Silver",
+                            Rank: "Rank4",
+                            Topics: 75,
+                            pushObj: {
+                                activeUser: {
+                                    rankone: {
+                                        Title: "Questionare ||||",
+                                        Type: "Silver",
+                                        Rank: "Rank4",
+                                        Topics: 75,
+                                    }
+                                }
+
+                            }
 
                         }
                     },
                     gold: {
                         rankone: {
+                            Title: "Monsterous |",
+                            Type: "Gold",
+                            Rank: "Rank1",
+                            Topics: 100,
+                            pushObj: {
+                                activeUser: {
+                                    rankone: {
+                                        Title: "Monsterous |",
+                                        Type: "Gold",
+                                        Rank: "Rank1",
+                                        Topics: 100,
+                                    }
+                                }
 
+                            }
                         },
                         ranktwo: {
+                            Title: "Monsterous ||",
+                            Type: "Gold",
+                            Rank: "Rank2",
+                            Topics: 125,
+                            pushObj: {
+                                activeUser: {
+                                    rankone: {
+                                        Title: "Monsterous ||",
+                                        Type: "Gold",
+                                        Rank: "Rank2",
+                                        Topics: 125,
+                                    }
+                                }
 
+                            }
                         },
                         rankthree: {
-
+                            Title: "Monsterous |||",
+                            Type: "Gold",
+                            Rank: "Rank3",
+                            Topics: 150,
+                            pushObj: {
+                                activeUser: {
+                                    rankone: {
+                                        Title: "Monsterous |||",
+                                        Type: "Gold",
+                                        Rank: "Rank3",
+                                        Topics: 150,
+                                    }
+                                }
+                            }
                         },
                         rankfour: {
-
+                            Title: "Monsterous ||||",
+                            Type: "Gold",
+                            Rank: "Rank4",
+                            Topics: 175,
+                            pushObj: {
+                                activeUser: {
+                                    rankone: {
+                                        Title: "Monsterous ||||",
+                                        Type: "Gold",
+                                        Rank: "Rank4",
+                                        Topics: 175,
+                                    }
+                                }
+                            }
                         }
                     },
                     platinum: {
                         rankone: {
-
+                            Title: "Crusher |",
+                            Type: "Platinum",
+                            Rank: "Rank1",
+                            Topics: 200,
+                            pushObj: {
+                                activeUser: {
+                                    rankone: {
+                                        Title: "Crusher |",
+                                        Type: "Platinum",
+                                        Rank: "Rank1",
+                                        Topics: 200,
+                                    }
+                                }
+                            }
                         },
                         ranktwo: {
+                            Title: "Crusher ||",
+                            Type: "Platinum",
+                            Rank: "Rank2",
+                            Topics: 240,
+                            pushObj: {
+                                activeUser: {
+                                    rankone: {
+                                        Title: "Crusher ||",
+                                        Type: "Platinum",
+                                        Rank: "Rank2",
+                                        Topics: 240,
+                                    }
+                                }
+
+                            }
 
                         },
                         rankthree: {
-
+                            Title: "Crusher |||",
+                            Type: "Platinum",
+                            Rank: "Rank3",
+                            Topics: 275,
+                            pushObj: {
+                                activeUser: {
+                                    rankone: {
+                                        Title: "Crusher |||",
+                                        Type: "Platinum",
+                                        Rank: "Rank3",
+                                        Topics: 275,
+                                    }
+                                }
+                            }
                         },
                         rankfour: {
+                            Title: "Crusher ||||",
+                            Type: "Platinum",
+                            Rank: "Rank4",
+                            Topics: 300,
+                            pushObj: {
+                                activeUser: {
+                                    rankone: {
+                                        Title: "Crusher ||||",
+                                        Type: "Platinum",
+                                        Rank: "Rank4",
+                                        Topics: 300,
+                                    }
+                                }
+
+                            }
 
                         }
                     }
