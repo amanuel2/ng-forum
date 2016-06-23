@@ -27,26 +27,25 @@
        } 
 
 
-         var arrayOfPrevious5Days = [];        
-         var date = Date.now();
-         var date = parseInt(date);
-         var newDate = new Date(parseInt(date));
+        //  var arrayOfPrevious5Days = [];        
+        //  var date = Date.now();
+        //  var date = parseInt(date);
+        //  var newDate = new Date(parseInt(date));
         
-         newDate = JSON.stringify(newDate);
-         newDate = newDate.replaceAll('"', '');
-         newDate = newDate.substring(8,10);
-         var dateNum = parseInt(newDate);
-         var dateDiff5 = dateNum-5;
-         for(var i=dateNum; i>dateDiff5; i--)
-              arrayOfPrevious5Days.push(i);
-         var index_zero = arrayOfPrevious5Days[0];
-         var index_one = arrayOfPrevious5Days[1];
-         var index_two = arrayOfPrevious5Days[2];
-         var index_three = arrayOfPrevious5Days[3];
-         var index_four = arrayOfPrevious5Days[4];
+        //  newDate = JSON.stringify(newDate);
+        //  newDate = newDate.replaceAll('"', '');
+        //  newDate = newDate.substring(8,10);
+        //  var dateNum = parseInt(newDate);
+        //  var dateDiff5 = dateNum-5;
+        //  for(var i=dateNum; i>dateDiff5; i--)
+        //       arrayOfPrevious5Days.push(i);
+        //  var index_zero = arrayOfPrevious5Days[0];
+        //  var index_one = arrayOfPrevious5Days[1];
+        //  var index_two = arrayOfPrevious5Days[2];
+        //  var index_three = arrayOfPrevious5Days[3];
+        //  var index_four = arrayOfPrevious5Days[4];
            
-        
-        console.log(arrayOfPrevious5Days)
+
          var obj = $firebaseObject(refService.ref().child("UserAuthInfo").child($scope.currentAuthGetPro.uid));
          var objPres = $firebaseObject(refService.ref().child("presence"));
          
