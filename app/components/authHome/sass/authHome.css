@@ -87,4 +87,9 @@ button.md-icon-button.notifications_icon.notifications-wrapper.md-button.md-ink-
     .follow:hover i {
       margin-right: 10px; }
 
+.menu_bar {
+  fill: white;
+  position: relative;
+  left: -25px; }
+
 /*# sourceMappingURL=authHome.css.map */
