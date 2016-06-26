@@ -122,6 +122,7 @@
                                                                 profileViews: 0,
                                                                 Precence: -1,
                                                                 Points : 0,
+                                                                DateJoined : Date.now(),
                                                             })
                                                             alertify.success("Sucessfully Reistered. Login Now!");
                                                             refService.ref().unauth();
@@ -144,6 +145,7 @@
                                                                 profileViews: 0,
                                                                 Precence: -1,
                                                                 Points : 0,
+                                                                DateJoined : Date.now(),
                                                             })
                                                             alertify.success("Sucessfully Reistered. Login Now!");
                                                             refService.ref().unauth();
@@ -167,6 +169,7 @@
                                                             profileViews: 0,
                                                             Precence: -1,
                                                             Points : 0,
+                                                            DateJoined : Date.now(),
                                                         })
                                                         alertify.success("Sucessfully Reistered. Login Now!");
                                                         refService.ref().unauth();
@@ -228,6 +231,7 @@
                                                                         profileViews: 0,
                                                                         Precence: -1,
                                                                         Points : 0,
+                                                                        DateJoined : Date.now(),
                                                                     })
                                                                     alertify.success("Sucessfully Reistered. Login Now!");
                                                                     refService.ref().unauth();
@@ -250,6 +254,7 @@
                                                                         profileViews: 0,
                                                                         Precence: -1,
                                                                         Points : 0,
+                                                                        DateJoined : Date.now(),
                                                                     })
                                                                     alertify.success("Sucessfully Reistered. Login Now!");
                                                                     refService.ref().unauth();
@@ -371,6 +376,7 @@
                                                 profileViews: 0,
                                                 Precence: -1,
                                                 Points : 0,
+                                                DateJoined : Date.now(),
                                             });
 
                                         }, 1500)
