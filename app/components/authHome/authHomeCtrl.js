@@ -36,6 +36,7 @@
 
 
 
+
         //ADD TAGS
         if (!alertify.myAlert) {
             alertify.dialog('myAlert', function() {
@@ -125,6 +126,29 @@
                 "USERNAME": $scope.Username
             })
         }
+
+        if ($scope.authData.uid) {
+            refService.ref().child("UserAuthInfo").child($scope.authData.uid).once("value", function(snapTour) {
+
+                if (snapTour.val().newUser == true) {
+                    $mdDialog.show(
+                        $mdDialog.alert()
+                        .clickOutsideToClose(true)
+                        .title('Welcome New User')
+                        .textContent('Hello, We will like to introduce you to Ng-Forum! First, you can naviagte through your profile, settings, go to this forum, or even logout by clicking on your avatar. If you would like to see badges, FAQ, etc.. you can click on the menu bar. You can navigate through the forum topics, below on this page. And to see replies and so on for a topic, just click on the topic you wish. If you want to create a new topic, just click the create a new topic button. If you have any questions be sure to PM(Private Message) Mods, or email me at abogale2@gmail.com. Hope you enjoy using this forum :) !')
+                        .ariaLabel('Touring New User')
+                        .ok('Got it!')
+                        .targetEvent(document.body)
+                    );
+                    refService.ref().child("UserAuthInfo").child($scope.authData.uid).update({
+                        newUser : false
+                    })
+                }
+            })
+
+
+        }
+
 
 
 
@@ -408,431 +432,399 @@
             })
 
         })
-        
-        
-        
+
+
+
         $scope.topicBadges = badgesService.getTopicBadges();
         $scope.topicCount = 0;
-        refService.ref().child("Topics").once("value", function(snapBadTopics){
-            snapBadTopics.forEach(function(snapBadTopicsChild){
-                if(snapBadTopicsChild.val().UID == $scope.currentAuthGetHome.uid)
-                    $scope.topicCount++;
-            })
-            //BRONZE
-            if($scope.topicCount >= $scope.topicBadges.questionLover.bronze.rankone.Topics){
+        refService.ref().child("Topics").once("value", function(snapBadTopics) {
+            snapBadTopics.forEach(function(snapBadTopicsChild) {
+                    if (snapBadTopicsChild.val().UID == $scope.currentAuthGetHome.uid)
+                        $scope.topicCount++;
+                })
+                //BRONZE
+            if ($scope.topicCount >= $scope.topicBadges.questionLover.bronze.rankone.Topics) {
                 refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("BronzeBadge").child("Topics").child("RankOne").set({
-                    BronzeBadge:$scope.topicBadges.questionLover.bronze.rankone.Topics
+                    BronzeBadge: $scope.topicBadges.questionLover.bronze.rankone.Topics
                 })
             }
-            else
-            {
-                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("BronzeBadge").child("Topics").child("RankOne").remove(function(err){ 
-                    if(err)
+            else {
+                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("BronzeBadge").child("Topics").child("RankOne").remove(function(err) {
+                    if (err)
                         alertify.error("Internal Error")
                 })
             }
-             if($scope.topicCount >= $scope.topicBadges.questionLover.bronze.ranktwo.Topics){
+            if ($scope.topicCount >= $scope.topicBadges.questionLover.bronze.ranktwo.Topics) {
                 refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("BronzeBadge").child("Topics").child("RankTwo").set({
-                    BronzeBadge:$scope.topicBadges.questionLover.bronze.ranktwo.Topics
+                    BronzeBadge: $scope.topicBadges.questionLover.bronze.ranktwo.Topics
                 })
             }
-            else
-            {
-                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("BronzeBadge").child("Topics").child("RankTwo").remove(function(err){ 
-                    if(err)
+            else {
+                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("BronzeBadge").child("Topics").child("RankTwo").remove(function(err) {
+                    if (err)
                         alertify.error("Internal Error")
                 })
             }
-             if($scope.topicCount >= $scope.topicBadges.questionLover.bronze.rankthree.Topics){
+            if ($scope.topicCount >= $scope.topicBadges.questionLover.bronze.rankthree.Topics) {
                 refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("BronzeBadge").child("Topics").child("RankThree").set({
-                    BronzeBadge:$scope.topicBadges.questionLover.bronze.rankthree.Topics
+                    BronzeBadge: $scope.topicBadges.questionLover.bronze.rankthree.Topics
                 })
             }
-            else
-            {
-                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("BronzeBadge").child("Topics").child("RankThree").remove(function(err){ 
-                    if(err)
+            else {
+                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("BronzeBadge").child("Topics").child("RankThree").remove(function(err) {
+                    if (err)
                         alertify.error("Internal Error")
                 })
             }
-             if($scope.topicCount >= $scope.topicBadges.questionLover.bronze.rankfour.Topics){
+            if ($scope.topicCount >= $scope.topicBadges.questionLover.bronze.rankfour.Topics) {
                 refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("BronzeBadge").child("Topics").child("RankFour").set({
-                    BronzeBadge:$scope.topicBadges.questionLover.bronze.rankfour.Topics
+                    BronzeBadge: $scope.topicBadges.questionLover.bronze.rankfour.Topics
                 })
             }
-            else
-            {
-                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("BronzeBadge").child("Topics").child("RankFour").remove(function(err){ 
-                    if(err)
+            else {
+                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("BronzeBadge").child("Topics").child("RankFour").remove(function(err) {
+                    if (err)
                         alertify.error("Internal Error")
                 })
             }
-            
+
             //SILVER
-            
-            if($scope.topicCount >= $scope.topicBadges.questionLover.silver.rankone.Topics){
+
+            if ($scope.topicCount >= $scope.topicBadges.questionLover.silver.rankone.Topics) {
                 refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("SilverBadge").child("Topics").child("RankOne").set({
-                    SilverBadge:$scope.topicBadges.questionLover.silver.rankone.Topics
+                    SilverBadge: $scope.topicBadges.questionLover.silver.rankone.Topics
                 })
             }
-            else
-            {
-                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("SilverBadge").child("Topics").child("RankOne").remove(function(err){ 
-                    if(err)
+            else {
+                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("SilverBadge").child("Topics").child("RankOne").remove(function(err) {
+                    if (err)
                         alertify.error("Internal Error")
                 })
             }
-             if($scope.topicCount >= $scope.topicBadges.questionLover.silver.ranktwo.Topics){
+            if ($scope.topicCount >= $scope.topicBadges.questionLover.silver.ranktwo.Topics) {
                 refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("SilverBadge").child("Topics").child("RankTwo").set({
-                    SilverBadge:$scope.topicBadges.questionLover.silver.ranktwo.Topics
+                    SilverBadge: $scope.topicBadges.questionLover.silver.ranktwo.Topics
                 })
             }
-            else
-            {
-                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("SilverBadge").child("Topics").child("RankTwo").remove(function(err){ 
-                    if(err)
+            else {
+                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("SilverBadge").child("Topics").child("RankTwo").remove(function(err) {
+                    if (err)
                         alertify.error("Internal Error")
                 })
             }
-             if($scope.topicCount >= $scope.topicBadges.questionLover.silver.rankthree.Topics){
+            if ($scope.topicCount >= $scope.topicBadges.questionLover.silver.rankthree.Topics) {
                 refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("SilverBadge").child("Topics").child("RankThree").set({
-                    SilverBadge:$scope.topicBadges.questionLover.silver.rankthree.Topics
+                    SilverBadge: $scope.topicBadges.questionLover.silver.rankthree.Topics
                 })
             }
-            else
-            {
-                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("SilverBadge").child("Topics").child("RankThree").remove(function(err){ 
-                    if(err)
+            else {
+                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("SilverBadge").child("Topics").child("RankThree").remove(function(err) {
+                    if (err)
                         alertify.error("Internal Error")
                 })
             }
-             if($scope.topicCount >= $scope.topicBadges.questionLover.silver.rankfour.Topics){
+            if ($scope.topicCount >= $scope.topicBadges.questionLover.silver.rankfour.Topics) {
                 refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("SilverBadge").child("Topics").child("RankFour").set({
-                    SilverBadge:$scope.topicBadges.questionLover.silver.rankfour.Topics
+                    SilverBadge: $scope.topicBadges.questionLover.silver.rankfour.Topics
                 })
             }
-            else
-            {
-                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("SilverBadge").child("Topics").child("RankFour").remove(function(err){ 
-                    if(err)
+            else {
+                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("SilverBadge").child("Topics").child("RankFour").remove(function(err) {
+                    if (err)
                         alertify.error("Internal Error")
                 })
             }
-            
+
             //GOLD
-            
-             if($scope.topicCount >= $scope.topicBadges.questionLover.gold.rankone.Topics){
+
+            if ($scope.topicCount >= $scope.topicBadges.questionLover.gold.rankone.Topics) {
                 refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("GoldBadge").child("Topics").child("RankOne").set({
-                    GoldBadge:$scope.topicBadges.questionLover.gold.rankone.Topics
+                    GoldBadge: $scope.topicBadges.questionLover.gold.rankone.Topics
                 })
             }
-            else
-            {
-                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("GoldBadge").child("Topics").child("RankOne").remove(function(err){ 
-                    if(err)
+            else {
+                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("GoldBadge").child("Topics").child("RankOne").remove(function(err) {
+                    if (err)
                         alertify.error("Internal Error")
                 })
             }
-             if($scope.topicCount >= $scope.topicBadges.questionLover.gold.ranktwo.Topics){
+            if ($scope.topicCount >= $scope.topicBadges.questionLover.gold.ranktwo.Topics) {
                 refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("GoldBadge").child("Topics").child("RankTwo").set({
-                    GoldBadge:$scope.topicBadges.questionLover.gold.ranktwo.Topics
+                    GoldBadge: $scope.topicBadges.questionLover.gold.ranktwo.Topics
                 })
             }
-            else
-            {
-                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("GoldBadge").child("Topics").child("RankTwo").remove(function(err){ 
-                    if(err)
+            else {
+                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("GoldBadge").child("Topics").child("RankTwo").remove(function(err) {
+                    if (err)
                         alertify.error("Internal Error")
                 })
             }
-             if($scope.topicCount >= $scope.topicBadges.questionLover.gold.rankthree.Topics){
+            if ($scope.topicCount >= $scope.topicBadges.questionLover.gold.rankthree.Topics) {
                 refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("GoldBadge").child("Topics").child("RankThree").set({
-                    GoldBadge:$scope.topicBadges.questionLover.gold.rankthree.Topics
+                    GoldBadge: $scope.topicBadges.questionLover.gold.rankthree.Topics
                 })
             }
-            else
-            {
-                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("GoldBadge").child("Topics").child("RankThree").remove(function(err){ 
-                    if(err)
+            else {
+                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("GoldBadge").child("Topics").child("RankThree").remove(function(err) {
+                    if (err)
                         alertify.error("Internal Error")
                 })
             }
-             if($scope.topicCount >= $scope.topicBadges.questionLover.gold.rankfour.Topics){
+            if ($scope.topicCount >= $scope.topicBadges.questionLover.gold.rankfour.Topics) {
                 refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("GoldBadge").child("Topics").child("RankFour").set({
-                    GoldBadge:$scope.topicBadges.questionLover.gold.rankfour.Topics
+                    GoldBadge: $scope.topicBadges.questionLover.gold.rankfour.Topics
                 })
             }
-            else
-            {
-                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("GoldBadge").child("Topics").child("RankFour").remove(function(err){ 
-                    if(err)
+            else {
+                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("GoldBadge").child("Topics").child("RankFour").remove(function(err) {
+                    if (err)
                         alertify.error("Internal Error")
                 })
             }
-            
-            
+
+
             //PLATNIUM
-            
-                 if($scope.topicCount >= $scope.topicBadges.questionLover.platinum.rankone.Topics){
+
+            if ($scope.topicCount >= $scope.topicBadges.questionLover.platinum.rankone.Topics) {
                 refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Platinum").child("Topics").child("RankOne").set({
-                    Platinum:$scope.topicBadges.questionLover.platinum.rankone.Topics
+                    Platinum: $scope.topicBadges.questionLover.platinum.rankone.Topics
                 })
             }
-            else
-            {
-                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Platinum").child("Topics").child("RankOne").remove(function(err){ 
-                    if(err)
+            else {
+                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Platinum").child("Topics").child("RankOne").remove(function(err) {
+                    if (err)
                         alertify.error("Internal Error")
                 })
             }
-             if($scope.topicCount >= $scope.topicBadges.questionLover.platinum.ranktwo.Topics){
+            if ($scope.topicCount >= $scope.topicBadges.questionLover.platinum.ranktwo.Topics) {
                 refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Platinum").child("Topics").child("RankTwo").set({
-                    Platinum:$scope.topicBadges.questionLover.platinum.ranktwo.Topics
+                    Platinum: $scope.topicBadges.questionLover.platinum.ranktwo.Topics
                 })
             }
-            else
-            {
-                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Platinum").child("Topics").child("RankTwo").remove(function(err){ 
-                    if(err)
+            else {
+                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Platinum").child("Topics").child("RankTwo").remove(function(err) {
+                    if (err)
                         alertify.error("Internal Error")
                 })
             }
-             if($scope.topicCount >= $scope.topicBadges.questionLover.platinum.rankthree.Topics){
+            if ($scope.topicCount >= $scope.topicBadges.questionLover.platinum.rankthree.Topics) {
                 refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Platinum").child("Topics").child("RankThree").set({
-                    Platinum:$scope.topicBadges.questionLover.platinum.rankthree.Topics
+                    Platinum: $scope.topicBadges.questionLover.platinum.rankthree.Topics
                 })
             }
-            else
-            {
-                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Platinum").child("Topics").child("RankThree").remove(function(err){ 
-                    if(err)
+            else {
+                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Platinum").child("Topics").child("RankThree").remove(function(err) {
+                    if (err)
                         alertify.error("Internal Error")
                 })
             }
-             if($scope.topicCount >= $scope.topicBadges.questionLover.platinum.rankfour.Topics){
+            if ($scope.topicCount >= $scope.topicBadges.questionLover.platinum.rankfour.Topics) {
                 refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Platinum").child("Topics").child("RankFour").set({
-                    Platinum:$scope.topicBadges.questionLover.platinum.rankfour.Topics
+                    Platinum: $scope.topicBadges.questionLover.platinum.rankfour.Topics
                 })
             }
-            else
-            {
-                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Platinum").child("Topics").child("RankFour").remove(function(err){ 
-                    if(err)
+            else {
+                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Platinum").child("Topics").child("RankFour").remove(function(err) {
+                    if (err)
                         alertify.error("Internal Error")
                 })
             }
-            
-            
+
+
         })
-        
-        
+
+
         $scope.daysVistedBadge = badgesService.getDaysVisitedBadges();
-        refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).once("value", function(daysVisited){
-            
+        refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).once("value", function(daysVisited) {
+
             $scope.daysSinceJoined = moment.duration((moment(new Date())).diff(moment(new Date(parseInt(daysVisited.val().DateJoined)))))._days
-            
+
             //Bronze
-            if($scope.daysSinceJoined>= ($scope.daysVistedBadge.daysVisited.bronze.rankone.Days)){
+            if ($scope.daysSinceJoined >= ($scope.daysVistedBadge.daysVisited.bronze.rankone.Days)) {
                 refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Bronze").child("DaysVisted").child("RankOne").set({
-                    Bronze : $scope.daysVistedBadge.daysVisited.bronze.rankone.pushObj
+                    Bronze: $scope.daysVistedBadge.daysVisited.bronze.rankone.pushObj
                 })
             }
-            else
-            {
-                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Bronze").child("DaysVisted").child("RankOne").remove(function(err){
-                     if(err)
+            else {
+                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Bronze").child("DaysVisted").child("RankOne").remove(function(err) {
+                    if (err)
                         alertify.error("Internal Error")
                 })
             }
-            if($scope.daysSinceJoined>= ($scope.daysVistedBadge.daysVisited.bronze.ranktwo.Days)){
+            if ($scope.daysSinceJoined >= ($scope.daysVistedBadge.daysVisited.bronze.ranktwo.Days)) {
                 refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Bronze").child("DaysVisted").child("RankTwo").set({
-                    Bronze : $scope.daysVistedBadge.daysVisited.bronze.ranktwo.pushObj
+                    Bronze: $scope.daysVistedBadge.daysVisited.bronze.ranktwo.pushObj
                 })
             }
-            else
-            {
-                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Bronze").child("DaysVisted").child("RankTwo").remove(function(err){
-                     if(err)
+            else {
+                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Bronze").child("DaysVisted").child("RankTwo").remove(function(err) {
+                    if (err)
                         alertify.error("Internal Error")
                 })
             }
-            if($scope.daysSinceJoined>= ($scope.daysVistedBadge.daysVisited.bronze.rankthree.Days)){
+            if ($scope.daysSinceJoined >= ($scope.daysVistedBadge.daysVisited.bronze.rankthree.Days)) {
                 refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Bronze").child("DaysVisted").child("RankThree").set({
-                    Bronze : $scope.daysVistedBadge.daysVisited.bronze.rankthree.pushObj
+                    Bronze: $scope.daysVistedBadge.daysVisited.bronze.rankthree.pushObj
                 })
             }
-            else
-            {
-                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Bronze").child("DaysVisted").child("RankThree").remove(function(err){
-                     if(err)
+            else {
+                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Bronze").child("DaysVisted").child("RankThree").remove(function(err) {
+                    if (err)
                         alertify.error("Internal Error")
                 })
             }
-            if($scope.daysSinceJoined>= ($scope.daysVistedBadge.daysVisited.bronze.rankfour.Days)){
+            if ($scope.daysSinceJoined >= ($scope.daysVistedBadge.daysVisited.bronze.rankfour.Days)) {
                 refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Bronze").child("DaysVisted").child("RankFour").set({
-                    Bronze : $scope.daysVistedBadge.daysVisited.bronze.rankfour.pushObj
+                    Bronze: $scope.daysVistedBadge.daysVisited.bronze.rankfour.pushObj
                 })
             }
-            else
-            {
-                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Bronze").child("DaysVisted").child("RankFour").remove(function(err){
-                     if(err)
+            else {
+                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Bronze").child("DaysVisted").child("RankFour").remove(function(err) {
+                    if (err)
                         alertify.error("Internal Error")
                 })
             }
-            
-            
+
+
             //Silver
-             if($scope.daysSinceJoined>= ($scope.daysVistedBadge.daysVisited.silver.rankone.Days)){
+            if ($scope.daysSinceJoined >= ($scope.daysVistedBadge.daysVisited.silver.rankone.Days)) {
                 refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Silver").child("DaysVisted").child("RankOne").set({
-                    Silver : $scope.daysVistedBadge.daysVisited.silver.rankone.pushObj
+                    Silver: $scope.daysVistedBadge.daysVisited.silver.rankone.pushObj
                 })
             }
-            else
-            {
-                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Silver").child("DaysVisted").child("RankOne").remove(function(err){
-                     if(err)
+            else {
+                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Silver").child("DaysVisted").child("RankOne").remove(function(err) {
+                    if (err)
                         alertify.error("Internal Error")
                 })
             }
-            if($scope.daysSinceJoined>= ($scope.daysVistedBadge.daysVisited.silver.ranktwo.Days)){
+            if ($scope.daysSinceJoined >= ($scope.daysVistedBadge.daysVisited.silver.ranktwo.Days)) {
                 refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Silver").child("DaysVisted").child("RankTwo").set({
-                    Silver : $scope.daysVistedBadge.daysVisited.silver.ranktwo.pushObj
+                    Silver: $scope.daysVistedBadge.daysVisited.silver.ranktwo.pushObj
                 })
             }
-            else
-            {
-                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Silver").child("DaysVisted").child("RankTwo").remove(function(err){
-                     if(err)
+            else {
+                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Silver").child("DaysVisted").child("RankTwo").remove(function(err) {
+                    if (err)
                         alertify.error("Internal Error")
                 })
             }
-            if($scope.daysSinceJoined>= ($scope.daysVistedBadge.daysVisited.silver.rankthree.Days)){
+            if ($scope.daysSinceJoined >= ($scope.daysVistedBadge.daysVisited.silver.rankthree.Days)) {
                 refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Silver").child("DaysVisted").child("RankThree").set({
-                    Silver : $scope.daysVistedBadge.daysVisited.silver.rankthree.pushObj
+                    Silver: $scope.daysVistedBadge.daysVisited.silver.rankthree.pushObj
                 })
             }
-            else
-            {
-                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Silver").child("DaysVisted").child("RankThree").remove(function(err){
-                     if(err)
+            else {
+                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Silver").child("DaysVisted").child("RankThree").remove(function(err) {
+                    if (err)
                         alertify.error("Internal Error")
                 })
             }
-            if($scope.daysSinceJoined>= ($scope.daysVistedBadge.daysVisited.silver.rankfour.Days)){
+            if ($scope.daysSinceJoined >= ($scope.daysVistedBadge.daysVisited.silver.rankfour.Days)) {
                 refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Silver").child("DaysVisted").child("RankFour").set({
-                    Silver : $scope.daysVistedBadge.daysVisited.silver.rankfour.pushObj
+                    Silver: $scope.daysVistedBadge.daysVisited.silver.rankfour.pushObj
                 })
             }
-            else
-            {
-                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Silver").child("DaysVisted").child("RankFour").remove(function(err){
-                     if(err)
+            else {
+                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Silver").child("DaysVisted").child("RankFour").remove(function(err) {
+                    if (err)
                         alertify.error("Internal Error")
                 })
             }
-            
-        //Gold
-          if($scope.daysSinceJoined>= ($scope.daysVistedBadge.daysVisited.gold.rankone.Days)){
+
+            //Gold
+            if ($scope.daysSinceJoined >= ($scope.daysVistedBadge.daysVisited.gold.rankone.Days)) {
                 refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Gold").child("DaysVisted").child("RankOne").set({
-                    Gold : $scope.daysVistedBadge.daysVisited.gold.rankone.pushObj
+                    Gold: $scope.daysVistedBadge.daysVisited.gold.rankone.pushObj
                 })
             }
-            else
-            {
-                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Gold").child("DaysVisted").child("RankOne").remove(function(err){
-                     if(err)
+            else {
+                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Gold").child("DaysVisted").child("RankOne").remove(function(err) {
+                    if (err)
                         alertify.error("Internal Error")
                 })
             }
-            if($scope.daysSinceJoined>= ($scope.daysVistedBadge.daysVisited.gold.ranktwo.Days)){
+            if ($scope.daysSinceJoined >= ($scope.daysVistedBadge.daysVisited.gold.ranktwo.Days)) {
                 refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Gold").child("DaysVisted").child("RankTwo").set({
-                    Gold : $scope.daysVistedBadge.daysVisited.gold.ranktwo.pushObj
+                    Gold: $scope.daysVistedBadge.daysVisited.gold.ranktwo.pushObj
                 })
             }
-            else
-            {
-                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Gold").child("DaysVisted").child("RankTwo").remove(function(err){
-                     if(err)
+            else {
+                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Gold").child("DaysVisted").child("RankTwo").remove(function(err) {
+                    if (err)
                         alertify.error("Internal Error")
                 })
             }
-            if($scope.daysSinceJoined>= ($scope.daysVistedBadge.daysVisited.gold.rankthree.Days)){
+            if ($scope.daysSinceJoined >= ($scope.daysVistedBadge.daysVisited.gold.rankthree.Days)) {
                 refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Gold").child("DaysVisted").child("RankThree").set({
-                    Gold : $scope.daysVistedBadge.daysVisited.gold.rankthree.pushObj
+                    Gold: $scope.daysVistedBadge.daysVisited.gold.rankthree.pushObj
                 })
             }
-            else
-            {
-                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Gold").child("DaysVisted").child("RankThree").remove(function(err){
-                     if(err)
+            else {
+                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Gold").child("DaysVisted").child("RankThree").remove(function(err) {
+                    if (err)
                         alertify.error("Internal Error")
                 })
             }
-            if($scope.daysSinceJoined>= ($scope.daysVistedBadge.daysVisited.gold.rankfour.Days)){
+            if ($scope.daysSinceJoined >= ($scope.daysVistedBadge.daysVisited.gold.rankfour.Days)) {
                 refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Gold").child("DaysVisted").child("RankFour").set({
-                    Gold : $scope.daysVistedBadge.daysVisited.gold.rankfour.pushObj
+                    Gold: $scope.daysVistedBadge.daysVisited.gold.rankfour.pushObj
                 })
             }
-            else
-            {
-                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Gold").child("DaysVisted").child("RankFour").remove(function(err){
-                     if(err)
+            else {
+                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Gold").child("DaysVisted").child("RankFour").remove(function(err) {
+                    if (err)
                         alertify.error("Internal Error")
                 })
             }
-            
+
             //platinum
-            if($scope.daysSinceJoined>= ($scope.daysVistedBadge.daysVisited.platinum.rankone.Days)){
+            if ($scope.daysSinceJoined >= ($scope.daysVistedBadge.daysVisited.platinum.rankone.Days)) {
                 refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Platinum").child("DaysVisted").child("RankOne").set({
-                    Platinum : $scope.daysVistedBadge.daysVisited.platinum.rankone.pushObj
+                    Platinum: $scope.daysVistedBadge.daysVisited.platinum.rankone.pushObj
                 })
             }
-            else
-            {
-                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Platinum").child("DaysVisted").child("RankOne").remove(function(err){
-                     if(err)
+            else {
+                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Platinum").child("DaysVisted").child("RankOne").remove(function(err) {
+                    if (err)
                         alertify.error("Internal Error")
                 })
             }
-            if($scope.daysSinceJoined>= ($scope.daysVistedBadge.daysVisited.platinum.ranktwo.Days)){
+            if ($scope.daysSinceJoined >= ($scope.daysVistedBadge.daysVisited.platinum.ranktwo.Days)) {
                 refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Platinum").child("DaysVisted").child("RankTwo").set({
-                    Platinum : $scope.daysVistedBadge.daysVisited.platinum.ranktwo.pushObj
+                    Platinum: $scope.daysVistedBadge.daysVisited.platinum.ranktwo.pushObj
                 })
             }
-            else
-            {
-                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Platinum").child("DaysVisted").child("RankTwo").remove(function(err){
-                     if(err)
+            else {
+                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Platinum").child("DaysVisted").child("RankTwo").remove(function(err) {
+                    if (err)
                         alertify.error("Internal Error")
                 })
             }
-            if($scope.daysSinceJoined>= ($scope.daysVistedBadge.daysVisited.platinum.rankthree.Days)){
+            if ($scope.daysSinceJoined >= ($scope.daysVistedBadge.daysVisited.platinum.rankthree.Days)) {
                 refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Platinum").child("DaysVisted").child("RankThree").set({
-                    Platinum : $scope.daysVistedBadge.daysVisited.platinum.rankthree.pushObj
+                    Platinum: $scope.daysVistedBadge.daysVisited.platinum.rankthree.pushObj
                 })
             }
-            else
-            {
-                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Platinum").child("DaysVisted").child("RankThree").remove(function(err){
-                     if(err)
+            else {
+                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Platinum").child("DaysVisted").child("RankThree").remove(function(err) {
+                    if (err)
                         alertify.error("Internal Error")
                 })
             }
-            if($scope.daysSinceJoined>= ($scope.daysVistedBadge.daysVisited.platinum.rankfour.Days)){
+            if ($scope.daysSinceJoined >= ($scope.daysVistedBadge.daysVisited.platinum.rankfour.Days)) {
                 refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Platinum").child("DaysVisted").child("RankFour").set({
-                    Platinum : $scope.daysVistedBadge.daysVisited.platinum.rankfour.pushObj
+                    Platinum: $scope.daysVistedBadge.daysVisited.platinum.rankfour.pushObj
                 })
             }
-            else
-            {
-                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Platinum").child("DaysVisted").child("RankFour").remove(function(err){
-                     if(err)
+            else {
+                refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Platinum").child("DaysVisted").child("RankFour").remove(function(err) {
+                    if (err)
                         alertify.error("Internal Error")
                 })
             }
-            
-            
+
+
         })
 
         /////BADGES HANDLING END////////////////////////////////////////
