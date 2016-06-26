@@ -118,4 +118,16 @@ button.md-icon-button.notifications_icon.notifications-wrapper.md-button.md-ink-
     left: -25px;
 }
 
+@media (max-width: 420px) {
+	.menu {
+		height: 74px;
+		.welcome-things {
+		  visibility: hidden;
+			.username {
+				font-size: 28px;
+				margin-left: 15px;
+			}
+		}
+	}
+}
 

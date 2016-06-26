@@ -136,3 +136,19 @@ html {
 	height: 50px;
 	border-radius: 50%;
 }
+	.markdown-wrapper {
+		display:none;
+	}
+@media (max-width: 420px) {
+	md-bottom-sheet.md-list.md-has-header.ng-scope {
+	    background: beige;
+	}
+		.markdown-wrapper {
+			display:none;
+			.markdown-show {
+				width: 100%;
+				word-break: break-all;
+				padding: 5px 15px;
+			}
+		}
+}

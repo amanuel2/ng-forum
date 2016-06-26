@@ -39,21 +39,26 @@
 		}
 	}
 }
+
 html {
 	background: #DDD;
 }
+
 body {
 	background: #DDD;
 }
+
 #MD-ICON-1 {
 	position: relative;
 	left: -40px;
 	bottom: -23px;
 }
+
 .avatar_custom {
 	width: 20px;
 	height: 20px;
 }
+
 .avatar_creator {
 	border-radius: 50%;
 	position: relative;
@@ -61,25 +66,30 @@ body {
 	top: 10px;
 	width: 30px;
 }
+
 .toolbar_new_topic {
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-end;
 }
+
 #NEW_TOPIC_BUTTON {
 	background-color: #81C784;
 	font-weight: 700;
 	margin-right: 50px;
 }
+
 span.views_icon {
 	position: relative;
 	top: 5px;
 }
+
 span.replies_list.md-secondary.ng-binding {
 	position: relative;
 	left: -55px;
 	top: 18px;
 }
+
 .user-avatar-wrapper {
 	padding: 0;
 	margin: 0;
@@ -90,18 +100,21 @@ span.replies_list.md-secondary.ng-binding {
 	display: flex;
 	align-items: center;
 }
+
 .search_autocomplete {
 	font-family: FontAwesome;
 	font-style: normal;
 	font-weight: 400;
 	text-decoration: inherit;
 }
+
 input#input-0 {
 	font-family: FontAwesome;
 	font-style: normal;
 	font-weight: 400;
 	text-decoration: inherit;
 }
+
 .tags {
 	margin: 0;
 	padding: 0;
@@ -169,35 +182,56 @@ input#input-0 {
 		}
 	}
 }
+
 span.last_activity.ng-binding {
 	position: relative;
 	right: 129px;
 }
+
 ul.tags {
 	position: absolute;
 	right: 1138px;
 	bottom: 20px;
 }
+
 span.bookmark_icon {
 	position: relative;
 	right: 130px;
 	top: 1px;
 }
+
 .user-avatar {
 	height: 50px;
 	width: 50px;
 	border-radius: 50%;
 }
-md-list.ng-scope.md-whiteframe-24dp.flex-sm-55.flex-gt-sm-45.flex-gt-md-45 {
-	position: relative;
-	top: 25px;
-	left: 25px;
-	background: #EF5350;
-}
+
 md-list-item.md-3-line.ng-scope.md-clickable {
 	background-color: #EF5350;
 }
+
 .tags a {
-    position: relative;
-    left: 800px;
+	position: relative;
+	left: 800px;
+}
+
+@media (min-width: 1280px) {
+	md-list.ng-scope.md-whiteframe-24dp.flex-sm-55.flex-gt-sm-45.flex-gt-md-45 {
+		position: relative;
+		top: 25px;
+		left: 25px;
+		background: #EF5350;
+	}
+}
+
+@media (max-width: 420px) {
+	span.last_activity.ng-binding {
+		display: none;
+	}
+	md-list.ng-scope.md-whiteframe-24dp.flex-sm-55.flex-gt-sm-45.flex-gt-md-45 {
+		position: relative;
+		top: 25px;
+		left: 14px;
+		background: #EF5350;
+	}
 }

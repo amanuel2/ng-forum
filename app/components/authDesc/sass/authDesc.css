@@ -167,17 +167,27 @@ span.bookmark_icon {
   width: 50px;
   border-radius: 50%; }
 
-md-list.ng-scope.md-whiteframe-24dp.flex-sm-55.flex-gt-sm-45.flex-gt-md-45 {
-  position: relative;
-  top: 25px;
-  left: 25px;
-  background: #EF5350; }
-
 md-list-item.md-3-line.ng-scope.md-clickable {
   background-color: #EF5350; }
 
 .tags a {
   position: relative;
   left: 800px; }
+
+@media (min-width: 1280px) {
+  md-list.ng-scope.md-whiteframe-24dp.flex-sm-55.flex-gt-sm-45.flex-gt-md-45 {
+    position: relative;
+    top: 25px;
+    left: 25px;
+    background: #EF5350; } }
+@media (max-width: 420px) {
+  span.last_activity.ng-binding {
+    display: none; }
+
+  md-list.ng-scope.md-whiteframe-24dp.flex-sm-55.flex-gt-sm-45.flex-gt-md-45 {
+    position: relative;
+    top: 25px;
+    left: 14px;
+    background: #EF5350; } }
 
 /*# sourceMappingURL=authDesc.css.map */
