@@ -1,9 +1,6 @@
 <head>
  <!--   <link href="node_modules/Prismjs/themes/prism.css" rel="stylesheet" />-->
 	<!--<script src="node_modules/prismjs/prism.js"></script>-->
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 <md-bottom-sheet class="md-list md-has-header" ng-cloak>
     <form name="myForm" ngsf-fullscreen>
@@ -11,8 +8,7 @@
             <h2>Create a new topic</h2>
             Drag Down, or press <kbd>ESC</kbd> To quit
         </md-header>
-       <button data-toggle="collapse" data-target="#demo">Topic Title</button>
-<div id="demo" class="collapse">
+       
         <md-input-container class="title-wrapper">
             <input name="title" placeholder="What is the topic about?" type="text" ng-model="topic.title" ng-minlength="10" ng-maxlength="25" required>
         </md-input-container>
@@ -20,10 +16,6 @@
         <p ng-show="myForm.title.$error.minlength" style="color:red;">Topic Title is too short.</p>
         <p ng-show="myForm.title.$error.maxlength" style="color:red;">Topic Title is too long.</p>
         <p ng-show="myForm.title.$error.required"  style="color:red;">Your Topic Title is required.</p>
-        </div>
-        <<button data-toggle="collapse" data-target="#demo">Description</button>
-
-<div id="demo" class="collapse">
         <div class="topic-sentence">
             <md-whiteframe class="topic-contents-wrapper" id="frameCONTENT">
                 <div class="topic-contents">
@@ -64,7 +56,6 @@
 </select>
         <form></form>
   </div>
-        </div>
         </div>
         <md-button class="md-raised md-default" ng-click="logicToGoBack();">Cancel</md-button>
         <md-button class="md-raised md-primary" ng-click="submitNewTopic();" ng-disabled="myForm.$invalid">Submit</md-button>
