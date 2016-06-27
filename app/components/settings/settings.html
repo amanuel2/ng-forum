@@ -10,7 +10,7 @@
             <md-tabs>
               <md-tab label="Public">
         
-               
+               <span class="tab_exmp">
                 <span class="info">Username : {{Username}}</span>
                  <md-button class="md-raised md-primary" ng-click="changeUsername($event);">
                     Change
@@ -30,7 +30,7 @@
                 </div>
               </md-tab>
               <md-tab label="Private">
-                  
+                   <span class="tab_exmp">
                    <span class="info">Email : {{Email}}</span>
                  <md-button class="md-raised" ng-click="changeEmail($event);">
                     Change
@@ -43,13 +43,15 @@
                     Change
                 </md-button>
                 <br>
-                <span class="info">UID : {{uid}}  (DONT TELL ANYONE YOUR UID!)</span>
+                <span class="info UID_INFO">UID : {{uid}}  <br>(DONT TELL ANYONE YOUR UID!)</br></span>
                 <br>
-                  
+               </span>
+               </span>
               </md-tab>
-              <md-tab label="Dangerous">
-                  
-                  Delete User <md-button class="md-accent md-raised" id="deleteUserButton" ng-click="deleteUser();"> DELETE USER </md-button>
+              <md-tab label="Dangerous" class="dang_exmp">
+                   <span class="tab_exmp">
+                   <md-button class="md-accent md-raised" id="deleteUserButton" ng-click="deleteUser();"> DELETE USER </md-button>
+                  </span>
               </md-tab>
             </md-tabs>
          </md-content>

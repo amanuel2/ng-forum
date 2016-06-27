@@ -37,4 +37,17 @@ button#descChange {
 button#deleteUserButton {
   background-color: #D50000; }
 
+@media (max-width: 420px) {
+  md-tabs.ng-isolate-scope.md-default-theme {
+    position: relative;
+    right: 17px; }
+
+  span.tab_exmp.ng-scope {
+    position: relative;
+    left: 8px; }
+
+  .dang_exmp {
+    position: relative;
+    left: 8px; } }
+
 /*# sourceMappingURL=settings.css.map */

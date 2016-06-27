@@ -32,8 +32,22 @@ md-tabs.ng-isolate-scope.md-default-theme {
 	height: 500px;
 }
 button#descChange {
-    background-color: #FFC107;
+	background-color: #FFC107;
 }
-button#deleteUserButton{
-	background-color:#D50000;
+button#deleteUserButton {
+	background-color: #D50000;
+}
+@media (max-width: 420px) {
+	md-tabs.ng-isolate-scope.md-default-theme {
+	    position: relative;
+	    right: 17px;
+	}
+	span.tab_exmp.ng-scope {
+	    position: relative;
+	    left: 8px;
+	}
+	.dang_exmp{
+		position: relative;
+	    left: 8px;
+	}
 }
