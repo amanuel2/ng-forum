@@ -1,3 +1,14 @@
+  a.collapse:link, a.collapse:visited{
+    background-color:	#4682B4;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+   }
+   a.collapse:hover, a.collapse:active {
+    background-color:#4682B4;
+   }
 md-bottom-sheet {
   transform: none !important;
   display: flex !important;

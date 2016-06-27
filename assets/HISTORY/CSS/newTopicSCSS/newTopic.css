@@ -21,7 +21,7 @@ h1 {
       width: 100%; }
     .topic-sentence .topic-contents-wrapper .markdown-text-area {
       width: 100%;
-      height: 300px; }
+      height: 250px; }
   .topic-sentence .markdown-wrapper {
     width: 100%;
     display: flex;
@@ -125,3 +125,11 @@ html {
       width: 100%;
       word-break: break-all;
       padding: 5px 15px; } }
+
+md-bottom-sheet {
+  transform: none !important;
+  display: flex !important;
+  flex-direction: column; }
+
+md-input-container {
+  margin-bottom: 0 !important; }
