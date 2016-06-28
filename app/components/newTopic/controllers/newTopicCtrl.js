@@ -27,16 +27,16 @@
         String.prototype.replaceAll = function(str1, str2, ignore) {
             return this.replace(new RegExp(str1.replace(/([\/\,\!\\\^\$\{\}\[\]\(\)\.\*\+\?\|\<\>\-\&])/g, "\\$&"), (ignore ? "gi" : "g")), (typeof(str2) == "string") ? str2.replace(/\$/g, "$$$$") : str2);
         }
-        
+
         angular.element(document).ready(function() {
-             $("#e1").select2({
-              placeholder: "Tags...",
-              allowClear: true,
-              
-              // match strings that begins with (instead of contains):
-              matcher: function(term, text) {
-                    return text.toUpperCase().indexOf(term.toUpperCase())==0;
-              }
+            $("#e1").select2({
+                placeholder: "Tags...",
+                allowClear: true,
+
+                // match strings that begins with (instead of contains):
+                matcher: function(term, text) {
+                    return text.toUpperCase().indexOf(term.toUpperCase()) == 0;
+                }
             });
         })
         var elem_hash = '';
@@ -65,23 +65,23 @@
             snapTopic.forEach(function(snapTopicEven) {
                 var key = snapTopicEven.key();
                 var val = snapTopicEven.val();
-                 $scope.dataTribHash.push({
+                $scope.dataTribHash.push({
                     key: "#" + val.Postnum + ":" + val.Title,
                     value: "#" + (val.Postnum)
                 })
             })
-             var tribute_hash = new Tribute({
-                    trigger: '#',
-                    values: ($scope.dataTribHash),
-                    selectTemplate: function (item) {
-                        return (item.original.value).replace("@", "");
-                      },
-                })
-                angular.element(document).ready(function() {
-                    setTimeout(function() {
-                        tribute_hash.attach(document.getElementById('markdownUserType'));
-                    }, 500)
-                })
+            var tribute_hash = new Tribute({
+                trigger: '#',
+                values: ($scope.dataTribHash),
+                selectTemplate: function(item) {
+                    return (item.original.value).replace("@", "");
+                },
+            })
+            angular.element(document).ready(function() {
+                setTimeout(function() {
+                    tribute_hash.attach(document.getElementById('markdownUserType'));
+                }, 500)
+            })
         })
 
 
@@ -114,7 +114,7 @@
             for (var prop in $scope.emojieList)
                 $scope.outputText = $scope.outputText.replaceAll(prop, $scope.emojieList[prop]);
         });
-        
+
         //Load Tags If Not Done...
         var defaultTags = ["Assembly", "C", "C++", "Java", "Javascript", "Firebase", "AngularFire", "MongoDB", "NodeJS",
             "Go", "PHP", "MySQL", "Postgree", "Ruby", "Python", "Perl", ".Net", "ASP.Net", "C#", "Visual Basic", "VB.net", "AngularJS", "Materializecss"
@@ -122,11 +122,11 @@
 
         $scope.isThereTag = false;
         $scope.defaultTags = $firebaseArray(refService.ref().child("Constants").child('Tags').child("Default"));
-        
+
         $scope.valTag;
-        angular.element(document).ready(function(){
-            $('#e1').on("change", function(e) { 
-               // what you would like to happen
+        angular.element(document).ready(function() {
+            $('#e1').on("change", function(e) {
+                // what you would like to happen
                 $scope.valTag = e.val;
             });
         })
@@ -283,7 +283,7 @@
             }
         }
         $scope.submitNewTopic = function() {
-            for(var i=0; i<$scope.valTag.length; i++)
+            for (var i = 0; i < $scope.valTag.length; i++)
                 $scope.valTag[i] = ($scope.valTag[i].replace(":", "")).replace(/[0-9]/g, "")
 
             var search = $firebaseArray(refService.ref().child("Topics"))
@@ -319,6 +319,10 @@
             })
 
 
+        }
+        $scope.showhide = function(id) {
+            var e = document.getElementById(id);
+            e.style.display = (e.style.display == 'block') ? 'none' : 'block';
         }
 
 

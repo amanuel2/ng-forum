@@ -14,7 +14,7 @@
   height: 200px;
   width: 200px;
   border-radius: 50%;
-  border: 4px solid #FFF; }
+  border: 4px solid #fff; }
 
 .user-info {
   display: flex;
@@ -62,11 +62,6 @@ img.user-background {
 span.following_num {
   color: #fff; }
 
-span.silver_badge {
-  position: relative;
-  left: 699px;
-  bottom: -10.5px; }
-
 md-header.activity_header {
   font-weight: 700;
   font-family: 'Roboto';
@@ -98,18 +93,14 @@ span.mdl-badge.ng-scope {
   top: -371px;
   left: 796px; }
 
-span.gold_badge {
-  position: relative;
-  left: 640px;
-  top: 10px; }
-
 md-card-title-text {
   position: relative;
   left: 45px; }
 
 .followers_container {
   position: relative;
-  top: 24px; }
+  top: 24px;
+  margin-left: 100px; }
 
 .following_container {
   position: relative;
@@ -123,11 +114,6 @@ md-card-title-text.stats_icon_cover {
   top: 1175px;
   left: 130px; }
 
-span.bronze_badge {
-  position: relative;
-  left: 754px;
-  bottom: -9px; }
-
 .icon_stats_container {
   position: relative;
   right: 352px;
@@ -139,3 +125,14 @@ span.md-subhead.md-subhead-followers {
 
 .precence_act {
   color: #fff; }
+
+.badges {
+  flex-direction: row;
+  margin: auto;
+  border-collapse: separate; }
+
+.html_container {
+  overflow-x: hidden; }
+
+.card_follow_container {
+  width: 30%; }

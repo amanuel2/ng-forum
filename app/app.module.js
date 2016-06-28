@@ -41,7 +41,12 @@
  |__ +{POINT} , -{POINT}
 
 
-PROFILE PATH : app/components/profile
+TODO BEFORE RELEASE 1.3
+------------------------
+404
+Profile
+New Topic
+------------------------
 
  BACKEND
  --------

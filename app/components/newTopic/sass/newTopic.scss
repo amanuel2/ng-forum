@@ -1,3 +1,4 @@
+
 md-bottom-sheet {
 	transform: none !important;
 	display: flex !important;
@@ -34,7 +35,7 @@ h1 {
 			align-self: flex-end;
 			font-size: 34px;
 			padding-right: 15px;
-			position: relative;
+		position: relative;
 			right: 750px;
 		}
 		.markdown-show {
@@ -154,8 +155,8 @@ html {
 }
 md-bottom-sheet {
 	transform: none !important;
-	display: flex !important;
-	flex-direction: column;
+	display: flex  !important;
+	 flex-direction: column;
 }
 md-input-container {
 	margin-bottom: 0 !important;

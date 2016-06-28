@@ -128,7 +128,7 @@ html {
 
 md-bottom-sheet {
   transform: none !important;
-  display: flex !important;
+  display: flex  !important;
   flex-direction: column; }
 
 md-input-container {
