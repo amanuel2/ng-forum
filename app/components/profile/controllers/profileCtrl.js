@@ -61,9 +61,46 @@
                 $scope.ProfileViews = data.profileViews
                 $scope.Followers = data.followers;
                 $scope.Following = data.following;
+                
+                var count_b = 0;
+                var count_s = 0;
+                var coung_g = 0;
+                var coung_p = 0;
+                //Badges
+                if(data.BronzeBadge == 0)
+                    $scope.count_b = 0;
+                else{
+                    for(var i in data.BronzeBadge)
+                        count_b++;
+                    $scope.count_b = (count_b);    
+                }
+                
+                 if(data.SilverBadge == 0)
+                    $scope.count_s = 0;
+                else{
+                    for(var i in data.SilverBadge)
+                        count_s++;
+                    $scope.count_s = (count_s);    
+                }
+                
+                 if(data.GoldBadge == 0)
+                    $scope.count_g = 0;
+                else{
+                    for(var i in data.GoldBadge)
+                        coung_g++;
+                    $scope.count_g = (coung_g);    
+                }
+                
+                if(data.PlatinumBadge == 0)
+                    $scope.count_p = 0;
+                else{
+                    for(var i in data.PlatinumBadge)
+                        coung_p++;
+                    $scope.count_p = (coung_p);    
+                }
             },
             function(error) {
-                console.error("Error:", error);
+                alertify.error("Error:", error);
             }
         
         );

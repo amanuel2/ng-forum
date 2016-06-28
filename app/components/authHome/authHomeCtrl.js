@@ -447,7 +447,7 @@
                         //BRONZE
                     if ($scope.topicCount >= $scope.topicBadges.questionLover.bronze.rankone.Topics) {
                         refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("BronzeBadge").child("Topics").child("RankOne").set({
-                            BronzeBadge: $scope.topicBadges.questionLover.bronze.rankone.Topics
+                            BronzeBadge: $scope.topicBadges.questionLover.bronze.rankone.pushObj
                         })
                     }
                     else {
@@ -458,7 +458,7 @@
                     }
                     if ($scope.topicCount >= $scope.topicBadges.questionLover.bronze.ranktwo.Topics) {
                         refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("BronzeBadge").child("Topics").child("RankTwo").set({
-                            BronzeBadge: $scope.topicBadges.questionLover.bronze.ranktwo.Topics
+                            BronzeBadge: $scope.topicBadges.questionLover.bronze.ranktwo.pushObj
                         })
                     }
                     else {
@@ -469,7 +469,7 @@
                     }
                     if ($scope.topicCount >= $scope.topicBadges.questionLover.bronze.rankthree.Topics) {
                         refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("BronzeBadge").child("Topics").child("RankThree").set({
-                            BronzeBadge: $scope.topicBadges.questionLover.bronze.rankthree.Topics
+                            BronzeBadge: $scope.topicBadges.questionLover.bronze.rankthree.pushObj
                         })
                     }
                     else {
@@ -480,7 +480,7 @@
                     }
                     if ($scope.topicCount >= $scope.topicBadges.questionLover.bronze.rankfour.Topics) {
                         refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("BronzeBadge").child("Topics").child("RankFour").set({
-                            BronzeBadge: $scope.topicBadges.questionLover.bronze.rankfour.Topics
+                            BronzeBadge: $scope.topicBadges.questionLover.bronze.rankfour.pushObj
                         })
                     }
                     else {
@@ -494,7 +494,7 @@
         
                     if ($scope.topicCount >= $scope.topicBadges.questionLover.silver.rankone.Topics) {
                         refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("SilverBadge").child("Topics").child("RankOne").set({
-                            SilverBadge: $scope.topicBadges.questionLover.silver.rankone.Topics
+                            SilverBadge: $scope.topicBadges.questionLover.silver.rankone.pushObj
                         })
                     }
                     else {
@@ -505,7 +505,7 @@
                     }
                     if ($scope.topicCount >= $scope.topicBadges.questionLover.silver.ranktwo.Topics) {
                         refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("SilverBadge").child("Topics").child("RankTwo").set({
-                            SilverBadge: $scope.topicBadges.questionLover.silver.ranktwo.Topics
+                            SilverBadge: $scope.topicBadges.questionLover.silver.ranktwo.pushObj
                         })
                     }
                     else {
@@ -516,7 +516,7 @@
                     }
                     if ($scope.topicCount >= $scope.topicBadges.questionLover.silver.rankthree.Topics) {
                         refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("SilverBadge").child("Topics").child("RankThree").set({
-                            SilverBadge: $scope.topicBadges.questionLover.silver.rankthree.Topics
+                            SilverBadge: $scope.topicBadges.questionLover.silver.rankthree.pushObj
                         })
                     }
                     else {
@@ -527,7 +527,7 @@
                     }
                     if ($scope.topicCount >= $scope.topicBadges.questionLover.silver.rankfour.Topics) {
                         refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("SilverBadge").child("Topics").child("RankFour").set({
-                            SilverBadge: $scope.topicBadges.questionLover.silver.rankfour.Topics
+                            SilverBadge: $scope.topicBadges.questionLover.silver.rankfour.pushObj
                         })
                     }
                     else {
@@ -541,7 +541,7 @@
         
                     if ($scope.topicCount >= $scope.topicBadges.questionLover.gold.rankone.Topics) {
                         refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("GoldBadge").child("Topics").child("RankOne").set({
-                            GoldBadge: $scope.topicBadges.questionLover.gold.rankone.Topics
+                            GoldBadge: $scope.topicBadges.questionLover.gold.rankone.pushObj
                         })
                     }
                     else {
@@ -552,7 +552,7 @@
                     }
                     if ($scope.topicCount >= $scope.topicBadges.questionLover.gold.ranktwo.Topics) {
                         refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("GoldBadge").child("Topics").child("RankTwo").set({
-                            GoldBadge: $scope.topicBadges.questionLover.gold.ranktwo.Topics
+                            GoldBadge: $scope.topicBadges.questionLover.gold.ranktwo.pushObj
                         })
                     }
                     else {
@@ -563,7 +563,7 @@
                     }
                     if ($scope.topicCount >= $scope.topicBadges.questionLover.gold.rankthree.Topics) {
                         refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("GoldBadge").child("Topics").child("RankThree").set({
-                            GoldBadge: $scope.topicBadges.questionLover.gold.rankthree.Topics
+                            GoldBadge: $scope.topicBadges.questionLover.gold.rankthree.pushObj
                         })
                     }
                     else {
@@ -574,7 +574,7 @@
                     }
                     if ($scope.topicCount >= $scope.topicBadges.questionLover.gold.rankfour.Topics) {
                         refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("GoldBadge").child("Topics").child("RankFour").set({
-                            GoldBadge: $scope.topicBadges.questionLover.gold.rankfour.Topics
+                            GoldBadge: $scope.topicBadges.questionLover.gold.rankfour.pushObj
                         })
                     }
                     else {
@@ -589,7 +589,7 @@
         
                     if ($scope.topicCount >= $scope.topicBadges.questionLover.platinum.rankone.Topics) {
                         refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Platinum").child("Topics").child("RankOne").set({
-                            Platinum: $scope.topicBadges.questionLover.platinum.rankone.Topics
+                            Platinum: $scope.topicBadges.questionLover.platinum.rankone.pushObj
                         })
                     }
                     else {
@@ -600,7 +600,7 @@
                     }
                     if ($scope.topicCount >= $scope.topicBadges.questionLover.platinum.ranktwo.Topics) {
                         refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Platinum").child("Topics").child("RankTwo").set({
-                            Platinum: $scope.topicBadges.questionLover.platinum.ranktwo.Topics
+                            Platinum: $scope.topicBadges.questionLover.platinum.ranktwo.pushObj
                         })
                     }
                     else {
@@ -611,7 +611,7 @@
                     }
                     if ($scope.topicCount >= $scope.topicBadges.questionLover.platinum.rankthree.Topics) {
                         refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Platinum").child("Topics").child("RankThree").set({
-                            Platinum: $scope.topicBadges.questionLover.platinum.rankthree.Topics
+                            Platinum: $scope.topicBadges.questionLover.platinum.rankthree.pushObj
                         })
                     }
                     else {
@@ -622,7 +622,7 @@
                     }
                     if ($scope.topicCount >= $scope.topicBadges.questionLover.platinum.rankfour.Topics) {
                         refService.ref().child("UserAuthInfo").child($scope.currentAuthGetHome.uid).child("Platinum").child("Topics").child("RankFour").set({
-                            Platinum: $scope.topicBadges.questionLover.platinum.rankfour.Topics
+                            Platinum: $scope.topicBadges.questionLover.platinum.rankfour.pushObj
                         })
                     }
                     else {

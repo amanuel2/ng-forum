@@ -46,6 +46,7 @@ TODO BEFORE RELEASE 1.3
 404
 Profile
 New Topic
+BOOKMARK
 ------------------------
 
  BACKEND

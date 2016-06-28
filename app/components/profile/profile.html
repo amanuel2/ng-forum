@@ -33,25 +33,32 @@
 </div>
 <div class="mdl-grid">
   <div class="badges">
+    <span class="platinum_badge">
+      <ng-md-icon icon="kitchen" size="30" style="fill:#E5E4E2 ;background: #E5E4E2">
+      </ng-md-icon>
+       <span class="num_platinum_badges">
+          <strong>{{count_p}}</strong>
+        </span>
+    </span>
     <span class="gold_badge">
       <ng-md-icon icon="kitchen" size="30" style="fill:#FFC107;background: #FFC107;">
       </ng-md-icon>
        <span class="num_gold_badges">
-          <strong>12</strong>
+          <strong>{{count_g}}</strong>
         </span>
     </span>
     <span class="silver_badge">
-      <ng-md-icon icon="kitchen" size="30" style="fill:#BDBDBD ;background: #BDBDBD;">
+      <ng-md-icon icon="kitchen" size="30" style="fill:#C0C0C0; background:#C0C0C0;">
       </ng-md-icon>
        <span class="num_silver_badges">
-          <strong>13</strong>
+          <strong>{{count_s}}</strong>
         </span>
     </span>
     <span class="bronze_badge">
-      <ng-md-icon icon="kitchen" size="30" style="fill:#795548 ;background: #795548">
+      <ng-md-icon icon="kitchen" size="30" style="fill:#cd7f32 ;background: #cd7f32">
       </ng-md-icon>
        <span class="num_bronze_badges">
-          <strong>13</strong>
+          <strong>{{count_b}}</strong>
         </span>
     </span>
   </div>
@@ -70,13 +77,13 @@
         <div class="mdl-card__title">
            <h2 class="mdl-card__title-text ff-card-supp-title"><i class="material-icons">group</i>Followers</h2>
         </div>
-        <div class="mdl-card__supporting-text ff-card-supp-text">32112</div>
+        <div class="mdl-card__supporting-text ff-card-supp-text">{{Followers}}</div>
        </div> 
       <div class="following_container">
         <div class="mdl-card__title">
            <h2 class="mdl-card__title-text ff-card-supp-title"><i class="material-icons">group_add</i>Following</h2>
         </div>
-        <div class="mdl-card__supporting-text ff-card-supp-text">333</div>
+        <div class="mdl-card__supporting-text ff-card-supp-text">{{Following}}</div>
       </div>
       <div class="icon_stats_container">
           <md-card-title-text class="stats_icon_cover">
