@@ -16,7 +16,7 @@ If you want to help please go [here](https://ide.c9.io/amanuel2/ng-fourm#openfil
 
 ## Demo
 
-Yes, a demo can be found [here](http://ng-forum.site88.net) is the demo.[AS OF 6/6/2016] .
+Yes, a demo can be found [here](http://ng-forum.site88.net) [AS OF 6/6/2016] .
 
 ## How To Use This Forum?
 We have created a Wiki Page on that so, please see our wiki page [here](https://github.com/amanuel2/ng-forum/wiki).
