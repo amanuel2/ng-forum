@@ -1,41 +1,40 @@
 #Pre-Release Version 1.0.3
-Mnany Bug Fix.
-Complete redesign develpoment enviorment.
-New UI
+ - Mnany Bug Fix.
+ - Complete redesign develpoment enviorment.
+ - New UI
 
 #Pre-Release Version 1.0
 
-Bug Fixes. 
+ - Bug Fixes. 
 
-Added many features:
+*Added many features:*
 
--Following
+ - Following
 
--Profile Page now is semi-complete (visualy)
+ - Profile Page now is semi-complete (visualy)
 
-And much more!
+*And much more!*
 
 #Pre-Release Version 0.9 
 
 This update you no longer have to login! 
 
-Icons work now, except flagging since it requires private messaging
+ - Icons work now, except flagging since it requires private messaging
 
-Enable upvoting 
+ - Enable upvoting 
 
-And much more feautres!!
+*And much more feautres!!*
 
-Bug Fixes.
+ - Bug Fixes.
 
 #PLANNED Version 0.9 Pre-Release
 
-Bug fixes
+ - Bug fixes
 
-Enable upvoting 
+ - Enable upvoting 
 
-Enable Liking
+ - Enable Liking
 
-Etc...
 
 #Version 0.8 Pre-Release
 In this Update we fixed many issues concerning the users as well as add many new features.. This release is primary the biggest release yet!
