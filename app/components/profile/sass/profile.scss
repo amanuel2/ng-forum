@@ -143,3 +143,76 @@ span.md-subhead.md-subhead-followers {
 .card_follow_container{
 	    width: 30%;
 }
+md-card.activity_card_container.md-dark-orange-theme {
+    background: #FFC107;
+    height: 253px;
+}
+
+@media (min-width:320px) { 
+	/* smartphones, iPhone, portrait 480x320 phones */
+	.activity_div_container {
+	    align: right;
+	    float: right;
+	    margin-left: auto;
+	}
+	.mdl-card.user-stats {
+      margin-left: auto;
+	}
+	
+}
+@media (min-width:481px) {
+	/* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */ 
+	.activity_div_container {
+	    align: right;
+	    float: right;
+	    margin-left: auto;
+	}
+	.mdl-card.user-stats {
+      margin-left: auto;
+	}
+}
+@media (min-width:641px) {
+	/* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones Small Laptops*/
+	.activity_div_container {
+	    align: right;
+	    float: right;
+	    margin-left: auto;
+	}
+	.mdl-card.user-stats {
+      float:left;
+	}
+}
+@media (min-width:961px) { 
+	/* tablet, landscape iPad, lo-res laptops ands desktops */ 
+	.activity_div_container {
+	    align: right;
+	    float: right;
+	    margin-left: auto;
+	    margin-top: -217px;
+	}
+}
+@media (min-width:1025px) {
+	/* big landscape tablets, laptops, and desktops */ 
+		.activity_div_container {
+	    align: right;
+	    float: right;
+	    margin-left: auto;
+	    margin-top: -217px;
+	}
+}
+@media (min-width:1281px) { 
+	/*HIgh Res Desktop and Laptop*/
+	.activity_div_container {
+	    align: right;
+	    float: right;
+	    margin-left: auto;
+	    margin-top: -217px;
+	}
+}
+canvas#activity_bar {
+    /* margin-right: 80px; */
+    /* margin-top: 20px; */
+    position: relative;
+    top: 50px;
+    left: -45px;
+}

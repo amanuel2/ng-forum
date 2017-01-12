@@ -12,6 +12,7 @@
         
                <span class="tab_exmp">
                 <span class="info">Username : {{Username}}</span>
+                <br>
                  <md-button class="md-raised md-primary" ng-click="changeUsername($event);">
                     Change
                 </md-button>
@@ -19,6 +20,7 @@
                
                 <div>
                     <span class="info">Avatar :</span> <img ng-src="{{userInfo.Image}}" class="avatarr avatar-img"/>
+                    <br>
                     <md-button class="md-raised" ng-click="changeImage($event);">
                         Change
                     </md-button>
@@ -32,13 +34,14 @@
               <md-tab label="Private">
                    <span class="tab_exmp">
                    <span class="info">Email : {{Email}}</span>
+                   <br>
                  <md-button class="md-raised" ng-click="changeEmail($event);">
                     Change
                 </md-button>
                 <br>
                 
                  <span class="info">Password : {{passwordSHARP}}</span>
-                
+                <br>
                 <md-button class="md-raised md-accent" id="password_button" ng-click="changePassword($event);">
                     Change
                 </md-button>
