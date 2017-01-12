@@ -16,10 +16,10 @@ If you want to help please go [here](https://ide.c9.io/amanuel2/ng-fourm#openfil
 
 ## Demo
 
-Yes, [here](http://ng-forum.site88.net) is the demo.[AS OF 6/6/2016] .
+Yes, a demo can be found [here](http://ng-forum.site88.net) [AS OF 6/6/2016] .
 
 ## How To Use This Forum?
-We have created a Wiki Page on that. so please see our wiki page [here](https://github.com/amanuel2/ng-forum/wiki).
+We have created a Wiki Page on that so, please see our wiki page [here](https://github.com/amanuel2/ng-forum/wiki).
 ##Contributors
 
 
@@ -34,9 +34,9 @@ Adrian Kopytko (Shimizo)| FrontEnd   |    HTML/CSS Entusasist. Hates Frameworks,
 
 
 ## What is this project? What makes this project unique?
-This project is a forum app for developers around the world, to gather up ask, answer questions!
+This project is a forum app for developers around the world, to gather up ask and, answer questions!
 
-What makes this unique, is that this is the only open source AngularJS forum built with **PURE** AngularJS. This forum will use the following packages:
+What makes this project unique is that this is the only open source AngularJS forum built with **PURE** AngularJS. This forum will use the following packages:
 
 [AngularJS](http://angularjs.org/) - Main app, routing, controllers, and etc.
 
